@@ -1,0 +1,57 @@
+// Organismo de Formação de Layout Social Links - Footer
+section.social-links
+	background-color: #222
+	padding: 40px 0 20px 0
+	color: #fff
+	position: relative
+	z-index: 2
+
+	ul
+		margin: 0 0 0 0
+		padding: 0 0 0 0
+		list-style: none
+		text-align: center		
+
+		li 
+			cursor: pointer
+			display: inline-block
+			margin-left: 20px;
+			margin-right: 20px
+			margin-bottom: 20px
+
+
+			&:hover
+				a
+					-ms-transform: rotateY(180deg)
+					-webkit-transform: rotateY(180deg)
+					transform: rotateY(180deg)
+					background-color: $elementos
+
+			&:hover
+				span
+					-ms-transform: rotateY(180deg)
+					-webkit-transform: rotateY(180deg)
+					transform: rotateY(180deg)
+
+
+			a
+				display: block
+				width: 70px
+				height: 70px
+				background-color: #333
+				-webkit-transition: .2s
+				transition: .2s
+				-ms-transform: rotateY(0)
+				-webkit-transform: rotateY(0)
+				transform: rotateY(0)
+					
+				span
+					display: inline-block
+					color: #fff
+					font-size: 32px
+					line-height: 70px
+					-webkit-transition: .2s
+					transition: .2s
+					-ms-transform: rotateY(0)
+					-webkit-transform: rotateY(0)
+					transform: rotateY(0)

@@ -1,0 +1,588 @@
+            <header>
+                <div class="container">
+                    <div class="avatar-top">
+                        <?php
+                            if (!is_null($view_user->image)) {
+                                echo '<img class="avatar-lg wow bounceIn" src="' . BASE . 'public/uploads/users/' . $view_user->id . '/' . $view_user->image . '" width="160">';
+                            }
+                            else{
+                                echo '<img class="avatar-lg wow bounceIn" src="' . BASE . 'public/uploads/users/' . 'default' . '/' . 'default.png' . '" width="160">';
+                            }
+                        ?>
+                    </div>   
+                </div> <!--/container menu Social -->               
+            </header>
+
+            <avatar>
+                <div class="avatar-bottom">
+                    <div class="container">
+                        <div class="separator_1"></div>
+                            <h1><strong><?php echo $view_user->name; ?></strong></h1>
+                            <p>#User Experience    #Music    #Creative Direction</p>
+                        <div class="separator_1"></div>
+                    </div>
+                </div>
+            </avatar>
+
+
+            <!-- ==============================================
+            Main Start (Inicio do Corpo de Conteúdo)
+            =============================================== -->
+            <main>                                              
+                <section class="about">
+                    <div class="container">
+                        <div class="itens">                                     
+                            <div class="foto">
+                                <img src="<?php echo IMG; ?>curriculo-tag-miolo.png" alt="Curriculo TAG">
+                                <!--<i class="fa fa-file-pdf-o"></i>-->
+                            </div>
+
+                            <div class="icone-lapis">
+                                <i class="fa fa-pencil"></i>
+                            </div>
+
+                            <div class="icone-codigo">
+                                <i class="fa fa-code"></i>
+                            </div>
+
+                            <div class="icone-coracao">
+                                <i class="fa fa-calendar"></i>
+                            </div>
+
+                            <div class="icone-compartilhar">
+                                <i class="fa fa-users"></i>
+                            </div>
+                        </div>                      
+                    </div>
+                <div class="control-nav">                   
+                    <a id="nextsection" href="#shortcodes"><i class="font-icon-arrow-simple-down"></i></a>
+                </div>  
+            </section>
+
+            <!-- ==============================================
+                Presentation (Apresentação Pessoal
+            =============================================== -->
+            <section class="presentation" >
+                <div class="container">
+                    <!-- TitleSection -->
+                    <div class="cols">
+                        <div class="title-section" id="shortcodes">
+                            <h2 class="title">About Me<span class="cursor-tag">_</span></h2>
+                            <h3 class="title-description">A little about myself.</h3>
+                        </div>
+                    </div>
+                    <!-- End Title Section -->
+                    <div class="description">                           
+                        <p><strong>Olá, Eu sou Elisandro Mello, Consultor de TI do Brasil.</strong></p>
+                        <br>
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquipex ea commodo consequat.</p>
+                        <br>
+                        <p>Duis autem vel eum iriure dolorin hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore.</p>
+
+                        <a href="#" class="botao grande"><i class="fa fa-file"></i>About Me</a>
+                    </div>
+                    <div class="hero">
+                        <img class="foto-pessoal" src="images/hero.png" alt="Foto Pessoal"> 
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==============================================
+                Quotes (Citações)
+            =============================================== -->
+            <section class="quotes id="recomendations">
+                <div class="container">
+                    <!-- TitleSection -->
+                    <div class="cols">
+                        <div class="title-section">
+                            <h2 class="title">Recommendations and Quotes<span class="cursor-tag">_</span></h2>
+                            <h3 class="title-description">Some feedback on my work.</h3>
+                        </div>
+                    </div>
+                    <!-- End Title Section -->        
+                    <!-- Start BlockQuote/Tooltip Section -->
+                    <div class="row">
+                        <!-- Start Blockquote -->
+                        <div class="col-sm-6">
+                            <h3 class="spec">Blockquote</h3>
+                            
+                            <blockquote>
+                                <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                                <small>
+                                    <cite title="John Bostic">John Bostic</cite>
+                                </small>
+                            </blockquote>
+                        </div>
+                        <!-- End Blockquote -->
+                        
+                        <!-- Start Tooltip -->
+                        <div class="col-sm-6">
+                            <h3 class="spec">Tooltip</h3>
+                            
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas neque diam, luctus at laoreet in, <a href="#" data-toggle="tooltip" title="I'm a Simple Tootlip">auctor ut tellus</a>. Etiam enim lacus, ornare et tempor, rhoncus rhoncus sem.</p>
+                            
+                        </div>
+                        <!-- End Tootlip -->
+                    </div>
+                    <!-- End BlockQuote/Tooltip Section -->
+                </div>
+            </section>
+
+            <!-- ==============================================
+                Accordion Content (Acordeão de Conteúdo)
+            =============================================== -->
+            <section class="curriculum" id="historic">
+                <div class="container">
+                    <!-- TitleSection -->
+                    <div class="cols">
+                        <div class="title-section">
+                            <h2 class="title">Evolution Chronological<span class="cursor-tag">_</span></h2>
+                            <h3 class="title-description">Professional and School History.</h3>
+                        </div>
+                    </div>
+                    <!-- End Title Section -->
+                    <!-- Start Accordion/Toggle Section -->
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h3 class="spec"><i class="fa  fa-pie-chart"></i>Professional History</h3>  
+                            <!-- Start Accordion -->
+                            <div class="accordion" id="accordionArea">
+                                <div class="accordion-group">
+                                    <div class="accordion-heading accordionize">
+                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionArea" href="#oneArea">
+                                            Interop Solutions
+                                            <span class="font-icon-arrow-simple-down"></span>
+                                        </a>
+                                    </div>
+                                    <div id="oneArea" class="accordion-body collapse">
+                                        <div class="accordion-inner">
+                                            Donec sed odio dui. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. 
+                                            Sed posuere consectetur est at lobortis. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. 
+                                            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet. Donec sed odio dui. 
+                                            Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Sed posuere consectetur est at lobortis. Nulla vitae elit libero, a pharetra augue. 
+                                            Donec ullamcorper nulla non metus auctor fringilla. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="accordion-group">
+                                    <div class="accordion-heading accordionize">
+                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionArea" href="#twoArea">
+                                        Processor Group
+                                        <span class="font-icon-arrow-simple-down"></span>
+                                        </a>
+                                    </div>
+                                    <div id="twoArea" class="accordion-body collapse">
+                                        <div class="accordion-inner">
+                                            Donec sed odio dui. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. 
+                                            Sed posuere consectetur est at lobortis. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. 
+                                            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet. Donec sed odio dui. 
+                                            Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Sed posuere consectetur est at lobortis. Nulla vitae elit libero, a pharetra augue. 
+                                            Donec ullamcorper nulla non metus auctor fringilla. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="accordion-group">
+                                    <div class="accordion-heading accordionize">
+                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionArea" href="#threeArea">
+                                        Constat Technology
+                                        <span class="font-icon-arrow-simple-down"></span>
+                                        </a>
+                                    </div>
+                                    <div id="threeArea" class="accordion-body collapse">
+                                        <div class="accordion-inner">
+                                            Donec sed odio dui. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. 
+                                            Sed posuere consectetur est at lobortis. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. 
+                                            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet. Donec sed odio dui. 
+                                            Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Sed posuere consectetur est at lobortis. Nulla vitae elit libero, a pharetra augue. 
+                                            Donec ullamcorper nulla non metus auctor fringilla. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Accordion -->
+                        </div>
+                        
+                        <div class="col-sm-6">
+                            <h3 class="spec"><i class="fa  fa-graduation-cap"></i>Curriculum History</h3>
+                            <!-- Start Toggle -->
+                            <div class="accordion" id="toggleArea">            
+                                <div class="accordion-group">
+                                    <div class="accordion-heading togglize">
+                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseOne">
+                                            Descriptive Academic
+                                            <span class="font-icon-plus"></span>
+                                            <span class="font-icon-minus"></span>
+                                        </a>
+                                    </div>
+                                    <div id="collapseOne" class="accordion-body collapse">
+                                        <div class="accordion-inner">
+                                            Donec sed odio dui. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. 
+                                            Sed posuere consectetur est at lobortis. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. 
+                                            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet. Donec sed odio dui. 
+                                            Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Sed posuere consectetur est at lobortis. Nulla vitae elit libero, a pharetra augue. 
+                                            Donec ullamcorper nulla non metus auctor fringilla. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="accordion-group">
+                                    <div class="accordion-heading togglize">
+                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseTwo">
+                                        Official Certifications
+                                        <span class="font-icon-plus"></span>
+                                        <span class="font-icon-minus"></span>
+                                        </a>
+                                    </div>
+                                    <div id="collapseTwo" class="accordion-body collapse">
+                                        <div class="accordion-inner">
+                                            Donec sed odio dui. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. 
+                                            Sed posuere consectetur est at lobortis. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. 
+                                            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet. Donec sed odio dui. 
+                                            Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Sed posuere consectetur est at lobortis. Nulla vitae elit libero, a pharetra augue. 
+                                            Donec ullamcorper nulla non metus auctor fringilla. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="accordion-group">
+                                    <div class="accordion-heading togglize">
+                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseThird">
+                                        Free Courses
+                                        <span class="font-icon-plus"></span>
+                                        <span class="font-icon-minus"></span>
+                                        </a>
+                                    </div>
+                                    <div id="collapseThird" class="accordion-body collapse">
+                                        <div class="accordion-inner">
+                                            Donec sed odio dui. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. 
+                                            Sed posuere consectetur est at lobortis. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. 
+                                            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet. Donec sed odio dui. 
+                                            Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Sed posuere consectetur est at lobortis. Nulla vitae elit libero, a pharetra augue. 
+                                            Donec ullamcorper nulla non metus auctor fringilla. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.
+                                        </div>
+                                    </div>
+                                </div>                                  
+                            </div>
+                            <!-- End Toggle -->
+                        </div>                      
+                    </div>              
+                </div>
+            </section>
+
+            <!-- ==============================================
+                Skill Técnico (Technical Skill)
+            =============================================== -->
+            <section class="section-technical" id="skills">
+                <div class="container">
+                    <!-- TitleSection -->
+                    <div class="cols">
+                        <div class="title-section">
+                            <h2 class="title">Skill<span class="cursor-tag">_</span></h2>
+                            <h3 class="title-description">Summary of qualifications and competences.</h3>
+                        </div>
+                    </div>
+                    <!-- End Title Section -->
+                    <div class="row">
+                        <div class="col-md-6 wow bounceInLeft">
+                            <div>
+                                <p>Designer e Projeto de arquitetura de floresta e domínio; considerando relações de confiança, níveis funcionais, atualização de domínio, migração de domínio e reestruturação de floresta;    Configuração de topologia de vários sites e servidores de transporte; implementando topologia de diversos servidores, incluindo servidores autônomos e WDS (Serviços de Implantação do Windows) integrados com o Active Directory; Projeto e implantação de Office 365, e Lync Server 2013; focado no desenvolvimento de soluções de migração de correio utilizando o Microsoft Exchange e Office 365; Planejamento e designer de cenários OnPremises (local) X Online e Hibridos.</p>
+                            </div>
+                            <a href="#" class="botao grande"><i class="fa fa-paperclip"></i>Curriculum</a>
+                        </div>
+                        <div class="col-md-6 wow bounceInRight" data-wow-delay="0.3s">
+                            <div class="skill-bar">
+                                <ul>
+                                    <li>
+                                      <div class="bar" data-value="" style="width: 90%;">
+                                        <h5>HTML5/CSS3</h5>
+                                      </div>
+                                      <span>9 / 10</span> </li>
+                                    <li>
+                                      <div class="bar" data-value="" style="width: 90%;">
+                                        <h5>Adobe Photoshop</h5>
+                                      </div>
+                                      <span>9 / 10</span> </li>
+                                    <li>
+                                      <div class="bar" data-value="" style="width: 80%;">
+                                        <h5>PHP</h5>
+                                      </div>
+                                      <span>8 / 10</span> </li>
+                                    <li>
+                                      <div class="bar" data-value="" style="width: 90%;">
+                                        <h5>Plataforma Windows</h5>
+                                      </div>
+                                      <span>9 / 10</span> </li>           
+                                    <li>
+                                      <div class="bar" data-value="" style="width: 80%;">
+                                        <h5>Cloud Computing</h5>
+                                      </div>
+                                      <span>8 / 10</span>
+                                    </li>               
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>                          
+            <!-- ==============================================
+            Mural (Vagas de Emprego e Eventos)
+            =============================================== -->
+            <section class="mural">
+                <div class="container">
+                    <!-- TitleSection -->
+                    <div class="cols">
+                        <div class="title-section" id="mural">
+                            <h2 class="title">Information Mural<span class="cursor-tag-dark">_</span></h2>
+                            <h3 class="title-description">Information of job vacancies and events.</h3>
+                        </div>
+                    </div>
+                    <!-- End Title Section -->
+                    <div class="cols">
+                        <div class="vagas">                         
+                            <div class="quadro10">
+                                <h1>Experiência Profissional</h1>
+                                <p class="sub-titulo"><strong>Constat Tecnologia</strong></p>
+                                <p>OCT 2013 - Jun 2014</p>
+                                <p>
+                                    consectetur adipisicing elit. Aut in laborum,   quos corrupti omnis ipsum reiciendis? Aspernatur, sequi eius! Nobis veniam eius autem dolores, doloribus deserunt est ex ea voluptatem.
+                                </p>
+                                <div class="separator"></div>
+                                <p><strong>Grupo Processor</strong></p>
+                                <p>OCT 2014 - Jun 2015</p>
+                                <p>
+                                    consectetur adipisicing elit. Aut in laborum,   quos corrupti omnis ipsum reiciendis? Aspernatur, sequi eius! Nobis veniam eius autem dolores, doloribus deserunt est ex ea voluptatem.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="eventos">                           
+                            <div class="quadro20">
+                                <h1>Histórico Acadêmico</h1>
+                                <p><strong>Pontificia Universidade Católica</strong></p>
+                                <p>OCT 2013 - Jun 2014</p>
+                                <p>
+                                    consectetur adipisicing elit. Aut in laborum,   quos corrupti omnis ipsum reiciendis? Aspernatur, sequi eius! Nobis veniam eius autem dolores, doloribus deserunt est ex ea voluptatem.
+                                </p>
+                                <div class="separator"></div>
+                                <p><strong>Universidade Luterana do Brasil</strong></p>
+                                <p>OCT 2013 - PRESENT</p>
+                                <p>
+                                    consectetur adipisicing elit. Aut in laborum,   quos corrupti omnis ipsum reiciendis? Aspernatur, sequi eius! Nobis veniam eius autem dolores, doloribus deserunt est ex ea voluptatem.
+                                </p>
+                            </div>
+                        </div>
+                    </div>                      
+                    <div class="cols">
+                        <div class="button-modal">
+                            <a data-toggle="modal" data-target="#modalVagas" href="#" class="botao grande"><i class="fa fa-newspaper-o"></i>Job Vacancies!</a>
+                        </div>                          
+                    </div>
+                </div>              
+            </section>
+
+            <!-- ==============================================
+                Works (Trabalhos Realizados)
+            =============================================== -->
+            <section class="works">
+                <div class="container">
+                    <!-- TitleSection -->
+                    <div class="cols">
+                        <div class="title-section">
+                            <h2 class="title">Portfolio<span class="cursor-tag">_</span></h2>
+                            <h3 class="title-description">Some of my work.</h3>
+                        </div>
+                    </div>
+                    <!-- End Title Section -->                      
+                    <div class="portfolio">
+                        <ul>
+                            <li>
+                                <figure class="imghvr-zoom-out-up">
+                                    <img src="http://placehold.it/280x270/10c6fc" alt="Thumb">
+                                    <figcaption>
+                                    <a href="#">
+                                        <h3>Nome da Imagem</h3>
+                                        <p>Efeito Hover</p>
+                                    </a>
+                                    <div class="overlay"></div>
+                                </figcaption>
+                                </figure>                                   
+                            </li>
+                            <li>
+                                <figure class="imghvr-zoom-out-up">
+                                    <img src="http://placehold.it/280x270/835aeb" alt="Thumb">
+                                    <figcaption>
+                                    <a href="#">
+                                        <h3>Nome da Imagem</h3>
+                                        <p>Efeito Hover</p>
+                                    </a>
+                                    <div class="overlay"></div>
+                                </figcaption>
+                                </figure>                                   
+                            </li>
+                            <li>
+                                <figure class="imghvr-zoom-out-up">
+                                    <img src="http://placehold.it/280x270/002453" alt="Thumb">
+                                    <figcaption>
+                                    <a href="#">
+                                        <h3>Nome da Imagem</h3>
+                                        <p>Efeito Hover</p>
+                                    </a>
+                                    <div class="overlay"></div>
+                                </figcaption>
+                                </figure>                                   
+                            </li>
+                            <li>
+                                <figure class="imghvr-zoom-out-up">
+                                    <img src="http://placehold.it/280x270/ff2b4a" alt="Thumb">
+                                    <figcaption>
+                                    <a href="#">
+                                        <h3>Nome da Imagem</h3>
+                                        <p>Efeito Hover</p>
+                                    </a>
+                                    <div class="overlay"></div>
+                                </figcaption>
+                                </figure>                                   
+                            </li>
+                        </ul>
+
+                        <ul>                                                            
+                            <li class="duplo">
+                                <figure class="imghvr-zoom-out-up">
+                                    <img src="http://placehold.it/590x270/835aeb" alt="Thumb">
+                                    <figcaption>
+                                    <a href="#">
+                                        <h3>Nome da Imagem</h3>
+                                        <p>Efeito Hover</p>
+                                    </a>
+                                    <div class="overlay"></div>
+                                </figcaption>
+                                </figure>                                   
+                            </li>
+                            <li>
+                                <figure class="imghvr-zoom-out-up">
+                                    <img src="http://placehold.it/280x270/002453" alt="Thumb">
+                                    <figcaption>
+                                    <a href="#">
+                                        <h3>Nome da Imagem</h3>
+                                        <p>Efeito Hover</p>
+                                    </a>
+                                    <div class="overlay"></div>
+                                </figcaption>
+                                </figure>                                   
+                            </li>
+                            <li>
+                                <figure class="imghvr-zoom-out-up">
+                                    <img src="http://placehold.it/280x270/ff2b4a" alt="Thumb">
+                                    <figcaption>
+                                    <a href="#">
+                                        <h3>Nome da Imagem</h3>
+                                        <p>Efeito Hover</p>
+                                    </a>
+                                    <div class="overlay"></div>
+                                </figcaption>
+                                </figure>                                   
+                            </li>
+                        </ul>                           
+                    </div>                      
+                </div>
+            </section>
+            <!-- ==============================================
+                Contatos (Mensagem e Infos de contato)
+            =============================================== -->                         
+            <section class="contact">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="quadro">
+                                <h1>Leave a Message</h1>
+                                <form>
+                                    <div class="cols">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <input type="text" placeholder="Nome" required>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <input type="email" placeholder="E-mail">
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <input placeholder="Telefone" type="number">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <select>
+                                                    <option>Selecione uma opção</option>
+                                                    <option>Orçamento</option>
+                                                    <option>Sugestão</option>
+                                                    <option>Outras Informações</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <textarea placeholder="Preencha suas dúvidas"></textarea>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <!--<button class="botao medio"><i class="fa fa-envelope"></i> Contate-Me</button>-->
+                                        <a href="#" class="botao grande"><i class="fa fa-envelope"></i>Contact Me!</a>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 infos">
+                            <!--style="background-color:lavender;-->
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="quadro1">
+                                        <h1><i class="fa fa-map-marker"></i>    Address</h1>
+                                        <p>Gulshan Sales Office. SA Tower (Level-5), Plot#1, Road#134, Block</p>
+                                        <p>SE(A), Gulshan-1, Dhaka 1212.</p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="quadro2">
+                                        <h1><i class="fa fa-mobile"></i> Phone</h1>
+                                        <p>+880 174 037 6995,</p>
+                                        <p>+880 191 448 6969</p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="quadro3">
+                                        <h1><i class="fa fa-home"></i> Web</h1>
+                                        <p>Mail: quicksayed@gmail.com</p>
+                                        <p>Website: dribbble.com/alisayed</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                          
+                    </div>
+                </div>
+            </section>                               
+
+
+        </main>
+            <!-- ==============================================
+            Main Start (Inicio do Corpo de Conteúdo)
+            =============================================== -->
+                <div class="panel-body">
+                    <?php 
+                        echo isset($this->menu) ? $this->menu->getMenu() : '';
+                    ?>
+                    <h4 class="alert alert-success">
+                        Uhull! Você foi autenticado com sucesso!
+                    </h4>
+                    Olá <?php echo $view_user->name; ?>, seja bem vindo(a). <br>
+                    <a href="<?php echo BASE . 'login/sair'; ?>" class="btn btn-danger">Sair</a>
+                </div>

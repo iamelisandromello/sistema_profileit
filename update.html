@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Update User - ProfileIT</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Custom File Inputs | Codrops</title>
+		
+		<!-- Stylesheet
+		================================================== -->
+		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="css/update.css">
+		<link rel="stylesheet" type="text/css" href="css/plugins.css">		
+		<link rel="stylesheet" type="text/css" href="css/fonts.css">
+		<link rel="stylesheet" type="text/css" href="css/nav.css">
+		<link rel="stylesheet" type="text/css" href="css/btn_circularbkp.css">
+
+		<!-- Switcher Tuner Only -->
+		<link rel="stylesheet" type="text/css" href="public/tuner/css/tuner.css">
+
+		<!-- Bootstrap 
+		================================================== -->
+		<link rel="stylesheet" type="text/css" href="css/public/fonts/ionicons/css/ionicons.css">
+
+		<!-- Pre-Define Custom Style Sheet
+		================================================== -->
+		<link rel="stylesheet" href="css/themes/color-cyan.css" title="color-cyan" media="all" property="">
+		<link rel="alternate stylesheet" href="css/themes/color-blue.css" title="color-blue" media="all" property="">
+		<link rel="alternate stylesheet" href="css/themes/color-green.css" title="color-green" media="all" property="">
+		<link rel="alternate stylesheet" href="css/themes/color-orange.css" title="color-orange" media="all" property="">
+		<link rel="alternate stylesheet" href="css/themes/color-pink.css" title="color-pink" media="all" property="">
+		<link rel="alternate stylesheet" href="css/themes/color-purple.css" title="color-purple" media="all" property="">			
+		<!-- remove this if you use Modernizr -->
+		<!--<script>
+			(function(e,t,n){var r=e.querySelectorAll("html")[0];r.className=r.className.replace(/(^|\s)no-js(\s|$)/,"$1js$2")})(document,window,0);
+		</script>-->
+	</head>
+	<body>
+		<!-- This section is for Splash Screen -->
+		<section id="jSplash">
+			<div id="circle"></div>
+		</section>
+		<!-- End of Splash Screen -->
+
+		<!-- ==============================================
+		Navbar (Menu Principal de Navegação)
+		=============================================== -->
+		<div id="home-nav" class="navbar navbar-default navbar-fixed-top" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+					<a class="navbar-brand" href="#home"> 
+						<!-- Logo Header -->
+						<section id="foxin" class="foxin">
+							<div> <img src="images/Logo_Navbar.png" alt="Foxin by Elisandro Mello"> </div>
+						</section>
+						<!--/ Logo Header--> 
+					</a>
+				</div>
+				<div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#">Home</a></li>
+						<li><a href="#access">Access</a></li>
+						<li><a href="#social">Social Media</a></li>
+						<li><a href="#update-dataInfo">Personal Data</a></li>
+						<li><a href="#skills">Technical Skills</a></li>
+						<li><a href="#historic">Historic</a></li>
+					</ul>
+				</div><!-- </navbar-collapse collapse" id="bs-example-navbar-collapse-1> -->
+			</div><!-- </container> -->
+		</div><!-- </navbar navbar-default navbar-fixed-top> -->
+
+
+		<div class="layout">
+			<main>
+				
+				<section class="update-menu">
+					<div class="container">
+						<div class="options-menu">										
+							<a class="item-central pointer-cursor" href="home.html">
+								<img src="images/curriculo-tag-miolo.png" alt="Curriculo TAG">
+							</a>
+
+							<a class="icone-lapis pointer-cursor" data-tooltip="Update Curriculum" href="home.html">
+								<i class="fa fa-pencil" alt="Edit Curriculo"></i>
+							</a>
+
+							<a class="icone-codigo pointer-cursor" href="home.html" data-tooltip="I’m the tooltip text.">
+								<i class="fa fa-code" alt="Edit Curriculo"></i>
+							</a>
+
+							<a class="icone-coracao pointer-cursor" data-tooltip="Change Questionnaire" href="home.html">
+								<i class="fa fa-question" alt="Alterar Questionário" ></i>
+							</a>
+
+							<a class="icone-compartilhar pointer-cursor" data-tooltip="Find User." href="home.html">
+								<i class="fa fa-users" alt="Localizar Usuário" ></i>
+							</a>
+						</div><!-- </options-menu> -->						
+					</div><!-- </container> -->
+				</section><!-- </update-menu> Section de Menu de Acessos Rápidos-->
+
+				<!-- ==============================================
+		    	Update Access (Edit Access and Login)
+		   	=============================================== -->							
+				<section class="update-access" id="access">
+					<div class="container">
+						<div class="row">					
+							<div class="col-sm-6 infos">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="quadro1">
+											<picture-profile>
+												<div class="picture-top">
+													<img class="avatar-lg wow bounceIn" src="images/elisandromello.jpg" >
+												</div>
+												<div class="picture-bottom">
+													<div class="col-sm-12">
+														<div class="separator"></div>
+														<h1><strong>Elisandro</strong> M. <strong>Corrêa</strong></h1>
+														<p>#User Experience    #Music    #Creative Direction</p>
+														<div class="separator"></div>
+													</div>
+												</div>
+											</picture-profile>
+										
+										</div><!-- </quadro1> -->
+									</div><!-- </col-sm-12> -->
+								</div><!-- </row> -->
+							</div><!-- </col-sm-6 infos> -->						
+							<div class="col-sm-6">
+								<div class="quadro">
+									<h1>Access and login data</h1>
+									<form>
+										<div class="cols">
+											<div class="col">
+												<div class="form-group">
+													<input type="text" placeholder="Nome" required>
+												</div>
+											</div>
+
+											<div class="col">
+												<div class="form-group">
+													<input placeholder="User" type="text">
+												</div>
+											</div>											
+
+											<div class="col">
+												<div class="form-group">
+													<input type="email" placeholder="E-mail">
+												</div>
+											</div>
+
+											<div class="col">
+												<div class="form-group">
+													<input type="password" placeholder="******">
+												</div>
+											</div>											
+
+											<div class="md-padder text-right">
+												<a class="btn btn-primary btn-lg margin-btm-30" data-tooltip="Change system access." href="update.html" target="_blank"> <i class="fa fa-user"></i> <span class="hidden-xs"> Update </span> Access </a>
+											</div>
+										</div><!-- </cols> -->	
+									</form>
+								</div><!-- </quadro> -->
+							</div><!-- </col-sm-6 infos> -->							
+						</div><!-- </row> -->
+					</div><!-- </container> -->
+				</section><!-- </update-access> -->
+
+				<!-- ==============================================
+			    Update Midias Sociais (Edit Peronal Information)
+			    =============================================== -->							
+			   <section class="update-social" id="social">
+			    	<div class="container">
+			    		<!-- TitleSection -->
+			    		<div class="cols">
+			    			<div class="title-section" id="shortcodes">
+			    				<h2 class="title">Social Media Information<span class="cursor-tag">_</span></h2>
+			    				<h3 class="title-description">Social networks and web contacts.</h3>
+			    			</div>
+			    		</div>
+			    		<!-- End Title Section -->	
+			    		<div class="row">					
+			    			<form class="form-social">
+			    				<div class="col-sm-6 infos">
+			    					<div class="row">
+			    						<div class="col-sm-12">
+			    							<div class="quadro30">
+			    								<div class="col">
+			    									<div class="form-group">
+			    										<span class="icone-campo"><i class="fa fa-facebook fa-2x"></i></span>
+			    									</div>
+			    								</div>											
+			    								<div class="col">
+			    									<div class="form-group">
+			    										<input name="email" placeholder="E-Mail Address" type="text">
+			    									</div>
+			    								</div>
+
+			    								<div class="col">
+			    									<div class="form-group">
+			    										<span class="icone-campo"><i class="fa fa-linkedin fa-2x"></i></span>
+			    									</div>
+			    								</div>											
+			    								<div class="col">
+			    									<div class="form-group">
+			    										<input type="text" placeholder="LinkedIn">
+			    									</div>
+			    								</div>
+
+			    								<div class="col">
+			    									<div class="form-group">
+			    										<span class="icone-campo"><i class="fa fa-twitter fa-2x"></i></span>
+			    									</div>
+			    								</div>											
+			    								<div class="col">
+			    									<div class="form-group">
+			    										<input type="text" placeholder="Twitter" required>
+			    									</div>
+			    								</div>										
+
+			    							</div><!-- </quadro30> -->
+			    						</div><!-- </col-sm-12> -->
+			    					</div><!-- </row> -->
+			    				</div><!-- </col-sm-6 infos> -->
+			    				<div class="col-sm-6">
+			    					<div class="quadro31">
+			    						<div class="col">
+			    							<div class="form-group">
+			    								<span class="icone-campo"><i class="fa fa-instagram fa-2x"></i></span>
+			    							</div>
+			    						</div>											
+			    						<div class="col">
+			    							<div class="form-group">
+			    								<input type="text" placeholder="Instagram" required>
+			    							</div>
+			    						</div>
+			    						<div class="col">
+			    							<div class="form-group">
+			    								<span class="icone-campo"><i class="fa fa-github fa-2x"></i></span>
+			    							</div>
+			    						</div>											
+			    						<div class="col">
+			    							<div class="form-group">
+			    								<input type="text"  name="comments" placeholder="GitHub" required>
+			    							</div>
+			    						</div>			
+			    						<div class="col">
+			    							<div class="form-group">
+			    								<span class="icone-campo"><i class="fa fa-globe fa-2x"></i></span>
+			    							</div>
+			    						</div>
+			    						<div class="col">
+			    							<div class="form-group">
+			    								<input type="text"  name="comments" placeholder="Website or domain name" required>
+			    							</div>
+			    						</div>
+			    					</div>
+			    					<div class="md-padder text-right">
+			    						<a class="btn btn-primary btn-lg margin-btm-30" data-tooltip="Social media information." href="update.html" target="_blank"> <i class="fa fa-user"></i> <span class="hidden-xs"> Update </span> Social </a>
+			    					</div><!-- </quadro31> -->
+			    				</div><!-- </col-sm-6> -->
+			    			</form><!-- </form-social> -->
+			    		</div><!-- </row> -->
+			    	</div><!-- </container> -->
+			   </section><!-- </update-social> -->
+
+
+				<!-- ==============================================
+			   Históric (Historico Profissional e Academico)
+			   =============================================== -->
+			   <section class="update-historic" id="historic">
+			    	<div class="container">
+			    		<!-- TitleSection -->
+			    		<div class="cols">
+			    			<div class="title-section">
+			    				<h2 class="title">Academic and professional history<span class="cursor-tag">_</span></h2>
+			    				<h3 class="title-description">Experiences and formations.</h3>
+			    			</div>
+			    		</div>						
+
+			    		<div class="row">
+			    			<div class="col-sm-12 text-center">
+			    				<div class="row">
+			    					<div class="col-md-6 col-xs-12">
+			    						<h3 class="spec">Professional Historic</h3>
+			    						<table>
+			    							<thead>
+			    								<tr>
+			    									<th>Company</th>
+			    									<th>Function</th>
+			    									<th>Admission</th>
+			    									<th>OutPut</th>
+			    									<th>Edit</th>
+			    									<th>Delete</th>
+			    								</tr>
+			    							</thead>
+			    							<tbody>
+			    								<tr>
+			    									<td class="historic">Interop Tecnologia</td>
+			    									<td class="historic">Analista Microsoft</td>
+			    									<td class="historic">2015</td>
+			    									<td class="historic">2016</td>
+			    									<td class="historic">
+			    										<a href="" class="btn btn-xs btn-warning">
+			    											<i class="fa fa-unlock"></i> Edit
+			    										</a>
+			    									</td>
+			    									<td class="historic">
+			    										<a href="" class="btn btn-xs btn-danger">
+			    											<i class="fa fa-trash"></i> Delete
+			    										</a>
+			    									</td>
+			    								</tr>
+			    								<tr>
+			    									<td class="historic">Grupo Processor</td>
+			    									<td class="historic">Server Admnistrator</td>
+			    									<td class="historic">2014</td>
+			    									<td class="historic">2015</td>
+			    									<td class="historic">
+			    										<a href="" class="btn btn-xs btn-warning">
+			    											<i class="fa fa-unlock"></i> Edit
+			    										</a>
+			    									</td>
+			    									<td class="historic">
+			    										<a href="" class="btn btn-xs btn-danger">
+			    											<i class="fa fa-trash"></i> Delete
+			    										</a>
+			    									</td>
+			    								</tr>
+			    								<tr>
+			    									<td class="historic">Constat Tecnologia</td>
+			    									<td class="historic">Server Administrator</td>
+			    									<td class="historic">2012</td>
+			    									<td class="historic">2014</td>
+			    									<td class="historic">
+			    										<a href="" class="btn btn-xs btn-warning">
+			    											<i class="fa fa-unlock"></i> Edit
+			    										</a>
+			    									</td>
+			    									<td class="historic">
+			    										<a href="" class="btn btn-xs btn-danger">
+			    											<i class="fa fa-trash"></i> Delete
+			    										</a>
+			    									</td>
+			    								</tr>
+			    							</tbody>
+			    						</table>
+										<div class="separator"></div>
+	    								<div class="md-padder text-center">
+		 									<button type="submit" data-tooltip="Include professional item" class="btn btn-primary btn-lg margin-btm-30"> <i class="fa fa-user"></i> <span class="hidden-xs"> Update </span> Professional </button>
+		 								</div>
+			    					</div><!-- </col-sm-12> -->
+
+			    					<div class="col-md-6 col-xs-12">
+			    						<h3 class="spec">Academic Historic</h3>
+			    						<table>
+			    							<thead>
+			    								<tr>
+			    									<th>Institution</th>
+			    									<th>Course</th>
+			    									<th>Level</th>
+			    									<th>Conclusion</th>
+			    									<th>Edit</th>
+			    									<th>Delete</th>
+			    								</tr>
+			    							</thead>
+			    							<tbody>
+			    								<tr>
+			    									<td class="academic">Interop Tecnologia</td>
+			    									<td class="academic">Analista Microsoft</td>
+			    									<td class="academic">2015</td>
+			    									<td class="academic">2016</td>
+			    									<td class="academic">
+			    										<a href="" class="btn btn-xs btn-warning">
+			    											<i class="fa fa-unlock"></i> Edit
+			    										</a>
+			    									</td>
+			    									<td class="academic">
+			    										<a href="" class="btn btn-xs btn-danger">
+			    											<i class="fa fa-trash"></i> Delete
+			    										</a>
+			    									</td> 
+			    								</tr>
+			    								<tr>
+			    									<td class="academic">Interop Tecnologia</td>
+			    									<td class="academic">Analista Microsoft</td>
+			    									<td class="academic">2015</td>
+			    									<td class="academic">2016</td>
+			    									<td class="academic">
+			    										<a href="" class="btn btn-xs btn-warning">
+			    											<i class="fa fa-unlock"></i> Edit
+			    										</a>
+			    									</td>
+			    									<td class="academic">
+			    										<a href="" class="btn btn-xs btn-danger">
+			    											<i class="fa fa-trash"></i> Delete
+			    										</a>
+			    									</td> 
+			    								</tr>
+			    								<tr>
+			    									<td class="academic">Interop Tecnologia</td>
+			    									<td class="academic">Analista Microsoft</td>
+			    									<td class="academic">2015</td>
+			    									<td class="academic">2016</td>
+			    									<td class="academic">
+			    										<a href="" class="btn btn-xs btn-warning">
+			    											<i class="fa fa-unlock"></i> Edit
+			    										</a>
+			    									</td>
+			    									<td class="academic">
+			    										<a href="" class="btn btn-xs btn-danger">
+			    											<i class="fa fa-trash"></i> Delete
+			    										</a>
+			    									</td> 
+			    								</tr>
+			    							</tbody>
+			    						</table>
+		         					<div class="separator"></div>
+		         					<div class="md-padder text-center">
+		 									<button type="submit" data-tooltip="Include academic item" class="btn btn-primary btn-lg margin-btm-30"> <i class="fa fa-user"></i> <span class="hidden-xs"> Update</span> Academic </button>
+		 								</div>
+
+			    					</div><!-- </col-sm-12> -->
+
+			    				</div><!-- </row> -->
+			    			</div><!-- </col-sm-12> -->
+			    		</div><!-- </row> -->
+			    	</div><!-- </container> -->
+			   </section><!--</update-historic> -->
+
+				<!-- ==============================================
+	    		Skill Técnico (Technical Skill)
+	    		=============================================== -->
+	 			<section class="update-skill" id="skills">
+	 				<div class="container">
+	 					<!-- TitleSection -->
+	 					<div class="cols">
+	 						<div class="title-section">
+	 							<h2 class="title">Skill<span class="cursor-tag">_</span></h2>
+	 							<h3 class="title-description">Summary of qualifications and competences.</h3>
+	 						</div>
+	 					</div>
+	 					<!-- End Title Section -->
+	 					<div class="row">	    	
+	 						<form method="POST" class="form-horizontal wrapper-repeater" role="form">
+	 							<fieldset>
+	 								<legend>Technical Skills</legend>
+	 								<div class="repeater-custom-show-hide">
+	 									<div data-repeater-list="car">
+	 										
+	 										<div data-repeater-item>
+	 											<div class="form-group">
+	 												<label class="col-sm-1 control-label">Technologies</label>
+	 												<div class="col-sm-2">
+	 													<select name="make" class="form-control">
+	 														<option value="Windows Server" selected>Windows Server</option>
+	 														<option value="Exchange">Exchange</option>
+	 														<option value="Clound">Clound</option>
+	 													</select>
+	 												</div>
+	 												<label class="col-sm-1 control-label">Level</label>
+	 												<div class="col-sm-2">
+	 													<select name="make" class="form-control">
+	 														<option value="1" selected>1</option>
+	 														<option value="2">2</option>
+	 														<option value="3">3</option>
+	 													</select>
+	 												</div>
+
+	 												<div class="col-sm-4">
+	 													<label class="checkbox-inline">
+	 														<input type="checkbox" name="features" value="ac"/>
+	 														Priority
+	 													</label>
+	 												</div>
+
+	 												<div class="col-sm-2">
+	 													<span data-repeater-delete class="btn btn-danger btn-sm">
+	 														<span class="glyphicon glyphicon-remove"></span> Delete
+	 													</span>
+	 												</div>
+													<div class="col-sm-2">
+														<a data-repeater-delete class="btn btn-primary btn-sm margin-btm-30" > <i class="fa fa-minus-circle"></i> <span class="hidden-xs"></span> Delete </a>
+													</div>
+	 											</div>
+	 										</div><!-- </data-repeater-item> -->
+
+	 										<div data-repeater-item>
+	 											<div class="form-group">
+	 												<label class="col-sm-1 control-label">Technologies</label>
+	 												<div class="col-sm-2">
+	 													<select name="make" class="form-control">
+	 														<option value="Windows Server" selected>Windows Server</option>
+	 														<option value="Exchange">Exchange</option>
+	 														<option value="Clound">Clound</option>
+	 													</select>
+	 												</div>
+	 												<label class="col-sm-1 control-label">Level</label>
+	 												<div class="col-sm-2">
+	 													<select name="make" class="form-control">
+	 														<option value="1" selected>1</option>
+	 														<option value="2">2</option>
+	 														<option value="3">3</option>
+	 													</select>
+	 												</div>
+	 												<div class="col-sm-4">
+	 													<label class="checkbox-inline">
+	 														<input type="checkbox" name="features" value="ac"/>
+	 														Priority
+	 													</label>
+	 												</div>
+	 												<div class="col-sm-2">
+	 													<span data-repeater-delete class="btn btn-danger btn-sm">
+	 														<span class="glyphicon glyphicon-remove"></span> Delete
+	 													</span>
+	 												</div>
+	 											</div>
+	 										</div><!-- </data-repeater-item> -->
+
+	 									</div>
+	 									<div class="form-group">
+	 										<div class="col-sm-offset-1 col-sm-11">
+	 											<span data-repeater-create data-tooltip="Include new skills" class="btn btn-info btn-md">
+	 												<span class="glyphicon glyphicon-plus"></span> add
+	 											</span>
+	 										</div>
+	 									</div>
+	 									<hr/>		      			
+	 								</div><!-- </repeater-custom-show-hide> -->
+	 								<div class="md-padder text-left">
+	 									<a class="btn btn-primary btn-lg margin-btm-30" data-tooltip="Update skills infos" href="update.html" target="_blank"> <i class="fa fa-user"></i> <span class="hidden-xs"> Update </span> Skill </a>
+	 								</div>
+	 							</fieldset>
+	 						</form><!-- </form-horizontal well> -->
+	 					</div><!-- </row> -->
+	 				</div><!-- </container> -->
+	 			</section><!-- </section-technical> -->
+
+
+				<!-- ==============================================
+			    Recommendations (Acc Recomendações)
+			    =============================================== -->
+				<section class="quotes" id="recomendations">
+					<div class="container">
+						<!-- TitleSection -->
+					    <div class="cols">
+				            <div class="title-section">
+				                <h2 class="title">Recommendations and Quotes<span class="cursor-tag">_</span></h2>
+				                <h3 class="title-description">Some feedback on my work.</h3>
+				            </div>
+					    </div>
+					    <!-- End Title Section -->        
+				        <!-- Start BlockQuote/Tooltip Section -->
+				        <div class="row">
+				        	<!-- Start Blockquote -->
+				            <div class="col-sm-6">
+				            	<h3 class="spec">Blockquote</h3>
+				                <blockquote>
+					                <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla.</p>
+					                <small>
+				                    	<cite title="John Bostic">John Bostic</cite>
+				                    </small>
+				                </blockquote>
+				            </div>
+				            <!-- End Blockquote -->
+				            
+				            <!-- Start Tooltip -->
+				            <div class="col-sm-6">
+				            	<h3 class="spec">Tooltip</h3>
+				            	
+				                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas neque diam, luctus at laoreet in, <a href="#" data-toggle="tooltip" title="I'm a Simple Tootlip">auctor ut tellus</a>. Etiam enim lacus, ornare et tempor, rhoncus rhoncus sem.</p>
+				                
+				            </div>
+				            <!-- End Tootlip -->
+				        </div>
+				        <!-- End BlockQuote/Tooltip Section -->
+					</div>
+				</section>		 					
+
+				<!-- ==============================================
+			    Formulario Dados Pessoais (Dados Pessoais)
+			   =============================================== -->
+				<section class="update-dataInfo" id="update-dataInfo">
+					<div class="container">
+					   <div class="container-fluid">
+
+				    		<!-- TitleSection -->
+				    		<div class="cols">
+				    			<div class="title-section">
+				    				<h2 class="title">Information and personal data<span class="cursor-tag">_</span></h2>
+				    				<h3 class="title-description">Address, phone, city, description.</h3>
+				    			</div>
+				    		</div>				   
+					      <div class="row">
+					      	<div class="col-lg-4 col-md-5">
+					      		<div class="card card-user">
+					      			<div class="backgroundHeader">
+					      				<img src="img/background.jpg" alt="..."/>
+					      			</div><!-- </div>image> -->
+					      			<div class="content">
+					      				<div class="author">
+					      					<img class="avatar border-white" src="images/elisandromello.jpg" alt="..."/>
+					      					<h4 class="title">Elisandro M. Corrêa<br />
+					      						<a href="#"><small>@iamelisandromello</small></a>
+					      					</h4>
+					      				</div><!-- </author> -->
+					      				<p class="description text-center">
+					      					"I like the way you work it <br>
+					      					No diggity <br>
+					      					I wanna bag it up"
+					      				</p>
+					      			</div><!-- <!/content> -->
+					      			<hr>
+					      			<div class="text-center">
+					      				<div class="row">
+					      					<div class="col-md-3 col-md-offset-1">
+					      						<h5>12<br /><small>Files</small></h5>
+					      					</div><!-- </col-md-4 col-md-offset-1> -->
+					      					<div class="col-md-4">
+					      						<h5>2GB<br /><small>Used</small></h5>
+					      					</div><!-- </col-md-4> -->
+					      					<div class="col-md-3">
+					      						<h5>24,6$<br /><small>Spent</small></h5>
+					      					</div><!-- </col-md-3> --> 
+					      				</div><!-- </row> -->
+					      			</div><!-- </text-center> -->
+					      		</div><!-- </card card-user> -->
+					      		<div class="card">
+					      			<div class="header">
+					      				<h4 class="title">Social Media</h4>
+					      			</div><!-- </header> -->
+					      			<div class="content">
+					      				<ul class="list-unstyled team-members">
+					      					<li>
+					      						<div class="row">
+					      							<div class="col-xs-3">
+															<div class="pull-left icone-fa icone-fa-card text-center">
+																<i class="fa fa-linkedin"></i>
+															</div>
+					      							</div>
+					      							<div class="col-xs-6">
+					      								in/elisandromello
+					      								<br />
+					      								<span class="text-muted"><small>Offline</small></span>
+					      							</div>
+
+					      							<div class="col-xs-3 text-right">
+					      								<btn class="btn-circular"><i class="fa fa-envelope"></i></btn>
+					      							</div>
+					      						</div>
+					      					</li>
+					      					<li>
+					      						<div class="row">
+					      							<div class="col-xs-3">
+															<div class="pull-left icone-fa icone-fa-card text-center">
+																<i class="fa fa-facebook"></i>
+															</div>
+					      							</div>
+					      							<div class="col-xs-6">
+					      								elisandro.mello
+					      								<br />
+					      								<span class="text-success"><small>Available</small></span>
+					      							</div>
+
+					      							<div class="col-xs-3 text-right">
+					      								<btn class="btn btn-sm btn-success btn-icon"><i class="fa fa-envelope"></i></btn>
+					      							</div>
+					      						</div>
+					      					</li>
+					      					<li>
+					      						<div class="row">
+					      							<div class="col-xs-3">
+															<div class="pull-left icone-fa icone-fa-card text-center">
+																<i class="fa fa-twitter"></i>
+															</div>
+					      							</div>
+					      							<div class="col-xs-6">
+					      								@elisandromello
+					      								<br />
+					      								<span class="text-danger"><small>Busy</small></span>
+					      							</div><!-- </col-xs-6> -->
+
+					      							<div class="col-xs-3 text-right">
+					      								<btn class="btn btn-sm btn-success btn-icon"><i class="fa fa-envelope"></i></btn>
+					      							</div><!-- </col-xs-3 text-right> -->
+					      						</div><!-- </row> -->
+					      					</li><!-- </li> -->
+					      				</ul><!-- </list-unstyled team-members> -->
+					      			</div><!-- </content> -->
+					      		</div><!-- </card> -->
+					         </div><!-- <col-lg-4 col-md-5 -->
+					         <div class="col-lg-8 col-md-7">
+					         	<div class="card">
+					         		<div class="header">
+					         			<h4 class="title">Edit Profile</h4>
+					         		</div>
+					         		<div class="content">
+					         			<form>
+					         				<div class="row">
+					         					<div class="col-md-3">
+					         						<div class="form-group">
+					         							<label>Username</label>
+					         							<input type="text" class="form-control border-input" disabled placeholder="Company" value="Creative Code Inc.">
+					         						</div><!-- </form-group> -->
+					         					</div><!-- </col-md-5> --> 
+					         					<div class="col-md-4">
+					         						<div class="form-group">
+					         							<label for="exampleInputEmail1">Email address</label>
+					         							<input type="email" class="form-control border-input" disabled placeholder="Email">
+					         						</div><!-- </form-group> -->
+					         					</div><!-- </col-md-3> -->
+					         					<div class="col-md-5">
+					         						<div class="form-group">
+															<label class="card-genero">Sexo</label>
+															<input type="radio" id="radio03" name="radio" />
+															<label for="radio03"><span></span>Female</label>
+															<input type="radio" id="radio04" name="radio" />
+															<label for="radio04"><span></span>Male</label>
+					         						</div><!-- </form-group> -->
+					         					</div><!-- </col-md-4> -->
+					         				</div><!-- </row> 1º Linha do formulario --> 				         				
+
+					         				<div class="row">
+					         					<div class="col-md-6">
+					         						<div class="form-group">
+					         							<label>First Name</label>
+					         							<input type="text" class="form-control border-input" placeholder="Company" value="Elisandro">
+					         						</div><!-- </form-group> -->
+					         					</div><!-- </col-md-6> -->
+					         					<div class="col-md-6">
+					         						<div class="form-group">
+					         							<label>Last Name</label>
+					         							<input type="text" class="form-control border-input" placeholder="Last Name" value="M. Corrêa">
+					         						</div><!-- </form-group> -->
+					         					</div><!-- </col-md-6> -->
+					         				</div><!-- </row> 2º Linha do formulario --> 
+
+					         				<div class="row">
+					         					<div class="col-md-4">
+					         						<div class="form-group">
+					         							<label>Phone</label>
+					         							<input type="text" class="form-control border-input" placeholder="Phone" value="(51)3042-5993">
+					         						</div><!-- </form-group> -->
+					         					</div><!-- </col-md-4> -->
+					         					<div class="col-md-4">
+					         						<div class="form-group">
+					         							<label>Celular Mobile</label>
+					         							<input type="text" class="form-control border-input" placeholder="Mobile" value="(51)9910-91855">
+					         						</div><!-- </form-group> -->
+					         					</div><!-- </col-md-4> -->
+					         					<div class="col-md-4">
+					         						<div class="form-group">
+					         							<label>State</label>
+						    								<select name="state" class="form-control border-input" >
+						    									<option value=" " >Please select your state</option>
+						    									<option>Acre</option>
+						    									<option>Alagoas</option>
+						    									<option>Amampá</option>
+						    									<option>Amazonas</option>
+						    									<option>Bahia</option>
+						    									<option>Ceará</option>
+						    									<option>Distrito Federal</option>
+						    									<option>Espírito Santo</option>
+						    									<option>Góias</option>
+						    									<option>Maranhão</option>
+						    									<option>Mato Grosso</option>
+						    									<option>Mato Grosso do Sul</option>
+						    									<option>Minas Gerais</option>
+						    									<option>Pará</option>
+						    									<option>Paraíba</option>
+						    									<option>Paraná</option>
+						    									<option>Pernambuco</option>
+						    									<option>Piauí</option>
+						    									<option>Rio de Janeiro</option>
+						    									<option>Rio Grande do Norte</option>
+						    									<option>Rio Grande do Sul</option>
+						    									<option>Rondônia</option>
+						    									<option>Roraima</option>
+						    									<option>Santa Catarina</option>
+						    									<option>São Paulo</option>
+						    									<option>Sergipe</option>
+						    									<option>Tocantins</option>
+						    								</select>
+					         						</div><!-- </form-group> -->
+					         					</div><!-- </col-md-4> -->				         					
+					         				</div><!-- </row> 2º Linha do formulario --> 
+
+					         				<div class="row">
+					         					<div class="col-md-9">
+					         						<div class="form-group">
+					         							<label>Address</label>
+					         							<input type="text" class="form-control border-input" placeholder="Home Address" value="Melbourne, Australia">
+					         						</div><!-- </form-group> -->
+					         					</div><!-- </col-md-10> -->
+					         					<div class="col-md-3">
+					         						<div class="form-group">
+					         							<label>Number</label>
+					         							<input type="text" class="form-control border-input" placeholder="Number" value="00000">
+					         						</div><!-- </form-group> -->
+					         					</div><!-- </col-md-2> -->				         					
+					         				</div><!-- </row> 3º Linha do formulario --> 
+
+					         				<div class="row">
+					         					<div class="col-md-4">
+					         						<div class="form-group">
+					         							<label>City</label>
+					         							<input type="text" class="form-control border-input" placeholder="City" value="Melbourne">
+					         						</div><!-- </form-group> -->
+					         					</div><!-- </col-md-4> -->
+					         					<div class="col-md-4">
+					         						<div class="form-group">
+					         							<label>Country</label>
+					         							<input type="text" class="form-control border-input" placeholder="Country" value="Australia">
+					         						</div><!-- </form-group> -->
+					         					</div><!-- </col-md-4> -->
+					         					<div class="col-md-4">
+					         						<div class="form-group">
+					         							<label>Postal Code</label>
+					         							<input type="number" class="form-control border-input" placeholder="ZIP Code">
+					         						</div><!-- </form-group> -->
+					         					</div><!-- </col-md-4> -->
+					         				</div><!-- </row> 4º Linha do formulario --> 
+
+					         				<div class="row">
+					         					<div class="col-md-12">
+					         						<div class="form-group">
+					         							<label>About Me</label>
+					         							<textarea rows="5" class="form-control border-input" placeholder="Here can be your description" value="Mike">Oh so, your weak rhyme
+You doubt I'll bother, reading into it
+I'll probably won't, left to my own devices
+But that's the difference in our opinions.
+					         							</textarea>
+					         						</div><!-- </form-group> -->
+					         					</div><!-- </col-md-12> -->
+					         				</div><!-- </row> -->
+				         					<div class="md-padder text-center">
+				 									<button type="submit" data-tooltip="Change personal infos" class="btn btn-primary btn-lg margin-btm-30"> <i class="fa fa-user"></i> <span class="hidden-xs"> Update </span> Infos </button>
+				 								</div>
+					         				<div class="clearfix"></div>
+					         			</form>
+					         		</div><!-- </content> -->
+					         	</div>
+					         </div>
+
+					      </div><!-- </row> -->
+					      <div class="row">
+					      	<div class="col-md-12">
+
+					      	</div>
+					      </div>
+					   </div><!-- </container-fluid> -->
+					</div><!-- </container> -->
+				</section>			   			
+
+
+			</main><!-- </main> Final Corpo de Conteúdo-->
+
+			<footer>
+				<!-- ==============================================
+			    Footer (Rodapé)
+			   =============================================== -->
+			   <section class="social-links">
+			    	<div class="container">
+			    		<div class="row">
+			    			<ul>
+			    				<li> <a href="https://www.facebook.com/profile.php?id=1800765934" target="_blank" title=""> <span> <i class="fa fa-facebook"></i> </span> </a> </li>
+			    				<li> <a href="https://twitter.com/elisandromello" target="_blank" title=""> <span> <i class="fa fa-twitter"></i> </span> </a> </li>
+			    				<li> <a href="http://www.linkedin.com/in/elisandromello" target="_blank" title=""> <span> <i class="fa fa-linkedin"></i> </span> </a> </li>
+			    				<li> <a href="http://www.instagram.com/iamelisandromello" target="_blank" title=""> <span> <i class="fa fa-instagram"></i> </span> </a> </li>
+			    				<li> <a href="https://github.com/iamelisandromello" target="_blank" title=""> <span> <i class="fa fa-github"></i> </span> </a> </li>
+			    				<li> <a href="mailto:iam@elisandromello.com.br?subject=Eu tenho um comentário para você..." title=""><span> <i class="fa fa-envelope"></i></span></a></li>
+			    			</ul>
+			    		</div><!-- /row -->
+			    	</div><!-- /container -->    
+			   </section><!-- </social-links> -->
+
+				<!-- ==============================================
+				   Créditos (Credits)
+				=============================================== --> 
+			   <section class="copyright">
+			   	<div class="container">
+			   		<div class="col-md-12">
+			   			<div class="text-center"> 
+			   				<!-- Logo Header -->
+			   				<section id="fox_footer" class="fox_footer">
+			   					<div>
+			   						<img src="images/logofooter.png" alt="Foxin by Elisandro Mello"> - &copy;<script>document.write(new Date().getFullYear())</script> - Designer coded and designed by <i class="fa fa-cloud-upload"></i> Elisandro Mello
+			   					</div>
+			   				</section><!-- </fox_footer> -->
+			   				<!--/ Logo Header-->
+			   			</div><!-- </text-center> -->
+			   		</div><!-- </col-md-12> -->
+			   	</div><!-- </container> -->
+			   </section><!-- </copyright> -->			
+			</footer>
+			<!-- Back To Top -->
+			<a id="back-to-top" href="#">
+				<i class="font-icon-arrow-simple-up"></i>
+			</a>
+			<!-- End Back to Top -->
+
+		</div><!--  </layout> Final do Layout Visivel-->
+		
+		<!-- ==============================================
+		Javascripts
+		================================================== -->
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="public/bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="js/modernizr.js"></script>
+		<script src="js/jquery.custom-file-input.js"></script>
+		<!-- // If you'd like to use jQuery, check out js/jquery.custom-file-input.js
+		<script src="js/jquery-v1.min.js"></script>
+		<script src="teste/js/custom-file-input.js"></script>
+		<script src="js/jquery.custom-file-input.js"></script>
+		-->
+
+		<script src="public/bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script> <!-- Bootstrap -->
+		<script type="text/javascript" src="js/tmp/classie.js"></script>
+		<!-- Contact JS -->
+		<script src="public/bower_components/jqBootstrapValidation/src/jqBootstrapValidation.js"></script><!--BootstrapValida-->
+		<!-- Inclua os plugins compilados (abaixo) ou inclua arquivos individuais conforme necessário -->		
+		<script src="public/bower_components/wow/dist/wow.min.js"></script> <!-- WOW --> 
+		<script src="public/bower_components/jquery.scrollTo/jquery.scrollTo.min.js"></script> <!-- ScrollTo -->		
+		<script src="public/bower_components/jquery.easing/js/jquery.easing.min.js"></script> <!-- Easing -->
+		<script src="public/bower_components/jpreloader/js/jpreloader.min.js"></script> <!-- PreLoader -->	
+		<script src="js/smooth-scrolling.js"></script> <!-- Deslocamento Suave Sesões - One Page -->
+		<script src="js/main-update.js"></script> <!-- Default JS Pagina Update-->
+		<!-- Função Repeater -->
+		<script src="js/jquery.repeater.min.js"></script>
+		<script src="js/use-repeater.js"></script>
+
+		<!-- Tuner ACessibilidade de Cores -->
+		<script src="public/tuner/js/tunner.js"></script>
+		<div id="tuner" class="tuner">
+			<label>Theme Colors</label>
+			<ul class="colors">
+				<li data-color="orange" class="color-orange"><span></span></li>
+				<li data-color="purple" class="color-purple"><span></span></li>
+				<li data-color="green" class="color-green"><span></span></li>
+				<li data-color="pink" class="color-pink"><span></span></li>
+				<li data-color="blue" class="color-blue active"><span></span></li>
+				<li data-color="cyan" class="color-cyan"><span></span></li>
+			</ul>
+			<label>Layout Styles</label>
+			<ul class="layouts">
+				<li data-layout="boxed">Boxed</li>
+				<li data-layout="widescreen" class="active">Widescreen</li>
+			</ul>
+			<i id="tuner-switcher" class="fa fa-cogs"></i>
+		</div><!--/ tuner -->
+	</body>
+</html>

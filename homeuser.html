@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+		<title>Home User - ProfileIT</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+      <!-- Stylesheet
+      ================================================== -->        
+		<!-- Styles -->
+		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<link rel="stylesheet" type="text/css" href="css/home.css">	
+		<link rel="stylesheet" type="text/css" href="css/plugins.css">
+		<link rel="stylesheet" type="text/css" href="css/fonts.css">
+		<link rel="stylesheet" type="text/css" href="css/nav.css">
+		
+		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet">
+
+		<!-- Switcher Tuner Only -->
+		<link rel="stylesheet" type="text/css" href="public/tuner/css/tuner.css">
+
+      <!-- Bootstrap 
+      ================================================== -->
+      <link rel="stylesheet" type="text/css" href="css/public/fonts/ionicons/css/ionicons.css">
+
+      <!-- Pre-Define Custom Style Sheet
+      ================================================== -->
+    	<link rel="stylesheet" href="css/themes/color-cyan.css" title="color-cyan" media="all" property="">
+    	<link rel="alternate stylesheet" href="css/themes/color-blue.css" title="color-blue" media="all" property="">
+		<link rel="alternate stylesheet" href="css/themes/color-green.css" title="color-green" media="all" property="">
+		<link rel="alternate stylesheet" href="css/themes/color-orange.css" title="color-orange" media="all" property="">
+		<link rel="alternate stylesheet" href="css/themes/color-pink.css" title="color-pink" media="all" property="">
+		<link rel="alternate stylesheet" href="css/themes/color-purple.css" title="color-purple" media="all" property="">       
+
+	</head>
+	<body id="home" data-spy="scroll" data-target="#home-nav" data-offset="300">
+		<!-- This section is for Splash Screen -->
+		<section id="jSplash">
+			<div id="circle"></div>
+		</section>
+		<!-- End of Splash Screen -->
+
+		<!-- ==============================================
+		Navbar (Menu Principal de Navegação)
+		=============================================== -->
+		<div id="home-nav" class="navbar navbar-default navbar-fixed-top" role="navigation">
+		  <div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#home"> 
+						<!-- Logo Header -->
+						<section id="foxin" class="foxin">
+							<div>
+								<img src="images/Logo_Navbar.png" alt="Foxin by Elisandro Mello">
+							</div>
+						</section>
+						<!--/ Logo Header --> 
+					</a><!-- </navbar-brand> -->
+				</div><!-- </navbar-header> -->
+				<div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#">Home</a></li>
+						<li><a href="#profile">AboutMe</a></li>
+						<li><a href="#opportunities">Opportunities</a></li>
+						<li><a href="#acc-recommendation">ACC Recommendation</a></li>
+						<li><a href="#contact-area">New Opportunity</a></li>
+					</ul><!-- </nav navbar-nav navbar-right> -->
+				</div><!-- </navbar-collapse collapse> -->
+			</div><!-- </container> -->
+		</div><!-- </home-nav> -->
+		<!-- ==============================================
+		Layout Content Site (Definição de Layout)
+		====================================-->
+		<div class="layout">
+			<!-- ==============================================
+			Main Start (Inicio do Corpo de Conteúdo)
+			=============================================== -->
+			<main>												
+				<!-- ========================================= -->
+				<!--Section Menu Access(Menu de Acesso Rápido)                            -->
+				<!-- ========================================= -->				
+				<section class="update-menu">
+					<div class="container">
+						<div class="options-menu">										
+							<a class="item-central pointer-cursor" href="home.html">
+								<img src="images/curriculo-tag-miolo.png" alt="Curriculo TAG">
+							</a>
+
+							<a class="icone-lapis pointer-cursor" href="update.html">
+								<i class="fa fa-pencil" alt="Update Profile"></i>
+							</a>
+
+							<a class="icone-codigo pointer-cursor" href="home.html">
+								<i class="fa fa-industry"></i>
+							</a>
+
+							<a class="icone-coracao pointer-cursor" href="home.html">
+								<i class="fa fa-question"></i>
+							</a>
+
+							<a class="icone-compartilhar pointer-cursor" href="home.html">
+								<i class="fa fa-users"></i>
+							</a>
+						</div><!-- </options-menu> -->						
+					</div><!-- </container> -->
+				</section><!-- </update-menu> --> 
+				<!-- ========================================= -->
+				<!--Section Profile(Resumo Profile)            -->
+				<!-- ========================================= -->
+				<section id="profile" class="head-block">
+					<div class="container text-center">
+						<!-- ========================================= -->
+						<!-- Conteúdo Perfil                           -->
+						<!-- ========================================= -->
+						<div class="row head-block__padder text-left">
+							<!-- Foto Perfil -->
+							<div class="col-lg-4 col-md-6 col-lg-push-4 text-center wow fadeInUp">
+								<div class="inline-block photo-column-inner">
+									<div class="photo-profile">
+										<img src="images/photo.png" class="img-responsive" alt="#">
+									</div>
+									<div class="md-padder">
+										<a class="btn btn-primary btn-lg margin-btm-30" href="update.html" target="_blank"> <i class="fa fa-user"></i> <span class="hidden-xs"> View </span> Profile </a>
+									</div>
+								</div>
+							</div><!-- Container Foto Perfil -->
+
+							<!-- #Informações Perfis Pessoais -->
+							<div class="col-lg-4 col-md-6 col-lg-pull-4 info-column wow fadeInUp">
+								<div>
+									<h5 class="text-subtitulo">personal info</h5>
+									<ul class="padder list-unstyled home-infolist">
+										<li>Calculation of experience</li>
+										<li>Suggested upgrades</li>
+										<li>Unfilled items </li>
+									</ul>
+									<div class="col-md-12 col-md-offset-0 text-uppercase">
+										<!-- SKILL TITLE -->
+										<h5 class="text-subtitulo">Full Profile</h5>
+
+										<!-- Force Meter -->
+										<div class="force-meter xs-padder">
+											<div class="on"></div>
+											<div class="on"></div>
+											<div class="on"></div>
+											<div></div>
+											<div></div>
+										</div><!-- </Force Meter> -->
+									</div><!-- </> Final Barra Força Perfil-->
+
+								</div>
+							</div><!-- Container Informações Perfil -->
+
+							<!-- Presentation ticket -->
+							<div class="col-lg-4 col-xs-12 text-left story-column wow fadeInUp">
+								
+								<div class="container-hive wow fadeIn" data-wow-delay="2s"><h5 class="text-subtitulo text-center">Network</h5>
+									<!-- Apresentação de Avatares network -->
+									<div class="row">
+										<div class="line-hive">
+											<div class="hive-contact">
+												<div class="avatar-molde">
+													<img class="avatar-picture wow bounceIn" src="images/profiles/1.jpg" >
+												</div>
+												<div class="avatar-molde">
+													<img class="avatar-picture wow bounceIn" src="images/profiles/11.jpg" >
+												</div>
+												<div class="avatar-molde">
+													<img class="avatar-picture wow bounceIn" src="images/profiles/3.jpg" >
+												</div>
+												<div class="avatar-molde">
+													<img class="avatar-picture wow bounceIn" src="images/profiles/4.jpg" >
+												</div>											
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="line-hive">
+											<div class="hive-contact">
+												<div class="avatar-molde">
+													<img class="avatar-picture wow bounceIn" src="images/profiles/10.jpg" >
+												</div>
+												<div class="avatar-molde">
+													<img class="avatar-picture wow bounceIn" src="images/profiles/6.jpg" >
+												</div>
+												<div class="avatar-molde">
+													<img class="avatar-picture wow bounceIn" src="images/profiles/7.jpg" >
+												</div>
+												<div class="avatar-molde">
+													<img class="avatar-picture wow bounceIn" src="images/profiles/8.jpg" >
+												</div>											
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="line-hive">
+											<div class="hive-contact">
+												<div class="avatar-molde">
+													<img class="avatar-picture wow bounceIn" src="images/profiles/13.jpg" >
+												</div>
+												<div class="avatar-molde">
+													<img class="avatar-picture wow bounceIn" src="images/profiles/5.jpg" >
+												</div>
+												<div class="avatar-molde">
+													<img class="avatar-picture wow bounceIn" src="images/profiles/2.jpg" >
+												</div>
+												<div class="avatar-molde">
+													<img class="avatar-picture wow bounceIn" src="images/profiles/12.jpg" >
+												</div>											
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="line-hive">
+											<div class="hive-contact">
+												<div class="avatar-molde">
+													<img class="avatar-picture wow bounceIn" src="images/profiles/14.jpg" >
+												</div>
+												<div class="avatar-molde">
+													<img class="avatar-picture wow bounceIn" src="images/profiles/9.jpg" >
+												</div>
+												<div class="avatar-molde">
+													<img class="avatar-picture wow bounceIn" src="images/profiles/15.jpg" >
+												</div>
+												<div class="avatar-molde">
+													<img class="avatar-picture wow bounceIn" src="images/profiles/16.jpg" >
+												</div>											
+											</div>
+										</div>
+									</div>
+								</div>
+							</div><!-- Container Bilhete de Apresentação -->
+						</div><!-- </main-block__padder> -->
+					</div><!-- </container> -->
+				</section><!-- </section> Profile -->
+				<!-- ========================================= -->
+				<!-- Opportuties (Oportunidades Disponiveis)   -->
+				<!-- ========================================= -->
+				<section id="opportunities" class="main-block">
+					<div class="container text-center">						
+						<!-- Opportunities Title -->
+						<div class="title-main text-left wow fadeIn">
+							<div class="main-title__inner">
+								<div class="main-title__left text-right">
+									<i class="fa fa-cog mega"></i>
+									<h1 class="title-session">Opportunities</h1>
+									<em class="title-description">what my clients get</em>									
+								</div><!-- </main-title__left> -->
+								<div class="main-title__right">
+									<p class="resumo">
+										Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer.
+									</p>
+								</div><!-- </main-title__right> -->
+							</div><!-- </main-title__inner> -->
+						</div><!-- </title-main> -->
+
+						<!-- Opportunities Content -->
+						<div class="main-block__padder text-left">
+							<div class="row services-list">
+								<div class="col-lg-5 col-md-6 col-lg-push-1 text-right clearfix wow fadeInLeft">
+									<div class="pull-right icone-fa h4 icone-fa-opportunities text-center" href="#" data-toggle="modal" data-target="#modal1">
+										<i class="fa fa-wrench"></i>
+									</div>
+									<div class="no-overflow">
+										<h6 class="text-subtitulo">web design</h6>
+										<p class="texto_profileit">
+											Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+										</p>
+									</div>
+								</div>
+								<div class="col-lg-5 col-md-6 col-lg-push-1 clearfix wow fadeInRight">
+									<div class="pull-left icone-fa h4 icone-fa-opportunities text-center" href="#" data-toggle="modal" data-target="#modal1">
+										<i class="fa fa-wrench"></i>
+									</div>
+									<div class="no-overflow">
+										<h6 class="text-subtitulo">web development</h6>
+										<p class="texto_profileit">
+											Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+										</p>
+									</div>
+								</div>
+								<div class="col-lg-5 col-md-6 col-lg-push-1 text-right clearfix wow fadeInLeft">
+									<div class="pull-right icone-fa h4 icone-fa-opportunities text-center" href="#" data-toggle="modal" data-target="#modal1">
+										<i class="fa fa-wrench"></i>
+									</div>
+									<div class="no-overflow">
+										<h6 class="text-subtitulo">branding</h6>
+										<p class="texto_profileit">
+											Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+										</p>
+									</div>
+								</div>
+								<div class="col-lg-5 col-md-6 col-lg-push-1 clearfix wow fadeInRight">
+									<div class="pull-left icone-fa h4 icone-fa-opportunities text-center" href="#" data-toggle="modal" data-target="#modal1">
+										<i class="fa fa-wrench"></i>
+									</div>
+									<div class="no-overflow">
+										<h6 class="text-subtitulo">marketing</h6>
+										<p class="texto_profileit">
+											Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+										</p>
+									</div>
+								</div>
+								<div class="col-lg-5 col-md-6 col-lg-push-1 text-right clearfix wow fadeInLeft">
+									<div class="pull-right icone-fa h4 icone-fa-opportunities text-center" href="#" data-toggle="modal" data-target="#modal1">
+										<i class="fa fa-wrench"></i>
+									</div>
+									<div class="no-overflow">
+										<h6 class="text-subtitulo">website installation</h6>
+										<p class="texto_profileit">
+											Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+										</p>
+									</div>
+								</div>
+								<div class="col-lg-5 col-md-6 col-lg-push-1 clearfix wow fadeInRight">
+									<div class="pull-left icone-fa h4 icone-fa-opportunities text-center" href="#" data-toggle="modal" data-target="#modal1">
+										<i class="fa fa-wrench"></i>
+									</div>
+									<div class="no-overflow">
+										<h6 class="text-subtitulo">support my products</h6>
+										<p class="texto_profileit">
+											Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+										</p>
+									</div>
+								</div>
+							</div><!-- </row services-list> -->
+						</div><!-- </main-block__padder> -->
+					</div><!-- </container> -->
+				</section><!-- </opportuninities> Section Opportunities-->
+				<!-- ==============================================
+			   Recommendations (Acc Recomendações)
+			   =============================================== -->
+				<section id="acc-recommendation" class="main-block">
+					<div class="container text-center">					
+						<!-- Acc RecommendationTitle -->
+						<div class="title-main text-left wow fadeIn">
+							<div class="main-title__inner">
+								<div class="main-title__left text-right">
+									<i class="fa fa-cog mega"></i>
+									<h1 class="title-session">Recommendations</h1>
+									<em class="title-description">Approve colleagues' recommendations</em>								
+								</div><!-- </main-title__left> -->
+								<div class="main-title__right">
+									<p class="resumo">
+									Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer.
+									</p>
+								</div><!-- </main-title__right> -->
+							</div><!-- </main-title__inner> -->
+						</div><!-- </title-main> -->
+						<!-- End Title Section -->        
+
+						<div class="container-recommendation">
+							<div class="row">
+								<div class="container-accRecommendation col-sm-6">
+									<blockquote>
+										<div class="text-left quote-icon"> <i class="fa fa-quote-left"></i> </div>
+											<p>É um grande prazer recomendar o Marcelo, sendo ele um profissional com perfil de inovação e liderança, sempre buscando melhoria nos processos gerenciais para alcançar os objetivos e metas da empresa.</p>
+										<div class="text-right quote-icon"> <i class="fa fa-quote-right"></i> </div>
+										<small>
+											<cite title="John Bostic">Anderson Silveira</cite>
+											<cite title="John Bostic"> - Gestor de TI</cite>
+										</small>
+									</blockquote>
+								</div><!-- </container-accRecommendation> End Blockquote -->
+								<!-- Info e Avatar User -->
+								<div class="col-sm-3 container-accAvatar">        
+									<img class="avatar-md quote-slider-img" src="images/albert-einstein-profile.jpg" alt="">   
+									<div class="md-padder">
+										<p class="texto-cite text-center">
+									Anderson Silveira supervisinava<br> Marcelo na função de <br>
+									Analista de Processos
+										</p>
+									</div><!-- </md-padder> -->					                		
+								</div><!-- </container-accAvatar> -->
+								<div class="col-sm-3 container-aprove">
+									<div class="md-padder text-center">
+										<a class="btn btn-primary btn-sm margin-btm-10" href="update.html" target="_blank"> <i class="fa fa-thumbs-up"></i> </a>
+										<a class="btn btn-primary btn-sm margin-btm-10" href="update.html" target="_blank"> <i class="fa fa-thumbs-down"></i> </a>
+									</div><!-- </md-padder> -->				                		
+								</div><!-- </container-aprove> -->
+							</div><!--</row> -->
+						</div><!-- </container-recommendation> --> 
+					</div><!-- </container> -->
+				</section><!-- </opportunities> -->	
+
+				<!-- ==============================================
+				Contact-Me (Contate-me ou add uma Recomendação)
+		      =============================================== -->
+				<section id="contact-area">
+				    <div class="overlay-contactme"></div>
+				    <div class="container">
+				        <div class="row">
+				            <div class="col-md-offset-2 col-md-8 col-sm-12">
+									<div class="section-title wow bounceIn">
+									   <div class="text-center">
+									      <h2>Add New Job Opportunity</h2>
+									      <p class="texto_profileit wow fadeInUp" data-wow-delay="0.5s">Add um nova oportunidade de emprego recoemendada a comunidade Incluindo novas vagas você contribui para o desenvolvimento e a integração de sua rede de relacionamentos.</p>
+									  </div><!-- </text-center> -->
+									</div><!-- </section-title> -->
+									<div class="contact-form wow fadeInUp" data-wow-delay="0.8s">
+									   <form action="#" method="post">
+									       <div class="col-xs-11 col-md-12 text-center centered">
+									       	<a class="btn envio" href="#" data-toggle="modal" data-target="#modal2"> <i class="fa fa-paper-plane"></i> <span class="hidden-xs">Add  </span> Opportunity </a>	
+									       </div>
+									   </form>
+									</div><!-- </contact-form> -->
+				            </div><!-- </cols> Colunas de Grid -->
+				        </div><!-- </row> -->
+				    </div><!-- </container -->
+				</section><!-- </contact-me> Final Sessão de Nova Oportunidade -->
+			</main><!-- Main End (Final do Corpo de Conteúdo) -->
+
+			<footer>
+			<!-- ==============================================
+			    Footer (Rodapé)
+			    =============================================== -->
+				<section class="social-links">
+				  <div class="container">
+				    <div class="row">
+				          <ul>
+				            <li> <a href="https://www.facebook.com/profile.php?id=1800765934" target="_blank" title=""> <span> <i class="fa fa-facebook"></i> </span> </a> </li>
+				            <li> <a href="https://twitter.com/elisandromello" target="_blank" title=""> <span> <i class="fa fa-twitter"></i> </span> </a> </li>
+				            <li> <a href="http://www.linkedin.com/in/elisandromello" target="_blank" title=""> <span> <i class="fa fa-linkedin"></i> </span> </a> </li>
+				            <li> <a href="http://www.instagram.com/iamelisandromello" target="_blank" title=""> <span> <i class="fa fa-instagram"></i> </span> </a> </li>
+				            <li> <a href="https://github.com/iamelisandromello" target="_blank" title=""> <span> <i class="fa fa-github"></i> </span> </a> </li>
+				            <li> <a href="mailto:iam@elisandromello.com.br?subject=Eu tenho um comentário para você..." title=""><span> <i class="fa fa-envelope"></i></span></a></li>
+				          </ul>
+				    </div><!-- /row -->
+				  </div><!-- /container -->    
+				</section><!-- </social-links> Final Sessão Redes Sociais -->
+
+				<!-- ==============================================
+				   Créditos (Credits)
+				=============================================== --> 
+				<section class="copyright">
+				  <div class="container">
+				    <div class="col-md-12">
+				      <div class="text-center"> 
+				        <!-- Logo Header -->
+				        <section id="fox_footer" class="fox_footer">
+				          <div> <img src="images/logofooter.png" alt="Foxin by Elisandro Mello"> - &copy;<script>document.write(new Date().getFullYear())</script> - Designer coded and designed by  <i class="fa fa-cloud-upload"></i> Elisandro Mello</div>
+				          
+				        </section>
+				        <!--/ Logo Header-->
+				      </div>
+				    </div><!-- </col-md-12> -->
+				  </div><!-- </container> -->
+				</section><!-- </copyright> Final Section Copyright -->
+			</footer>
+			<!-- Back To Top -->
+			<a id="back-to-top" href="#">
+				<i class="font-icon-arrow-simple-up"></i>
+			</a>
+			<!-- End Back to Top -->
+
+			<!--==============================================
+			Modal Delete (Delete Opportunity )
+			===============================================-->
+		   <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		    	<div class="modal-dialog">
+		    		<div class="modal-content modal-popup">
+		    			<div class="modal-header">
+		    				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		    				<h2 class="modal-title">Opportunities Management</h2>
+		    			</div>
+
+		    			
+		    			<div class="row">
+		    				<div class="col-md-10 centered">
+		    					<div class="modal-containerStep">
+		    						<span class="step-num">1</span>
+		    						<div class="modal-text">
+		    							<span class="hidden-xs">About the </span> opportunity
+		    						</div>
+		    					</div>
+		    				</div>
+		    			</div>
+
+		    			<form action="#" method="post">
+		    				<div class="modal-groupForm">
+		    					<div class="grupo-input">
+		    						<span class="grupo-input-img"><i class="fa fa-user-plus"></i></span>
+		    						<input type="text" name="comment" class="input-modal" placeholder="Ex. Analista Jr" >
+		    					</div>
+		    				</div>
+
+							<div class="modal-groupForm">
+								<textarea class="textarea-modal" rows="5" placeholder="Describe the job opportunity assignments"></textarea>	
+							</div>
+
+							<div class="col-md-12 text-center">
+								<input name="submit" type="submit" class="form-control" id="submit" value="Delete">
+							</div>
+
+		    			</form>
+		    		</div><!-- </modal-content> -->
+		    	</div><!-- </modal-dialog> -->
+		   </div><!-- </modal> -->			
+
+			<!--==============================================
+			Modal Add Opportunitty (Add Nova Oportunidade )
+			===============================================-->
+		   <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		    	<div class="modal-dialog">
+		    		<div class="modal-content modal-popup">
+		    			<div class="modal-header">
+		    				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		    				<h2 class="modal-title">Inclusion of Opportunity</h2>
+		    			</div>
+
+		    			
+		    			<div class="row">
+		    				<div class="col-md-10 centered">
+		    					<div class="modal-containerStep">
+		    						<span class="step-num">1</span>
+		    						<div class="modal-text">
+		    							<span class="hidden-xs">About the </span> opportunity
+		    						</div>
+		    					</div>
+		    				</div>
+		    			</div>
+
+		    			<form action="#" method="post">
+		    				<div class="modal-groupForm">
+		    					<div class="grupo-input">
+		    						<span class="grupo-input-img"><i class="fa fa-user-plus"></i></span>
+		    						<input type="text" name="comment" class="input-modal" placeholder="Ex. Analista Jr" >
+		    					</div>
+		    				</div>
+
+							<div class="modal-groupForm">
+								<textarea class="textarea-modal" rows="5" placeholder="Describe the job opportunity assignments"></textarea>	
+							</div>
+
+							<div class="row">
+			    				<div class="col-md-10 centered">
+			    					<div class="modal-containerStep">
+			    						<span class="step-num">2</span>
+			    						<div class="modal-text">
+			    							Requirements
+			    						</div>
+			    					</div>
+			    				</div>
+			    			</div>
+
+		    				<div class="modal-groupForm">
+								<table>
+									<tr>
+										<td>
+											<input type="checkbox" name="checkbox-bnf01" id="checkbox-rqs01" class="css-checkbox" checked="checked" />
+											<label for="checkbox-rqs01" class="css-label">Servers</label>
+										</td>
+										<td>
+											<input type="checkbox" name="checkbox-rqs02" id="checkbox-rqs02" class="css-checkbox" />
+											<label for="checkbox-rqs02" class="css-label">Cloud</label>
+										</td>
+										<td>
+											<input type="checkbox" name="checkbox-rqs03" id="checkbox-rqs03" class="css-checkbox" />
+											<label for="checkbox-rqs03" class="css-label">Virtualization</label>
+										</td>
+										<td>
+											<input type="checkbox" name="checkbox-rqs04" id="checkbox-rqs04" class="css-checkbox" />
+											<label for="checkbox-rqs04" class="css-label">Routers</label>
+										</td>
+									</tr>
+								</table>
+		    				</div>
+
+		    				<div class="modal-groupForm">
+		    					<table>
+									<tr>
+										<td>
+											<input type="checkbox" name="checkbox-rqs05" id="checkbox-rqs05" class="css-checkbox" />
+											<label for="checkbox-rqs05" class="css-label">Firewalls</label>
+										</td>
+										<td>
+											<input type="checkbox" name="checkbox-rqs06" id="checkbox-rqs06" class="css-checkbox" />
+											<label for="checkbox-rqs06" class="css-label">Backup</label>
+										</td>
+										<td>
+											<input type="checkbox" name="checkbox-rqs07" id="checkbox-rqs07" class="css-checkbox" />
+											<label for="checkbox-rqs07" class="css-label">Sotorage</label>
+										</td>
+									</tr>
+								</table>
+		    				</div>
+
+							<div class="row">
+			    				<div class="col-md-10 centered">
+			    					<div class="modal-containerStep">
+			    						<span class="step-num">3</span>
+			    						<div class="modal-text">
+			    							Additional Benefits
+			    						</div>
+			    					</div>
+			    				</div>
+			    			</div>
+
+							<div class="modal-groupForm">
+								<table>
+									<tr>
+										<td>
+											<input type="checkbox" name="checkbox-bnf01" id="checkbox-bnf01" class="css-checkbox" checked="checked" />
+											<label for="checkbox-bnf01" class="css-label">Health Care</label>
+										</td>
+										<td>
+											<input type="checkbox" name="checkbox-bnf02" id="checkbox-bnf02" class="css-checkbox" />
+											<label for="checkbox-bnf02" class="css-label">Dental Care</label>
+										</td>
+										<td>
+											<input type="checkbox" name="checkbox-bnf03" id="checkbox-bnf03" class="css-checkbox" />
+											<label for="checkbox-bnf03" class="css-label">Fuel Aidon</label>
+										</td>
+										<td>
+											<input type="checkbox" name="checkbox-bnf04" id="checkbox-bnf04" class="css-checkbox" />
+											<label for="checkbox-bnf04" class="css-label">Parking</label>
+										</td>
+									</tr>
+								</table>
+		    				</div>
+
+		    				<div class="modal-groupForm">
+		    					<table>
+									<tr>
+										<td>
+											<input type="checkbox" name="checkbox-bnf05" id="checkbox-bnf05" class="css-checkbox" />
+											<label for="checkbox-bnf05" class="css-label">Meal Ticket</label>
+										</td>
+										<td>
+											<input type="checkbox" name="checkbox-bnf06" id="checkbox-bnf06" class="css-checkbox" /><label for="checkbox-bnf06" class="css-label">Food Stamps</label>
+										</td>
+										<td>
+											<input type="checkbox" name="checkbox-bnf07" id="checkbox-bnf07" class="css-checkbox" />
+											<label for="checkbox-bnf07" class="css-label">Private Pension</label>
+										</td>
+									</tr>
+								</table>
+		    				</div>			    													
+
+							<div class="col-md-12 text-center">
+								<input name="submit" type="submit" class="form-control" id="submit" value=" Add Opportunity ">
+							</div>
+
+		    			</form>
+		    		</div><!-- </modal-content> -->
+		    	</div><!-- </modal-dialog> -->
+		   </div><!-- </modal> -->			
+		</div><!-- /div de Layout Geral -->
+
+		<!-- ==============================================
+		Javascripts
+		================================================== -->
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="public/bower_components/jquery/dist/jquery.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->		
+		<script src="public/bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script> <!-- Bootstrap -->
+		<script type="text/javascript" src="js/tmp/classie.js"></script>
+		<!-- Contact JS -->
+		<script src="public/bower_components/jqBootstrapValidation/src/jqBootstrapValidation.js"></script><!--BootstrapValidation-->
+		<!-- Wow JS -->
+		<script src="public/bower_components/wow/dist/wow.min.js"></script> <!-- WOW --> 
+		<script src="public/bower_components/flexslider/jquery.flexslider-min.js"></script> <!-- FlexSlider JS (Slider Indicações) -->
+		<script src="public/bower_components/jquery.scrollTo/jquery.scrollTo.min.js"></script> <!-- ScrollTo -->		
+		<script src="public/bower_components/jquery.easing/js/jquery.easing.min.js"></script> <!-- Easing -->
+		<script src="public/bower_components/jpreloader/js/jpreloader.min.js"></script> <!-- PreLoader -->	
+		<script src="js/smooth-scrolling.js"></script> <!-- Deslocamento Suave Sesões - One Page -->
+		<script src="js/main.js"></script> <!-- Default JS -->
+		<script src="js/timeline-loader.js"></script> <!-- Plus Timeline Item -->
+
+		<!-- Tuner ACessibilidade de Cores -->
+		<script src="public/tuner/js/tunner.js"></script>
+		<div id="tuner" class="tuner">
+			<label>Theme Colors</label>
+			<ul class="colors">
+				<li data-color="orange" class="color-orange"><span></span></li>
+				<li data-color="purple" class="color-purple"><span></span></li>
+				<li data-color="green" class="color-green"><span></span></li>
+				<li data-color="pink" class="color-pink"><span></span></li>
+				<li data-color="blue" class="color-blue active"><span></span></li>
+				<li data-color="cyan" class="color-cyan"><span></span></li>
+			</ul><!-- </ colors> -->
+			<label>Layout Styles</label>
+			<ul class="layouts">
+				<li data-layout="boxed">Boxed</li>
+				<li data-layout="widescreen" class="active">Widescreen</li>
+			</ul>
+			<i id="tuner-switcher" class="fa fa-cogs"></i>
+		</div><!-- </tuner> -->
+		<!--/ tuner -->
+	</body>
+</html>

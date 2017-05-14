@@ -1,0 +1,23 @@
+{
+    "name": "Bruno/hxphp",
+    "require": {
+        "php-activerecord/php-activerecord": "dev-master",
+        "avbdr/php-bootstrap-form": "dev-master",
+        "verot/class.upload.php": "dev-master"
+    },
+    "authors": [
+        {
+            "name": "Elisandro Mello Corrêa",
+            "email": "iam@elisandromello.com.br"
+        },
+        {
+            "name": "Paloma da Rosa Correa",
+            "email": "paloma@elisandromello.com.br"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "": ["src/"]
+        }
+    }
+}

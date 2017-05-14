@@ -1,0 +1,49 @@
+/*	Time Line Rail - Dashed
+/*	Linha do Tempo Tracejada
+/* ========================================*/
+@import atoms/plus-icon
+
+.timeline-rail
+  position: absolute
+  top: 0px
+  bottom: 0px
+  left: 218px
+  width: 0px
+  border-left: 1px dashed
+  border-color: #e5e5e5 !important
+  line-height: 1
+
+.timeline-rail
+  &::before, &::after
+    background-color: #999999
+
+
+@media (max-width: 767px)
+  .timeline-rail
+    left: 8px
+
+.timeline-rail
+  &::before, &::after
+    content: ''
+    display: block
+    position: absolute
+    left: -3px
+    width: 5px
+    height: 5px
+    -webkit-border-radius: 5px
+    border-radius: 5px
+
+.timeline-rail::before
+  top: -2px
+		
+.timeline-rail::after
+  bottom: -2px
+
+	
+.timeline-loader-btn
+  position: absolute
+  bottom: -13px
+  left: -13px
+  z-index: 2
+  display: inline-block
+  vertical-align: middle

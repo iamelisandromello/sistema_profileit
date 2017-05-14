@@ -1,0 +1,53 @@
+section.update-menu
+	.options-menu
+		+flexbox
+		+align-items(center)
+		+justify-content(space-around)
+		margin: 20px 0 20px 0
+		text-align: center
+
+		+make-sm-column(10)
+		+make-sm-column-offset(1)
+
+		+breakpoint($tablet)
+			display: block
+			margin-bottom: 10px !important 
+
+		.item-central
+			+order(3)
+			+breakpoint($tablet)
+				margin: 0 0 30px
+
+		[class^="icone-"]
+			width: 90px
+			height: 90px
+			background-color: $cyan
+			+border-radius(120px)
+			text-align: center
+			line-height: 85px
+			color: $branco
+			+font-size(55px)
+
+			+breakpoint($tablet)
+				display: inline-block
+				width: 75px
+				height: 75px
+				line-height: 75px
+				+font-size(50px)
+				margin: 0 3px 10px
+
+			&.icone-lapis
+				+order(5)
+
+			&.icone-codigo
+				+order(2)
+
+			&.icone-coracao
+				+order(4)
+
+			&.icone-compartilhar
+				+order(1)
+
+			&:hover, &:active, &:focus
+			   background-color: $azul-claro
+			   color: $laranja

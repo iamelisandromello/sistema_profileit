@@ -1,0 +1,33 @@
+html { height: 100%; }
+
+body {
+    height: 100%;
+    font-family: 'Lato', Calibri, Arial, sans-serif;
+    
+    background: #ddd url(../img/bg2_login.jpg) repeat top left;    
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+    
+    font-weight: 300;
+    font-size: 15px;
+    color: #333;
+    -webkit-font-smoothing: antialiased;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.main{
+	margin-top: 30px;
+	margin-bottom: 25px;
+}
+
+.panel-error{
+	align-content: center;
+	text-align: center;
+	border-color: #8a1e12;	
+}
+
+.panel-error h4{
+	color: white;
+}

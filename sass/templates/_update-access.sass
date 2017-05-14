@@ -1,0 +1,76 @@
+@import organisms/update-access
+
+.quadro	
+	margin-right: 10px
+	margin-bottom: 15px
+	padding-top: 25px
+	padding-left: 15px
+
+	height: auto
+
+	form
+	
+	+clearfix
+	+make-sm-column(12)
+
+
+	.cols
+		+make-row
+	.col
+		+make-sm-column(12)
+
+	input,
+	select,
+	textarea
+		width: 100%
+		color: $branco
+		border: 2px solid $cinza-claro
+		background-color: transparent
+		padding: 7px
+		text-transform: uppercase
+		+transition(.3s)
+
+		&:hover
+			border-color: $lilas
+
+		&:focus
+			border-color: #66afe9
+			outline: 0
+			-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6)
+			box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.075), 0px 0px 8px rgba(102, 175, 233, 0.6)			
+
+	input::-webkit-input-placeholder
+	    color: #fff
+	    text-shadow: 0 -1px 1px rgba(0,0,0,0.4)
+
+	textarea
+		height: 200px
+
+	select
+		height: 37px
+
+	.botao
+		background-color: #1fa274
+		color: $elementos
+		float: right
+		margin-top: 15px
+		margin-bottom: 25px
+
+	button
+		background-color: transparent
+		display: table
+		margin: 0 auto
+
+	.bg-success,
+	.bg-danger
+		padding: 7px
+
+.quadro1
+	+clearfix
+	margin-right: 10px
+	margin-bottom: 15px
+	padding-top: 0px
+	padding-left: 0px
+	min-height: 400px
+	
+

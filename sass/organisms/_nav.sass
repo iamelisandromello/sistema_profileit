@@ -1,0 +1,454 @@
+@media print
+  *
+    text-shadow: none !important
+    color: #000 !important
+    background: 0 0 !important
+    box-shadow: none !important
+  a
+    text-decoration: underline
+    &:visited
+      text-decoration: underline
+    &[href]:after
+      content: " (" attr(href) ")"
+  abbr[title]:after
+    content: " (" attr(title) ")"
+  a
+    &[href^="javascript:"]:after, &[href^="#"]:after
+      content: ""
+  img, tr
+    page-break-inside: avoid
+  img
+    max-width: 100% !important
+  .navbar
+    display: none
+
+*, :after, :before
+  box-sizing: border-box
+
+a
+  color: #e4812a
+  text-decoration: none
+  &:focus, &:hover
+    color: #096e6d
+    text-decoration: underline
+  &:focus
+    outline: thin dotted
+    outline: 5px auto -webkit-focus-ring-color
+    outline-offset: -2px
+
+[data-toggle=buttons] >
+  .btn input
+    &[type=checkbox], &[type=radio]
+      position: absolute
+      z-index: -1
+      opacity: 0
+      filter: alpha(opacity = 0)
+  .btn-group > .btn input
+    &[type=checkbox], &[type=radio]
+      position: absolute
+      z-index: -1
+      opacity: 0
+      filter: alpha(opacity = 0)
+
+.nav
+  margin-bottom: 0
+  padding-left: 0
+  list-style: none
+  > li
+    position: relative
+    display: block
+    > a
+      position: relative
+      display: block
+      padding: 10px 15px
+      &:focus, &:hover
+        text-decoration: none
+        background-color: #eee
+    &.disabled > a
+      color: #777
+      &:focus, &:hover
+        color: #777
+        text-decoration: none
+        background-color: transparent
+        cursor: not-allowed
+  .open > a
+    background-color: #eee
+    border-color: #1abc9c
+    &:focus, &:hover
+      background-color: #eee
+      border-color: #1abc9c
+  .nav-divider
+    height: 1px
+    margin: 13px 0
+    overflow: hidden
+    background-color: #e5e5e5
+  > li > a > img
+    max-width: none
+
+.navbar
+  position: relative
+  min-height: 70px
+  margin-bottom: 28px
+  border: 1px solid transparent
+
+@media (min-width: 992px)
+  .navbar
+    border-radius: 4px
+
+@media (min-width: 992px)
+  .navbar-header
+    float: left
+
+.navbar-collapse
+  overflow-x: visible !important
+  padding-right: 15px !important
+  padding-left: 15px !important
+  border-top: 1px solid transparent !important
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1) !important
+  -webkit-overflow-scrolling: touch !important
+  &.in
+    overflow-y: auto !important
+
+@media (min-width: 992px)
+  .navbar-collapse
+    width: auto
+    border-top: 0
+    box-shadow: none
+    &.collapse
+      display: block !important
+      height: auto !important
+      padding-bottom: 0
+      overflow: visible !important
+    &.in
+      overflow-y: visible
+  .navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse, .navbar-static-top .navbar-collapse
+    padding-left: 0
+    padding-right: 0
+
+.navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse
+  max-height: 340px
+
+@media (max-device-width: 480px) and (orientation: landscape)
+  .navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse
+    max-height: 200px
+
+.container >
+  .navbar-collapse, .navbar-header
+    margin-right: -15px
+    margin-left: -15px
+
+@media (min-width: 992px)
+  .container >
+    .navbar-collapse, .navbar-header
+      margin-right: 0
+      margin-left: 0
+
+.navbar-static-top
+  z-index: 1000
+  border-width: 0 0 1px
+
+@media (min-width: 992px)
+  .navbar-static-top
+    border-radius: 0
+
+.navbar-fixed-bottom
+  position: fixed
+  right: 0
+  left: 0
+  z-index: 1030
+  -webkit-transform: translate3d(0, 0, 0)
+  transform: translate3d(0, 0, 0)
+
+.navbar-fixed-top
+  position: fixed
+  right: 0
+  left: 0
+  z-index: 1030
+  -webkit-transform: translate3d(0, 0, 0)
+  transform: translate3d(0, 0, 0)
+  top: 0
+  border-width: 0 0 1px
+
+@media (min-width: 992px)
+  .navbar-fixed-bottom, .navbar-fixed-top
+    border-radius: 0
+
+.navbar-fixed-bottom
+  bottom: 0
+  margin-bottom: 0
+  border-width: 1px 0 0
+
+.navbar-brand
+  float: left
+  padding: 21px 15px
+  font-size: 18px
+  line-height: 28px
+  height: 70px
+  &:focus, &:hover
+    text-decoration: none
+  > img
+    display: block
+
+@media (min-width: 992px)
+  .navbar > .container .navbar-brand
+    margin-left: -15px
+
+.navbar-toggle
+  position: relative
+  float: right
+  margin-right: 15px
+  padding: 9px 10px
+  margin-top: 18px
+  margin-bottom: 18px
+  background-color: transparent
+  background-image: none
+  border: 1px solid transparent
+  border-radius: 4px
+  &:focus
+    outline: 0
+  .icon-bar
+    display: block
+    width: 22px
+    height: 2px
+    border-radius: 1px
+    + .icon-bar
+      margin-top: 4px
+
+@media (min-width: 992px)
+  .navbar-toggle
+    display: none
+
+.navbar-nav
+  margin: 10.5px -15px
+  > li >
+    a
+      padding-top: 10px
+      padding-bottom: 10px
+      line-height: 28px
+    .dropdown-menu
+      margin-top: 0
+      border-top-right-radius: 0
+      border-top-left-radius: 0
+
+@media (max-width: 991px)
+  .navbar-nav .open .dropdown-menu
+    position: static
+    float: none
+    width: auto
+    margin-top: 0
+    background-color: transparent
+    border: 0
+    box-shadow: none
+    .dropdown-header
+      padding: 5px 15px 5px 25px
+    > li > a
+      padding: 5px 15px 5px 25px
+      line-height: 28px
+      &:focus, &:hover
+        background-image: none
+
+@media (min-width: 992px)
+  .navbar-nav
+    float: left
+    margin: 0
+    > li
+      float: left
+      > a
+        padding-top: 21px
+        padding-bottom: 21px
+
+.navbar-fixed-bottom .navbar-nav > li > .dropdown-menu
+  border-bottom-right-radius: 0
+  border-bottom-left-radius: 0
+
+.navbar-btn
+  margin-top: 14px
+  margin-bottom: 14px
+  &.btn-sm
+    margin-top: 20px
+    margin-bottom: 20px
+  &.btn-xs
+    margin-top: 24px
+    margin-bottom: 24px
+
+.navbar-text
+  margin-top: 21px
+  margin-bottom: 21px
+
+@media (min-width: 992px)
+  .navbar-text
+    float: left
+    margin-left: 15px
+    margin-right: 15px
+
+@media (min-width: 992px)
+  .navbar-right
+    float: right !important
+    margin-right: -15px
+    ~ .navbar-right
+      margin-right: 0
+
+.navbar-default
+  background-color: #f8f8f8
+  border-color: #e7e7e7 !important
+  .navbar-brand
+    color: #fff
+    &:focus, &:hover
+      color: #e6e6e6
+      background-color: transparent
+  .navbar-text
+    color: #777
+  .navbar-nav >
+    li > a
+      color: #fff
+      &:focus, &:hover
+        color: #1abc9c
+        background-color: transparent
+    .active > a
+      color: #1abc9c
+      background-color: transparent
+      &:focus, &:hover
+        color: #1abc9c
+        background-color: transparent
+    .disabled > a
+      color: #ccc
+      background-color: transparent
+      &:focus, &:hover
+        color: #ccc
+        background-color: transparent
+  .navbar-toggle
+    border-color: #ddd
+    &:focus, &:hover
+      background-color: #ddd
+    .icon-bar
+      background-color: #888
+  .navbar-collapse, .navbar-form
+    border-color: #e7e7e7
+  .navbar-nav > .open > a
+    background-color: transparent
+    color: #1abc9c
+    &:focus, &:hover
+      background-color: transparent
+      color: #1abc9c
+  .navbar-link
+    color: #fff
+    &:hover
+      color: #1abc9c
+  .btn-link
+    color: #fff
+    &:focus, &:hover
+      color: #1abc9c
+    &[disabled]
+      &:focus, &:hover
+        color: #ccc
+
+@media (max-width: 991px)
+  .navbar-default .navbar-nav .open .dropdown-menu >
+    li > a
+      color: #fff
+      &:focus, &:hover
+        color: #1abc9c
+        background-color: transparent
+    .active > a
+      color: #1abc9c
+      background-color: transparent
+      &:focus, &:hover
+        color: #1abc9c
+        background-color: transparent
+    .disabled > a
+      color: #ccc
+      background-color: transparent
+      &:focus, &:hover
+        color: #ccc
+        background-color: transparent
+
+fieldset[disabled] .navbar-default .btn-link
+  &:focus, &:hover
+    color: #ccc
+
+.navbar-nav > li > a
+  padding-top: 0
+  padding-bottom: 0
+  line-height: 100px
+
+.navbar-default .navbar-nav > li > a:focus
+  color: #fff
+
+.navbar
+  color: #fff
+  font-size: 18px
+  margin-bottom: 0
+  min-height: 100px
+  border: none
+
+.navbar-default
+  -webkit-transition: .2s
+  transition: .2s
+  background-color: transparent
+  border-bottom: 1px solid transparent
+
+.navbar img
+  -webkit-transition: .2s
+  transition: 0.2s
+
+.navbar-brand
+  padding: 0
+  vertical-align: middle
+  height: 100px
+  line-height: 100px
+  img
+    display: inline-block
+    margin-left: 15px
+    margin-right: 15px
+
+.navbar-default.scroll
+  border-bottom: 1px solid #555
+  background-color: #333
+
+.navbar.scroll
+  min-height: 70px
+  .navbar-nav > li > a
+    line-height: 70px
+  .navbar-brand
+    height: 70px
+    line-height: 70px
+  img
+    width: 80%
+
+@media (max-width: 991px)
+  .navbar
+    min-height: 70px
+    line-height: 70px
+    .navbar-nav > li > a
+      line-height: 70px
+  .navbar-default .navbar-collapse
+    background-color: #333
+  .navbar
+    > li > a
+      line-height: 70px
+    .navbar-brand
+      height: 70px
+      line-height: 70px
+    img
+      width: 80%
+
+@media (max-width: 991px)
+  .navbar-default .navbar-nav > li > a
+    text-align: center
+  .navbar-collapse
+    border: none
+  .navbar-default .navbar-toggle
+    background-color: #fff
+    border-color: #fff
+    cursor: pointer
+    &:hover
+      background-color: #fff
+      border-color: #fff
+      cursor: pointer
+    &:focus
+      background-color: #fff
+      border-color: #fff
+    &.collapsed:focus
+      background-color: #fff
+    .icon-bar
+      background-color: #1abc9c

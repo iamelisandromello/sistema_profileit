@@ -1,0 +1,33 @@
+@import organisms/about
+
+#profile
+	+gradient(90deg, $sand2, $sand1)
+
+.container-temp
+	+clearfix
+	height: auto
+	padding: 0 0 0 0
+	margin: 0 0 0 0
+
+	.container-star		
+		+flexbox
+		+align-items(center)
+		+justify-content(space-around)
+		text-align: center
+
+		+make-sm-column(12)
+		+make-sm-column-offset(0)
+		margin: 20px 0 0 0
+		padding: 0 0 0 0
+		width: 100%
+		height: auto
+		+breakpoint($tablet-wide)
+			+make-sm-column(7)		
+		+breakpoint($paisagem)
+			+make-sm-column(6)
+
+	.description
+		margin-top: 25px
+		+breakpoint($tablet-wide)
+			margin: 40px 0 50px 0
+			text-align: center 

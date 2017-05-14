@@ -1,0 +1,68 @@
+.navbar li a:hover{
+	color:#d05943;
+}
+.navbar li.active a {
+	color: #d05943 !important;
+	border-bottom: 2px solid #d05943;
+}
+.bgg{
+	background-color:#d05943;
+}
+ul.social-media > li >a >i.fa {
+  background-color: #d05943;
+}
+.is-checked { 
+	background-color:#d05943;
+}
+.tf-btn {
+  background-color: #d05943;
+}
+.tf-btn:hover{
+  color: #d05943;
+}
+.header-button{
+   background-color: #d05943;
+}
+.header-button:hover{
+  color: #d05943;
+}
+.action-button{
+  color: #d05943;
+}
+.action-button:hover{
+  color: #d05943;
+}
+.title span{
+  color: #d05943; !important;
+}
+.progress-bar {
+  background-color: #d05943;
+}
+.service .media-left i {
+  background-color: #d05943;
+}
+.media-body h4 span{
+  background-color:#d05943;
+}
+.aboutme-title h5{
+  color: #d05943;
+}
+.icon-block i:after {
+  background-color: #d05943;
+}
+.btn-pricing {
+  background-color:#d05943;
+}
+.btn-pricing:hover{
+  color: #d05943;
+}
+#tf-clients{
+  background:#d05943;
+}
+.form-btn {
+  background-color: #d05943;
+}
+.form-btn:focus{
+  color: #d05943;
+}
+

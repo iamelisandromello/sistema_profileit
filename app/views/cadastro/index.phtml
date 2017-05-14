@@ -1,0 +1,34 @@
+                <div class="container">          
+                  <header>                  
+                    <h1> <strong>ProfileIT</strong> Sistema Colaborativo</h1>
+                    <h2>Otimize seus Relacionamnetos Profissionais</h2>         
+
+                    <div class="support-note">
+                      <span class="note-ie">Sorry, only modern browsers.</span>
+                    </div>
+                    
+                  </header>
+                  
+                  <section class="main">
+                    <?php echo (isset($this->alert) ? $this->alert : ''); ?>
+                    <form action="<?php echo BASE; ?>cadastro/cadastrar/" class="form-user clearfix" method="post">                    
+                      <p>
+                        <input required type="text" name="name" class="form-control" id="name" placeholder="hxtutors" value="<?php echo $this->request->post('name') ?>">
+                        <input required type="email" name="email" class="form-control" id="email" placeholder="seuemail@site.com.br" value="<?php echo $this->request->post('email') ?>">
+                        <input required type="text" name="username" class="form-control" id="username" placeholder="hxtutors" value="<?php echo $this->request->post('username') ?>">
+                        <input required type="password" name="password" class="form-control" id="password" placeholder="Sua senha">
+                      </p>
+                      <button type="submit">
+                        <i class="fa fa-floppy-o"></i>
+                        <span>Register</span>
+                      </button>
+                      <!--<button type="submit" class="btn btn-success">Cadastrar</button>-->
+                      <a href="login" >
+                        <button type="button" id="cancel" value="cancel" name="cancel"> 
+                        <i class="fa fa-ban"></i>
+                        <span>Cancel</span>
+                      </button>
+                      </a>   
+                    </form>​​​​
+                  </section>                 
+                </div>

@@ -1,0 +1,11 @@
+@import organisms/table-historic
+@import organisms/table-academic
+
+section.update-historic
+	min-height: 600px auto
+	.update-table
+		+make-sm-column(6)
+
+	+breakpoint($widescreen)
+		.update-table
+			+make-sm-column(12)

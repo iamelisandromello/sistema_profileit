@@ -1,0 +1,97 @@
++breakpoint($default)
+	.form-horizontal .controle-etiqueta
+	    text-align: right
+	    text-transform: uppercase
+	    margin-bottom: 0px
+	    padding-top: 7px
+
+.grupo-input
+  	position: relative
+  	display: table
+  	border-collapse: separate
+
+
+\:first-child.grupo-input-img
+ 	border-right: 0
+
+.grupo-input :first-child.controle-Form
+	border-bottom-right-radius: 0px
+	border-top-right-radius: 0px
+
+\:first-child
+	&.grupo-input-img
+	    border-bottom-right-radius: 0px
+	    border-top-right-radius: 0px
+
+.grupo-input-img
+	padding: 6px 12px
+	font-size: 14px
+	font-weight: normal
+	line-height: 1
+	color: #1dc9e3
+	text-align: center
+	background-color: transparent
+	border: 2px solid $cinza-claro
+	border-radius: 4px
+	width: 1%
+	white-space: nowrap
+	vertical-align: middle
+
+.grupo-input-img, .grupo-input .control-Form
+	display: table-cell
+
+.grupo-input :last-child.controle-Form
+	border-bottom-left-radius: 0px
+	border-top-left-radius: 0px
+
+\:last-child
+	&.grupo-input-img
+	    border-bottom-left-radius: 0px
+	    border-top-left-radius: 0px
+
+
+.grupo-input .controle-Form:focus
+	z-index: 3
+
+.grupo-input-img, .grupo-inupt .controle-Form
+	display: table-cell
+
+.grupo-input .controle-Form
+	position: relative
+	z-index: 2
+	float: left
+	width: 100%
+	margin-bottom: 0px
+
+.controle-Form:hover
+	border-color: $bourboun2
+
+.controle-Form:focus
+	border-color: #66afe9
+	outline: 0
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6)
+	box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.075), 0px 0px 8px rgba(102, 175, 233, 0.6)
+
+.controle-Form
+	display: block
+	width: 100%
+	color: grey
+	border: 2px solid $cinza-claro
+	background-color: transparent	
+	height: 37px
+	padding: 7px 12px
+	font-size: 14px
+	text-transform: uppercase
+	+transition(.3s)
+	line-height: 1.4285
+	background-image: none
+	border-radius: 4px
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075)
+	box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.075)
+	-webkit-transition: border-color ease-in-out 0.15s,box-shadow ease-in-out 0.15s
+	-o-transition: border-color ease-in-out 0.15s,box-shadow ease-in-out 0.15s
+	transition: border-color ease-in-out 0.15s,box-shadow ease-in-out 0.15s		
+
+.controle-Form::-webkit-input-placeholder
+    color: green
+    text-shadow: 0 -1px 1px rgba(0,0,0,0.4)

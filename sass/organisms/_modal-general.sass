@@ -1,0 +1,153 @@
+/*---------------------------------------
+/*   Personalização de Modal Geral             
+/*---------------------------------------
+.modal-dialog .modal-content
+  background-color: #535bd4
+  border: none
+  border-radius: 2px
+  text-align: center
+  padding: 30px 50px 80px 50px
+  position: relative
+  overflow: auto
+
+.btn:focus
+  outline: none
+
+.modal-header
+  border-bottom: 0px
+
+.modal-groupForm
+  margin-top: 20px
+
+.modal-containerStep
+  margin-top: 20px
+  margin-bottom: 0px
+
+.modal-text
+  font-size: 16px
+  font-weight: bold
+  line-height: 18px
+  color: #333
+  padding: 12px 0
+  float: left
+  text-transform: uppercase
+  padding-left: 10px
+
+.modal-subText
+  font-size: 12px
+  font-weight: bold
+  line-height: 18px
+  color: #333
+  padding: 12px 0
+  float: left
+  text-transform: uppercase
+  padding-left: 10px
+
+.modal-dialog
+  .close
+    color: #ffffff
+    font-size: 45px
+    font-weight: 300
+    text-shadow: none
+    opacity: 1
+    position: absolute
+    top: 40px
+    right: 40px
+    border-radius: 100px
+    width: 30px
+    height: 30px
+    line-height: 30px
+    text-align: center
+    &:focus
+      outline: none
+  .modal-title
+    color: #ffffff
+  form
+    padding: 20px
+    input
+      height: 50px
+  .form-control
+    background: transparent
+    border: 1px solid #f0f0f0
+    border-radius: 0px
+    box-shadow: none
+    color: #ffffff
+    font-size: 20px
+    margin-bottom: 20px
+    transition: all 0.4s ease-in-out
+    &:focus
+      border-top-color: transparent
+      border-right-color: transparent
+      border-left-color: transparent
+      border-bottom-color: #ffffff
+  form input[type="submit"]
+    background: #1dc9e3
+    border: 3px solid transparent
+    border-radius: 100px
+    font-weight: 400
+    letter-spacing: 1px
+    color: #ffffff
+    text-transform: uppercase
+    margin-top: 30px
+    &:hover
+      background: transparent
+      border-color: #1dc9e3
+      color: #ffffff
+  .form-control
+    &::-moz-placeholder
+      color: #ffffff !important
+      opacity: 1 !important
+    &:-ms-input-placeholder, &::-webkit-input-placeholder
+      color: #ffffff
+
+.modal.fade
+  .modal-dialog
+    -webkit-perspective: 1300px
+    -moz-perspective: 1300px
+    perspective: 1300px
+  .modal-content
+    -webkit-transform-style: preserve-3d
+    -moz-transform-style: preserve-3d
+    transform-style: preserve-3d
+    -webkit-transform: translateZ(-3000px) rotateY(90deg)
+    -moz-transform: translateZ(-3000px) rotateY(90deg)
+    -ms-transform: translateZ(-3000px) rotateY(90deg)
+    transform: translateZ(-3000px) rotateY(90deg)
+    opacity: 0
+  &.in .modal-content
+    -webkit-animation: slit .7s forwards ease-out
+    -moz-animation: slit .7s forwards ease-out
+    animation: slit .7s forwards ease-out
+
+
+@-webkit-keyframes slit
+  50%
+    -webkit-transform: translateZ(-250px) rotateY(60deg)
+    opacity: .5
+    -webkit-animation-timing-function: ease-out
+
+  100%
+    -webkit-transform: translateZ(0) rotateY(0deg)
+    opacity: 1
+
+
+@-moz-keyframes slit
+  50%
+    -moz-transform: translateZ(-250px) rotateY(60deg)
+    opacity: .5
+    -moz-animation-timing-function: ease-out
+
+  100%
+    -moz-transform: translateZ(0) rotateY(0deg)
+    opacity: 1
+
+
+@keyframes slit
+  50%
+    transform: translateZ(-250px) rotateY(60deg)
+    opacity: 1
+    animation-timing-function: ease-in
+
+  100%
+    transform: translateZ(0) rotateY(0deg)
+    opacity: 1

@@ -1,0 +1,45 @@
+.btn-circular {
+	font-size: 12px;
+	border-radius: 26px!important;
+	padding: 7px; 
+	border-color: #7AC29A!important;
+	color: #7AC29A!important; 
+	box-sizing: border-box;
+	border-width: 2px!important;
+	background-color: transparent!important;
+	font-weight: 500;	
+	opacity: 1;
+	filter: alpha(opacity=100); 
+	line-height: 1.5;
+	display: inline-block;
+	margin-bottom: 0px;
+
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	border: 1px solid transparent;
+	background-image: none;
+
+
+
+	-webkit-transition: all 150ms linear;
+	-moz-transition: all 150ms linear;
+	-o-transition: all 150ms linear;
+	-ms-transition: all 150ms linear;
+	transition: all 150ms linear;
+
+	list-style: none;
+}
+
+.btn-circular:hover, .btn-circular:focus, .btn-circular:active {
+    background-color: #7ac29a;
+    color: rgba(255, 255, 255, 0.7);
+    border-color: #7AC29A;
+}

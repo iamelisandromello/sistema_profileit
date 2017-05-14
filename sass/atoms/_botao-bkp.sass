@@ -1,0 +1,66 @@
+.botao
+  display: inline-block
+  margin-bottom: 0 !important
+  font-weight: 400
+  text-align: center
+  vertical-align: middle
+  -ms-touch-action: manipulation
+  touch-action: manipulation
+  cursor: pointer
+  background-image: none
+  border: 1px solid transparent
+  white-space: nowrap
+  padding: 6px 12px
+  font-size: 14px !important
+  line-height: 2 !important
+  border-radius: 4px !important
+  -webkit-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  user-select: none
+
+.botao
+  &.active
+    &.focus, &:focus
+      outline: thin dotted
+      outline: 5px auto -webkit-focus-ring-color
+      outline-offset: -2px
+  &.focus
+    outline: thin dotted
+    outline: 5px auto -webkit-focus-ring-color
+    outline-offset: -2px
+  &:active
+    &.focus, &:focus
+      outline: thin dotted
+      outline: 5px auto -webkit-focus-ring-color
+      outline-offset: -2px
+  &:focus
+    outline: thin dotted
+    outline: 5px auto -webkit-focus-ring-color
+    outline-offset: -2px
+
+.botao
+  &.focus, &:focus, &:hover
+    color: #333
+    text-decoration: none
+
+.botao
+  &.active, &:active
+    outline: 0
+    background-image: none
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125)
+
+.botao
+  &.disabled, &[disabled]
+    cursor: not-allowed
+    pointer-events: none
+    opacity: .65
+    filter: alpha(opacity = 65)
+    box-shadow: none
+
+fieldset[disabled] .botao
+  cursor: not-allowed
+  pointer-events: none
+  opacity: .65
+  filter: alpha(opacity = 65)
+  box-shadow: none

@@ -1,0 +1,71 @@
+@import molecules/overlay
+@import atoms/avatar-md
+
+.recommendation
+  position: relative !important
+  background: url(../images/bg-quotes.jpg) no-repeat 50% 50% fixed !important
+  -webkit-background-size: cover  !important
+  -moz-background-size: cover  !important
+  -o-background-size: cover  !important
+  color: #fff  !important
+  padding-top: 100px  !important
+  padding-bottom: 100px  !important
+  +breakpoint($celular)
+    .quote-slider
+      padding-top: 50px
+    h1
+      font-size: 24px!important
+
+
+@media (max-width: 991px)
+  .recommendation
+    background-attachment: scroll
+
+/*icone titulo - aspas
+
+.quote-icon
+  font-size: 40px
+  color: #fff
+
+.quote-slider-slide-container
+  padding-left: 140px
+  position: relative
+
+@media (max-width: 768px)
+  .quote-slider-slide-container
+    padding-left: 0
+    text-align: center
+
+.avatar-md.quote-slider-img
+  left: 0
+  position: absolute
+
+@media (max-width: 768px)
+  .avatar-md.quote-slider-img
+    position: relative
+    margin: 15px 0 15px 0
+
+.quote-slider-single
+  font-size: 24px
+  +breakpoint($paisagem)
+    font-size: 20px
+  +breakpoint($celular)
+    font-size: 18px  
+
+.quote-slider-name
+  font-size: 16px
+  margin: 15px 0
+
+.quote-slider
+  .flex-control-nav
+    position: relative
+    height: 8px
+    &.flex-control-paging
+      bottom: 0
+  .flex-control-paging li a
+    border-radius: 0
+    width: 50px
+    height: 8px
+    &.flex-active
+      background: #e4812a
+      cursor: pointer

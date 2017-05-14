@@ -1,0 +1,31 @@
+//Configuração de Radio Button
+
+input[type="radio"]
+  display: none
+  + label
+    color: #292321
+    font-family: Arial, sans-serif
+    font-size: 14px
+    span
+      display: inline-block
+      width: 19px
+      height: 19px
+      margin: -1px 4px 0 0
+      vertical-align: middle
+      cursor: pointer
+      -moz-border-radius: 50%
+      border-radius: 50%
+      background-color: $cyan
+  &:checked
+    + label span
+      background-color: $orange
+    + label span
+      -webkit-transition: background-color 0.4s linear
+      -o-transition: background-color 0.4s linear
+      -moz-transition: background-color 0.4s linear
+      transition: background-color 0.4s linear
+  + label span
+    -webkit-transition: background-color 0.4s linear
+    -o-transition: background-color 0.4s linear
+    -moz-transition: background-color 0.4s linear
+    transition: background-color 0.4s linear

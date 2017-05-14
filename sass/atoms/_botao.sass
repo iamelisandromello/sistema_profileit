@@ -1,0 +1,99 @@
+.btn
+  display: inline-block
+  margin-bottom: 0 !important
+  font-weight: 400
+  text-align: center
+  vertical-align: middle
+  -ms-touch-action: manipulation
+  touch-action: manipulation
+  cursor: pointer
+  background-image: none
+  border: 1px solid transparent
+  white-space: nowrap
+  padding: 6px 12px
+  font-size: 14px !important
+  line-height: 2 !important
+  border-radius: 4px !important
+  -webkit-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  user-select: none
+
+.btn
+  &.active
+    &.focus, &:focus
+      outline: thin dotted !important
+      outline: 5px auto -webkit-focus-ring-color !important
+      outline-offset: -2px !important
+  &.focus
+    outline: thin dotted !important
+    outline: 5px auto -webkit-focus-ring-color !important
+    outline-offset: -2px !important
+  &:active
+    &.focus, &:focus
+      outline: thin dotted !important
+      outline: 5px auto -webkit-focus-ring-color !important
+      outline-offset: -2px !important
+  &:focus
+    outline: thin dotted !important
+    outline: 5px auto -webkit-focus-ring-color !important
+    outline-offset: -2px !important
+
+.btn
+  &.focus, &:focus, &:hover
+    color: #333
+    text-decoration: none
+
+.btn
+  &.active, &:active
+    outline: 0
+    background-image: none
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125) !important
+
+.btn
+  &.disabled, &[disabled]
+    cursor: not-allowed !important
+    pointer-events: none !important
+    opacity: .65 !important
+    filter: alpha(opacity = 65) !important
+    box-shadow: none !important
+
+
+
+//primario
+.btn-primary
+  color: #fff
+  background-color: #0fb5b3 !important
+  border-color: #0fb5b3 !important
+
+.btn-primary
+  &:active, &:focus, &:hover
+    color: #fff
+    background-color: #0b8684 !important
+    border-color: #0a7c7b !important
+
+.btn-primary
+  &.active, &:active
+    background-image: none !important
+
+.btn-primary
+  &.disabled
+    background-color: #0fb5b3
+    border-color: #0fb5b3
+    &.active, &.focus, &:active, &:focus, &:hover
+      background-color: #0fb5b3
+      border-color: #0fb5b3
+  &[disabled]
+    background-color: #0fb5b3
+    border-color: #0fb5b3
+    &.active, &.focus, &:active, &:focus, &:hover
+      background-color: #0fb5b3
+      border-color: #0fb5b3
+
+.btn-primary .badge
+  color: #0fb5b3
+  background-color: #fff
+
+.btn-primary:hover
+  background-color: #333
+  border: 1px solid #333

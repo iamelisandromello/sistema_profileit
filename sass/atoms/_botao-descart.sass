@@ -1,0 +1,43 @@
+/* ==================================================
+ *   Buttons
+ *==================================================
+
+.botao
+  display: inline-block
+  margin-bottom: 0
+  padding: 13px 26px
+  -webkit-border-radius: 0
+  -moz-border-radius: 0
+  border-radius: 0
+  background-color: #f8f8f8
+  color: #d5dee5
+  vertical-align: middle
+  text-align: center
+  text-transform: uppercase
+  font-weight: 500
+  font-size: 16px
+  cursor: pointer
+  border: none
+  -webkit-transition: all 0.1s linear
+  -moz-transition: all 0.1s linear
+  -o-transition: all 0.1s linear
+  transition: all 0.1s linear
+  *border: 0
+  *zoom: 1
+  + .button
+    margin-left: 10px
+
+
+.botao
+  &:hover, &:active, &:focus
+    background-color: $elementos
+    color: #FFFFFF
+
+
+.botao
+  &.botao-block
+    padding-right: 0
+    padding-left: 0
+    width: 100%
+  + .botao
+    margin-left: 10px

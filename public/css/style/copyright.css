@@ -1,0 +1,10 @@
+.copyright {
+	background-color:#333;
+	padding:5px 0 5px 0;
+	color:#fff;
+	position:relative;
+	z-index:2
+}
+.copyright i {
+	color:#e4812a
+}

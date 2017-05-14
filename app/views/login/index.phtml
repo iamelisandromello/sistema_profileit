@@ -1,0 +1,29 @@
+            	<div class="container">					
+					<header>					
+						<h1> <strong>ProfileIT</strong> Sistema Colaborativo</h1>
+						<h2>Otimize seus Relacionamnetos Profissionais</h2>					
+						<div class="support-note">
+							<span class="note-ie">Sorry, only modern browsers.</span>
+						</div>						
+					</header>
+					
+					<section class="main">
+	                    <?php echo (isset($this->alert) ? $this->alert : ''); ?>
+	                    <form class="form-user clearfix" action="<?php echo BASE; ?>login/logar/"  method="post">				
+						    <p>
+						        <input type="text" name="username" id="username" value="<?php echo $this->request->post('username') ?>" placeholder="Username">       
+						        <input type="password" name="password" id="password" placeholder="Your Password">
+						    </p>
+						    <button type="submit" name="submit">
+						    	<i class="fa fa-arrow-right"></i>
+						    	<span>Sign In</span>
+						    </button>  
+				            <a href="cadastro" >      
+				            <button type="button" id="register" value="register" name="register">	
+						    	<i class="fa fa-user"></i>
+						    	<span>Sign Up</span>
+						    </button>
+						    </a>
+						</form>​​​​
+					</section>					
+			    </div>

@@ -1,0 +1,93 @@
+			<footer>
+			<!-- ==============================================
+			    Footer (Rodapé)
+			    =============================================== -->
+				<section class="social-links">
+				  <div class="container">
+				    <div class="row">
+				          <ul>
+				            <li> <a href="https://www.facebook.com/profile.php?id=1800765934" target="_blank" title=""> <span> <i class="fa fa-facebook"></i> </span> </a> </li>
+				            <li> <a href="https://twitter.com/elisandromello" target="_blank" title=""> <span> <i class="fa fa-twitter"></i> </span> </a> </li>
+				            <li> <a href="http://www.linkedin.com/in/elisandromello" target="_blank" title=""> <span> <i class="fa fa-linkedin"></i> </span> </a> </li>
+				            <li> <a href="http://www.instagram.com/iamelisandromello" target="_blank" title=""> <span> <i class="fa fa-instagram"></i> </span> </a> </li>
+				            <li> <a href="https://github.com/iamelisandromello" target="_blank" title=""> <span> <i class="fa fa-github"></i> </span> </a> </li>
+				            <li> <a href="mailto:iam@elisandromello.com.br?subject=Eu tenho um comentário para você..." title=""><span> <i class="fa fa-envelope"></i></span></a></li>
+				          </ul>
+				    </div><!-- /row -->
+				  </div><!-- /container -->    
+				</section>
+
+				<!-- ==============================================
+				   Créditos (Credits)
+				    =============================================== --> 
+				<section class="copyright">
+				  <div class="container">
+				    <div class="col-md-12">
+				      <div class="text-center"> 
+				        <!-- Logo Header -->
+				        <section id="fox_footer" class="fox_footer">
+				          <div> <img src="<?php echo IMG; ?>logofooter.png" alt="Foxin by Elisandro Mello"> - &copy;<script>document.write(new Date().getFullYear())</script> - Designer codificado e projetado por <i class="fa fa-cloud-upload"></i> Elisandro Mello</div>
+				          
+				        </section>
+				        <!--/ Logo Header-->
+				      </div>
+				    </div>
+				  </div>
+				</section>				
+			</footer>
+			<!-- Back To Top -->
+			<a id="back-to-top" href="#">
+				<i class="font-icon-arrow-simple-up"></i>
+			</a>
+			<!-- End Back to Top -->
+
+			<!-- ==============================================
+			Inclusão de Vagas (Modal Vagas)
+			=============================================== --> 
+			<div class="container">
+				<div class="modal fade" id="modalVagas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+					    	<div class="modal-header">
+						        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						        <h4 class="modal-title" id="exampleModalLabel">Contato</h4>
+					      	</div>
+					    	<div class="modal-body">
+					        	<form method="post" action="" name="contato">
+					          		<div class="form-group">
+					            		<label for="recipient-name" class="control-label">Function:</label>
+					            		<input type="text" name="function" required class="form-control" id="recipient-name">
+					          		</div>
+					          		<div class="form-group">
+					            		<label for="recipient-name" class="control-label">Company:</label>
+					            		<input type="text" name="company" required class="form-control" id="recipient-name">
+					          		</div>
+					          		<div class="form-group">
+					            		<label for="recipient-name" class="control-label">Email:</label>
+					            		<input type="email" name="email" required class="form-control" id="recipient-name">
+					          		</div>
+					          		<div class="form-group">
+					            		<label for="message-text" class="control-label">Ddescription Function:</label>
+					            		<textarea required class="form-control" name="descrition" id="message-text"></textarea>
+					          		</div>
+					      	</div><!-- /div modal-body -->
+					      	<div class="modal-footer">
+					        	<button type="submit" class="btn btn-default" data-dismiss="modal">Fechar</button>
+					        	<input type="submit" value="Enviar" class="btn btn-primary">
+					      	</div>
+					      		</form>
+					    </div><!-- /div modal-content-->
+				  	</div><!-- /div modal-dialog -->
+				</div><!-- /modal -->
+			</div>
+		</div><!-- /div de Layout Geral -->
+
+		<script src="<?php echo BOWER; ?>bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="<?php echo JS; ?>jquery.scrollTo.min.js"></script> <!-- ScrollToTop -->		
+		<script src="<?php echo JS; ?>jquery.easing.min.js"></script> <!-- Easing -->
+		<script src="<?php echo JS; ?>jpreloader.min.js"></script> <!-- PreLoader -->
+		<script src="<?php echo JS; ?>plugins.js"></script> <!-- Contains: jPreloader, jQuery Easing, jQuery ScrollTo, jQuery One Page Navi -->
+		<script src="<?php echo JS; ?>main.js"></script> <!-- Default JS -->
+		<script src="<?php echo JS; ?>iamkevinrhodes.js"></script> <!-- Default JS -->				
+	</body>
+</html>

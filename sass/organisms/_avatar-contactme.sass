@@ -1,0 +1,23 @@
+@import molecules/avatar-contact
+.modal-containerAvatar 
+  margin-top: 10px
+  margin-bottom: 0px
+
+.container-avatarcontactme		
+	+flexbox
+	+align-items(center)
+	+justify-content(space-around)
+	text-align: center
+
+	+make-sm-column(12)
+	+make-sm-column-offset(0)
+
+	+breakpoint($paisagem)
+		+clearfix
+		+make-sm-column(6)
+
+	margin: 0 0 0 0
+	padding: 25px 0 25px 0
+
+	width: 100%
+	height: auto

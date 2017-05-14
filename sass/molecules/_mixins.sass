@@ -1,0 +1,166 @@
+/* ======== Paleta de Cores */
+$preto              : #000
+$branco             : white
+$azul               : #31b1e7
+$laranja            : orange
+$azul-claro         : #cadbdc
+$verde              : #9ad15e
+$vermelho           : #ff2742
+$cinza-claro        : #e1e1e1
+$cinza-skill        : #f6f6f6
+$cinza              : #666262
+$heading_color      : #636363
+$heading_tarja_color: #C72327
+
+/*Paleta de Cores Perfis */
+$orange             : #e4812a
+$purple             : #8560a8
+$pink               : #e5669c
+$green              : #00b85d
+$cyan               : #0fb5b3
+$blue               : #21acf0
+
+
+/*Gradientes Utilizados */
+/* ======== Gradiente Cinza */
+$sand1: #F6F4EC
+$sand2: #D7D3C8
+
+/* ======== Gradiente Mojito*/
+$mojito1: #1D976C 
+$mojito2: #93F9B9
+
+/* ======== Gradiente TeaLove*/
+$tealove1: #AAFFA9 
+$tealove2: #11FFBD
+
+/* ======== Gradiente Dark blue-grey */
+$dark-grey1: #6A7B86 
+$dark-grey2: #424F5A
+
+/* ======== Subtle Gray Gradient */
+$subtleGray1: #dee1e1
+$subtleGray2: #f4f4f4
+
+/* ======== Gradiente Bourboun */
+$bourboun1: #EC6F66
+$bourboun2: #F3A183
+
+/* ======== Gradiente Light blue-grey */
+$light-grey1: #EAEFF2
+$light-grey2: #D4DDE4
+
+
+/*Gradientes Não Utilizados */
+/* ======== Golden Face Gradient */
+$golden1: #8e7a3f 
+$golden2: #b09a51
+
+/* ======== Gradiente Sea Blizz*/
+$blizz1: #1CD8D2
+$blizz2: #93EDC7
+
+/* ======== Gradiente Quadros (Aqualicious)*/
+$Aqualicious1: #50C9C3
+$Aqualicious2: #96DEDA
+
+/* ======== Gradiente Quadros*/
+$gradiente1: #67657c
+$gradiente2: #4f647d
+
+/* ======== Gradiente Background*/
+$degrade1: #326879
+$degrade2: #776a76
+
+/* ======== Gradiente Button */
+$butt1: #EA3B28
+$butt2: #C13832
+
+
+/* ======== Icones e Molduras */
+$lilas: #8932ad
+$elementos: #1abc9c
+$moldura_avatar: #57c792
+
+/* ======== Font */
+$light: 300
+$regular: 400
+$bold: 700
+
+/* ======== BreakPoints Resoluções */
+$minimum: max-width 320px
+$celular: max-width 440px
+$phone-wide: max-width 480px
+$phablet: max-width 560px
+$iphone: max-width 640px
+$tablet: max-width 991px
+$paisagem: max-width 768px
+$tablet-wide: max-width 1024px
+$widescreen: max-width 1200px
+$desktop-wide: max-width 1440px
+$default: min-width 768px
+
+=flexbox
+  display: -webkit-box
+  display: -webkit-flex
+  display: -moz-flex
+  display: -ms-flexbox
+  display: flex
+
+=gradient($angle,$gradient1, $gradient2)
+  background-color: $gradient2 
+  background-image: -webkit-gradient(linear, $angle, from($gradient1), to($gradient2))
+  background-image: -webkit-linear-gradient($angle, $gradient1, $gradient2)
+  background-image:    -moz-linear-gradient($angle, $gradient1, $gradient2)
+  background-image:     -ms-linear-gradient($angle, $gradient1, $gradient2)
+  background-image:      -o-linear-gradient($angle, $gradient1, $gradient2)
+  background-image:         linear-gradient($angle, $gradient1, $gradient2)
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=$angle,StartColorStr='#{$gradient1}', EndColorStr='#{$gradient2}')
+
+/* ======== Outros */
+=transition($transition...) 
+  -moz-transition:    all $transition linear
+  -o-transition:      all $transition linear
+  -webkit-transition: all $transition linear
+  transition:         all $transition linear
+
+=border-radius($radius) 
+  -webkit-border-radius: $radius
+  -moz-border-radius: $radius
+  -ms-border-radius: $radius
+  border-radius: $radius
+
+@function calculateRem($size) 
+  $remSize: $size / 16px
+  @return $remSize * 1rem
+
+=font-size($size) 
+  font-size: $size
+  font-size: calculateRem($size)
+
+=opacity($opacity) 
+  opacity: $opacity
+  $opacity-ie: $opacity * 100
+  filter: alpha(opacity=$opacity-ie)
+
+/* ======== Background Color Opacity */
+=background-opacity($color: #000, $opacity: 0.85) 
+  background: $color
+  background: rgba($color, $opacity)
+
+/* ======== Columns */
+=columns($count: 3, $gap: 10) 
+  @include css3-prefix('column-count', $count)
+  @include css3-prefix('column-gap', $gap)
+
+/* ======== Ocultar Elementos */
+%visuallyhidden 
+  margin: -1px
+  padding: 0
+  width: 1px
+  height: 1px
+  overflow: hidden
+  clip: rect(0 0 0 0)
+  clip: rect(0, 0, 0, 0)
+  position: absolute
+
