@@ -1,0 +1,138 @@
+            <!-- ==============================================
+            Main Start (Inicio do Corpo de Conteúdo)
+            =============================================== -->
+            <main>                                              
+                <section class="about">
+                    <div class="container">
+                        <div class="itens">                                     
+                            <div class="foto">
+                                <img src="<?php echo IMG; ?>curriculo-tag-miolo.png" alt="Curriculo TAG">
+                                <!--<i class="fa fa-file-pdf-o"></i>-->
+                            </div>
+
+                            <div class="icone-lapis">
+                                <i class="fa fa-user"></i>
+                            </div>
+
+                            <div class="icone-codigo">
+                                <i class="fa fa-question"></i>
+                            </div>
+
+                            <div class="icone-coracao">
+                                <i class="fa fa-list-ul"></i>
+                            </div>
+
+                            <div class="icone-compartilhar">
+                                <i class="fa fa-university"></i>
+                            </div>
+                        </div>                      
+                    </div>
+                <div class="control-nav">                   
+                    <a id="nextsection" href="#shortcodes"><i class="font-icon-arrow-simple-down"></i></a>
+                </div>  
+            </section>
+
+            <!-- ==============================================
+                Presentation (Apresentação Pessoal
+            =============================================== -->
+            <header>
+                <div class="container">
+                    <div class="avatar-top">
+                        <?php echo '<img class="avatar-lg wow bounceIn" src="' . BASE . 'public/uploads/users/' . $view_user->id . '/' . $view_user->image . '" width="160">';
+                        ?>
+                    </div>   
+                </div> <!--/container menu Social -->               
+            </header>
+
+            <avatar>
+                <div class="avatar-bottom">
+                    <div class="container">
+                        <div class="separator_1"></div>
+                            <h1><strong><?php echo $view_user->name; ?></strong></h1>
+                            <p>#User Experience    #Music    #Creative Direction</p>
+                        <div class="separator_1"></div>
+                    </div>
+                </div>
+            </avatar>
+            <section class="presentation" >
+                <div class="container">
+                    <!-- TitleSection -->
+                    <div class="cols">
+                        <div class="title-section" id="shortcodes">
+                            <h2 class="title">Personal Data<span class="cursor-tag">_</span></h2>
+                            <h3 class="title-description">Access and login information.</h3>
+                        </div>
+                    </div>                               
+                    <!-- End Title Section -->
+                    <?php 
+						echo (isset($this->alert) ? $this->alert : '');
+
+						$values = [
+							'name' => $view_user->name,
+							'username' => $view_user->username,
+							'email' => $view_user->email
+						];
+
+						Form::open('form-user', $values, [
+							'action' => BASE . 'perfil/editar/',
+							'enctype' => 'multipart/form-data',
+							'prevent' => [
+								'focus'
+							]
+						]);
+							if (!is_null($view_user->image)) {
+								echo '<img src="' . BASE . 'public/uploads/users/' . $view_user->id . '/' . $view_user->image . '" width="200">';
+							}
+							Form::File(
+								'Imagem do usuário:',
+								'image'
+							);
+							Form::Textbox(
+								'Nome:',
+								'name',
+								[
+									'required' => 1
+								]
+							);
+							Form::Textbox(
+								'Login:',
+								'username',
+								[
+									'required' => 1
+								]
+							);
+							Form::Email(
+								'E-mail:',
+								'email',
+								[
+									'required' => 1
+								]
+							);
+							Form::Password(
+								'Senha (Preencha apenas se desejar alterar):',
+								'password'
+							);
+
+							Form::Button('Atualizar perfil', 'submit', [
+								'class' => 'btn-success hxphp-submit-button'
+							]);
+
+						Form::close(false);
+					?>
+                </div>
+            </section>                       
+
+        </main>
+            <!-- ==============================================
+            Main Start (Inicio do Corpo de Conteúdo)
+            =============================================== -->
+                <div class="panel-body">
+                    <?php 
+                        echo isset($this->menu) ? $this->menu->getMenu() : '';
+                    ?>
+                    <h4 class="alert alert-success">
+                        Uhull! Você foi autenticado com sucesso!
+                    </h4>
+                    Olá <?php echo $view_user->name; ?>, seja bem vindo(a). <br>
+                    <a href="<?php echo BASE . 'login/sair'; ?>" class="btn btn-danger">Sair</a>
+                </div>

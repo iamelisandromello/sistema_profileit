@@ -1,6 +1,5 @@
 a {
 	color:#00b85d;
-	text-decoration:none
 }
 
 .text-primary {
@@ -13,7 +12,6 @@ a {
 }
 
 .btn-primary {
-	color:#fff;
 	background-color:#00b85d;
 	border-color:#00b85d
 }
@@ -30,14 +28,10 @@ a {
 
 .btn-link {
 	color:#00b85d;
-	font-weight:400;
-	border-radius:0
 }
 
 .dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover {
 	color:#fff;
-	text-decoration:none;
-	outline:0;
 	background-color:#00b85d
 }
 
@@ -185,23 +179,14 @@ background-color:transparent
 }
 
 .pagination>li>a, .pagination>li>span {
-	position:relative;
-	float:left;
-	padding:6px 12px;
-	line-height:2;
-	text-decoration:none;
 	color:#00b85d;
 	background-color:#fff;
-	border:1px solid #ddd;
-	margin-left:-1px
 }
 
 .pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
-	z-index:2;
 	color:#fff;
 	background-color:#00b85d;
 	border-color:#00b85d;
-	cursor:default
 }
 
 .label-primary {
@@ -218,21 +203,11 @@ a.thumbnail.active, a.thumbnail:focus, a.thumbnail:hover {
 }
 
 .progress-bar {
-	float:left;
-	width:0;
-	height:100%;
-	font-size:12px;
-	line-height:28px;
 	color:#fff;
-	text-align:center;
 	background-color:#00b85d;
-	box-shadow:inset 0 -1px 0 rgba(0, 0, 0, .15);
--webkit-transition:width .6s ease;
-transition:width .6s ease
 }
 
 .list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
-	z-index:2;
 	color:#fff;
 	background-color:#00b85d;
 	border-color:#00b85d
@@ -261,14 +236,7 @@ transition:width .6s ease
 }
 
 .preloader {
-	position:fixed;
-	top:0;
-	left:0;
-	width:100%;
-	height:100%;
-/*	background-color:#00b85d;*/
 	background-color:#00b85d;	
-	z-index:9999999;
 	color:#fff
 }
 
@@ -277,24 +245,6 @@ transition:width .6s ease
 }
 
 @media (max-width:991px) {
-.navbar-default .navbar-nav>li>a {
-text-align:center
-}
-.navbar-collapse {
-border:none
-}
-.navbar-default .navbar-toggle, .navbar-default .navbar-toggle:hover {
-background-color:#fff;
-border-color:#fff;
-cursor:pointer
-}
-.navbar-default .navbar-toggle:focus {
-background-color:#fff;
-border-color:#fff
-}
-.navbar-default .navbar-toggle.collapsed:focus {
-background-color:#fff
-}
 .navbar-default .navbar-toggle .icon-bar {
 background-color:#00b85d
 }
@@ -305,12 +255,8 @@ background-color:#00b85d
 }
 
 .section-about-top {
-	padding-top:100px;
-	padding-bottom:165px;
-	position:relative;
 	background-color:#00b85d;
 	color:#fff;
-	z-index:3
 }
 
 .personal-blurb:hover i {
@@ -319,23 +265,16 @@ background-color:#00b85d
 }
 
 .overlay-img {
-	position:absolute;
-	width:100%;
-	height:100%;
 	background:#00b85d;
-	opacity:.45
 }
 
 .offer:hover {
 	color:#fff;
 	background-color:#00b85d;
-	border:1px solid #fff
 }
 
 .skill-bar ul li .bar {
-	height:100%;
 	background-color:#00b85d;
-	padding-left:20px
 }
 
 .btn-isotope.active, .btn-isotope:hover {
@@ -345,21 +284,15 @@ background-color:#00b85d
 }
 
 .tweet-section {
-	font-size:18px;
 	background-color:#00b85d;
 	color:#fff;
-	word-wrap:break-word
 }
 
 .quote-slider .flex-control-paging li a.flex-active {
 	background:#00b85d;
-	cursor:pointer
 }
 
 .help-block ul {
-	list-style-type:none;
-	padding:0;
-	margin:0;
 	color:#00b85d
 }
 
@@ -373,8 +306,6 @@ background-color:#00b85d
 
 .title-divider {
 	border-top:2px solid #00b85d;
-	width:100px;
-	margin:auto
 }
 
 blockquote {
@@ -382,13 +313,7 @@ blockquote {
 }
 
 ul.post-tags li a {
-	padding:3px 8px;
 	background-color:#00b85d;
-	color:#fff;
-	margin:0 3px 6px 0;
--webkit-transition:.2s;
-transition:.2s;
-	border-radius:4px
 }
 
 ul.post-social li a:hover {
@@ -400,10 +325,10 @@ ul.post-social li a:hover {
 	color:#00b85d;
 }
 
-
 #back-to-top:hover{
 	background-color: #00b85d;
 }
+
 
 
 /*Rotulos Marcadores*/
@@ -434,8 +359,9 @@ input[type="radio"] + label span {
 }
 
 input[type="radio"]:checked + label span {
-  background-color: #e4812a;
+  background-color: #00b85d;
 }
+
 
 .title-main h1 {
     color: #00b85d!important;
@@ -473,25 +399,74 @@ section.update-menu .options-menu [class^='icone-'] {
 
 section.update-menu .options-menu [class^='icone-']:hover {
 	background-color: #cadbdc!important;
-	color: #e4812a!important;
+	color: #00b85d!important;
 }
 
 section.update-menu .options-menu [class^='icone-']:active {
 	background-color: #cadbdc!important;
-	color: #e4812a!important;
+	color: #00b85d!important;
 }
 
 section.update-menu .options-menu [class^='icone-']:focus {
 	background-color: #cadbdc!important;
-	color: #0fb5b3!important;
+	color: #00b85d!important;
 }
 
+/*
+Badge de Apresentação Competências
+*/
+.panel-view [class^='badge-'] {
+    background-color: #00b85d!important;
+    color: white!important;
+}
+
+.panel-view [class^='badge-']:hover {
+	background-color: #cadbdc!important;
+	color: #00b85d!important;
+}
+
+.panel-view [class^='badge-']:active {
+	background-color: #cadbdc!important;
+	color: #00b85d!important;
+}
+
+.panel-view [class^='badge-']:focus {
+	background-color: #cadbdc!important;
+	color: #00b85d!important;
+}
+
+/*
+Icones de Oportunidades
+*/
+.icone-fa {
+  background-color: #00b85d!important;
+  color: white!important;
+}
+
+.icone-fa-opportunities:hover {
+	background-color: #cadbdc!important;
+	color: #00b85d!important;
+}
+
+.icone-fa-opportunities:active {
+	background-color: #cadbdc!important;
+	color: #00b85d!important;
+}
+
+.icone-fa-opportunities:focus {
+	background-color: #cadbdc!important;
+	color: #00b85d!important;
+}
+
+
 /*Segunda etapa*/
+
 
 /* skills */
 .force-meter > div.on {
     background-color: #00b85d;
 }
+
 
 .navbar li a:hover{
 	color:#00b85d;

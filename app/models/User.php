@@ -1,11 +1,96 @@
 <?php
 
+/**
+ <code>
+ * class Person extends ActiveRecord\Model {
+ *   static $belongs_to = array(
+ *     array('parent', 'foreign_key' => 'parent_id', 'class_name' => 'Person')
+ *   );
+ *
+ *   static $has_many = array(
+ *     array('children', 'foreign_key' => 'parent_id', 'class_name' => 'Person'),
+ *     array('orders')
+ *   );
+ *
+ *   static $validates_length_of = array(
+ *     array('first_name', 'within' => array(1,50)),
+ *     array('last_name', 'within' => array(1,50))
+ *   );
+ * }
+ *
+ * class Order extends ActiveRecord\Model {
+ *   static $belongs_to = array(
+ *     array('person')
+ *   );
+ *
+ *   static $validates_numericality_of = array(
+ *     array('cost', 'greater_than' => 0),
+ *     array('total', 'greater_than' => 0)
+ *   );
+ *
+ *   static $before_save = array('calculate_total_with_tax');
+ *
+ *   public function calculate_total_with_tax() {
+ *     $this->total = $this->cost * 0.045;
+ *   }
+ * }
+
+	class User extends CActiveRecord
+	{
+	    public function relations()
+	    {
+	        return array(
+	            'posts'=>array(self::HAS_MANY, 'Post', 'authorID',
+	                            'order'=>'??.createTime DESC',
+	                            'with'=>'categories'),
+	            'profile'=>array(self::HAS_ONE, 'Profile', 'ownerID'),
+	        );
+	    }
+	}
+
+ * </code>
+ */
 class User extends \HXPHP\System\Model
 {
 	static $belongs_to = array(
-		array('role')
+		array('role'),
+      array('registry', 'foreign_key' => 'registry_id', 'class_name' => 'Registry'),
+      array('network', 'foreign_key' => 'network_id', 'class_name' => 'Network'),
 	);
 
+	static $has_many = array(
+		array('professionals'),
+		array('recommendations'),
+		array('academics'),
+		array('competencies'),
+		array('skills', 'through' => 'competencies')
+	);
+
+
+/*	static $has_many = array(
+      array('children', 'foreign_key' => 'parent_id', 'class_name' => 'Person'),
+      array('orders')
+   );*/
+
+	// order can have many payments by many people
+	// the conditions is just there as an example as it makes no logical sense
+	/*static $has_many = array(
+		array('payments'),
+		array('people',
+			'through'    => 'payments',
+			'select'     => 'people.*, payments.amount',
+			'conditions' => 'payments.amount < 200'));;*/
+
+/*	public function relations()
+   {
+      return array(
+			'academic'=>array(self::HAS_MANY, 'Academic', 'user_id',
+			                  'condition' => 'user_id', 'order'=>'??.id DESC'),
+			'user'=>array(self::HAS_ONE, 'User', 'user_id'),
+      );
+   }*/
+  
+	
 	static $validates_presence_of = array(
 		array(
 			'name',
@@ -35,6 +120,14 @@ class User extends \HXPHP\System\Model
 			'message' => 'Já existe um usuário com este e-mail cadastrado.'
 		)
 	);
+
+	public static function idade($birth_date)
+	{	
+      $dn = new DateTime($birth_date);
+		$agora = new DateTime();
+		$idade = $agora->diff($dn);
+		return $idade->y;
+	}
 
 	public static function cadastrar(array $post)
 	{

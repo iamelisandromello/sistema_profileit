@@ -243,7 +243,7 @@ class View
 		define('IMAGES', $baseURI . 'public/images/');
 		define('CSS',    $baseURI . 'public/css/');
 		define('JS',     $baseURI . 'public/js/');
-		define('FRONTJS',   $baseURI . 'public/js/');
+		define('TUNER', $baseURI . 'public/tuner/');
 
 		//Verifica a existência da VIEW
 		$view = $viewsDir . $this->path . DS . $this->file . $viewsExt;

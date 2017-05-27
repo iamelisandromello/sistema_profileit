@@ -30,9 +30,22 @@ class HomeController extends \HXPHP\System\Controller
 		);
 
 		$user_id = $this->auth->getUserId();
+		$idinstitution = 1;
+		$idinstitution2 = 2;
+
+		$user = User::find($user_id);
+		$idadeUsuario = User::idade($user->birth_date);
+		$celular = Registry::formatoTelefone($user->registry->celular);
+		$cep = Registry::formatoCep($user->registry->zipcode);
 
 		$this->view->setTitle('HXPHP - Administrativo')
-					->setVar('user', User::find($user_id));
+					->setVars([
+						'user' => $user,
+						'idade' => $idadeUsuario,
+						'celular' => $celular,
+						'cep' => $cep,
+						'escolas' => Academic::all()						
+					]);				
 	}
 
 	public function bloqueadaAction()

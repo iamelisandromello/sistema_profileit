@@ -19,16 +19,17 @@
 		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet">
 
 		<!-- Switcher Tuner Only -->
-		<link rel="stylesheet" type="text/css" href="<?php echo CSS; ?>tuner/css/tuner.css">
+		<link rel="stylesheet" type="text/css" href="<?php echo TUNER; ?>css/tuner.css">
 
 		<!-- Pre-Define Custom Style Sheet
 		================================================== -->
-		<link rel="stylesheet" type="text/css" href="<?php echo CSS; ?>themes/color-cyan.css" title="color-cyan" media="all" property="">
-		<link rel="alternate stylesheet" type="text/css" href="<?php echo CSS; ?>themes/color-blue.css" title="color-blue" media="all" property="">
-		<link rel="alternate stylesheet" type="text/css" href="<?php echo CSS; ?>themes/color-green.css" title="color-green" media="all" property="">
-		<link rel="alternate stylesheet" type="text/css" href="<?php echo CSS; ?>themes/color-orange.css" title="color-orange" media="all" property="">
-		<link rel="alternate stylesheet" type="text/css" href="<?php echo CSS; ?>themes/color-pink.css" title="color-pink" media="all" property="">
-		<link rel="alternate stylesheet" type="text/css" href="<?php echo CSS; ?>themes/color-purple.css" title="color-purple" media="all" property="">				
+		
+		<link rel="stylesheet"  type="text/css" href="<?php echo CSS; ?>themes/color-cyan.css" title="color-cyan" media="all" property="">
+		<link rel="alternate stylesheet"  type="text/css" href="<?php echo CSS; ?>themes/color-blue.css" title="color-blue" media="all" property="">
+		<link rel="alternate stylesheet" type="text/css"  href="<?php echo CSS; ?>themes/color-green.css" title="color-green" media="all" property="">
+		<link rel="alternate stylesheet"  type="text/css" href="<?php echo CSS; ?>themes/color-orange.css" title="color-orange" media="all" property="">
+		<link rel="alternate stylesheet"  type="text/css" href="<?php echo CSS; ?>themes/color-pink.css" title="color-pink" media="all" property="">
+		<link rel="alternate stylesheet"  type="text/css" href="<?php echo CSS; ?>themes/color-purple.css" title="color-purple" media="all" property="">
 
 	</head>
 	<body id="home" data-spy="scroll" data-target="#home-nav" data-offset="300">
@@ -42,51 +43,54 @@
 		        Navbar (Menu Principal de Navegação)
 		 =============================================== -->
 		<div id="home-nav" class="navbar navbar-default navbar-fixed-top" role="navigation">
-		  <div class="container">
-		    <div class="navbar-header">
-		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-		      <a class="navbar-brand" href="#home"> 
-		        <!-- Logo Header -->
-		        <section id="foxin" class="foxin">
-		          <div> <img src="<?php echo IMAGES; ?>Logo_Navbar.png" alt="Foxin by Elisandro Mello"> </div>
-		        </section>
-		        <!--/ Logo Header--> 
-		      </a>
-		    </div>
-		    <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
-		      <ul class="nav navbar-nav navbar-right">
-		        <li><a href="#">Home</a></li>
-		        <li><a href="#profile">AboutMe</a></li>
-		        <li><a href="#skills">Skill</a></li>
-		        <li><a href="#experience">Experiencies</a></li>
-		        <li><a href="#education">Education</a></li>
-		        <li><a href="#recommendations">Recommendations</a></li>
-		        <li><a href="#contact-area">Contact</a></li>
-		      </ul>
-		    </div>
-		  </div>
-		</div>
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+					</button><!-- </navbar-toggle collapsed> Button Menu Mobile -->
+					<a class="navbar-brand" href="#home"> 
+						<!-- Logo Header -->
+						<section id="foxin" class="foxin">
+							<div> <img src="<?php echo IMAGES; ?>Logo_Navbar.png" alt="Foxin by Elisandro Mello"> </div>
+						</section><!-- </Section FoxIn - Logo da Empresa> -->
+						<!--/ Logo Header--> 
+					</a><!-- </navbar-brand> -->
+				</div><!-- </navbar-header> -->
+				<div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-right">
+					  	<li><a href="#">Home</a></li>
+					  	<li><a href="#profile">AboutMe</a></li>
+					  	<li><a href="#skills">Skill</a></li>
+					  	<li><a href="#experience">Experiencies</a></li>
+					  	<li><a href="#education">Education</a></li>
+					  	<li><a href="#recommendations">Recommendations</a></li>
+					  	<li><a href="#contact-area">Contact</a></li>
+					  	<li><a href="<?php echo BASE . 'login/sair'; ?>" title="Logout Sistema">
+				      <span> <i class="fa fa-sign-out"></i> </span>
+				   	</a></li>
+					</ul><!-- </nav navbar-nav navbar-right> -->
+				</div><!-- </navbar-collapse collapse" id="bs-example-navbar-collapse-1> -->
+			</div><!-- </container> -->
+		</div><!-- </navbar navbar-default navbar-fixed-top> -->
 
     	<div class="animsition">
     		<!-- ==============================================
 		    Header Section (Safe Area)
-	        ====================================-->
-	        <div id="safe-area">
+	      ====================================-->
+	      <div id="safe-area">
 	        	<div class="col-md-12 header-text text-center wow flipInX" data-wow-delay="3s">
-
-                  <?php
-                      if (!is_null($view_user->image)) {
-                          echo '<img class="picture-header" src="' . BASE . 'public/uploads/users/' . $view_user->id . '/' . $view_user->image . '" width="160">';
-                      }
-                      else{
-                          echo '<img class="picture-header" src="' . BASE . 'public/uploads/users/' . 'default' . '/' . 'default.png' . '" width="160">';
-                      }
-                  ?>
-
-	                <h1><?php echo $view_user->name; ?></h1>
-	            	<p>Freelancer / Designer / Web developer</p>
-	                <a href="#profile" class="btn btn-default header-button"><span class="hidden-xs">enter </span> profile <i class="icon ion-android-arrow-down"></i></a> &nbsp;
-	                <a href="https://www.youtube.com/watch?v=QO2nQCydMK0" class="btn btn-default action-button lightbox mfp-iframe ">Play Video <i class="icon ion-play"></i></a>        
-	        	</div>     
-	        </div>      
-        </div><!--</animation -->
+               <?php
+                   if (!is_null($view_user->image)) {
+                       echo '<img class="picture-header" src="' . BASE . 'public/uploads/users/' . $view_user->id . '/' . $view_user->image . '" width="160">';
+                   }
+                   else{
+                       echo '<img class="picture-header" src="' . BASE . 'public/uploads/users/' . 'default' . '/' . 'default.png' . '" width="160">';
+                   }
+               ?>
+               <h1><?php echo $view_user->name; ?></h1>
+            	<p>Freelancer / Designer / Web developer</p>
+               <a href="<?php echo BASE . 'perfil/editar'; ?>" class="btn btn-default header-button"><span class="hidden-xs">enter </span> profile <i class="icon ion-android-arrow-down"></i></a> &nbsp;
+               <a href="https://www.youtube.com/watch?v=QO2nQCydMK0" class="btn btn-default action-button lightbox mfp-iframe ">Play Video <i class="icon ion-play"></i></a>        
+	        	</div><!-- </header-text> -->  
+	      </div><!-- </safe-area> --> 
+      </div><!--</animation -->

@@ -1,6 +1,6 @@
-	    <!-- ==============================================
-	    Layout Content Site (Definição de Layout)
-        ====================================-->
+	   <!-- ==============================================
+	   Layout Content Site (Definição de Layout)
+      ====================================-->
 		<div class="layout">
 			<!-- ==============================================
 			Main Start (Inicio do Corpo de Conteúdo)
@@ -18,13 +18,13 @@
 									<i class="fa fa-female mega"></i>
 									<h1 class="title-session">profile</h1>
 									<em class="title-description">my personal info</em>
-								</div>
+								</div><!-- </text-right main-title__left> -->
 								<div class="main-title__right">
 									<p class="resumo">
-										Hi! My name is Kabir Doe. Erat deleniti quasi. Optio maecenas iaculis cubilia, tellus elementum eiusmod laborum occaecat. Laoreet iure, doloremque earum sint diam asperiores condimentum est ac vitae inceptos, maecenas ullam vel curae repellat voluptatem placeat purus, dolore ullam eius excepteur! Magnam beatae suspendisse ut. maecenas ullam vel curae repellat voluptatem placeat purus, dolore ullam eius excepteur! Magnam maecenas ullam vel curae beatae suspendisse ut.
-									</p>
-								</div>
-							</div>
+										<?php echo $view_user->registry->about; ?>
+									</p><!-- </resumo> -->
+								</div><!-- </main-title__right> -->
+							</div><!-- </main-title__inner> -->
 						</div><!-- </main-title> (Icone Session, Title, Description Title e Linha DivisóriaV) -->
 
 						<!-- ========================================= -->
@@ -34,8 +34,35 @@
 							<!-- Foto Perfil -->
 							<div class="col-lg-4 col-md-6 col-lg-push-4 text-center wow fadeInUp">
 								<div class="inline-block photo-column-inner">
-									<div class="photo-profile">
-										<img src="<?php echo IMAGES; ?>photo.png" class="img-responsive" alt="#">
+									<div class="col-md-12">
+										<div class="panel-view wraper-view">										
+											<a class="badge-certificacao pointer-cursor" data-tooltip="Update Curriculum" href="home.html">
+												<i class="fa fa-pencil" alt="Edit Curriculo"></i>
+											</a>
+
+											<a class="badge-graduacao pointer-cursor" href="home.html" data-tooltip="I’m the tooltip text.">
+												<i class="fa fa-code" alt="Edit Curriculo"></i>
+											</a>
+
+											<a class="badge-experiencia pointer-cursor" data-tooltip="Change Questionnaire" href="home.html">
+												<i class="fa fa-windows" alt="Alterar Questionário" ></i>
+											</a>
+										</div><!-- </panl-view> -->
+									</div>
+									<div class="col-md-12 wraper-viewBottom">
+										<div class="panel-view">										
+											<a class="badge-idioma pointer-cursor" data-tooltip="Update Curriculum" href="home.html">
+												<i class="fa fa-graduation-cap" alt="Edit Curriculo"></i>
+											</a>
+
+											<a class="badge-dominio pointer-cursor" href="home.html" data-tooltip="I’m the tooltip text.">
+												<i class="fa fa-linux" alt="Edit Curriculo"></i>
+											</a>
+
+											<a class="badge-coracao pointer-cursor" data-tooltip="Change Questionnaire" href="home.html">
+												<i class="fa fa-star-half-o" alt="Alterar Questionário" ></i>
+											</a>
+										</div><!-- </panl-view> -->
 									</div>
 									<div class="md-padder">
 										<a class="btn btn-primary btn-lg margin-btm-30" data-tooltip="Download Resume Profile" href="update.html" target="_blank"> <i class="fa fa-user"></i> <span class="hidden-xs"> Download </span> Resume </a>
@@ -48,11 +75,12 @@
 								<div>
 									<h5 class="text-subtitulo">personal info</h5>
 									<ul class="padder list-unstyled info-list">
-										<li>Name : Anglea Goble Doe</li>
-										<li>Age : 23 Years Old</li>
-										<li>Phone : +123-456-7890</li>
-										<li>Email : <a href="mailto:email@site.com">email@site.com</a></li>
-										<li>Adress : 1732 Monroe Street Houston, TX 77055</li>
+										<li>Name	 : <?php echo $view_user->name;?>			</li>
+										<li>Age	 : <?php echo $view_idade; ?> Years Old	</li>
+										<li>Phone : <?php echo $view_celular; ?>				</li>
+										<li>Email : <a href="mailto:email@site.com"><?php echo $view_user->email; ?></a></li>
+										<li>Address	 : <?php echo $view_user->registry->address; ?></li>
+										<li>Zip Code : <?php echo $view_cep; ?></li>
 									</ul>
 									<ul class="list-inline list-gutter-xs padder h5 bare-social-menu">
 										<li>
@@ -125,7 +153,7 @@
 						                        <h5><span> Certified Professional </span> MCSA  </h5>
 						                        <h5><span> Bachelor of  </span> Ciêcia da Computação </h5>
 														<h5><span> Last Company  </span> Dana Albarus </h5>
-														<h5><span> </span> Available Professional </h5>
+														<h5><span> </span> <?php echo $view_user->network->facebook; ?> </h5>
 						                     </div>
 												</div>
 											</div>
@@ -137,7 +165,7 @@
 					</div><!-- </container> -->
 				</section><!-- </section> Profile -->
 				<!-- ==============================================
-       			Skill Técnico (Qualificações e Atributos Técnicos)
+       		Skill Técnico (Qualificações e Atributos Técnicos)
         		=============================================== -->
 				<section id="skills" class="main-block">
 					<div class="container text-center">					
@@ -157,55 +185,46 @@
 						</div><!-- </main-title> (Icone Session, Title, Description Title e Linha DivisóriaV) -->
 
 						<div class="container-skill">
-
 							<div class="row">
 						    	<div class="col-md-6 col-sm-12 wow bounceInLeft">
 							        <div>
-								        <p class="texto_profileit text-left">Designer e Projeto de arquitetura de floresta e domínio; considerando relações de confiança, níveis funcionais, atualização de domínio, migração de domínio e reestruturação de floresta;	Configuração de topologia de vários sites e servidores de transporte; implementando topologia de diversos servidores, incluindo servidores autônomos e WDS (Serviços de Implantação do Windows) integrados com o Active Directory; Projeto e implantação de Office 365, e Lync Server 2013; focado no desenvolvimento de soluções de migração de correio utilizando o Microsoft Exchange e Office 365; Planejamento e designer de cenários OnPremises (local) X Online e Hibridos.</p>
+								        <p class="texto_profileit text-left">
+									
+											<?php
+												foreach ($view_user->skills as $skill):
+													echo $skill->description;
+												endforeach
+											?>								        	
+
+								        </p>
 								    </div>
 						    	</div>
 								<div class="col-md-6 col-sm-12 wow bounceInRight" data-wow-delay="0.3s">
 									<div class="skill-bar">
 								    	<ul>
-									        <li>
-									          <div class="bar" data-value="" style="width: 90%;">
-									            <h5>HTML5/CSS3</h5>
-									          </div>
-									          <span>9 / 10</span> </li>
-									        <li>
-									          <div class="bar" data-value="" style="width: 90%;">
-									            <h5>Adobe Photoshop</h5>
-									          </div>
-									          <span>9 / 10</span> </li>
-									        <li>
-									          <div class="bar" data-value="" style="width: 80%;">
-									            <h5>PHP</h5>
-									          </div>
-									          <span>8 / 10</span> </li>
-									        <li>
-									          <div class="bar" data-value="" style="width: 90%;">
-									            <h5>Plataforma Windows</h5>
-									          </div>
-									          <span>9 / 10</span> </li>           
-									        <li>
-									          <div class="bar" data-value="" style="width: 80%;">
-									            <h5>Cloud Computing</h5>
-									          </div>
-									          <span>8 / 10</span>
-									    	</li>               
-								      	</ul>
-								    </div>
-								</div>
-							</div>
+											</ul>
+											<?php
+												foreach ($view_user->competencies as $competency): ?>
+													<li>
+														<div class="bar" data-value="" style="width: 90%;">
+															<h5><?php echo $competency->competency ?></h5>
+														</div>
+														<span><?php echo $competency->level ?> / 10</span>
+													</li>
+											<?php	endforeach
+											?>
+								      </ul><!-- </ul> Lista de Barras Skill -->
+								   </div><!-- </skill-bar> -->
+								</div><!-- </col-md-6 col-sm-12> -->
+							</div><!-- </row> -->
 							<div class="row">
 								<div class="col-md-12">
-									<a class="btn btn-primary btn-lg pull-right" data-tooltip="Professional summary" href="assets/elisandromelloresume.pdf" target="_blank"> <i class="fa fa-paper-plane"></i> <span class="hidden-xs">Download My</span> Curriculum </a>				
-								</div>
-							</div>
-							
-						</div>
-				  	</div>
-				</section>
+									<a class="btn btn-primary btn-lg pull-right" data-tooltip="Professional summary" href="assets/elisandromelloresume.pdf" target="_blank"> <i class="fa fa-paper-plane"></i> <span class="hidden-xs">Download My</span> Curriculum </a>		
+								</div><!-- </col-md-12> -->
+							</div><!-- </row> Button De Dowload Competências Técnicas-->
+						</div><!-- </container-skill -->
+				  	</div><!-- </container> -->
+				</section><!-- </section> Sessão Skill Técnico -->
 				<!-- ========================================= -->
 				<!-- Resume Section (Acadêmico e Profissional) -->
 				<!-- ========================================= -->
@@ -218,13 +237,13 @@
 									<i class="fa fa-book mega"></i>
 									<h1 class="title-session">resume</h1>
 									<em class="title-description">know who i'm</em>
-								</div>
+								</div><!-- </ main-title__left> -->
 								<div class="main-title__right">
 									<p class="resumo">
 										Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer.
-									</p>
-								</div>
-							</div>
+									</p><!-- </resumo> -->
+								</div><!-- </main-title__right> -->
+							</div><!-- </main-title__inner> -->
 						</div><!-- </main-title> (Icone Session, Title, Description Title e Linha DivisóriaV) -->
 						
 						<!-- ========================================= -->
@@ -252,7 +271,9 @@
 									</div><!--Linha do tempo tracejada -->
 									
 									<!-- Container Timeline Items -->
-									<div class="timeline-items">										
+									<div class="timeline-items">
+
+										<?php foreach ($view_user->academics as $academic): ?>		
 										<!-- Container Item Unitário -->
 										<div class="clearfix timeline-item">					
 											<!-- Box Marcadores de Tempo e Status -->
@@ -264,7 +285,7 @@
 														<span>
 															<i class="fa fa-clock-o"></i>
 														</span>
-														2008 - 2009
+														<?php echo $academic->date_conclusion->format('Y') ?>
 													</div><!--(Icon Clock e Data)  -->
 													<div class="timeline-item-bullet"></div><!-- Espcaçamento e Icon Marcação -->
 												</div><!-- Final Marcador Tempo e Icon Plus	-->
@@ -276,53 +297,17 @@
 
 											<!-- Conteúdo do Item - Timeline -->
 											<div class="timeline-itemContent wow fadeInRight">
-												<h6 class="text-subtitulo">master degree of design</h6>
+												<h6 class="text-subtitulo"><?php echo $academic->course ?></h6>
+												<h5 ><?php echo $academic->level ?></h5>
 												<ul class="text-subtituloItem">
-													<li>name of university</li>
+													<li><?php echo $academic->institution ?></li>
 													<li>&#8226;</li>
-													<li>USA</li>
+													<li><?php echo $academic->local ?></li>
 												</ul>
-												<p class="texto_profileit">
-													Coordinates for abs positioning use the closest positioned parent box of the positioned element. So assuming that your div creating the corner(s) has no parent elements that are rel or abs positioned it will default up the chain to the html element which is at 0,0 of the viewport. The only problem here is this may be hard to accomplish depending on your layout.
-												</p>
 											</div><!-- </timeline-itemContent> Conteúdo Item -->
 										</div><!-- </timeline-item> Container Unitário Item -->
+										<?php endforeach ?>
 
-										<!-- Container Item Unitário -->
-										<div class="clearfix timeline-item">					
-											<!-- Box Marcadores de Tempo e Status -->
-											<div class="bullet-box clearfix">												
-												<!-- Marcador Tempo Timeline -->
-												<div class="tolltipBullet">														
-													<!-- Marcador -->
-													<div class="item-marker hidden-xs wow fadeInLeft">
-														<span>
-															<i class="fa fa-clock-o"></i>
-														</span>
-														2008 - 2009
-													</div><!--(Icon Clock e Data)  -->
-													<div class="timeline-item-bullet"></div><!-- Espcaçamento e Icon Marcação -->
-												</div><!-- Final Marcador Tempo e Icon Plus	-->
-												<div class="timeline-box hidden-xs wow fadeInRight">
-													<span>A+</span>
-													<small>grade</small>
-												</div>
-											</div><!-- </bullet-box> Final Box de Marcador -->
-
-											<!-- Conteúdo do Item - Timeline -->
-											<div class="timeline-itemContent wow fadeInRight">
-												<h6 class="text-subtitulo">master degree of design</h6>
-												<ul class="text-subtituloItem">
-													<li>name of university</li>
-													<li>&#8226;</li>
-													<li>USA</li>
-												</ul>
-												<p class="texto_profileit">
-													Coordinates for abs positioning use the closest positioned parent box of the positioned element. So assuming that your div creating the corner(s) has no parent elements that are rel or abs positioned it will default up the chain to the html element which is at 0,0 of the viewport. The only problem here is this may be hard to accomplish depending on your layout.
-												</p>
-											</div><!-- </timeline-itemContent> Conteúdo Item -->
-										</div><!-- </timeline-item> Container Unitário Item -->									
-				
 										<!-- Item Oculto -->
 										<div class="clearfix timeline-item hidden">					
 											<!-- Box Marcadores de Tempo e Status -->
@@ -352,9 +337,6 @@
 													<li>&#8226;</li>
 													<li>USA</li>
 												</ul>
-												<p class="texto_profileit">
-													Coordinates for abs positioning use the closest positioned parent box of the positioned element. So assuming that your div creating the corner(s) has no parent elements that are rel or abs positioned it will default up the chain to the html element which is at 0,0 of the viewport. The only problem here is this may be hard to accomplish depending on your layout.
-												</p>
 											</div><!-- </timeline-itemContent> Conteúdo Item -->
 										</div><!-- </timeline-item> Container Unitário Item Oculto -->	
 									</div><!-- </timeline-items> (Final Container Timeline Items-->
@@ -385,7 +367,8 @@
 										<span class="timeline-loader-btn plus-icon plus-icon-small"></span>
 									</div><!--Linha do tempo tracejada -->
 									<!-- Container Timeline Items -->
-									<div class="timeline-items">										
+									<div class="timeline-items">
+										<?php foreach ($view_user->professionals as $professional): ?>									
 										<!-- Container Item Unitário -->
 										<div class="clearfix timeline-item">
 											<!-- Box Marcadores de Tempo e Status -->
@@ -397,7 +380,7 @@
 														<span>
 															<i class="fa fa-clock-o"></i>
 														</span>
-														2013 - Now
+														<?php echo $professional->date_entry->format('Y') ?> - Now
 													</div><!--(Icon Clock e Data)  -->
 													<div class="timeline-item-bullet"></div><!-- Espcaçamento e Icon Marcação -->
 												</div><!-- Final Marcador Tempo e Icon Plus	-->
@@ -407,50 +390,19 @@
 
 											<!-- Conteúdo do Item - Timeline -->
 											<div class="timeline-itemContent wow fadeInRightt">
-												<h6 class="text-subtitulo">lead web developer</h6>
+												<h6 class="text-subtitulo"><?php echo $professional->function ?></h6>
 												<ul class="text-subtituloItem">
-													<li>name of company</li>
+													<li><?php echo $professional->company ?></li>
 													<li>&#8226;</li>
-													<li>USA</li>
+													<li><?php echo $professional->location ?></li>
 												</ul>
 												<p class="texto_profileit">
-													Coordinates for abs positioning use the closest positioned parent box of the positioned element. So assuming that your div creating the corner(s) has no parent elements that are rel or abs positioned it will default up the chain to the html element which is at 0,0 of the viewport.
+													<?php echo $professional->assignments ?>
 												</p>
 											</div><!-- </timeline-itemContent> Conteúdo Item -->
 										</div><!-- </timeline-item> Container Unitário Item -->		
+										<?php endforeach ?>
 
-										<!-- Container Item Unitário -->
-										<div class="clearfix timeline-item">
-											<!-- Box Marcadores de Tempo e Status -->
-											<div class="bullet-box clearfix">												
-												<!-- Marcador Tempo Timeline -->
-												<div class="tolltipBullet">														
-													<!-- Marcador -->
-													<div class="item-marker hidden-xs wow fadeInLeft">
-														<span>
-															<i class="fa fa-clock-o"></i>
-														</span>
-														2010 - 2012
-													</div><!--(Icon Clock e Data)  -->
-													<div class="timeline-item-bullet"></div><!-- Espcaçamento e Icon Marcação -->
-												</div><!-- Final Marcador Tempo e Icon Plus	-->
-												<div class="timeline-box hidden-xs wow fadeInRight" style="background-image: url(<?php echo IMAGES; ?>clients/02.png)">
-												</div>
-											</div><!-- </bullet-box> Final Box de Marcador -->
-
-											<!-- Conteúdo do Item - Timeline -->
-											<div class="timeline-itemContent wow fadeInRightt">
-												<h6 class="text-subtitulo">lead web developer</h6>
-												<ul class="text-subtituloItem">
-													<li>name of company</li>
-													<li>&#8226;</li>
-													<li>USA</li>
-												</ul>
-												<p class="texto_profileit">
-													Coordinates for abs positioning use the closest positioned parent box of the positioned element. So assuming that your div creating the corner(s) has no parent elements that are rel or abs positioned it will default up the chain to the html element which is at 0,0 of the viewport.
-												</p>
-											</div><!-- </timeline-itemContent> Conteúdo Item -->
-										</div><!-- </timeline-item> Container Unitário Item -->	
 										
 										<!-- Container Item Unitário -->
 										<div class="clearfix timeline-item  hidden">
@@ -494,66 +446,48 @@
 				Recomendations (Recomendações Recebidas)
 		        =============================================== -->
 				<section class="recommendation" id="recommendations" data-stellar-background-ratio="0.6">
-				  <div class="overlay"></div>
-				  <div class="above-overlay">
-				    <div class="container">
-				      <div class="row">
-				        <div class="col-md-12">
-				          <h1 class="text-center margin-btm-30"> Recommendations<span class="cursor-tag">_</span> </h1>
-				        </div>
-				      </div>
-				      <div class="row">
-				        <div class="col-md-12">
-				          <div class="text-center quote-icon"> <i class="fa fa-quote-left"></i> </div>
-				        </div>
-				      </div>
-				      <div class="row">
-				        <div class="col-md-8 col-md-offset-2">
-				          <div class="quote-slider">
-				            <ul class="slides">
-				              <li>
-				                <div class="quote-slider-slide-container"> <img class="avatar-md quote-slider-img" src="<?php echo IMAGES; ?>elisandro-mello-profile.jpg" alt="">
-				                  <p class="quote-slider-single"> Um líder pode errar por tentativa, nunca por omissão. </p>
-				                  <p class="quote-slider-name"> - Elisandro Mello / Consultor TI. </p>
-				                </div>
-				              </li>
-				              <li>
-				                <div class="quote-slider-slide-container"> <img class="avatar-md quote-slider-img" src="<?php echo IMAGES; ?>albert-einstein-profile.jpg" alt="">
-				                  <p class="quote-slider-single"> A mente que abre uma nova janela, jamais volta ao seu tamanho original. </p>
-				                  <p class="quote-slider-name"> - Albert Einstein / Físico Teórico </p>
-				                </div>
-				              </li>
-				              <li>
-				                <div class="quote-slider-slide-container"> <img class="avatar-md quote-slider-img" src="<?php echo IMAGES; ?>steve-jobs1-profile.jpg" alt="">
-				                  <p class="quote-slider-single"> Concentre-se naquilo que você é bom, delegue todo o resto! </p>
-				                  <p class="quote-slider-name"> - Steve Jobs / Fundador Apple </p>
-				                </div>
-				              </li>
-				              <li>
-				                <div class="quote-slider-slide-container"> <img class="avatar-md quote-slider-img" src="<?php echo IMAGES; ?>kevin-de-young.jpg" alt="">
-				                  <p class="quote-slider-single"> Quer ouvir o Espírito Santo? Abra a Bíblia! </p>
-				                  <p class="quote-slider-name"> - Kevin DeYoung / Pregador Cristão. </p>
-				                </div>
-				              </li>
-				              <li>
-				                <div class="quote-slider-slide-container"> <img class="avatar-md quote-slider-img" src="<?php echo IMAGES; ?>abraham-lincoln-profile.jpg" alt="">
-				                  <p class="quote-slider-single"> Você pode agradar algumas pessoas o tempo todo, você pode agradar a todas as pessoas por algum tempo, mas você não pode agradar a todas as pessoas o tempo todo. </p>
-				                  <p class="quote-slider-name"> - Abraham Lincoln / 16º Presidente EUA. </p>
-				                </div>
-				              </li>
-				              <li>
-				                <div class="quote-slider-slide-container"> <img class="avatar-md quote-slider-img" src="<?php echo IMAGES; ?>martin-luther-king.jpg" alt="">
-				                  <p class="quote-slider-single"> Se não puder voar, corra. Se não puder correr, ande. Se não puder andar, rasteje, mas continue em frente de qualquer jeito. </p>
-				                  <p class="quote-slider-name"> - Martin Luther King Jr. / Reverendo e Líder </p>
-				                </div>
-				              </li>
-				            </ul>
-				          </div>
-				        </div>
-				      </div>
-				    </div>
-				  </div>
-				</section>
+					<div class="overlay"></div>
+				   <div class="above-overlay">
+				   	<div class="container">
+					      <div class="row">
+					        <div class="col-md-12">
+					         	<h1 class="text-center margin-btm-30"> Recommendations<span class="cursor-tag">_</span> </h1>
+					        </div><!-- </col-md-12> -->
+					      </div><!-- </row> -->
+					      <div class="row">
+					        <div class="col-md-12">
+					         	<div class="text-center quote-icon"> <i class="fa fa-quote-left"></i> </div>
+					        </div><!-- </col-md-12> -->
+					      </div><!-- </row> -->
+					      <div class="row">
+					         <div class="col-md-8 col-md-offset-2">
+					         	<div class="quote-slider">
+					            	<ul class="slides">
+					              		<?php foreach ($view_user->recommendations as $recommendation): ?>	
+					              		<li>
+							               <div class="quote-slider-slide-container">
+													<p class="quote-slider-name"><?php echo $recommendation->relationship ?>. </p>
+								               <?php
+								                   $adviser = User::find($recommendation->adviser_id); 
+								                   if (!is_null($view_user->image)) {
+								                       echo '<img class="avatar-md quote-slider-img" src="' . BASE . 'public/uploads/users/' .  $recommendation->adviser_id . '/' . $adviser->image . '" >';
+								                   }
+								                   else{
+								                       echo '<img class="avatar-md quote-slider-img" src="' . BASE . 'public/uploads/users/' . 'default' . '/' . 'default.png' . '">';
+								                   }
+								               ?>
+							                  <p class="quote-slider-single"> <?php echo $recommendation->description ?>. </p>
+							                  <p class="quote-slider-name"><?php echo $adviser->name?> - <?php echo $recommendation->charge_recomendation ?>. </p>
+							               </div><!-- </quote-slider-slide-container> -->
+							            </li>
+							            <?php endforeach ?>						              
+					            	</ul><!--</slides> Slides de Recomendação -->
+					          	</div><!-- </quote-slider> -->
+					        	</div><!-- </col-md-8 col-md-offset-2> -->
+					      </div><!-- </row> -->
+				    	</div><!-- </container> -->
+				  	</div><!-- </above-overlay> -->
+				</section><!-- </recommendation> Sessão Apresentação Recomendações-->
 
 				<!-- ==============================================
 				Contact-Me (Contate-me ou add uma Recomendação)
@@ -563,23 +497,23 @@
 				    <div class="container">
 				        <div class="row">
 				            <div class="col-md-offset-2 col-md-8 col-sm-12">
-			                    <div class="wow bounceIn section-title">
-			                        <div class="text-center">
-				                        <h2>Contact-Me or Recommendation </h2>
-				                        <p class="texto_profileit wow fadeInUp" data-wow-delay="0.5s">Send me a message if you would like to get in touch. Or add a recommendation about my qualifications and skills, I would be very grateful.</p>
-				                    </div>    
-			                    </div>
-			                    <div class="wow fadeInUp contatc-form" data-wow-delay="0.8s">
-			                        <form action="#" method="post">
-			                            <div class="col-md-6 col-xs-12 text-center">
-			                                <a class="btn envio" href="#" data-toggle="modal" data-target="#modal1"> <i class="fa fa-paper-plane"></i> <span class="hidden-xs">Send </span> Message </a>
-			                           	</div>
-			                            <div class="col-md-6 col-xs-12 text-center">
-											<a class="btn envio" href="#" data-toggle="modal" data-target="#modal2"> <i class="fa fa-paper-plane"></i> <span class="hidden-xs">Add  </span> Recommendation </a>	
-			                            </div>
-			                        </form>
-			                    </div>
-				            </div>
+			                  <div class="wow bounceIn section-title">
+		                        <div class="text-center">
+			                        <h2>Contact-Me or Recommendation </h2>
+			                        <p class="texto_profileit wow fadeInUp" data-wow-delay="0.5s">Send me a message if you would like to get in touch. Or add a recommendation about my qualifications and skills, I would be very grateful.</p>
+			                     </div><!-- </text-center -->
+		                     </div><!-- </section-title> -->
+		                     <div class="wow fadeInUp contatc-form" data-wow-delay="0.8s">
+		                        <form action="#" method="post">
+		                           <div class="col-md-6 col-xs-12 text-center">
+												<a class="btn envio" href="#" data-toggle="modal" data-target="#modal1"> <i class="fa fa-paper-plane"></i> <span class="hidden-xs">Send </span> Message </a>
+		                           </div><!-- </col-md-6 col-xs-12> -->
+		                           <div class="col-md-6 col-xs-12 text-center">
+												<a class="btn envio" href="#" data-toggle="modal" data-target="#modal2"> <i class="fa fa-paper-plane"></i> <span class="hidden-xs">Add  </span> Recommendation </a>	
+		                           </div><!-- </col-md-6 col-xs-12> -->
+		                        </form>
+		                     </div><!-- </contatc-form> -->
+				            </div><!-- </col-md-offset-2 col-md-8 col-sm-12> -->
 				        </div><!-- </row> -->
 				    </div><!-- </container -->
 				</section><!-- </contact-me> Final Sessão de Contate-me -->

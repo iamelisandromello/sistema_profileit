@@ -8,6 +8,8 @@
 			<tr>
 				<th>Nome</th>
 				<th>E-mail</th>
+				<th>About</th>
+				<th>Celular</th>
 				<th>Login</th>
 				<th>Ações</th>
 			</tr>
@@ -21,6 +23,8 @@
 							<td><?php echo $user->name; ?></td>
 							<td><?php echo $user->email; ?></td>
 							<td><?php echo $user->username; ?></td>
+							<td><?php echo @$user->registry->about; ?></td>
+							<td><?php echo @$user->registry->celular; ?></td>
 							<td>
 								<?php if ($user->status === 0) : ?>
 									<a href="<?php echo BASE . 'usuarios/desbloquear/' . $user->id; ?>" class="btn btn-xs btn-success">

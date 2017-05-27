@@ -1,0 +1,48 @@
+.wraper-viewBottom
+	padding-top: 40px
+	padding-bottom: 40px
+
+.panel-view
+	+flexbox
+	+align-items(center)
+	+justify-content(space-around)
+
+	text-align: center
+
+	+breakpoint($tablet)
+		display: block
+		margin-bottom: 10px !important 
+
+	[class^="badge-"]
+		width: 70px
+		height: 70px
+		background-color: $cyan
+		+border-radius(120px)
+		text-align: center
+		line-height: 70px
+		color: $branco
+		+font-size(45px)
+
+		+breakpoint($tablet)
+			display: inline-block
+			width: 75px
+			height: 75px
+			line-height: 75px
+			+font-size(50px)
+			margin: 0 3px 10px
+
+		&.badge-certificacao
+			+order(5)
+
+		&.badge-experiencia
+			+order(2)
+
+		&.badge-graduacao
+			+order(4)
+
+		&.badge-idioma
+			+order(1)
+
+		&:hover, &:active, &:focus
+		   background-color: $azul-claro
+		   color: $laranja

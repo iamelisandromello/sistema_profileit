@@ -32,8 +32,8 @@ class PerfilController extends \HXPHP\System\Controller
 	public function editarAction()
 	{
 		$this->view->setFile('editar');
-         $this->view->setHeader('home/header')
-            ->setFooter('home/footer');
+         $this->view->setHeader('perfil/header')
+            ->setFooter('perfil/footer');
 
 		$user_id = $this->auth->getUserId();
 
