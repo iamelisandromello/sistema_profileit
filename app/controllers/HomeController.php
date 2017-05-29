@@ -37,7 +37,7 @@ class HomeController extends \HXPHP\System\Controller
 		$idadeUsuario = User::idade($user->birth_date);
 		$celular = Registry::formatoTelefone($user->registry->celular);
 		$cep = Registry::formatoCep($user->registry->zipcode);
-
+		
 		$this->view->setTitle('HXPHP - Administrativo')
 					->setVars([
 						'user' => $user,

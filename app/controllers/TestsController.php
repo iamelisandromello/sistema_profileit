@@ -12,6 +12,8 @@ class TestsController extends \HXPHP\System\Controller
 		echo "Nome: {$user->username}<br>";
 		echo "Imagem: {$adviser->image}<br>";
 
+		echo($user->skills[0]->description); # will print an array of User object
+
 		foreach ($user->skills as $skill) {
 			echo "{$skill->id} ({$skill->description})<br>";
 		}

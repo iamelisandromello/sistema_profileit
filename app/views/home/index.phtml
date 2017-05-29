@@ -191,9 +191,7 @@
 								        <p class="texto_profileit text-left">
 									
 											<?php
-												foreach ($view_user->skills as $skill):
-													echo $skill->description;
-												endforeach
+												echo($view_user->skills[0]->description);
 											?>								        	
 
 								        </p>
@@ -202,11 +200,10 @@
 								<div class="col-md-6 col-sm-12 wow bounceInRight" data-wow-delay="0.3s">
 									<div class="skill-bar">
 								    	<ul>
-											</ul>
 											<?php
 												foreach ($view_user->competencies as $competency): ?>
 													<li>
-														<div class="bar" data-value="" style="width: 90%;">
+														<div class="bar" data-value="" style="width: <?php echo $competency->level ?>0%;">
 															<h5><?php echo $competency->competency ?></h5>
 														</div>
 														<span><?php echo $competency->level ?> / 10</span>
