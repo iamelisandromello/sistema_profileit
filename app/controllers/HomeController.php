@@ -9,7 +9,7 @@ class HomeController extends \HXPHP\System\Controller
                ->setFooter('home/footer');
     }
 
-    public function __construct($configs)
+	public function __construct($configs)
 	{
 		parent::__construct($configs);
 
@@ -21,38 +21,27 @@ class HomeController extends \HXPHP\System\Controller
 		);
 
 		$this->auth->redirectCheck();
+		$this->auth->roleCheck(array(
+			'administrator'
+		));
+
+		$user_id = $this->auth->getUserId();
+		$user = User::find($user_id);
+		$role = Role::find($user->role_id);
 
 		$this->load(
 			'Helpers\Menu',
 			$this->request,
 			$this->configs,
-			$this->auth->getUserRole()
+			$role->role
 		);
 
-		$user_id = $this->auth->getUserId();
-		$idinstitution = 1;
-		$idinstitution2 = 2;
-
-		$user = User::find($user_id);
-		$idadeUsuario = User::idade($user->birth_date);
-		$celular = Registry::formatoTelefone($user->registry->celular);
-		$cep = Registry::formatoCep($user->registry->zipcode);
-		
 		$this->view->setTitle('HXPHP - Administrativo')
+					->setFile('index')
 					->setVars([
 						'user' => $user,
-						'idade' => $idadeUsuario,
-						'celular' => $celular,
-						'cep' => $cep,
-						'escolas' => Academic::all()						
-					]);				
+						'users' => User::all()
+					]);
 	}
 
-	public function bloqueadaAction()
-	{
-		$this->auth->roleCheck(array(
-			'administrator',
-			'user'
-		));
-	}
 }
