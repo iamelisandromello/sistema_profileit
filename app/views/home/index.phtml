@@ -280,35 +280,42 @@
 						<!-- End Title Section -->        
 
 						<div class="container-recommendation">
-							<div class="row">
-								<div class="container-accRecommendation col-sm-6">
-									<blockquote>
-										<div class="text-left quote-icon"> <i class="fa fa-quote-left"></i> </div>
-											<p>É um grande prazer recomendar o Marcelo, sendo ele um profissional com perfil de inovação e liderança, sempre buscando melhoria nos processos gerenciais para alcançar os objetivos e metas da empresa.</p>
-										<div class="text-right quote-icon"> <i class="fa fa-quote-right"></i> </div>
-										<small>
-											<cite title="John Bostic">Anderson Silveira</cite>
-											<cite title="John Bostic"> - Gestor de TI</cite>
-										</small>
-									</blockquote>
-								</div><!-- </container-accRecommendation> End Blockquote -->
-								<!-- Info e Avatar User -->
-								<div class="col-sm-3 container-accAvatar">        
-									<img class="avatar-md quote-slider-img" src="<?php echo IMAGES; ?>albert-einstein-profile.jpg" alt="">   
-									<div class="md-padder">
-										<p class="texto-cite text-center">
-									Anderson Silveira supervisionava<br> Marcelo na função de <br>
-									Analista de Processos
-										</p>
-									</div><!-- </md-padder> -->					                		
-								</div><!-- </container-accAvatar> -->
-								<div class="col-sm-3 container-aprove">
-									<div class="md-padder text-center">
-										<a class="btn btn-primary btn-sm margin-btm-10" href="update.html" target="_blank"> <i class="fa fa-thumbs-up"></i> </a>
-										<a class="btn btn-primary btn-sm margin-btm-10" href="update.html" target="_blank"> <i class="fa fa-thumbs-down"></i> </a>
-									</div><!-- </md-padder> -->				                		
-								</div><!-- </container-aprove> -->
-							</div><!--</row> -->
+							<?php foreach ($view_user->recommendations as $recommendation):
+					      	if ($recommendation->approved == 2) {
+							?>
+								<div class="row">
+									<div class="container-accRecommendation col-sm-6">
+										<blockquote>
+											<div class="text-left quote-icon"> <i class="fa fa-quote-left"></i> </div>
+												<p>É um grande prazer recomendar o Marcelo, sendo ele um profissional com perfil de inovação e liderança, sempre buscando melhoria nos processos gerenciais para alcançar os objetivos e metas da empresa.</p>
+											<div class="text-right quote-icon"> <i class="fa fa-quote-right"></i> </div>
+											<small>
+												<cite title="John Bostic">Anderson Silveira</cite>
+												<cite title="John Bostic"> - Gestor de TI</cite>
+											</small>
+										</blockquote>
+									</div><!-- </container-accRecommendation> End Blockquote -->
+									<!-- Info e Avatar User -->
+									<div class="col-sm-3 container-accAvatar">        
+										<img class="avatar-md quote-slider-img" src="<?php echo IMAGES; ?>albert-einstein-profile.jpg" alt="">   
+										<div class="md-padder">
+											<p class="texto-cite text-center">
+										Anderson Silveira supervisionava<br> Marcelo na função de <br>
+										Analista de Processos
+											</p>
+										</div><!-- </md-padder> -->					                		
+									</div><!-- </container-accAvatar> -->
+									<div class="col-sm-3 container-aprove">
+										<div class="md-padder text-center">
+											<a class="btn btn-primary btn-sm margin-btm-10" href="update.html" target="_blank"> <i class="fa fa-thumbs-up"></i> </a>
+											<a class="btn btn-primary btn-sm margin-btm-10" href="update.html" target="_blank"> <i class="fa fa-thumbs-down"></i> </a>
+										</div><!-- </md-padder> -->				                		
+									</div><!-- </container-aprove> -->
+								</div><!--</row> -->
+								<?php
+									}
+								endforeach
+								?>	
 						</div><!-- </container-recommendation> --> 
 					</div><!-- </container> -->
 				</section><!-- </opportunities> -->	

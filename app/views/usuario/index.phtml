@@ -460,24 +460,30 @@
 					         <div class="col-md-8 col-md-offset-2">
 					         	<div class="quote-slider">
 					            	<ul class="slides">
-					              		<?php foreach ($view_user->recommendations as $recommendation): ?>	
-					              		<li>
-							               <div class="quote-slider-slide-container">
-													<p class="quote-slider-name"><?php echo $recommendation->relationship ?>. </p>
-								               <?php
-								                   $adviser = User::find($recommendation->adviser_id); 
-								                   if (!is_null($view_user->image)) {
-								                       echo '<img class="avatar-md quote-slider-img" src="' . BASE . 'public/uploads/users/' .  $recommendation->adviser_id . '/' . $adviser->image . '" >';
-								                   }
-								                   else{
-								                       echo '<img class="avatar-md quote-slider-img" src="' . BASE . 'public/uploads/users/' . 'default' . '/' . 'default.png' . '">';
-								                   }
-								               ?>
-							                  <p class="quote-slider-single"> <?php echo $recommendation->description ?>. </p>
-							                  <p class="quote-slider-name"><?php echo $adviser->name?> - <?php echo $recommendation->charge_recomendation ?>. </p>
-							               </div><!-- </quote-slider-slide-container> -->
-							            </li>
-							            <?php endforeach ?>						              
+					              		<?php
+					              		foreach ($view_user->recommendations as $recommendation):
+					              			if ($recommendation->approved == 1) {
+                             		?>
+							              		<li>
+									               <div class="quote-slider-slide-container">
+															<p class="quote-slider-name"><?php echo $recommendation->relationship ?>. </p>
+										               <?php
+										                   $adviser = User::find($recommendation->adviser_id); 
+										                   if (!is_null($view_user->image)) {
+										                       echo '<img class="avatar-md quote-slider-img" src="' . BASE . 'public/uploads/users/' .  $recommendation->adviser_id . '/' . $adviser->image . '" >';
+										                   }
+										                   else{
+										                       echo '<img class="avatar-md quote-slider-img" src="' . BASE . 'public/uploads/users/' . 'default' . '/' . 'default.png' . '">';
+										                   }
+										               ?>
+									                  <p class="quote-slider-single"> <?php echo $recommendation->description ?>. </p>
+									                  <p class="quote-slider-name"><?php echo $adviser->name?> - <?php echo $recommendation->charge_recomendation ?>. </p>
+									               </div><!-- </quote-slider-slide-container> -->
+									            </li>
+							            <?php
+							            	}
+							            endforeach	
+							            ?>						              
 					            	</ul><!--</slides> Slides de Recomendação -->
 					          	</div><!-- </quote-slider> -->
 					        	</div><!-- </col-md-8 col-md-offset-2> -->
