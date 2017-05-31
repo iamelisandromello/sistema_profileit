@@ -48,6 +48,28 @@ class UsuarioController extends \HXPHP\System\Controller
 					]);				
 	}
 
+	public function pesquisarAction()
+	{
+		$this->view->setFile('index');
+
+		$post = $this->request->post();
+
+		if (!empty($post)) {
+			$pesquisarUsuario = User::pesquisar($post);
+
+			if ($cadastrarUsuario->status === false) {
+				$this->load('Helpers\Alert', array(
+					'danger',
+					'Ops! Não foi possível efetuar seu cadastro. <br> Verifique os erros abaixo:',
+					$cadastrarUsuario->errors
+				));
+			}
+			else {
+				$this->auth->login($cadastrarUsuario->user->id, $cadastrarUsuario->user->username);
+			}
+		}
+	}
+
 	public function bloqueadaAction()
 	{
 		$this->auth->roleCheck(array(

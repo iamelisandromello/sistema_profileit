@@ -33,8 +33,33 @@ class TestsController extends \HXPHP\System\Controller
 			$idade = $agora->diff($dn);
 			return $idade->y;
 		}*/
+		foreach ($user->professionals as $professional) {
+			echo "{$professional->id} ({$professional->date_out})<br>";
+			echo "{$professional->id} ({$professional->date_entry})<br>";
+			$intervalo= User::experiencia($professional->date_out, $professional->date_entry);
+		echo "Intervalo é de {$intervalo->y} anos, {$intervalo->m} meses e {$intervalo->d} dias"; 
+
+		}
+
 		$idadeUsuario = User::idade($user->birth_date);
 		echo '<h1>',$idadeUsuario, ' anos de idade! </h1> ';
+
+		$temp = 0;
+		foreach ($user->professionals as $professional) {
+			//$d1 = "2011-01-01";
+			//$d2 = "2013-02-01";
+			$d1 =  date_format($professional->date_entry, 'y-m-d');
+			$d2 =  date_format($professional->date_out, 'y-m-d');
+
+			$date = User::diffDate($d1,$d2,'D');
+			$temp += (int) $date;
+			//echo $temp . "\n";
+			var_dump( $date ); // int(0
+			var_dump( $temp ); // int(0
+
+		}
+
+		//var_dump($total);
 		//var_dump($user->academics);
 		die();
 	}

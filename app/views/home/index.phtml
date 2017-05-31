@@ -28,7 +28,7 @@
 								<i class="fa fa-question"></i>
 							</a>
 
-							<a class="icone-compartilhar pointer-cursor" href="home.html">
+							<a class="icone-compartilhar pointer-cursor" href="#" data-toggle="modal" data-target="#modal3">
 								<i class="fa fa-users"></i>
 							</a>
 						</div><!-- </options-menu> -->						
@@ -282,26 +282,36 @@
 						<div class="container-recommendation">
 							<?php foreach ($view_user->recommendations as $recommendation):
 					      	if ($recommendation->approved == 2) {
+					      		$adviser = User::find($recommendation->adviser_id);
 							?>
 								<div class="row">
 									<div class="container-accRecommendation col-sm-6">
 										<blockquote>
 											<div class="text-left quote-icon"> <i class="fa fa-quote-left"></i> </div>
-												<p>É um grande prazer recomendar o Marcelo, sendo ele um profissional com perfil de inovação e liderança, sempre buscando melhoria nos processos gerenciais para alcançar os objetivos e metas da empresa.</p>
+												<p><?php echo $recommendation->description?></p>
 											<div class="text-right quote-icon"> <i class="fa fa-quote-right"></i> </div>
 											<small>
-												<cite title="John Bostic">Anderson Silveira</cite>
-												<cite title="John Bostic"> - Gestor de TI</cite>
+												<cite title="John Bostic"><?php echo $adviser->name?></cite>
+												<cite title="John Bostic"> - <?php echo $recommendation->charge_recomendation?></cite>
 											</small>
 										</blockquote>
 									</div><!-- </container-accRecommendation> End Blockquote -->
 									<!-- Info e Avatar User -->
 									<div class="col-sm-3 container-accAvatar">        
-										<img class="avatar-md quote-slider-img" src="<?php echo IMAGES; ?>albert-einstein-profile.jpg" alt="">   
+										
+										<?php
+										if (!is_null($view_user->image)) {
+				                       echo '<img class="avatar-md quote-slider-img" src="' . BASE . 'public/uploads/users/' .  $recommendation->adviser_id . '/' . $adviser->image . '" >';
+				                   }
+				                   else{
+				                       echo '<img class="avatar-md quote-slider-img" src="' . BASE . 'public/uploads/users/' . 'default' . '/' . 'default.png' . '">';
+				                   }
+				                   ?>
+
 										<div class="md-padder">
 											<p class="texto-cite text-center">
-										Anderson Silveira supervisionava<br> Marcelo na função de <br>
-										Analista de Processos
+										<?php echo $recommendation->relationship?><br> na função de <br>
+										<?php echo $recommendation->charge_recommended?>
 											</p>
 										</div><!-- </md-padder> -->					                		
 									</div><!-- </container-accAvatar> -->

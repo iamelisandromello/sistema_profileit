@@ -66,31 +66,6 @@ class User extends \HXPHP\System\Model
 		array('skills', 'through' => 'competencies')
 	);
 
-
-/*	static $has_many = array(
-      array('children', 'foreign_key' => 'parent_id', 'class_name' => 'Person'),
-      array('orders')
-   );*/
-
-	// order can have many payments by many people
-	// the conditions is just there as an example as it makes no logical sense
-	/*static $has_many = array(
-		array('payments'),
-		array('people',
-			'through'    => 'payments',
-			'select'     => 'people.*, payments.amount',
-			'conditions' => 'payments.amount < 200'));;*/
-
-/*	public function relations()
-   {
-      return array(
-			'academic'=>array(self::HAS_MANY, 'Academic', 'user_id',
-			                  'condition' => 'user_id', 'order'=>'??.id DESC'),
-			'user'=>array(self::HAS_ONE, 'User', 'user_id'),
-      );
-   }*/
-  
-	
 	static $validates_presence_of = array(
 		array(
 			'name',
@@ -127,6 +102,74 @@ class User extends \HXPHP\System\Model
 		$agora = new DateTime();
 		$idade = $agora->diff($dn);
 		return $idade->y;
+	}
+
+	public static function experiencia($out, $entry)
+	{	
+      $dentry = new DateTime($out);
+		$dout  = new DateTime($entry);
+      $intervalo = $dout->diff($dentry);
+
+		echo "Intervalo é de {$intervalo->y} anos, {$intervalo->m} meses e {$intervalo->d} dias"; 
+      //$meses =	DateDiffMonth($xperience_date , $agora); //Apura Diferenca em Meses entre duas Datas
+		return $intervalo;
+	}
+
+	public static function diffDate($d1, $d2, $type='', $sep='-')
+	{
+		 $d1 = explode($sep, $d1);
+		 $d2 = explode($sep, $d2);
+		 switch ($type)
+		 {
+		 case 'A':
+		 $X = 31536000;
+		 break;
+		 case 'M':
+		 $X = 2592000;
+		 break;
+		 case 'D':
+		 $X = 86400;
+		 break;
+		 case 'H':
+		 $X = 3600;
+		 break;
+		 case 'MI':
+		 $X = 60;
+		 break;
+		 default:
+		 $X = 1;
+		 }
+		 return floor( ( ( (mktime(0, 0, 0, $d2[1], $d2[2], $d2[0])) - (mktime(0, 0, 0, $d1[1], $d1[2], $d1[0] )) ) / $X ) );
+	}
+
+	public static function pesquisar(array $post)
+	{
+		$callbackObj = new \stdClass;
+		$callbackObj->user = null;
+		$callbackObj->status = false;
+		$callbackObj->errors = array();
+       
+        $role = Role::find_by_role('user');
+
+		if (is_null($role)) {
+			array_push($callbackObj->errors, 'A role user não existe. Contate o administrador');
+			return $callbackObj;
+		}
+
+
+		if ($cadastrar->is_valid()) {
+			$callbackObj->user = $cadastrar;
+			$callbackObj->status = true;
+			return $callbackObj;
+		}
+
+		$errors = $cadastrar->errors->get_raw_errors();
+
+		foreach ($errors as $field => $message) {
+			array_push($callbackObj->errors, $message[0]);
+		}
+
+		return $callbackObj;
 	}
 
 	public static function cadastrar(array $post)
