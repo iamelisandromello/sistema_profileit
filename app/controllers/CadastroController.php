@@ -4,7 +4,9 @@ class CadastroController extends \HXPHP\System\Controller
 {
 	   public function indexAction()
     {
-        $this->view->setAssets('css', $this->configs->baseURI . 'public/css/register.css');
+        //$this->view->setAssets('css', $this->configs->baseURI . 'public/css/register.css');
+        $this->view->setHeader('cadastro/header')
+                   ->setFooter('cadastro/footer');
     }
 
     public function __construct($configs)
