@@ -28,6 +28,7 @@ class HomeController extends \HXPHP\System\Controller
 		$user_id = $this->auth->getUserId();
 		$user = User::find($user_id);
 		$role = Role::find($user->role_id);
+		$total = User::experiencia($user);
 
 		$this->load(
 			'Helpers\Menu',
@@ -40,6 +41,7 @@ class HomeController extends \HXPHP\System\Controller
 					->setFile('index')
 					->setVars([
 						'user' => $user,
+						'total' => $total,
 						'users' => User::all()
 					]);
 	}

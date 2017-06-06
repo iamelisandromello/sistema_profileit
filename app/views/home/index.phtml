@@ -47,12 +47,20 @@
 							<div class="col-lg-4 col-md-6 col-lg-push-4 text-center wow fadeInUp">
 								<div class="inline-block photo-column-inner">
 									<div class="photo-profile">
-										<img src="<?php echo IMAGES; ?>photo.png" class="img-responsive" alt="#">
-									</div>
+										<!--<img src="<?php echo IMAGES; ?>photo.png" class="img-responsive" alt="#">-->
+					               <?php
+					                   if (!is_null($view_user->image)) {
+					                       echo '<img class="img-responsive" src="' . BASE . 'public/uploads/users/' . $view_user->id . '/' . $view_user->image . '">';
+					                   }
+					                   else{
+					                       echo '<img class="img-responsive" src="' . BASE . 'public/uploads/users/' . 'default' . '/' . 'default.png' . '">';
+					                   }
+					               ?>
+									</div><!-- </photo-profile> -->
 									<div class="md-padder">
-										<a class="btn btn-primary btn-lg margin-btm-30" href="update.html" target="_blank"> <i class="fa fa-user"></i> <span class="hidden-xs"> View </span> Profile </a>
-									</div>
-								</div>
+										<a class="btn btn-primary btn-lg margin-btm-30" <a href="<?php echo BASE . 'usuario'; ?>"  target="_blank"> <i class="fa fa-user"></i> <span class="hidden-xs"> View </span> Profile </a>
+									</div><!-- </md-padder> -->
+								</div><!-- </inline-block photo-column-inner> -->
 							</div><!-- Container Foto Perfil -->
 
 							<!-- #Informações Perfis Pessoais -->
@@ -60,14 +68,13 @@
 								<div>
 									<h5 class="text-subtitulo">personal info</h5>
 									<ul class="padder list-unstyled home-infolist">
-										<li>Calculation of experience</li>
+										<li><?php echo $view_total ?> years of experience</li>
 										<li>Suggested upgrades</li>
 										<li>Unfilled items </li>
-									</ul>
+									</ul><!-- </list-unstyled home-infolist> -->
 									<div class="col-md-12 col-md-offset-0 text-uppercase">
 										<!-- SKILL TITLE -->
 										<h5 class="text-subtitulo">Full Profile</h5>
-
 										<!-- Force Meter -->
 										<div class="force-meter xs-padder">
 											<div class="on"></div>
@@ -77,7 +84,6 @@
 											<div></div>
 										</div><!-- </Force Meter> -->
 									</div><!-- </> Final Barra Força Perfil-->
-
 								</div>
 							</div><!-- Container Informações Perfil -->
 

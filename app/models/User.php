@@ -104,15 +104,22 @@ class User extends \HXPHP\System\Model
 		return $idade->y;
 	}
 
-	public static function experiencia($out, $entry)
+	public static function experiencia($user)
 	{	
-      $dentry = new DateTime($out);
-		$dout  = new DateTime($entry);
-      $intervalo = $dout->diff($dentry);
+		$total = 0;
+		foreach ($user->professionals as $professional) {
+			$d1 =  date_format($professional->date_entry, 'y-m-d');
+			$d2 =  date_format($professional->date_out, 'y-m-d');
 
-		echo "Intervalo é de {$intervalo->y} anos, {$intervalo->m} meses e {$intervalo->d} dias"; 
-      //$meses =	DateDiffMonth($xperience_date , $agora); //Apura Diferenca em Meses entre duas Datas
-		return $intervalo;
+			$date = User::diffDate($d1,$d2,'D');
+			$total += (int) $date;
+			//echo $temp . "\n";
+			//var_dump( $date ); // int(0
+			//var_dump( $temp ); // int(0
+		}
+		$total = ($total/30)/12;
+		return round($total, 2);
+
 	}
 
 	public static function diffDate($d1, $d2, $type='', $sep='-')
@@ -149,7 +156,7 @@ class User extends \HXPHP\System\Model
 		$callbackObj->status = false;
 		$callbackObj->errors = array();
        
-        $role = Role::find_by_role('user');
+      $role = Role::find_by_role('user');
 
 		if (is_null($role)) {
 			array_push($callbackObj->errors, 'A role user não existe. Contate o administrador');
@@ -157,11 +164,6 @@ class User extends \HXPHP\System\Model
 		}
 
 
-		if ($cadastrar->is_valid()) {
-			$callbackObj->user = $cadastrar;
-			$callbackObj->status = true;
-			return $callbackObj;
-		}
 
 		$errors = $cadastrar->errors->get_raw_errors();
 

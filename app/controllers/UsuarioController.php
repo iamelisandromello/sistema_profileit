@@ -30,8 +30,6 @@ class UsuarioController extends \HXPHP\System\Controller
 		);
 
 		$user_id = $this->auth->getUserId();
-		$idinstitution = 1;
-		$idinstitution2 = 2;
 
 		$user = User::find($user_id);
 		$idadeUsuario = User::idade($user->birth_date);
@@ -43,8 +41,7 @@ class UsuarioController extends \HXPHP\System\Controller
 						'user' => $user,
 						'idade' => $idadeUsuario,
 						'celular' => $celular,
-						'cep' => $cep,
-						'escolas' => Academic::all()						
+						'cep' => $cep					
 					]);				
 	}
 
@@ -57,15 +54,12 @@ class UsuarioController extends \HXPHP\System\Controller
 		if (!empty($post)) {
 			$pesquisarUsuario = User::pesquisar($post);
 
-			if ($cadastrarUsuario->status === false) {
+			if ($pesquisarUsuario->status === false) {
 				$this->load('Helpers\Alert', array(
 					'danger',
-					'Ops! Não foi possível efetuar seu cadastro. <br> Verifique os erros abaixo:',
-					$cadastrarUsuario->errors
+					'Ops! Não foi possível localizar nenhums Usuário. <br> Verifique as Mensagens abaixo:',
+					$pesquisarUsuario->errors
 				));
-			}
-			else {
-				$this->auth->login($cadastrarUsuario->user->id, $cadastrarUsuario->user->username);
 			}
 		}
 	}

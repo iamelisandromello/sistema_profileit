@@ -51,34 +51,31 @@
 		    				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 		    				<h2 class="modal-title">Search System without Refresh</h2>
 		    			</div>
-
 		    			
 		    			<div class="row">
 		    				<div class="col-md-10 centered">
 		    					<div class="modal-containerStep">
 		    						<span class="step-num">1</span>
 		    						<div class="modal-text">
-		    							<span class="hidden-xs">Find user in the</span> network of relationships
-		    						</div>
-		    					</div>
-		    				</div>
-		    			</div>
+		    							<span class="hidden-xs">Find users on</span> your network
+		    						</div><!-- </modal-text> -->
+		    					</div><!-- </modal-containerStep> -->
+		    				</div><!-- </col-md-10> -->
+		    			</div><!-- </row> -->
 
-		    			<form method="POST" id="form-pesquisa" action="">
 		    			<form action="<?php echo BASE; ?>usuario/pesquisar/" class="form-user clearfix" method="post">	
 		    				<div class="modal-groupForm">
 		    					<div class="grupo-input">
 		    						<span class="grupo-input-img"><i class="fa fa-user-plus"></i></span>
-									<input class="input-modal" type="text" name="pesquisa" id="pesquisa" placeholder="O que você está procurando?">
+									<input class="input-modal" type="text" name="campo" id="campo" placeholder="O que você está procurando?">
 		    					</div>
-		    				</div>
+		    				</div><!-- </modal-groupForm> -->
  
 							<div class="col-md-12 text-center">
 								<input name="enviar" type="submit" class="form-control" id="submit" value="Pesquisar">
-							</div>
+							</div><!-- </col-md-12> -->
 
 		    			</form>
-
 						<?php 
 							if ($view_users) : 
 								foreach ($view_users as $user) : 
@@ -117,8 +114,7 @@
 						<?php 
 								endforeach;
 							endif;
-						?>				
-
+						?>
 
 		    		</div><!-- </modal-content> -->
 		    	</div><!-- </modal-dialog> -->
