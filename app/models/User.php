@@ -66,13 +66,14 @@ class User extends \HXPHP\System\Model
 			array_push($callbackObj->errors, 'A role user não existe. Contate o administrador');
 			return $callbackObj;
 		}
-
+		
 		//array de informações adicionais para Novo Usuário
 		$user_data = array(
+			'birth_date'	=> date('Y-m-d',strtotime($post['birth_date'])),
 			'role_id'		=> $role->id,
 			'registry_id'	=> $id_registry,
 			'network_id'	=> $id_network,
-			'status'			=> 2
+			'status'			=> 1
 		);
 
 		$password = \HXPHP\System\Tools::hashHX($post['password']);

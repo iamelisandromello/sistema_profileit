@@ -67,10 +67,22 @@ class TestsController extends \HXPHP\System\Controller
 
 	}
 	public function cadastrarAction(){
-						$post = $this->request->post();
-		var_dump($post);
-$ir=$post['historic'];
-var_dump($ir->company);
+
+		$post = $this->request->post();
+		date('d/m/Y', strtotime($data_sql));
+		$data_aniver = date('Y-m-d',strtotime($post['birth_date']));
+		//array de informações para Novo Usuário
+		$user_data = array(
+			'name'			=> $post['name'],
+			'last_name'		=> $post['last_name'],
+			'username'		=> $post['username'],
+			'birth_date'	=> $data_aniver,
+			'email'			=> $post['email'],
+			'password'		=> $post['password']
+		);
+		echo "Data1: {$post['birth_date']}<br>";
+		echo "Data2: {$data_aniver}<br>";
+
 		die();
 	}
 	

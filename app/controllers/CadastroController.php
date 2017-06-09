@@ -31,8 +31,7 @@ class CadastroController extends \HXPHP\System\Controller
 			'email' => FILTER_VALIDATE_EMAIL
 		));*/
 
-		$post = $this->request->post();
-
+		$post = $this->request->post();	
 		//array de informações para Novo Usuário
 		$user_data = array(
 			'name'			=> $post['name'],
@@ -62,7 +61,8 @@ class CadastroController extends \HXPHP\System\Controller
 			'instagram' => $post['instagram'],
 			'twitter'	=> $post['twitter']
 		);
-		
+
+	
 		if (!empty($registry_data)) {
 			$cadastrarRegistry = Registry::cadastrar($registry_data);
 
