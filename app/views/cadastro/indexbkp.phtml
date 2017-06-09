@@ -1,34 +1,380 @@
-                <div class="container">          
-                  <header>                  
-                    <h1> <strong>ProfileIT</strong> Sistema Colaborativo</h1>
-                    <h2>Otimize seus Relacionamnetos Profissionais</h2>         
+   	<!-- Top content -->
+   	<div class="top-content">
+   		<div class="inner-bg">
+   			<div class="container">
+   				<div class="row">
+   					<div class="col-sm-8 col-sm-offset-2 form-box">
+   						<?php echo (isset($this->alert) ? $this->alert : ''); ?>
+                     <form action="<?php echo BASE; ?>cadastro/cadastrar/" role="form" data-toggle="validator" method="post" class="registration-form">
+                     <!--<form data-toggle="validator" role="form">-->
 
-                    <div class="support-note">
-                      <span class="note-ie">Sorry, only modern browsers.</span>
-                    </div>
-                    
-                  </header>
-                  
-                  <section class="main">
-                    <?php echo (isset($this->alert) ? $this->alert : ''); ?>
-                    <form action="<?php echo BASE; ?>cadastro/cadastrar/" class="form-user clearfix" method="post">                    
-                      <p>
-                        <input required type="text" name="name" class="form-control" id="name" placeholder="Your Full Name" value="<?php echo $this->request->post('name') ?>">
-                        <input required type="email" name="email" class="form-control" id="email" placeholder="seuemail@site.com.br" value="<?php echo $this->request->post('email') ?>">
-                        <input required type="text" name="username" class="form-control" id="username" placeholder="nick user" value="<?php echo $this->request->post('username') ?>">
-                        <input required type="password" name="password" class="form-control" id="password" placeholder="Your Password">
-                      </p>
-                      <button type="submit">
-                        <i class="fa fa-floppy-o"></i>
-                        <span>Register</span>
-                      </button>
-                      <!--<button type="submit" class="btn btn-success">Cadastrar</button>-->
-                      <a href="<?php echo BASE . 'login'; ?>" >
-                        <button type="button" id="cancel" value="cancel" name="cancel"> 
-                        <i class="fa fa-ban"></i>
-                        <span>Cancel</span>
-                      </button>
-                      </a>   
-                    </form>​​​​
-                  </section>                 
-                </div>
+                        <fieldset>
+                           <div class="form-top">
+                              <div class="form-top-left">
+                                 <h3>Step 1 / 7</h3>
+                                 <p>Personal Data:</p>
+                              </div>
+                              <div class="form-top-right">
+                                 <i class="fa fa-user"></i>
+                              </div>
+                           </div><!-- </form-top> -->
+                           <div class="form-bottom">                                 
+                              <div class="row">
+                                 <div class="col-md-4">
+                                    <div class="form-group">
+                                       <label class="sr-only" for="form-first-name">First name</label>
+                                       <input type="text" name="name" placeholder="First name..." class="form-first-name form-control" id="name" value="<?php echo $this->request->post('name') ?>" required>
+                                    </div><!-- </form-group> -->
+                                 </div><!-- </col-md-4> -->
+                                 <div class="col-md-8">
+                                    <div class="form-group">
+                                       <label class="sr-only" for="form-last-name">Last name</label>
+                                       <input type="text" name="last_name" id="last_name" placeholder="Last name..." class="form-last-name form-control" required>
+                                    </div><!-- </form-group> -->
+                                 </div><!-- </col-md-8> -->
+                              </div><!-- </row> -->   
+
+                              <div class="row">
+                                 <div class="col-md-6">
+                                    <div class="form-group">
+                                       <label class="sr-only" for="celular">Phone Mobile</label>
+                                       <input type="text" class="form-control" name="celular" id="celular" placeholder="(00)99999-9999" pattern="\([0-9]{2}\)[0-9]{4,6}-[0-9]{3,4}$" required>
+                                       <div class="help-block with-errors"></div>
+                                    </div><!-- </form-group> --> 
+                                 </div><!-- </col-md-6> -->
+                                 <div class="col-md-6">
+                                    <div class="form-group">
+                                       <label class="sr-only" for="phone">Phone Residencial</label>
+                                       <input type="text" class="form-control" name="phone" id="phone" placeholder="(00)0000-0000" pattern="\([0-9]{2}\)[0-9]{4,6}-[0-9]{3,4}$" required>
+                                       <div class="help-block with-errors"></div>
+                                    </div><!-- </form-group> -->                     
+                                 </div><!-- </col-md-6> -->
+                              </div><!-- </row> -->                              
+                              <div class="row">
+                                 <div class="col-md-12">
+                                    <div class="form-group">
+                                       <label class="sr-only" for="form-about-yourself">About yourself</label>
+                                       <textarea name="about" id="about" placeholder="About yourself..." class="form-about-yourself form-control"></textarea>
+                                    </div><!-- </form-group> -->                              
+                                 </div><!-- </col-md-12> -->
+                              </div><!-- </row> -->
+                              <div class="row">
+                                 <div class="col-md-12">
+                                    <div class="form-group">
+                                       <button type="button" class="btn-next">
+                                          <i class="fa fa-arrow-right"></i>
+                                          <span>Next</span>
+                                       </button>
+                                    </div><!-- </form-group> -->                              
+                                 </div><!-- </col-md-12> -->
+                              </div><!-- </row> -->                                 
+                           </div><!-- </form-bottom> -->
+                        </fieldset> 
+                        <fieldset>
+                           <div class="form-top">
+                              <div class="form-top-left">
+                                 <h3>Step 2 / 7</h3>
+                                 <p>Access & Password:</p>
+                              </div>
+                              <div class="form-top-right">
+                                 <i class="fa fa-key"></i>
+                              </div>
+                           </div>
+                           <div class="form-bottom">
+                              <div class="row">
+                                 <div class="col-md-6">
+                                    <div class="form-group">
+                                       <label class="sr-only" for="username">Username</label>
+                                       <input type="text" name="username" id="username" placeholder="Username..." class="form-username form-control" value="<?php echo $this->request->post('username') ?>" required>
+                                    </div>
+                                 </div>
+                                 <div class="col-md-6">                                   
+                                    <div class="form-group">
+                                       <label class="sr-only" for="form-email">Email</label>         
+                                       <input type="email" class="form-control" name="email" id="email" placeholder="Email" value="<?php echo $this->request->post('email') ?>" data-error="Bruh, that email address is invalid" required>
+                                       <div class="help-block with-errors"></div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-12">
+                                    <div class="form-group">
+                                       <label class="sr-only" for="form-password">Password</label>
+                                       <input type="password" data-minlength="6" class="form-control" name="password" id="password" placeholder="Password" required>
+                                       <div class="help-block">Minimum of 6 characters</div>
+                                    </div><!-- </form-group> -->                     
+                                 </div><!-- </col-md-12> -->
+                              </div><!-- </row> -->
+
+                              <div class="row">
+                                 <div class="col-md-12">
+                                    <div class="form-group">
+                                       <label class="sr-only" for="form-repeat-password">Repeat password</label>
+                                          <input type="password" class="form-control" id="inputPasswordConfirm" data-match="#password" data-match-error="Whoops, passwords do not match" placeholder="Confirm" required>
+                                          <div class="help-block with-errors"></div>
+                                    </div><!-- </form-group> -->                     
+                                 </div><!-- </col-md-12> -->
+                              </div><!-- </row> -->
+
+                              <div class="row">
+                                 <div class="col-md-12">
+                                    <div class="form-group">
+                                       <button type="button" class="btn-previous">
+                                          <i class="fa fa-arrow-left"></i>
+                                          <span>Previous</span>
+                                       </button>
+        
+                                       <button type="button" class="btn-next">
+                                          <i class="fa fa-arrow-right"></i>
+                                          <span>Next</span>
+                                       </button> 
+                                    </div><!-- </form-group> -->                     
+                                 </div><!-- </col-md-12> -->
+                              </div><!-- </row> -->
+                           </div>
+                        </fieldset>
+
+                        <fieldset>
+                           <div class="form-top">
+                              <div class="form-top-left">
+                                 <h3>Step 3 / 7</h3>
+                                 <p>Address Localization:</p>
+                              </div>
+                              <div class="form-top-right">
+                                 <i class="fa fa-globe"></i>
+                              </div>
+                           </div>
+                           <div class="form-bottom">
+                              <div class="row">
+                                 <div class="col-md-9">
+                                    <div class="form-group">
+                                       <label class="sr-only" for="address">Address</label>
+                                       <input type="text" name="address" id="address" placeholder="Address..." class="form-address form-control">
+                                    </div>
+                                 </div><!-- </col-md-9> -->   
+                                 <div class="col-md-3">
+                                    <div class="form-group">
+                                       <label class="sr-only" for="number">Number</label>
+                                       <input type="text" name="number" id="form-number" placeholder="Number..." class="form-number form-control">
+                                    </div>
+                                 </div><!-- </col-md-3> -->   
+                              </div><!-- </row> -->                                         
+                             <!-- <div class="row">
+                                 <div class="col-md-4">
+                                    <div class="form-group">
+                                       <label class="sr-only" for="form-city">City</label>
+                                       <input type="text" name="form-city" placeholder="City..." class="form-city form-control" id="form-city">
+                                    </div>
+                                 </div>
+                                 <div class="col-md-3">
+                                    <div class="form-group">
+                                       <label class="sr-only" for="form-country">Country</label>
+                                       <input type="text" name="form-country" placeholder="Country..." class="form-country form-control" id="form-country">
+                                    </div>
+                                 </div>
+                                 <div class="col-md-3">
+                                    <div class="form-group">
+                                       <label class="sr-only" for="form-state">State</label>
+                                       <input type="text" name="form-state" placeholder="State..." class="form-state form-control" id="form-state">
+                                    </div>
+                                 </div>
+                              </div>--><!-- </> -->
+                              <div class="row">
+                                 <div class="col-md-7">
+                                    <div class="form-group">
+                                       <label class="sr-only" for="zipcode">Zip Code</label>
+                                       <input type="text" name="zipcode" id="zipcode" placeholder="Zip Code..." class="form-zipcode form-control">
+                                    </div>
+                                 </div><!-- </col-md-9> -->
+                              </div><!-- </row> -->                   
+                              <div class="row">
+                                 <div class="col-md-12">
+                                    <div class="form-group">
+                                       <button type="button" class="btn-previous">   
+                                          <i class="fa fa-arrow-left"></i>
+                                          <span>Previous</span>
+                                       </button>
+
+                                       <button type="button" class="btn-next">
+                                          <i class="fa fa-arrow-right"></i>
+                                          <span>Next</span>
+                                       </button>
+                                    </div><!-- </form-group> -->                     
+                                 </div><!-- </col-md-12> -->
+                              </div><!-- </row> -->
+                           </div>
+                        </fieldset>                             
+                       
+                        <fieldset>
+                           <div class="form-top">
+                              <div class="form-top-left">
+                                 <h3>Step 4 / 7</h3>
+                                 <p>Social media profiles:</p>
+                              </div>
+                              <div class="form-top-right">
+                                 <i class="fa fa-twitter"></i>
+                              </div>
+                           </div>
+                           <div class="form-bottom">
+                              <div class="row">
+                                 <div class="col-md-6">
+                                    <div class="form-group">
+                                       <label class="sr-only" for="facebook">Facebook</label>
+                                       <input type="text" name="facebook" id="facebook" placeholder="Facebook..." class="form-facebook form-control" >
+                                    </div>
+                                 </div><!-- </col-md-6> -->
+                                 <div class="col-md-6">
+                                    <div class="form-group">
+                                       <label class="sr-only" for="twitter">Twitter</label>
+                                       <input type="text" name="twitter" id="twitter" placeholder="Twitter..." class="form-twitter form-control">
+                                    </div>                                       
+                                 </div><!-- </col-md-6> -->
+                              </div><!-- </row> -->
+
+                              <div class="row">
+                                 <div class="col-md-6">
+                                    <div class="form-group">
+                                       <label class="sr-only" for="instagram">Instagram</label>
+                                       <input type="text" name="instagram" id="instagram" placeholder="Instagram..." class="form-instagram form-control">
+                                    </div>                                       
+                                 </div><!-- </col-md-6> -->
+                                 <div class="col-md-6">
+                                      <div class="form-group">
+                                       <label class="sr-only" for="linkedin">Linkedin</label>
+                                       <input type="text" name="linkedin" id="linkedin" placeholder="Linkedin..." class="form-linkedin form-control">
+                                    </div>                                      
+                                 </div><!-- </col-md-6> -->
+                              </div><!-- </row> -->
+
+                              <div class="row">
+                                 <div class="col-md-6">
+                                    <div class="form-group">
+                                       <label class="sr-only" for="github">GitHub</label>
+                                       <input type="text" id="github" name="github" placeholder="GitHub..." class="form-github form-control">
+                                    </div>                                       
+                                 </div><!-- </col-md-6> -->
+                                 <div class="col-md-6">
+                                    <div class="form-group">
+                                       <label class="sr-only" for="web">Web</label>
+                                       <input type="text" name="web" id="web" placeholder="Web..." class="form-web form-control">
+                                    </div>                                        
+                                 </div><!-- </col-md-6> -->
+                              </div><!-- </row> -->
+
+                              <div class="row">
+                                 <div class="col-md-12">
+                                    <div class="form-group">
+                                       <button type="button" class="btn-previous">   
+                                          <i class="fa fa-arrow-left"></i>
+                                          <span>Previous</span>
+                                       </button>
+
+                                       <button type="button" class="btn-next">
+                                          <i class="fa fa-arrow-right"></i>
+                                          <span>Next</span>
+                                       </button>
+                                    </div><!-- </form-group> -->                     
+                                 </div><!-- </col-md-12> -->
+                              </div><!-- </row> -->
+
+                           </div>
+                        </fieldset>
+
+                        <fieldset>
+                           <div class="form-top">
+                              <div class="form-top-left">
+                                 <h3>Step 6 / 7</h3>
+                                 <p>Professional History:</p>
+                              </div>
+                              <div class="form-top-right">
+                                 <i class="fa fa-th-list"></i>
+                              </div>
+                           </div>
+                           <div class="form-bottom">
+                              <div class="repeater-custom-show-hide">
+                                 <div data-repeater-list="historic">                                 
+                                    <div data-repeater-item>
+                                       <div class="row">
+                                          <div class="col-md-6">
+                                             <div class="form-group">
+                                                <label class="sr-only" for="company">Company</label>
+                                                <input type="text" name="company" placeholder="Company..." class="form-company form-control" id="company">
+                                             </div>
+                                          </div><!-- </col-md-6> -->
+                                          <div class="col-md-6">
+                                             <div class="form-group">
+                                                <label class="sr-only" for="function">Function</label>
+                                                <input type="text" name="function" placeholder="Function..." class="form-function form-control" id="function">
+                                             </div><!-- </form-group> -->                    
+                                          </div><!-- </col-md-6> -->
+                                       </div><!-- </row>-->
+                                       <div class="row">
+                                          <div class="col-md-4">
+                                             <div class="form-group">
+                                                <label class="sr-only" for="date_entry">Admission</label>
+                                                <input type="text" name="date_entry" placeholder="Admission..." class="form-admission form-control" id="date_entry">
+                                             </div><!-- </form-group> -->
+                                          </div><!-- </col-md-4> -->
+                                          <div class="col-md-4">
+                                             <div class="form-group">
+                                                <label class="sr-only" for="date_out">Out Put</label>
+                                                <input type="text" name="date_out" id="date_out" placeholder="Out Put..." class="form-output form-control">
+                                             </div><!-- </form-group> -->                     
+                                          </div><!-- </col-md-4> -->                           
+                                       </div><!-- </row>-->
+                                       <div class="row">
+                                          <div class="col-md-12">
+                                             <div class="form-group">
+                                                <label class="sr-only" for="assignments">About yourself</label>
+                                                <textarea name="assignments" id="assignments" placeholder="About yourself..." class="form-about-yourself form-control" ></textarea>
+                                             </div><!-- </form-group> -->
+                                          </div><!-- </col-md-12> -->
+                                       </div><!-- </row> -->
+                                       <div class="row">
+                                          <div class="col-md-12">
+                                             <div class="row">
+                                                <div class="col-md-4 col-md-offset-4">
+                                                   <div class="form-group">
+                                                      <span data-repeater-delete class="btn btn-danger btn-sm">
+                                                         <span class="glyphicon glyphicon-remove"></span> Delete
+                                                      </span>
+                                                   </div>                      
+                                                </div><!-- </col-md-4> -->
+                                                <div class="col-md-4">
+                                                   <div class="form-group">
+                                                      <span data-repeater-create data-tooltip="Include new skills" class="btn btn-info btn-md">
+                                                         <span class="glyphicon glyphicon-plus"></span> add
+                                                      </span>
+                                                   </div>                      
+                                                </div><!-- </col-md-4> -->                             
+                                             </div><!-- </row>-->
+                                          </div><!-- </col-md-12> -->
+                                       </div>
+                                    </div><!-- </data-repeater-item> -->
+                                    <hr/>
+                                 </div><!-- </data-repeater-list> -->           
+                              </div><!-- </repeater-custom-show-hide> -->
+
+                              <div class="row">
+                                 <div class="col-md-12">
+                                    <div class="form-group">
+                                       <button type="button" class="btn-previous">
+                                          <i class="fa fa-arrow-left"></i>
+                                          <span>Previous</span>
+                                       </button>
+                                       <button type="submit" value="Submit" class="disabled">   
+                                          <i class="fa fa-user"></i>
+                                          <span>Sign UP</span>
+                                       </button>   
+                                    </div><!-- </form-group> -->                     
+                                 </div><!-- </col-md-12> -->
+                              </div><!-- </row> -->
+                           </div><!-- </form-bottom> -->
+                        </fieldset>
+                                
+                     </form><!-- </registration-form> -->
+   					</div><!-- </form-box> -->
+   				</div><!-- </row>  -->
+   			</div><!-- </container>  -->
+   		</div><!-- </inner-bg> -->
+   	</div><!-- </top-content> -->

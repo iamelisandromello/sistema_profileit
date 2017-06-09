@@ -57,9 +57,22 @@ class TestsController extends \HXPHP\System\Controller
 		$teste2 = intval($teste);
 		var_dump($teste2);
 
+
+
+
 		//var_dump($total);
 		//var_dump($user->academics);
 		die();
+
+
 	}
+	public function cadastrarAction(){
+						$post = $this->request->post();
+		var_dump($post);
+$ir=$post['historic'];
+var_dump($ir->company);
+		die();
+	}
+	
 
 }

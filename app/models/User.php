@@ -1,63 +1,15 @@
 <?php
 
-/**
- <code>
- * class Person extends ActiveRecord\Model {
- *   static $belongs_to = array(
- *     array('parent', 'foreign_key' => 'parent_id', 'class_name' => 'Person')
- *   );
- *
- *   static $has_many = array(
- *     array('children', 'foreign_key' => 'parent_id', 'class_name' => 'Person'),
- *     array('orders')
- *   );
- *
- *   static $validates_length_of = array(
- *     array('first_name', 'within' => array(1,50)),
- *     array('last_name', 'within' => array(1,50))
- *   );
- * }
- *
- * class Order extends ActiveRecord\Model {
- *   static $belongs_to = array(
- *     array('person')
- *   );
- *
- *   static $validates_numericality_of = array(
- *     array('cost', 'greater_than' => 0),
- *     array('total', 'greater_than' => 0)
- *   );
- *
- *   static $before_save = array('calculate_total_with_tax');
- *
- *   public function calculate_total_with_tax() {
- *     $this->total = $this->cost * 0.045;
- *   }
- * }
-
-	class User extends CActiveRecord
-	{
-	    public function relations()
-	    {
-	        return array(
-	            'posts'=>array(self::HAS_MANY, 'Post', 'authorID',
-	                            'order'=>'??.createTime DESC',
-	                            'with'=>'categories'),
-	            'profile'=>array(self::HAS_ONE, 'Profile', 'ownerID'),
-	        );
-	    }
-	}
-
- * </code>
- */
 class User extends \HXPHP\System\Model
 {
+	//Relacionamnetos 1:1 entre as tabelas
 	static $belongs_to = array(
 		array('role'),
       array('registry', 'foreign_key' => 'registry_id', 'class_name' => 'Registry'),
       array('network', 'foreign_key' => 'network_id', 'class_name' => 'Network'),
 	);
 
+	//Relacionamnetos 1:n entre as tabelas
 	static $has_many = array(
 		array('professionals'),
 		array('recommendations'),
@@ -66,6 +18,8 @@ class User extends \HXPHP\System\Model
 		array('skills', 'through' => 'competencies')
 	);
 
+	// Método de validação da presença de campos obrigatórios no post recebido do formulário
+	//cria uma variável static ($validates_presence_of), que recebe true ou false se os campos estão preenchidos
 	static $validates_presence_of = array(
 		array(
 			'name',
@@ -85,6 +39,8 @@ class User extends \HXPHP\System\Model
 		)
 	);
 
+	// Método de validação de registro único na tabela pesquisada (utilizado em conjunto com is_valid())
+	//cria uma variável static ($validates_uniqueness_of), que recebe true ou false se o registro já existe
 	static $validates_uniqueness_of = array(
 		array(
 			'username',
@@ -96,12 +52,56 @@ class User extends \HXPHP\System\Model
 		)
 	);
 
+	public static function cadastrar(array $post, $id_registry, $id_network)
+	{
+		$callbackObj = new \stdClass;// Cria classe vazia
+		$callbackObj->user = null;// Propriedade usser da classe null
+		$callbackObj->status = false;// Propriedade Status da Classe False
+		$callbackObj->errors = array();// Array padrão de erros vazio
+       
+      $role = Role::find_by_role('user');// Define a Role de Usuario para o novo objeto
+
+		// Verifica se a Role Default de Usuario existe
+		if (is_null($role)) {
+			array_push($callbackObj->errors, 'A role user não existe. Contate o administrador');
+			return $callbackObj;
+		}
+
+		//array de informações adicionais para Novo Usuário
+		$user_data = array(
+			'role_id'		=> $role->id,
+			'registry_id'	=> $id_registry,
+			'network_id'	=> $id_network,
+			'status'			=> 2
+		);
+
+		$password = \HXPHP\System\Tools::hashHX($post['password']);
+
+		$post = array_merge($post, $user_data, $password);
+
+		$cadastrar = self::create($post);
+
+		if ($cadastrar->is_valid()) {
+			$callbackObj->user = $cadastrar;
+			$callbackObj->status = true;
+			return $callbackObj;
+		}
+
+		$errors = $cadastrar->errors->get_raw_errors();
+
+		foreach ($errors as $field => $message) {
+			array_push($callbackObj->errors, $message[0]);
+		}
+
+		return $callbackObj;
+	}
+
 	public static function idade($birth_date)
 	{	
-      $dn = new DateTime($birth_date);
-		$agora = new DateTime();
-		$idade = $agora->diff($dn);
-		return $idade->y;
+      $dn = new DateTime($birth_date);//recebe a data de aniversário do User
+		$agora = new DateTime();//captura a data atual do sistema
+		$idade = $agora->diff($dn);//calacula a diferença entre as duas datas  
+		return $idade->y; //retorna o calculo da diferença em anos
 	}
 
 	public static function experiencia($user)
@@ -113,13 +113,10 @@ class User extends \HXPHP\System\Model
 
 			$date = User::diffDate($d1,$d2,'D');
 			$total += (int) $date;
-			//echo $temp . "\n";
-			//var_dump( $date ); // int(0
-			//var_dump( $temp ); // int(0
 		}
+
 		$total = ($total/30)/12;
 		return round($total, 2);
-
 	}
 
 	public static function diffDate($d1, $d2, $type='', $sep='-')
@@ -160,48 +157,6 @@ class User extends \HXPHP\System\Model
 
 		if (is_null($role)) {
 			array_push($callbackObj->errors, 'A role user não existe. Contate o administrador');
-			return $callbackObj;
-		}
-
-
-
-		$errors = $cadastrar->errors->get_raw_errors();
-
-		foreach ($errors as $field => $message) {
-			array_push($callbackObj->errors, $message[0]);
-		}
-
-		return $callbackObj;
-	}
-
-	public static function cadastrar(array $post)
-	{
-		$callbackObj = new \stdClass;
-		$callbackObj->user = null;
-		$callbackObj->status = false;
-		$callbackObj->errors = array();
-       
-        $role = Role::find_by_role('user');
-
-		if (is_null($role)) {
-			array_push($callbackObj->errors, 'A role user não existe. Contate o administrador');
-			return $callbackObj;
-		}
-
-		$user_data = array(
-			'role_id' => $role->id,
-			'status' => 1
-		);
-
-		$password = \HXPHP\System\Tools::hashHX($post['password']);
-
-		$post = array_merge($post, $user_data, $password);
-
-		$cadastrar = self::create($post);
-
-		if ($cadastrar->is_valid()) {
-			$callbackObj->user = $cadastrar;
-			$callbackObj->status = true;
 			return $callbackObj;
 		}
 
@@ -279,7 +234,6 @@ class User extends \HXPHP\System\Model
 		$callbackObj->code = null;
 		$callbackObj->tentativas_restantes = null;
 
-
 		$user = self::find_by_username($post['username']);
 
 		if (!is_null($user)) {
@@ -302,7 +256,6 @@ class User extends \HXPHP\System\Model
 							$callbackObj->code = 'dados-incorretos';
 						}
 						
-
 						LoginAttempt::RegistrarTentativa($user->id);
 					}
 				}
