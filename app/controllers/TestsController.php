@@ -66,12 +66,13 @@ class TestsController extends \HXPHP\System\Controller
 
 
 	}
+	
+
 	public function cadastrarAction(){
 
-		$post = $this->request->post();
+		/*$post = $this->request->post();
 		date('d/m/Y', strtotime($data_sql));
 		$data_aniver = date('Y-m-d',strtotime($post['birth_date']));
-		//array de informações para Novo Usuário
 		$user_data = array(
 			'name'			=> $post['name'],
 			'last_name'		=> $post['last_name'],
@@ -81,10 +82,84 @@ class TestsController extends \HXPHP\System\Controller
 			'password'		=> $post['password']
 		);
 		echo "Data1: {$post['birth_date']}<br>";
-		echo "Data2: {$data_aniver}<br>";
+		echo "Data2: {$data_aniver}<br>";*/
 
-		die();
+/*	echo('<pre>');
+		print_r( $_POST['historic'] ); // exibirá o array 
+	echo('<pre>');*/
+	$historic_data = $_POST['historic'];// copiar um arrays de um POST
+
+	$qtd = count($_POST['historic']);
+
+	/*foreach($historic_data as $data)
+	{
+	     if(is_array($data))
+	     {
+	          foreach($data as $other_data)
+	          {
+	               echo $other_data, '<br/>';
+	          }
+	     }
+	     else
+	     {
+	          echo "teste", '<br/>';
+	          //echo "Imagem: {$data}<br>";
+	     }
+	}*/
+
+
+	/*if (!empty($historic_data)) {		
+		foreach($historic_data as $data) {
+			$professional_data = array();
+			$colum = 0;
+			if(is_array($data)) {
+				foreach($data as $other_data) {
+					$professional_data[$colum] = $other_data;
+					$colum++;
+				}
+				echo('<pre>');
+					var_dump($professional_data);
+				echo('</pre>');
+			}
+			else {
+				echo "teste", '<br/>';
+				//echo "Imagem: {$data}<br>";
+			}
+		}
+	}*/
+
+
+	//User::recursive_show_array($dados);
+
+		//die();
+
+		if (!empty($historic_data)) {
+			$user_id = 20;
+			foreach($historic_data as $data) {
+				$professional_data = array();
+				$colum = 0;
+				if(is_array($data)) {
+					foreach($data as $other_data) {
+						$professional_data[$colum] = $other_data;
+						$colum++;
+					}
+					$cadastrarHistoric = Professional::cadastrar($professional_data, $user_id);
+					if ($cadastrarHistoric->status === false) {
+						$this->load('Helpers\Alert', array(
+										'danger',
+										'Ops! Não foi possível efetuar seu cadastro. <br> Verifique os erros abaixo:',
+										$cadastrarHistoric->errors
+										));
+					}
+				}
+				else {
+					echo "teste", '<br/>';
+					//echo "Imagem: {$data}<br>";
+				}
+			}// final do array  multidimensional
+		}
+
+
 	}
 	
-
 }

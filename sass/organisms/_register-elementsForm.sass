@@ -1,6 +1,7 @@
 .registration-form input[type=text],
 .registration-form input[type=password],
-.registration-form input[type=email]
+.registration-form input[type=email],
+.registration-form select,
     /* Size and position */
     width: 100%
     height: 40px
@@ -18,6 +19,8 @@
     color: #e4812a
     text-shadow: 0 1px 2px rgba(0,0,0,0.3)
     font-size: 18px
+.register-select
+    color: #333!important   
 
 .registration-form textarea
     /* Size and position */
@@ -40,7 +43,8 @@
 
 .registration-form input[type=text],
 .registration-form input[type=textarea],
-.registration-form input[type=email]
+.registration-form input[type=email],
+.registration-form select
     border-bottom: 1px solid #fff /* Fallback */
     border-bottom: 1px solid rgba(255,255,255,0.7)
     border-radius: 5px 0 0 0
@@ -58,9 +62,11 @@
 .registration-form input[type=text]:hover,
 .registration-form input[type=password]:hover,
 .registration-form input[type=email]:hover,
+.registration-form select:hover,
 .registration-form input[type=text]:focus,
 .registration-form input[type=password]:focus,
-.registration-form input[type=email]:focus
+.registration-form input[type=email]:focus,
+.registration-form select:focus
     background: #f7def7 /* Fallback */
     background: rgba(255,255,255,0.4)
     outline: none
@@ -74,31 +80,46 @@
 /* Placeholder style (from http://stackoverflow.com/questions/2610497/change-an-inputs-html5-placeholder-color-with-css) */
 
 .registration-form input::-webkit-input-placeholder
-    color: #fff
+    color: #333!important
     text-shadow: 0 -1px 1px rgba(0,0,0,0.4)
     font-family: 'Handlee', cursive
 
 .registration-form input:-moz-placeholder
-    color: #fff
+    color: #333!important
     text-shadow: 0 -1px 1px rgba(0,0,0,0.4)
     font-family: 'Handlee', cursive
 
 .registration-form input:-ms-input-placeholder
-    color: #fff
+    color: #333!important
     text-shadow: 0 -1px 1px rgba(0,0,0,0.4)
     font-family: 'Handlee', cursive
 
 .registration-form textarea::-webkit-input-placeholder
-    color: #fff
+    color: #333!important
     text-shadow: 0 -1px 1px rgba(0,0,0,0.4)
     font-family: 'Handlee', cursive
 
 .registration-form textarea:-moz-placeholder
-    color: #fff
+    color: #333!important
     text-shadow: 0 -1px 1px rgba(0,0,0,0.4)
     font-family: 'Handlee', cursive
 
 .registration-form textarea:-ms-input-placeholder
-    color: #fff
+    color: #333!important
     text-shadow: 0 -1px 1px rgba(0,0,0,0.4)
     font-family: 'Handlee', cursive
+
+.registration-form select::-webkit-input-placeholder
+    color: #333!important
+    text-shadow: 0 -1px 1px rgba(0,0,0,0.4)
+    font-family: 'Handlee', cursive
+
+.registration-form select:-moz-placeholder
+    color: #333!important
+    text-shadow: 0 -1px 1px rgba(0,0,0,0.4)
+    font-family: 'Handlee', cursive
+
+.registration-form select:-ms-input-placeholder
+    color: #333!important
+    text-shadow: 0 -1px 1px rgba(0,0,0,0.4)
+    font-family: 'Handlee', cursive    

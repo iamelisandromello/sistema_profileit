@@ -147,6 +147,18 @@ class User extends \HXPHP\System\Model
 		 return floor( ( ( (mktime(0, 0, 0, $d2[1], $d2[2], $d2[0])) - (mktime(0, 0, 0, $d1[1], $d1[2], $d1[0] )) ) / $X ) );
 	}
 
+	public static function recursive_show_array($arr)
+	{
+		foreach($arr as $value)	{
+			if(is_array($value))	{
+		  		User::recursive_show_array($value);
+			}
+			else {
+		  		echo "Campo: {$value}<br>";
+			}
+		}
+	}
+
 	public static function pesquisar(array $post)
 	{
 		$callbackObj = new \stdClass;

@@ -1,13 +1,11 @@
-   	<!-- Top content -->
-   	<div class="top-content">
-   		<div class="inner-bg">
-   			<div class="container">
-   				<div class="row">
-   					<div class="col-sm-8 col-sm-offset-2 form-box">
-   						<?php echo (isset($this->alert) ? $this->alert : ''); ?>
-                     <form action="<?php echo BASE; ?>cadastro/cadastrar/" role="form" data-toggle="validator" method="post" class="registration-form">
-                     <!--<form data-toggle="validator" role="form">-->
-
+<!-- Top content -->
+      <div class="top-content">
+         <div class="inner-bg">
+            <div class="container">
+               <div class="row">
+                  <div class="col-sm-8 col-sm-offset-2 form-box">
+                     <?php echo (isset($this->alert) ? $this->alert : ''); ?>
+                     <form action="<?php echo BASE; ?>tests/cadastrar/" role="form" data-toggle="validator" method="post" class="registration-form">
                         <fieldset>
                            <div class="form-top">
                               <div class="form-top-left">
@@ -22,8 +20,8 @@
                               <div class="row">
                                  <div class="col-md-4">
                                     <div class="form-group">
-                                       <label class="sr-only" for="form-first-name">First name</label>
-                                       <input type="text" name="name" placeholder="First name..." class="form-first-name form-control" id="name" value="<?php echo $this->request->post('name') ?>" required>
+                                       <label class="sr-only" for="name">First name</label>
+                                       <input type="text" name="name" id="name" placeholder="First name..." class="form-first-name form-control" value="<?php echo $this->request->post('name') ?>" required>
                                     </div><!-- </form-group> -->
                                  </div><!-- </col-md-4> -->
                                  <div class="col-md-8">
@@ -33,19 +31,24 @@
                                     </div><!-- </form-group> -->
                                  </div><!-- </col-md-8> -->
                               </div><!-- </row> -->   
-
                               <div class="row">
-                                 <div class="col-md-6">
+                                 <div class="col-md-4">
+                                    <div class="form-group">
+                                       <label class="sr-only" for="birth_date">Birth Date</label>
+                                       <input type="text" name="birth_date" id="birth_date" placeholder="00/00/0000" class="form-birth_date form-control" value="<?php echo $this->request->post('birth_date') ?>" required>
+                                    </div><!-- </form-group> -->
+                                 </div>                              
+                                 <div class="col-md-4">
                                     <div class="form-group">
                                        <label class="sr-only" for="celular">Phone Mobile</label>
-                                       <input type="text" class="form-control" name="celular" id="celular" placeholder="(00)99999-9999" pattern="\([0-9]{2}\)[0-9]{4,6}-[0-9]{3,4}$" required>
+                                       <input type="text" class="form-control" name="celular" id="celular" placeholder="(00)99999-9999" pattern="\([0-9]{2}\)[0-9]{4,6}-[0-9]{3,4}$" value="<?php echo $this->request->post('celular') ?>" required>
                                        <div class="help-block with-errors"></div>
                                     </div><!-- </form-group> --> 
                                  </div><!-- </col-md-6> -->
-                                 <div class="col-md-6">
+                                 <div class="col-md-4">
                                     <div class="form-group">
                                        <label class="sr-only" for="phone">Phone Residencial</label>
-                                       <input type="text" class="form-control" name="phone" id="phone" placeholder="(00)0000-0000" pattern="\([0-9]{2}\)[0-9]{4,6}-[0-9]{3,4}$" required>
+                                       <input type="text" class="form-control" name="phone" id="phone" placeholder="(00)0000-0000" pattern="\([0-9]{2}\)[0-9]{4,6}-[0-9]{3,4}$" value="<?php echo $this->request->post('phone') ?>" required>
                                        <div class="help-block with-errors"></div>
                                     </div><!-- </form-group> -->                     
                                  </div><!-- </col-md-6> -->
@@ -131,8 +134,8 @@
                                     </div><!-- </form-group> -->                     
                                  </div><!-- </col-md-12> -->
                               </div><!-- </row> -->
-                           </div>
-                        </fieldset>
+                           </div><!-- </form-bottom> -->
+                        </fieldset><!-- </Access & Password> -->
 
                         <fieldset>
                            <div class="form-top">
@@ -149,13 +152,13 @@
                                  <div class="col-md-9">
                                     <div class="form-group">
                                        <label class="sr-only" for="address">Address</label>
-                                       <input type="text" name="address" id="address" placeholder="Address..." class="form-address form-control">
+                                       <input type="text" name="address" id="address" placeholder="Address..." class="form-address form-control" value="<?php echo $this->request->post('address') ?>">
                                     </div>
                                  </div><!-- </col-md-9> -->   
                                  <div class="col-md-3">
                                     <div class="form-group">
                                        <label class="sr-only" for="number">Number</label>
-                                       <input type="text" name="number" id="form-number" placeholder="Number..." class="form-number form-control">
+                                       <input type="text" name="number" id="form-number" placeholder="Number..." class="form-number form-control" value="<?php echo $this->request->post('number') ?>">
                                     </div>
                                  </div><!-- </col-md-3> -->   
                               </div><!-- </row> -->                                         
@@ -183,7 +186,7 @@
                                  <div class="col-md-7">
                                     <div class="form-group">
                                        <label class="sr-only" for="zipcode">Zip Code</label>
-                                       <input type="text" name="zipcode" id="zipcode" placeholder="Zip Code..." class="form-zipcode form-control">
+                                       <input type="text" name="zipcode" id="zipcode" placeholder="Zip Code..." class="form-zipcode form-control" value="<?php echo $this->request->post('zipcode') ?>">
                                     </div>
                                  </div><!-- </col-md-9> -->
                               </div><!-- </row> -->                   
@@ -202,8 +205,8 @@
                                     </div><!-- </form-group> -->                     
                                  </div><!-- </col-md-12> -->
                               </div><!-- </row> -->
-                           </div>
-                        </fieldset>                             
+                           </div><!-- </form-bottom> -->
+                        </fieldset><!-- </Address & Localization> -->
                        
                         <fieldset>
                            <div class="form-top">
@@ -220,13 +223,13 @@
                                  <div class="col-md-6">
                                     <div class="form-group">
                                        <label class="sr-only" for="facebook">Facebook</label>
-                                       <input type="text" name="facebook" id="facebook" placeholder="Facebook..." class="form-facebook form-control" >
+                                       <input type="text" name="facebook" id="facebook" placeholder="Facebook..." class="form-facebook form-control" value="<?php echo $this->request->post('facebook') ?>" >
                                     </div>
                                  </div><!-- </col-md-6> -->
                                  <div class="col-md-6">
                                     <div class="form-group">
                                        <label class="sr-only" for="twitter">Twitter</label>
-                                       <input type="text" name="twitter" id="twitter" placeholder="Twitter..." class="form-twitter form-control">
+                                       <input type="text" name="twitter" id="twitter" placeholder="Twitter..." class="form-twitter form-control" value="<?php echo $this->request->post('twitter') ?>" >
                                     </div>                                       
                                  </div><!-- </col-md-6> -->
                               </div><!-- </row> -->
@@ -235,13 +238,13 @@
                                  <div class="col-md-6">
                                     <div class="form-group">
                                        <label class="sr-only" for="instagram">Instagram</label>
-                                       <input type="text" name="instagram" id="instagram" placeholder="Instagram..." class="form-instagram form-control">
+                                       <input type="text" name="instagram" id="instagram" placeholder="Instagram..." class="form-instagram form-control" value="<?php echo $this->request->post('instagram') ?>" >
                                     </div>                                       
                                  </div><!-- </col-md-6> -->
                                  <div class="col-md-6">
                                       <div class="form-group">
                                        <label class="sr-only" for="linkedin">Linkedin</label>
-                                       <input type="text" name="linkedin" id="linkedin" placeholder="Linkedin..." class="form-linkedin form-control">
+                                       <input type="text" name="linkedin" id="linkedin" placeholder="Linkedin..." class="form-linkedin form-control" value="<?php echo $this->request->post('linkedin') ?>" >
                                     </div>                                      
                                  </div><!-- </col-md-6> -->
                               </div><!-- </row> -->
@@ -250,13 +253,13 @@
                                  <div class="col-md-6">
                                     <div class="form-group">
                                        <label class="sr-only" for="github">GitHub</label>
-                                       <input type="text" id="github" name="github" placeholder="GitHub..." class="form-github form-control">
+                                       <input type="text" id="github" name="github" placeholder="GitHub..." class="form-github form-control" value="<?php echo $this->request->post('github') ?>" >
                                     </div>                                       
                                  </div><!-- </col-md-6> -->
                                  <div class="col-md-6">
                                     <div class="form-group">
                                        <label class="sr-only" for="web">Web</label>
-                                       <input type="text" name="web" id="web" placeholder="Web..." class="form-web form-control">
+                                       <input type="text" name="web" id="web" placeholder="Web..." class="form-web form-control" value="<?php echo $this->request->post('web') ?>" >
                                     </div>                                        
                                  </div><!-- </col-md-6> -->
                               </div><!-- </row> -->
@@ -272,13 +275,12 @@
                                        <button type="button" class="btn-next">
                                           <i class="fa fa-arrow-right"></i>
                                           <span>Next</span>
-                                       </button>
+                                       </button> 
                                     </div><!-- </form-group> -->                     
                                  </div><!-- </col-md-12> -->
                               </div><!-- </row> -->
-
-                           </div>
-                        </fieldset>
+                           </div><!-- </form-bottom> -->
+                        </fieldset><!-- </Social media profiles> -->
 
                         <fieldset>
                            <div class="form-top">
@@ -339,20 +341,23 @@
                                                          <span class="glyphicon glyphicon-remove"></span> Delete
                                                       </span>
                                                    </div>                      
-                                                </div><!-- </col-md-4> -->
-                                                <div class="col-md-4">
-                                                   <div class="form-group">
-                                                      <span data-repeater-create data-tooltip="Include new skills" class="btn btn-info btn-md">
-                                                         <span class="glyphicon glyphicon-plus"></span> add
-                                                      </span>
-                                                   </div>                      
-                                                </div><!-- </col-md-4> -->                             
+                                                </div><!-- </col-md-4> -->                           
                                              </div><!-- </row>-->
                                           </div><!-- </col-md-12> -->
                                        </div>
                                     </div><!-- </data-repeater-item> -->
                                     <hr/>
-                                 </div><!-- </data-repeater-list> -->           
+                                 </div><!-- </data-repeater-list> -->
+                                 <div class="row">
+                                    <div class="col-md-4">
+                                       <div class="form-group">
+                                          <span data-repeater-create data-tooltip="Include new skills" class="btn btn-info btn-md">
+                                             <span class="glyphicon glyphicon-plus"></span> add
+                                          </span>
+                                       </div>                      
+                                    </div><!-- </col-md-4> --> 
+                                 </div>
+
                               </div><!-- </repeater-custom-show-hide> -->
 
                               <div class="row">
@@ -371,10 +376,10 @@
                               </div><!-- </row> -->
                            </div><!-- </form-bottom> -->
                         </fieldset>
-                                
+                                          
                      </form><!-- </registration-form> -->
-   					</div><!-- </form-box> -->
-   				</div><!-- </row>  -->
-   			</div><!-- </container>  -->
-   		</div><!-- </inner-bg> -->
-   	</div><!-- </top-content> -->
+                  </div><!-- </form-box> -->
+               </div><!-- </row>  -->
+            </div><!-- </container>  -->
+         </div><!-- </inner-bg> -->
+      </div><!-- </top-content> -->

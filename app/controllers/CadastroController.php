@@ -62,7 +62,8 @@ class CadastroController extends \HXPHP\System\Controller
 			'twitter'	=> $post['twitter']
 		);
 
-	
+		$historic_data = $_POST['historic'];// copiar um arrays de um POST
+
 		if (!empty($registry_data)) {
 			$cadastrarRegistry = Registry::cadastrar($registry_data);
 
@@ -103,9 +104,37 @@ class CadastroController extends \HXPHP\System\Controller
 					$cadastrarUsuario->errors
 				));
 			}
-			else {
+		}
+
+		if (!empty($historic_data)) {
+			$user_id = $cadastrarUsuario->user->id;
+			foreach($historic_data as $data) {
+				$colum = 0;
+				$professional_data = array();
+				if(is_array($data)) {
+					foreach($data as $other_data) {
+						$professional_data[$colum] = $other_data;
+						$colum++;
+					}
+					$cadastrarHistoric = Professional::cadastrar($professional_data, $user_id);
+					if ($cadastrarHistoric->status === false) {
+						$this->load('Helpers\Alert', array(
+										'danger',
+										'Ops! Não foi possível efetuar seu cadastro. <br> Verifique os erros abaixo:',
+										$cadastrarHistoric->errors
+										));
+					}
+				}
+				else {
+					echo "teste", '<br/>';
+					//echo "Imagem: {$data}<br>";
+				}
+			}// final do array  multidimensional
+
+			if ($cadastrarHistoric->status === true) {
 				$this->auth->login($cadastrarUsuario->user->id, $cadastrarUsuario->user->username);
 			}
 		}
+
 	}
 }
