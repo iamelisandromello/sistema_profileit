@@ -42,7 +42,7 @@ jQuery(document).ready(function() {
         var validaRadio = "";
 
         // Verificando Radio Button
-        $('.radio').each(function(i){
+        $('.radio-academic').each(function(i){
             if ($(this).is(':checked')) {
                 validaRadio = $(this).val();
             }

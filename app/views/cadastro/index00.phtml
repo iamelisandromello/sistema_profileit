@@ -5,7 +5,10 @@
                <div class="row">
                   <div class="col-sm-8 col-sm-offset-2 form-box">
                      <?php echo (isset($this->alert) ? $this->alert : ''); ?>
-                     <form action="<?php echo BASE; ?>tests/cadastrar/" role="form" data-toggle="validator" method="post" class="registration-form">                       
+                     <form action="<?php echo BASE; ?>tests/cadastrar/" role="form" data-toggle="validator" method="post" class="registration-form" id="registration-form">
+                        <!--
+                           Passo Formulario de Histórico Acadêmico
+                        -->
                         <fieldset>
                            <div class="form-top">
                               <div class="form-top-left">
@@ -16,35 +19,41 @@
                                  <i class="fa-graduation-cap"></i>
                               </div>
                            </div>
-                           <div class="form-bottom">
-                              <div class="repeater-custom-show-hide">
-                                 <div data-repeater-list="academic">              
-                                    <div data-repeater-item name="repeater-academic" id="repeater-academic">
+                           <div class="form-bottom">                              
+                              <div class="academic-repeater">
+                                 <div data-repeater-list="academic-group" class="academic">
+                                    <div data-repeater-item class="academic">
+                                       <!--
+                                       1º Linha Formulario Acadêmico
+                                       -->
                                        <div class="row">
                                           <div class="col-md-6">
                                              <div class="form-group">
                                                 <label class="sr-only" for="institution">Institution</label>
-                                                <input type="text" name="institution" placeholder="Institution..." class="form-institution form-control" id="institution">
+                                                <input type="text" name="institution" id="institution" placeholder="Institution..." class="form-institution form-control academic" required >
                                              </div>
                                           </div><!-- </col-md-6> -->
                                           <div class="col-md-6">
                                              <div class="form-group">
                                                 <label class="sr-only" for="local">Local</label>
-                                                <input type="text" name="local" placeholder="Local..." class="form-local form-control" id="local">
+                                                <input type="text" name="local" placeholder="Local..." class="form-local form-control academic" id="local">
                                              </div><!-- </form-group> -->                    
                                           </div><!-- </col-md-6> -->
                                        </div><!-- </row>-->
+                                       <!--
+                                       2º Linha Formulario Acadêmico
+                                       -->
                                        <div class="row">
                                           <div class="col-md-6">
                                              <div class="form-group">
                                                 <label class="sr-only" for="course">Course</label>
-                                                <input type="text" name="course" placeholder="Course" class="form-acourse form-control" id="course">
+                                                <input type="text" name="course" placeholder="Course" class="form-course form-control academic" id="course">
                                              </div><!-- </form-group> -->
                                           </div><!-- </col-md-6> -->
                                           <div class="col-md-6">
                                              <div class="form-group">
                                                 <label class="sr-only" for="date_out">Level</label>
-                                                <select name="formation-list" class="register-select" form="form-academic">
+                                                <select id="formation-list" name="formation-list" class="register-select academic" form="form-register">
                                                    <option class="opt-placeholder" value="-1" selected="">Formation
                                                    </option>
                                                    <optgroup label="Nível">
@@ -60,35 +69,40 @@
                                              </div><!-- </form-group> -->                     
                                           </div><!-- </col-md-6> -->                           
                                        </div><!-- </row>-->
+                                       <!--
+                                       3º Linha Formulario Acadêmico
+                                       -->                                       
                                        <div class="row">
                                           <div class="col-md-4">
                                              <div class="form-group">
                                                 <label class="sr-only" for="date_conclusion">Conclusion Date</label>
-                                                <input type="text" name="conclusion_date" id="conclusion_date" placeholder="00/00/0000" class="form-conclusion_date form-control" value="<?php echo $this->request->post('conclusion_date') ?>" required>
+                                                <input type="text" name="conclusion_date" id="conclusion_date" placeholder="00/00/0000" class="form-conclusion_date form-control academic" value="<?php echo $this->request->post('conclusion_date') ?>"  >
                                              </div><!-- </form-group> -->
                                           </div>
-                                          <div class="col-md-4 col-md-offset-4">
+                                          <div class="col-md-4">
                                              <div class="form-group">
-                                                <span data-repeater-delete class="btn btn-danger btn-sm">
+                                                <span data-repeater-delete class="btn btn-danger btn-sm academic">
                                                    <span class="glyphicon glyphicon-remove"></span> Delete
                                                 </span>
                                              </div>                      
                                           </div><!-- </col-md-4> -->
                                        </div><!-- </row> -->
-                        
+                                       <!--
+                                       4º Linha Formulario Acadêmico
+                                       -->                                       
                                        <div class="row">
                                           <div class="col-md-12 wrapper_radio">
                                              <div class="row">
                                                 <div class="col-md-2 col-md-offset-3">
-                                                   <input type="radio" id="radio01" name="radio" checked="checked" value="1" />
+                                                   <input type="radio" id="radio01" name="radioAcademic" class="radio-academic academic" value="1" >
                                                    <label for="radio01"><span></span>Complete</label>
                                                 </div>
                                                 <div class="col-md-2">
-                                                   <input type="radio" id="radio02" name="radio" value="2" />
+                                                   <input type="radio" id="radio02" name="radioAcademic" class="radio-academic academic" value="2" >
                                                    <label for="radio02"><span></span>Progress</label>
                                                 </div>
                                                 <div class="col-md-2">
-                                                   <input type="radio" id="radio03" name="radio" value="3" />
+                                                   <input type="radio" id="radio03" name="radioAcademic" class="radio-academic academic" value="3" >
                                                    <label for="radio03"><span></span>Locked</label>
                                                 </div>                                              
                                              </div>
@@ -97,17 +111,20 @@
                                     </div><!-- </data-repeater-item> -->
                                     <hr/>
                                  </div><!-- </data-repeater-list> -->
+                                 <!--
+                                 Button Add New Historico Academico
+                                 -->                                
                                  <div class="row">
                                     <div class="col-md-4">
                                        <div class="form-group">
-                                          <span data-repeater-create data-tooltip="Include new skills" name="add-academic" id="add-academic" class="btn btn-info btn-md">
+                                          <span data-repeater-create data-tooltip="Include new skills" name="add-academic" id="add-academic" class="btn btn-info btn-md academic">
                                              <span class="glyphicon glyphicon-plus"></span> add
                                           </span>
                                        </div>                      
                                     </div><!-- </col-md-4> -->  
                                  </div>      
-                              </div><!-- </repeater-custom-show-hide> -->
-
+                              </div><!-- </academic-repeater> -->
+                              
                               <div class="row">
                                  <div class="col-md-12">
                                     <div class="form-group">
@@ -124,8 +141,10 @@
                               </div><!-- </row> -->
                            </div><!-- </form-bottom> -->
                         </fieldset><!-- </Academic Historic> -->
-
-                       <fieldset>
+                        <!--
+                           Passo Formulario de Cursos Livres
+                        -->
+                        <fieldset>
                            <div class="form-top">
                               <div class="form-top-left">
                                  <h3>Step 6 / 7</h3>
@@ -136,29 +155,35 @@
                               </div>
                            </div>
                            <div class="form-bottom">
-                              <div class="repeater-custom-show-hide">
-                                 <div data-repeater-list="courses">                                 
-                                    <div data-repeater-item name="repeater-courses" id="repeater-courses">
+                              <div class="course-repeater">
+                                 <div data-repeater-list="course-group" class="course">
+                                    <div data-repeater-item class="course">
+                                       <!--
+                                       1º Linha Formulario Cursos Livres
+                                       -->                                       
                                        <div class="row">
                                           <div class="col-md-12">
                                              <div class="form-group">
                                                 <label class="sr-only" for="institution">Course Title</label>
-                                                <input type="text" name="title" placeholder="Course Title..." class="form-title form-control" id="title">
+                                                <input type="text" name="title" placeholder="Course Title..." class="form-title form-control course" id="title">
                                              </div>
                                           </div><!-- </col-md-12> -->
                                        </div><!-- </row>-->
+                                       <!--
+                                       2º Linha Formulario Cursos Livres
+                                       -->
                                        <div class="row">
                                           <div class="col-md-8">
                                              <div class="form-group">
                                                 <label class="sr-only" for="institution">Institution</label>
-                                                <input type="text" name="institution" placeholder="Institution..." class="form-institution form-control" id="institution">
+                                                <input type="text" name="institution" placeholder="Institution..." class="form-institution form-control course" id="institution">
                                              </div>
                                           </div><!-- </col-md-8> -->
                                            <div class="col-md-4">
                                              <div class="form-group">
                                                 <label class="sr-only" for="date_out">Segment</label>
-                                                <select name="formation-list" class="register-select" form="form-academic">
-                                                   <option class="opt-placeholder" value="-1" selected="">Segment
+                                                <select name="formation-list" class="register-select course" form="form-register">
+                                                   <option class="opt-placeholder course" value="-1" selected="">Segment
                                                    </option>
                                                    <optgroup label="Area">
                                                    <option value="Microsoft">Microsoft</option>
@@ -170,22 +195,25 @@
                                              </div><!-- </form-group> -->                     
                                           </div><!-- </col-md-4> -->
                                        </div><!-- </row>-->
+                                       <!--
+                                       3º Linha Formulario Cursos Livres
+                                       -->
                                        <div class="row">
                                           <div class="col-md-5">
                                              <div class="form-group">
                                                 <label class="sr-only" for="institution">Workload</label>
-                                                <input type="text" name="workload" placeholder="Workload..." class="form-workload form-control" id="workload">
+                                                <input type="text" name="workload" placeholder="Workload..." class="form-workload form-control course" id="workload">
                                              </div>
                                           </div>
                                           <div class="col-md-4">
                                              <div class="form-group">
                                                 <label class="sr-only" for="date_conclusion">Conclusion Date</label>
-                                                <input type="text" name="conclusion_date" id="conclusion_date" placeholder="00/00/0000" class="form-conclusion_date form-control" value="<?php echo $this->request->post('conclusion_date') ?>" required>
+                                                <input type="text" name="conclusion_date" id="conclusion_date" placeholder="00/00/0000" class="form-conclusion_date form-control course" value="<?php echo $this->request->post('conclusion_date') ?>" required>
                                              </div><!-- </form-group> -->
                                           </div>
                                           <div class="col-md-3 col-md-offset-0">
                                              <div class="form-group">
-                                                <span data-repeater-delete class="btn btn-danger btn-sm">
+                                                <span data-repeater-delete class="btn btn-danger btn-sm course">
                                                    <span class="glyphicon glyphicon-remove"></span> Delete
                                                 </span>
                                              </div>                      
@@ -197,13 +225,14 @@
                                  <div class="row">
                                     <div class="col-md-4">
                                        <div class="form-group">
-                                          <span data-repeater-create data-tooltip="Include new skills" name="add-course" id="add-course" class="btn btn-info btn-md">
+                                          <span data-repeater-create data-tooltip="Include new skills" class="btn btn-info btn-md course">
                                              <span class="glyphicon glyphicon-plus"></span> add
                                           </span>
                                        </div>                      
                                     </div><!-- </col-md-4> -->  
                                  </div>      
                               </div><!-- </repeater-custom-show-hide> -->
+
                               <div class="row">
                                  <div class="col-md-12">
                                     <div class="form-group">
@@ -218,8 +247,12 @@
                                     </div><!-- </form-group> -->                     
                                  </div><!-- </col-md-12> -->
                               </div><!-- </row> -->
+
                            </div><!-- </form-bottom> -->
                         </fieldset><!-- </Free Courses> -->
+                        <!--
+                           Passo Formulario de Histórico Profissional
+                        -->
                         <fieldset>
                            <div class="form-top">
                               <div class="form-top-left">
@@ -231,20 +264,20 @@
                               </div>
                            </div>
                            <div class="form-bottom">
-                              <div class="repeater-custom-show-hide">
-                                 <div data-repeater-list="historic">                     
-                                    <div data-repeater-item name="repeater-historic" id="repeater-historic">
+                              <div class="professional-repeater">
+                                 <div data-repeater-list="professional-group" class="professional">
+                                    <div data-repeater-item class="professional">
                                        <div class="row">
                                           <div class="col-md-6">
                                              <div class="form-group">
                                                 <label class="sr-only" for="company">Company</label>
-                                                <input type="text" name="company" placeholder="Company..." class="form-company form-control" id="company">
+                                                <input type="text" name="company" placeholder="Company..." class="form-company form-control professional" id="company">
                                              </div>
                                           </div><!-- </col-md-6> -->
                                           <div class="col-md-6">
                                              <div class="form-group">
                                                 <label class="sr-only" for="function">Function</label>
-                                                <input type="text" name="function" placeholder="Function..." class="form-function form-control" id="function">
+                                                <input type="text" name="function" placeholder="Function..." class="form-function form-control professional" id="function">
                                              </div><!-- </form-group> -->                    
                                           </div><!-- </col-md-6> -->
                                        </div><!-- </row>-->
@@ -252,13 +285,13 @@
                                           <div class="col-md-4">
                                              <div class="form-group">
                                                 <label class="sr-only" for="date_entry">Admission</label>
-                                                <input type="text" name="date_entry" placeholder="Admission..." class="form-admission form-control" id="date_entry">
+                                                <input type="text" name="date_entry" placeholder="Admission..." class="form-admission form-control professional" id="date_entry">
                                              </div><!-- </form-group> -->
                                           </div><!-- </col-md-4> -->
                                           <div class="col-md-4">
                                              <div class="form-group">
                                                 <label class="sr-only" for="date_out">Out Put</label>
-                                                <input type="text" name="date_out" id="date_out" placeholder="Out Put..." class="form-output form-control">
+                                                <input type="text" name="date_out" id="date_out" placeholder="Out Put..." class="form-output form-control professional">
                                              </div><!-- </form-group> -->                     
                                           </div><!-- </col-md-4> -->                           
                                        </div><!-- </row>-->
@@ -266,7 +299,7 @@
                                           <div class="col-md-12">
                                              <div class="form-group">
                                                 <label class="sr-only" for="assignments">About yourself</label>
-                                                <textarea name="assignments" id="assignments" placeholder="About yourself..." class="form-about-yourself form-control" ></textarea>
+                                                <textarea name="assignments" id="assignments" placeholder="About yourself..." class="form-about-yourself form-control professional" ></textarea>
                                              </div><!-- </form-group> -->
                                           </div><!-- </col-md-12> -->
                                        </div><!-- </row> -->
@@ -275,11 +308,11 @@
                                              <div class="row">
                                                 <div class="col-md-4 col-md-offset-4">
                                                    <div class="form-group">
-                                                      <span data-repeater-delete class="btn btn-danger btn-sm">
+                                                      <span data-repeater-delete class="btn btn-danger btn-sm professional">
                                                          <span class="glyphicon glyphicon-remove"></span> Delete
                                                       </span>
                                                    </div>                      
-                                                </div><!-- </col-md-4> -->                      
+                                                </div><!-- </col-md-4> -->                           
                                              </div><!-- </row>-->
                                           </div><!-- </col-md-12> -->
                                        </div>
@@ -289,13 +322,15 @@
                                  <div class="row">
                                     <div class="col-md-4">
                                        <div class="form-group">
-                                          <span data-repeater-create data-tooltip="Include new skills" name="add-historic" id="add-historic" class="btn btn-info btn-md">
+                                          <span data-repeater-create data-tooltip="Include new skills" class="btn btn-info btn-md professional">
                                              <span class="glyphicon glyphicon-plus"></span> add
                                           </span>
                                        </div>                      
                                     </div><!-- </col-md-4> --> 
                                  </div>
+
                               </div><!-- </repeater-custom-show-hide> -->
+
                               <div class="row">
                                  <div class="col-md-12">
                                     <div class="form-group">
@@ -311,7 +346,8 @@
                                  </div><!-- </col-md-12> -->
                               </div><!-- </row> -->
                            </div><!-- </form-bottom> -->
-                        </fieldset>   
+                        </fieldset>
+
                      </form><!-- </registration-form> -->
                   </div><!-- </form-box> -->
                </div><!-- </row>  -->

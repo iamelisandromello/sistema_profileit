@@ -2,7 +2,7 @@
 
 class TestsController extends \HXPHP\System\Controller
 {
-
+	
 	public function indexAction()
 	{
 		$user = User::find(22);
@@ -56,9 +56,6 @@ class TestsController extends \HXPHP\System\Controller
 		var_dump( round($teste, 2) );
 		$teste2 = intval($teste);
 		var_dump($teste2);
-
-
-
 
 		//var_dump($total);
 		//var_dump($user->academics);

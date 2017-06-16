@@ -3,7 +3,8 @@
     "require": {
         "php-activerecord/php-activerecord": "dev-master",
         "avbdr/php-bootstrap-form": "dev-master",
-        "verot/class.upload.php": "dev-master"
+        "verot/class.upload.php": "dev-master",
+        "electrolinux/phpquery": "^0.9.6"
     },
     "authors": [
         {
