@@ -87,9 +87,11 @@ class TestsController extends \HXPHP\System\Controller
 /*	echo('<pre>');
 		print_r( $_POST['historic'] ); // exibirá o array 
 	echo('<pre>');*/
-	$historic_data = $_POST['historic'];// copiar um arrays de um POST
+	/*$historic_data = $_POST['historic'];// copiar um arrays de um POST
+	$qtd = count($_POST['historic']);*/
 
-	$qtd = count($_POST['historic']);
+	//$academic_data = $_POST['academic'];// copiar um arrays de um POST
+	//$qtd = count($_POST['academic']);
 
 	/*foreach($historic_data as $data)
 	{
@@ -133,7 +135,7 @@ class TestsController extends \HXPHP\System\Controller
 
 		//die();
 
-		if (!empty($historic_data)) {
+		/*if (!empty($historic_data)) {
 			$user_id = 20;
 			foreach($historic_data as $data) {
 				$professional_data = array();
@@ -157,8 +159,116 @@ class TestsController extends \HXPHP\System\Controller
 					//echo "Imagem: {$data}<br>";
 				}
 			}// final do array  multidimensional
-		}
+		}*/
 
+
+/*Academic*/
+
+	/*if (!empty($academic_data)) {		
+		foreach($academic_data as $data) {
+			$course_data = array();
+			$colum = 0;
+			if(is_array($data)) {
+				foreach($data as $other_data) {
+					$course_data[$colum] = $other_data;
+					$colum++;
+				}
+				echo('<pre>');
+					var_dump($course_data);
+				echo('</pre>');
+			}
+			else {
+				echo "teste", '<br/>';
+				//echo "Imagem: {$data}<br>";
+			}
+		}
+	}*/
+
+
+	//User::recursive_show_array($dados);
+
+		//die();
+
+/*if (!empty($academic_data)) {
+			$user_id = 20;
+			foreach($academic_data as $data) {
+				$course_data = array();
+				$colum = 0;
+				if(is_array($data)) {
+					foreach($data as $other_data) {
+						$course_data[$colum] = $other_data;
+						$colum++;
+					}
+					$cadastrarAcademic = Academic::cadastrar($course_data, $user_id);
+					if ($cadastrarAcademic->status === false) {
+						$this->load('Helpers\Alert', array(
+										'danger',
+										'Ops! Não foi possível efetuar seu cadastro. <br> Verifique os erros abaixo:',
+										$cadastrarAcademic->errors
+										));
+					}
+				}
+				else {
+					echo "teste", '<br/>';
+					//echo "Imagem: {$data}<br>";
+				}
+			}// final do array  multidimensional
+		}*/
+
+	//Courses
+	$courses_data = $_POST['courses'];// copiar um arrays de um POST
+	$qtd = count($_POST['courses']);
+
+	/*if (!empty($courses_data)) {		
+		foreach($courses_data as $data) {
+			$complementary_courses = array();
+			$colum = 0;
+			if(is_array($data)) {
+				foreach($data as $other_data) {
+					$complementary_courses[$colum] = $other_data;
+					$colum++;
+				}
+				echo('<pre>');
+					var_dump($complementary_courses);
+				echo('</pre>');
+			}
+			else {
+				echo "teste", '<br/>';
+				//echo "Imagem: {$data}<br>";
+			}
+		}
+	}*/
+
+
+	//User::recursive_show_array($dados);
+
+		//die();
+
+		if (!empty($courses_data)) {
+			$user_id = 20;
+			foreach($courses_data as $data) {
+				$complementary_courses = array();
+				$colum = 0;
+				if(is_array($data)) {
+					foreach($data as $other_data) {
+						$complementary_courses[$colum] = $other_data;
+						$colum++;
+					}
+					$cadastrarCourse = Course::cadastrar($complementary_courses, $user_id);
+					if ($cadastrarCourse->status === false) {
+						$this->load('Helpers\Alert', array(
+										'danger',
+										'Ops! Não foi possível efetuar seu cadastro. <br> Verifique os erros abaixo:',
+										$cadastrarCourse->errors
+										));
+					}
+				}
+				else {
+					echo "teste", '<br/>';
+					//echo "Imagem: {$data}<br>";
+				}
+			}// final do array  multidimensional
+		}
 
 	}
 	

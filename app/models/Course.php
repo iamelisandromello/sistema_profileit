@@ -1,10 +1,10 @@
 <?php
 
-class Professional extends \HXPHP\System\Model
+class Course extends \HXPHP\System\Model
 {
 	static function table_name()
 	{
-		return 'professioals';
+		return 'courses';
 	}
 
   public function relations()
@@ -17,23 +17,23 @@ class Professional extends \HXPHP\System\Model
   public static function cadastrar(array $post, $user_id)
   {
     $callbackObj = new \stdClass;// Cria classe vazia
-    $callbackObj->professional = null;// Propriedade usser da classe null
+    $callbackObj->course = null;// Propriedade usser da classe null
     $callbackObj->status = false;// Propriedade Status da Classe False
     $callbackObj->errors = array();// Array padrão de erros vazio
 
-    $historic = array(
-      'company'     => $post[0],
-      'function'    => $post[1],
-      'date_entry'  => date('Y-m-d',strtotime($post[2])), 
-      'date_out'    => date('Y-m-d',strtotime($post[3])), 
-      'assignments' => $post[4],
+    $academic = array(
+      'title'       => $post[0],
+      'institution' => $post[1],
+      'segment'     => $post[2],
+      'workload'    => $post[3],
+      'schedule'    => date('Y-m-d',strtotime($post[4])),
       'user_id'     => $user_id
     );    
        
-    $cadastrar = self::create($historic);
+    $cadastrar = self::create($academic);
 
     if ($cadastrar->is_valid()) {
-      $callbackObj->professional = $cadastrar;
+      $callbackObj->course = $cadastrar;
       $callbackObj->status = true;
       return $callbackObj;
     }

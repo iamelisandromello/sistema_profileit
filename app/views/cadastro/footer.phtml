@@ -52,35 +52,52 @@
 
       <!-- Função Repeater -->
       <script src="<?php echo JS; ?>register/jquery.repeater.min.js"></script>
-      <!--<script src="<?php echo JS; ?>register/use-repeater.js"></script>-->
-      <!--<script src="<?php echo JS; ?>register/use-repeater.js"></script>-->
+      <script src="<?php echo JS; ?>register/use-repeater.js"></script>
 
-      <script>
-        $(document).ready(function () {
-          'use strict';
+    <!--<script>
 
-          $('.repeater-default').repeater();
+      $(document).ready(function () {
+        'use strict';
 
-          $('.repeater-custom-show-hide').repeater({
-            show: function () {
-              $(this).slideDown();
-            },
-            hide: function (remove) {
-              if(confirm('Are you sure you want to remove this item?')) {
-                $(this).slideUp(remove);
-              }
-            }
-          });
-
-          $('.repeater-default-values').repeater({
-            defaultValues: {
-              features: ['abs'],
-              make: 'ford',
-              model: 'Mustang'
-            }
-          });
+        window.academicRepeater = $('.academic-repeater').repeater({
+          isFirstItemUndeletable: true,
+          show: function () {
+            console.log('academic show');
+            $(this).slideDown();
+          },
+          hide: function (deleteElement) {
+            console.log('academic delete');
+            $(this).slideUp(deleteElement);
+          },
         });
-      </script>
+
+        window.courseRepeater = $('.course-repeater').repeater({
+          isFirstItemUndeletable: true,
+          show: function () {
+            console.log('course show');
+            $(this).slideDown();
+          },
+          hide: function (deleteElement) {
+            console.log('course delete');
+            $(this).slideUp(deleteElement);
+          },
+        });
+
+        window.professionalRepeater = $('.professional-repeater').repeater({
+          isFirstItemUndeletable: true,
+          show: function () {
+            console.log('professional show');
+            $(this).slideDown();
+          },
+          hide: function (deleteElement) {
+            console.log('professional delete');
+            $(this).slideUp(deleteElement);
+          },
+        });        
+
+      });
+
+    </script>-->
 
 		<!--[if lt IE 10]>
 		<script src="assets/js/placeholder.js"></script>

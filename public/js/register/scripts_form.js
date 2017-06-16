@@ -26,36 +26,17 @@ jQuery(document).ready(function() {
     $('.registration-form .btn-next').on('click', function() {
     	var parent_fieldset = $(this).parents('fieldset');
     	var next_step = true;
-
-    	parent_fieldset.find('input[type="text"], input[type="password"], textarea, select').each(function() {
-
-            if( $(this).val() == "" || $(this).val() === "-1") {
+    	
+    	parent_fieldset.find('input[type="text"], input[type="password"], textarea, select, radio').each(function() {
+    		if( $(this).val() == "" ) {
     			$(this).addClass('input-error');
     			next_step = false;
     		}
-            else{
-                $(this).removeClass('input-error');
-            }        
-
+    		else {
+    			$(this).removeClass('input-error');
+    		}
     	});
-
-        var validaRadio = "";
-
-        // Verificando Radio Button
-        $('.radio').each(function(i){
-            if ($(this).is(':checked')) {
-                validaRadio = $(this).val();
-            }
-        });
-
-        if(validaRadio == "") {
-            $(this).addClass('input-error');
-            next_step = false;
-        }
-        else{
-            $(this).removeClass('input-error');
-        }
-   	
+    	
     	if( next_step ) {
     		parent_fieldset.fadeOut(400, function() {
 	    		$(this).next().fadeIn();
