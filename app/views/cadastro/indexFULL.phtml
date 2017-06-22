@@ -6,7 +6,199 @@
                   <div class="col-sm-8 col-sm-offset-2 form-box">
                     <?php echo (isset($this->alert) ? $this->alert : ''); ?>
                     <form action="" method="post" id="registration-form" class="registration-form">
-                      
+                      <fieldset>
+                         <div class="form-top">
+                            <div class="form-top-left">
+                               <h3>Step 1 / 7</h3>
+                               <p>Personal Data:</p>
+                            </div>
+                            <div class="form-top-right">
+                               <i class="fa fa-user"></i>
+                            </div>
+                         </div><!-- </form-top> -->
+                         <div class="form-bottom">                                 
+                            <div class="row">
+                               <div class="col-md-4">
+                                  <div class="form-group">
+                                     <label class="sr-only" for="name">First name</label>
+                                     <input type="text" name="name" id="name" placeholder="First name..." class="form-control academic" value="<?php echo $this->request->post('name') ?>" >
+                                  </div><!-- </form-group> -->
+                               </div><!-- </col-md-4> -->
+                               <div class="col-md-8">
+                                  <div class="form-group">
+                                     <label class="sr-only" for="form_last_name">Last name</label>
+                                     <input type="text" name="last_name" id="last_name" placeholder="Last name..." class="form-control academic" required>
+                                  </div><!-- </form-group> -->
+                               </div><!-- </col-md-8> -->
+                            </div><!-- </row> -->   
+                            <div class="row">
+                               <div class="col-md-4">
+                                  <div class="form-group">
+                                     <label class="sr-only" for="birth_date">Birth Date</label>
+                                     <input type="text" name="birth_date" id="birth_date" placeholder="00/00/0000" class="form-control academic" value="<?php echo $this->request->post('birth_date') ?>" >
+                                  </div><!-- </form-group> -->
+                               </div>                              
+                               <div class="col-md-4">
+                                  <div class="form-group">
+                                     <label class="sr-only" for="celular">Phone Mobile</label>
+                                     <input type="text" class="form-control academic" name="celular" id="celular" placeholder="(00)99999-9999" value="<?php echo $this->request->post('celular') ?>" >
+                                     <div class="help-block with-errors"></div>
+                                  </div><!-- </form-group> --> 
+                               </div><!-- </col-md-6> -->
+                               <div class="col-md-4">
+                                  <div class="form-group">
+                                     <label class="sr-only" for="phone">Phone Residencial</label>
+                                     <input type="text" class="form-control" name="phone" id="phone" placeholder="(00)0000-0000" value="<?php echo $this->request->post('phone') ?>" >
+                                     <div class="help-block with-errors"></div>
+                                  </div><!-- </form-group> -->                     
+                               </div><!-- </col-md-6> -->
+                            </div><!-- </row> -->                              
+                            <div class="row">
+                               <div class="col-md-12">
+                                  <div class="form-group">
+                                     <label class="sr-only" for="form-about-yourself">About yourself</label>
+                                     <textarea name="about" id="about" placeholder="About yourself..." class="form-about-yourself form-control"></textarea>
+                                  </div><!-- </form-group> -->                              
+                               </div><!-- </col-md-12> -->
+                            </div><!-- </row> -->
+                            <div class="row">
+                               <div class="col-md-12">
+                                  <div class="form-group">
+                                     <button type="button" class="btn-next">
+                                        <i class="fa fa-arrow-right"></i>
+                                        <span>Next</span>
+                                     </button>
+                                  </div><!-- </form-group> -->                              
+                               </div><!-- </col-md-12> -->
+                            </div><!-- </row> -->                                 
+                         </div><!-- </form-bottom> -->
+                      </fieldset> 
+                      <fieldset>
+                         <div class="form-top">
+                            <div class="form-top-left">
+                               <h3>Step 2 / 7</h3>
+                               <p>Access & Password:</p>
+                            </div>
+                            <div class="form-top-right">
+                               <i class="fa fa-key"></i>
+                            </div>
+                         </div>
+                         <div class="form-bottom">
+                            <div class="row">
+                               <div class="col-md-6">
+                                  <div class="form-group">
+                                     <label class="sr-only" for="username">Username</label>
+                                     <input type="text" name="username" id="username" placeholder="Username..." class="form-control academic" value="<?php echo $this->request->post('username') ?>">
+                                     <div class="help-block with-errors"></div>
+                                  </div>
+                               </div>
+                               <div class="col-md-6">                                   
+                                  <div class="form-group">
+                                     <label class="sr-only" for="form-email">Email</label>         
+                                     <input type="email" class="form-control academic" name="email" id="email" placeholder="Email" value="<?php echo $this->request->post('email') ?>" >
+                                     <div class="help-block with-errors"></div>
+                                  </div>
+                               </div>
+                            </div>
+                            <div class="row">
+                               <div class="col-md-12">
+                                  <div class="form-group">
+                                     <label class="sr-only" for="form-senha">Password</label>
+                                     <input type="password" class="form-control academic" name="senha" id="senha" placeholder="Password">
+                                     <div class="help-block">Minimum of 8 characters</div>
+                                  </div><!-- </form-group> -->                     
+                               </div><!-- </col-md-12> -->
+                            </div><!-- </row> -->
+                            <div class="row">
+                               <div class="col-md-12">
+                                  <div class="form-group">
+                                     <label class="sr-only" for="form-confirmaSenha">Repeat password</label>
+                                        <input type="password" class="form-control academic" id="confirmaSenha" name="confirmaSenha" placeholder="Confirm" >
+                                        <div class="help-block with-errors"></div>
+                                  </div><!-- </form-group> -->                     
+                               </div><!-- </col-md-12> -->
+                            </div><!-- </row> -->
+                            <div class="row">
+                               <div class="col-md-12">
+                                  <div class="form-group">
+                                     <button type="button" class="btn-previous">
+                                        <i class="fa fa-arrow-left"></i>
+                                        <span>Previous</span>
+                                     </button>        
+                                     <button type="button" class="btn-next">
+                                        <i class="fa fa-arrow-right"></i>
+                                        <span>Next</span>
+                                     </button> 
+                                  </div><!-- </form-group> -->                     
+                               </div><!-- </col-md-12> -->
+                            </div><!-- </row> -->
+                         </div><!-- </form-bottom> -->
+                      </fieldset><!-- </Access & Password> -->
+                      <fieldset>
+                         <div class="form-top">
+                            <div class="form-top-left">
+                               <h3>Step 3 / 7</h3>
+                               <p>Address Localization:</p>
+                            </div>
+                            <div class="form-top-right">
+                               <i class="fa fa-globe"></i>
+                            </div>
+                         </div>
+                         <div class="form-bottom">
+                            <div class="row">
+                               <div class="col-md-7">
+                                  <div class="form-group">
+                                    <label class="sr-only" for="address">Zip Code</label>
+                                    <div class="text-success" id="infocep"></div>
+                                    <input type="text" name="zipcode" id="zipcode" placeholder="Zip Code..." required class="form-control pulacampos" value="<?php echo $this->request->post('zipcode') ?>"></input>
+                                  </div>
+                               </div><!-- </col-md-9> -->
+                            </div><!-- </row> -->                   
+                            
+                            <div class="row">
+                              <div class="col-md-12">  
+                                <div class="form-group">
+                                    <label class="sr-only" for="address">Address</label>
+                                    <input type="text" name="address" id="address" placeholder="Address..." required class="form-control pulacampos" value="<?php echo $this->request->post('address') ?>"></input>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-5">    
+                                <div class="form-group">
+                                  <label class="sr-only" for="address">Beighborhood</label>
+                                  <input type="text" name="beighborhood" id="beighborhood" placeholder="Beighborhood" required class="form-control pulacampos"></input>
+                                </div>
+                              </div>  
+                              <div class="col-md-2">
+                                <div class="form-group">
+                                  <label class="sr-only" for="address">State</label>
+                                  <input type="text" name="state" id="state" placeholder="UF" required class="form-control pulacampos"></input>
+                                </div>
+                              </div>  
+                              <div class="col-md-5">
+                                <div class="form-group">
+                                  <label class="sr-only" for="address">City</label>
+                                  <input type="text" name="city" id="city" placeholder="City" required class="form-control pulacampos"></input>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                               <div class="col-md-12">
+                                  <div class="form-group">
+                                     <button type="button" class="btn-previous">   
+                                        <i class="fa fa-arrow-left"></i>
+                                        <span>Previous</span>
+                                     </button>
+                                     <button type="button" class="btn-next">
+                                        <i class="fa fa-arrow-right"></i>
+                                        <span>Next</span>
+                                     </button>
+                                  </div><!-- </form-group> -->                     
+                               </div><!-- </col-md-12> -->
+                            </div><!-- </row> -->
+                         </div><!-- </form-bottom> -->
+                      </fieldset><!-- </Address & Localization> -->                        
                       <fieldset>
                          <div class="form-top">
                             <div class="form-top-left">

@@ -1,0 +1,59 @@
+<!-- Top content -->
+      <div class="top-content">
+         <div class="inner-bg">
+            <div class="container">
+               <div class="row">
+                  <div class="col-sm-8 col-sm-offset-2 form-box">
+                     <?php echo (isset($this->alert) ? $this->alert : ''); ?>
+                     <form action="<?php echo BASE; ?>tests/cadastrar/" role="form" data-toggle="validator" method="post" class="registration-form" id="registration-form">
+                        <!--
+                           Passo Formulario de Histórico Acadêmico
+                        -->
+                        <fieldset>
+                           <div class="form-top">
+                              <div class="form-top-left">
+                                 <h3>Step 5 / 7</h3>
+                                 <p>Academic Historic:</p>
+                              </div>
+                              <div class="form-top-right">
+                                 <i class="fa-graduation-cap"></i>
+                              </div>
+                           </div>
+                           <div class="form-bottom">                              
+
+                              <!--
+                              1º Linha Formulario Acadêmico
+                              -->
+                              <div class="row">
+                                 <div class="col-md-6">
+                                    <div class="form-group">
+                                       <label class="sr-only" for="cep">CEP</label>
+                                       <input type="text" name="cep" placeholder="CEP..." class="form-cep form-control academic" data-minlength="5" data-maxlength="10" required >
+                                       <div class="help-block with-errors"></div>
+                                    </div>
+                                 </div><!-- </col-md-6> -->            
+                              </div><!-- </row>-->  
+                              
+                              <div class="row">
+                                 <div class="col-md-12">
+                                    <div class="form-group">
+                                       <button type="button" class="btn-previous">
+                                          <i class="fa fa-arrow-left"></i>
+                                          <span>Previous</span>
+                                       </button>
+                                       <button type="submit" value="Submit" class="disabled">   
+                                          <i class="fa fa-user"></i>
+                                          <span>Sign UP</span>
+                                       </button>
+                                    </div><!-- </form-group> -->                     
+                                 </div><!-- </col-md-12> -->
+                              </div><!-- </row> -->
+                           </div><!-- </form-bottom> -->
+                        </fieldset><!-- </Academic Historic> -->
+                        
+                     </form><!-- </registration-form> -->
+                  </div><!-- </form-box> -->
+               </div><!-- </row>  -->
+            </div><!-- </container>  -->
+         </div><!-- </inner-bg> -->
+      </div><!-- </top-content> -->

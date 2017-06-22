@@ -35,71 +35,66 @@
         </section>           
       </footer>
 
-       <!-- ==============================================
-      Javascripts
-       ================================================== -->
-      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-      <script src="<?php echo BOWER; ?>jquery/dist/jquery.min.js"></script>
-      <!-- Include all compiled plugins (below), or include individual files as needed -->      
-      <script src="<?php echo BOWER; ?>bootstrap-sass/assets/javascripts/bootstrap.min.js"></script> <!-- Bootstrap -->
 
-      <script src="<?php echo JS; ?>register/validator.min.js"></script> 
+
+
+  <!-- ==============================================
+      Javascripts - Inclua todos os plugins compilados (abaixo),
+      ou inclua arquivos individuais conforme necessário
+       ================================================== -->
+      <!-- JQuery -->      
+      <script src="<?php echo BOWER; ?>jquery/dist/jquery.min.js"></script>
+      <!-- Bootstrap -->      
+      <script src="<?php echo BOWER; ?>bootstrap-sass/assets/javascripts/bootstrap.min.js"></script><!-- InputMask - Máscara Campos Input Formulário--> 
+      <script src="<?php echo JS; ?>register/jquery.inputmask.bundle.js"></script>
+      <!-- Validate - Validação de Campos do Formulário --> 
+      <script src="<?php echo JS; ?>register/jquery.validate.js"></script>
+      <!-- Repeater - Inclusão de Elementos Dinâicos p/Cadastro --> 
+      <script src="<?php echo JS; ?>register/jquery.repeater.min.js"></script>
+
       <script src="<?php echo JS; ?>register/jquery.backstretch.min.js"></script>
       <script src="<?php echo JS; ?>register/retina-1.1.0.min.js"></script>
       <script src="<?php echo JS; ?>register/scripts.js"></script>
-      <script src="<?php echo JS; ?>register/jquery.mask.min.js"></script>
-      <script src="<?php echo JS; ?>register/mask.js"></script>
+      <script src="public/js/register/input_mask.js"></script>
+      <script src="public/js/register/search_cep.js"></script>
+      <script src="public/js/register/input_validate.js"></script>
 
-      <!-- Função Repeater -->
-      <script src="<?php echo JS; ?>register/jquery.repeater.min.js"></script>
-      <script src="<?php echo JS; ?>register/use-repeater.js"></script>
+     
+      <script type="text/javascript">
+        $(document).ready(function() {
+        // pular campos, mais simplificado, dá para usar também, mas o de baixo tá funcionando...
+        /*                $('#tabela').on('keyup', 'input', function(event) {
+          if (event.which == 13) {
+              var generico = $("#tabela").find('input:visible');
+              var indice = generico.index(event.target) + 1;
+              var seletor = $(generico[indice]).focus();
 
-    <!--<script>
+              if (seletor.length == 0) {
+                  event.target.focus();
+              }
+          }
+          });*/
+        // Método para pular campos teclando ENTER
+        $('.pulacampos').on('keypress', function(e) {
+          var tecla = (e.keyCode ? e.keyCode : e.which);
 
-      $(document).ready(function () {
-        'use strict';
+            if (tecla == 13) {
+              campo = $('.pulacampos');
+              indice = campo.index(this);
 
-        window.academicRepeater = $('.academic-repeater').repeater({
-          isFirstItemUndeletable: true,
-          show: function () {
-            console.log('academic show');
-            $(this).slideDown();
-          },
-          hide: function (deleteElement) {
-            console.log('academic delete');
-            $(this).slideUp(deleteElement);
-          },
+              if (campo[indice + 1] != null) {
+                proximo = campo[indice + 1];
+                proximo.focus();
+                e.preventDefault(e);
+                return false; // impede o envio do formulario
+              }
+                }
         });
-
-        window.courseRepeater = $('.course-repeater').repeater({
-          isFirstItemUndeletable: true,
-          show: function () {
-            console.log('course show');
-            $(this).slideDown();
-          },
-          hide: function (deleteElement) {
-            console.log('course delete');
-            $(this).slideUp(deleteElement);
-          },
-        });
-
-        window.professionalRepeater = $('.professional-repeater').repeater({
-          isFirstItemUndeletable: true,
-          show: function () {
-            console.log('professional show');
-            $(this).slideDown();
-          },
-          hide: function (deleteElement) {
-            console.log('professional delete');
-            $(this).slideUp(deleteElement);
-          },
-        });        
-
+            
       });
+    </script>
 
-    </script>-->
-
-		<!--[if lt IE 10]>
+  	<!--[if lt IE 10]>
 		<script src="assets/js/placeholder.js"></script>
 		<![endif]-->
 

@@ -29,7 +29,7 @@ jQuery(document).ready(function() {
 
     	parent_fieldset.find('input[type="text"], input[type="password"], textarea, select').each(function() {
 
-            if( $(this).val() == "") {
+            if( $(this).val() == "" || $(this).val() === "-1") {
     			$(this).addClass('input-error');
     			next_step = false;
     		}
@@ -38,7 +38,24 @@ jQuery(document).ready(function() {
             }        
 
     	});
-  	
+
+        var validaRadio = "";
+
+        // Verificando Radio Button
+        $('.radio-academic').each(function(i){
+            if ($(this).is(':checked')) {
+                validaRadio = $(this).val();
+            }
+        });
+
+        if(validaRadio == "") {
+            $(this).addClass('input-error');
+            next_step = false;
+        }
+        else{
+            $(this).removeClass('input-error');
+        }
+   	
     	if( next_step ) {
     		parent_fieldset.fadeOut(400, function() {
 	    		$(this).next().fadeIn();

@@ -1,7 +1,8 @@
 $(document).ready(function(){
   $('#birth_date').mask('00/00/0000');
   $('#date_conclusion').mask('00/00/0000');
-  $('#conclusion_date').mask('00/00/0000');
+  $('.conclusion_date').mask('00/00/0000');
+  $('.form-conclusion_date').mask('00/00/0000');
   $('#schedule').mask('00/00/0000');
   $('.time').mask('00:00:00');
   $('.date_time').mask('00/00/0000 00:00:00');

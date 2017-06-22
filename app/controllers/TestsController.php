@@ -5,6 +5,11 @@ class TestsController extends \HXPHP\System\Controller
 	
 	public function indexAction()
 	{
+		
+		$this->load(
+		    'Services\Correios'
+		);
+		
 		$user = User::find(22);
 		$adviser = User::find(20);
 		echo '<pre>';
@@ -213,9 +218,21 @@ class TestsController extends \HXPHP\System\Controller
 		}*/
 
 	//Courses
-	$courses_data = $_POST['courses'];// copiar um arrays de um POST
-	$qtd = count($_POST['courses']);
+	//$courses_data = $_POST['courses'];// copiar um arrays de um POST
+	//$qtd = count($_POST['courses']);
+	$POST = $this->request->post();
+	var_dump($POST);
 
+	$this->load(
+		'Services\Correios',
+		$this->request->post('cep') // 00000-000
+	);
+
+	$retornoJSON = $this->correios->getDados();
+	$enderecoObj = json_decode($retornoJSON);
+	var_dump($enderecoObj);
+
+	die();
 	/*if (!empty($courses_data)) {		
 		foreach($courses_data as $data) {
 			$complementary_courses = array();
@@ -241,7 +258,7 @@ class TestsController extends \HXPHP\System\Controller
 
 		//die();
 
-		if (!empty($courses_data)) {
+		/*if (!empty($courses_data)) {
 			$user_id = 20;
 			foreach($courses_data as $data) {
 				$complementary_courses = array();
@@ -265,7 +282,7 @@ class TestsController extends \HXPHP\System\Controller
 					//echo "Imagem: {$data}<br>";
 				}
 			}// final do array  multidimensional
-		}
+		}*/
 
 	}
 	
