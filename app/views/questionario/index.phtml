@@ -1,0 +1,290 @@
+	   <!-- ==============================================
+	   Layout Content Site (Definição de Layout)
+      ====================================-->
+		<div class="layout">
+			<main>
+				<!-- ==============================================
+			    Formulario Dados Pessoais (Dados Pessoais)
+			   =============================================== -->
+				<section class="update-dataInfo" id="update-dataInfo">
+					<div class="container">
+					   <div class="container-fluid">
+
+				    		<!-- TitleSection -->
+				    		<div class="cols">
+				    			<div class="title-section">
+				    				<h2 class="title">Information and personal data<span class="cursor-tag">_</span></h2>
+				    				<h3 class="title-description">Address, phone, city, description.</h3>
+				    			</div>
+				    		</div>				   
+					      <div class="row">
+					      	<div class="col-lg-4 col-md-5">
+					      		<div class="card card-user">
+					      			<div class="backgroundHeader">
+					      				<img src="<?php echo IMAGES; ?>background.jpg" alt="..."/>
+					      			</div><!-- </div>image> -->
+					      			<div class="content">
+					      				<div class="author">
+					      					<!--<img class="avatar border-white" src="<?php echo IMAGES; ?>elisandromello.jpg" alt="..."/>-->
+
+							               <?php
+							                   if (!is_null($view_user->image)) {
+							                       echo '<img class="avatar border-white" src="' . BASE . 'public/uploads/users/' . $view_user->id . '/' . $view_user->image . '" width="160">';
+							                   }
+							                   else{
+							                       echo '<img class="avatar border-white" src="' . BASE . 'public/uploads/users/' . 'default' . '/' . 'default.png' . '" width="160">';
+							                   }
+							               ?>
+
+					      					<h4 class="title"><?php echo $view_user->name; ?><br />
+					      						<a href="#"><small><?php echo $view_user->email; ?></small></a>
+					      					</h4>
+					      				</div><!-- </author> -->
+					      				<p class="description text-center">
+					      					"I like the way you work it <br>
+					      					No diggity <br>
+					      					I wanna bag it up"
+					      				</p>
+					      			</div><!-- <!/content> -->
+					      			<hr>
+					      			<div class="text-center">
+					      				<div class="row">
+					      					<div class="col-md-3 col-md-offset-1">
+					      						<h5>12<br /><small>Files</small></h5>
+					      					</div><!-- </col-md-4 col-md-offset-1> -->
+					      					<div class="col-md-4">
+					      						<h5>2GB<br /><small>Used</small></h5>
+					      					</div><!-- </col-md-4> -->
+					      					<div class="col-md-3">
+					      						<h5>24,6$<br /><small>Spent</small></h5>
+					      					</div><!-- </col-md-3> --> 
+					      				</div><!-- </row> -->
+					      			</div><!-- </text-center> -->
+					      		</div><!-- </card card-user> -->
+					      		<div class="card">
+					      			<div class="header">
+					      				<h4 class="title">Social Media</h4>
+					      			</div><!-- </header> -->
+					      			<div class="content">
+					      				<ul class="list-unstyled team-members">
+					      					<li>
+					      						<div class="row">
+					      							<div class="col-xs-3">
+															<div class="pull-left icone-fa icone-fa-card text-center">
+																<i class="fa fa-linkedin"></i>
+															</div>
+					      							</div>
+					      							<div class="col-xs-6">
+					      								in/elisandromello
+					      								<br />
+					      								<span class="text-muted"><small>Offline</small></span>
+					      							</div>
+
+					      							<div class="col-xs-3 text-right">
+					      								<btn class="btn-circular"><i class="fa fa-envelope"></i></btn>
+					      							</div>
+					      						</div>
+					      					</li>
+					      					<li>
+					      						<div class="row">
+					      							<div class="col-xs-3">
+															<div class="pull-left icone-fa icone-fa-card text-center">
+																<i class="fa fa-facebook"></i>
+															</div>
+					      							</div>
+					      							<div class="col-xs-6">
+					      								elisandro.mello
+					      								<br />
+					      								<span class="text-success"><small>Available</small></span>
+					      							</div>
+
+					      							<div class="col-xs-3 text-right">
+					      								<btn class="btn btn-sm btn-success btn-icon"><i class="fa fa-envelope"></i></btn>
+					      							</div>
+					      						</div>
+					      					</li>
+					      					<li>
+					      						<div class="row">
+					      							<div class="col-xs-3">
+															<div class="pull-left icone-fa icone-fa-card text-center">
+																<i class="fa fa-twitter"></i>
+															</div>
+					      							</div>
+					      							<div class="col-xs-6">
+					      								@elisandromello
+					      								<br />
+					      								<span class="text-danger"><small>Busy</small></span>
+					      							</div><!-- </col-xs-6> -->
+
+					      							<div class="col-xs-3 text-right">
+					      								<btn class="btn btn-sm btn-success btn-icon"><i class="fa fa-envelope"></i></btn>
+					      							</div><!-- </col-xs-3 text-right> -->
+					      						</div><!-- </row> -->
+					      					</li><!-- </li> -->
+					      				</ul><!-- </list-unstyled team-members> -->
+					      			</div><!-- </content> -->
+					      		</div><!-- </card> -->
+					         </div><!-- <col-lg-4 col-md-5 -->
+					         <div class="col-lg-8 col-md-7">
+					         	<div class="card">
+					         		<div class="header">
+					         			<h4 class="title">Edit Profile</h4>
+					         		</div>
+					         		<div class="content">
+					         			<form>
+					         				<div class="row">
+					         					<div class="col-md-3">
+					         						<div class="form-group">
+					         							<label>Username</label>
+					         							<input type="text" class="form-control border-input" disabled placeholder="Company" value="Creative Code Inc.">
+					         						</div><!-- </form-group> -->
+					         					</div><!-- </col-md-5> --> 
+					         					<div class="col-md-4">
+					         						<div class="form-group">
+					         							<label for="exampleInputEmail1">Email address</label>
+					         							<input type="email" class="form-control border-input" disabled placeholder="Email">
+					         						</div><!-- </form-group> -->
+					         					</div><!-- </col-md-3> -->
+					         					<div class="col-md-5">
+					         						<div class="form-group">
+															<label class="card-genero">Sexo</label>
+															<input type="radio" id="radio03" name="radio" />
+															<label for="radio03"><span></span>Female</label>
+															<input type="radio" id="radio04" name="radio" />
+															<label for="radio04"><span></span>Male</label>
+					         						</div><!-- </form-group> -->
+					         					</div><!-- </col-md-4> -->
+					         				</div><!-- </row> 1º Linha do formulario --> 				         				
+
+					         				<div class="row">
+					         					<div class="col-md-6">
+					         						<div class="form-group">
+					         							<label>First Name</label>
+					         							<input type="text" class="form-control border-input" placeholder="Company" value="<?php echo $view_user->name; ?>">
+					         						</div><!-- </form-group> -->
+					         					</div><!-- </col-md-6> -->
+					         					<div class="col-md-6">
+					         						<div class="form-group">
+					         							<label>Last Name</label>
+					         							<input type="text" class="form-control border-input" placeholder="Last Name" value="M. Corrêa">
+					         						</div><!-- </form-group> -->
+					         					</div><!-- </col-md-6> -->
+					         				</div><!-- </row> 2º Linha do formulario --> 
+
+					         				<div class="row">
+					         					<div class="col-md-4">
+					         						<div class="form-group">
+					         							<label>Phone</label>
+					         							<input type="text" class="form-control border-input" placeholder="Phone" value="(51)3042-5993">
+					         						</div><!-- </form-group> -->
+					         					</div><!-- </col-md-4> -->
+					         					<div class="col-md-4">
+					         						<div class="form-group">
+					         							<label>Celular Mobile</label>
+					         							<input type="text" class="form-control border-input" placeholder="Mobile" value="(51)9910-91855">
+					         						</div><!-- </form-group> -->
+					         					</div><!-- </col-md-4> -->
+					         					<div class="col-md-4">
+					         						<div class="form-group">
+					         							<label>State</label>
+						    								<select name="state" class="form-control border-input" >
+						    									<option value=" " >Please select your state</option>
+						    									<option>Acre</option>
+						    									<option>Alagoas</option>
+						    									<option>Amampá</option>
+						    									<option>Amazonas</option>
+						    									<option>Bahia</option>
+						    									<option>Ceará</option>
+						    									<option>Distrito Federal</option>
+						    									<option>Espírito Santo</option>
+						    									<option>Góias</option>
+						    									<option>Maranhão</option>
+						    									<option>Mato Grosso</option>
+						    									<option>Mato Grosso do Sul</option>
+						    									<option>Minas Gerais</option>
+						    									<option>Pará</option>
+						    									<option>Paraíba</option>
+						    									<option>Paraná</option>
+						    									<option>Pernambuco</option>
+						    									<option>Piauí</option>
+						    									<option>Rio de Janeiro</option>
+						    									<option>Rio Grande do Norte</option>
+						    									<option>Rio Grande do Sul</option>
+						    									<option>Rondônia</option>
+						    									<option>Roraima</option>
+						    									<option>Santa Catarina</option>
+						    									<option>São Paulo</option>
+						    									<option>Sergipe</option>
+						    									<option>Tocantins</option>
+						    								</select>
+					         						</div><!-- </form-group> -->
+					         					</div><!-- </col-md-4> -->				         					
+					         				</div><!-- </row> 2º Linha do formulario --> 
+
+					         				<div class="row">
+					         					<div class="col-md-9">
+					         						<div class="form-group">
+					         							<label>Address</label>
+					         							<input type="text" class="form-control border-input" placeholder="Home Address" value="Melbourne, Australia">
+					         						</div><!-- </form-group> -->
+					         					</div><!-- </col-md-10> -->
+					         					<div class="col-md-3">
+					         						<div class="form-group">
+					         							<label>Number</label>
+					         							<input type="text" class="form-control border-input" placeholder="Number" value="00000">
+					         						</div><!-- </form-group> -->
+					         					</div><!-- </col-md-2> -->				         					
+					         				</div><!-- </row> 3º Linha do formulario --> 
+
+					         				<div class="row">
+					         					<div class="col-md-4">
+					         						<div class="form-group">
+					         							<label>City</label>
+					         							<input type="text" class="form-control border-input" placeholder="City" value="Melbourne">
+					         						</div><!-- </form-group> -->
+					         					</div><!-- </col-md-4> -->
+					         					<div class="col-md-4">
+					         						<div class="form-group">
+					         							<label>Country</label>
+					         							<input type="text" class="form-control border-input" placeholder="Country" value="Australia">
+					         						</div><!-- </form-group> -->
+					         					</div><!-- </col-md-4> -->
+					         					<div class="col-md-4">
+					         						<div class="form-group">
+					         							<label>Postal Code</label>
+					         							<input type="number" class="form-control border-input" placeholder="ZIP Code">
+					         						</div><!-- </form-group> -->
+					         					</div><!-- </col-md-4> -->
+					         				</div><!-- </row> 4º Linha do formulario --> 
+
+					         				<div class="row">
+					         					<div class="col-md-12">
+					         						<div class="form-group">
+					         							<label>About Me</label>
+					         							<textarea rows="5" class="form-control border-input" placeholder="Here can be your description" value="Mike">Oh so, your weak rhyme
+You doubt I'll bother, reading into it
+I'll probably won't, left to my own devices
+But that's the difference in our opinions.
+					         							</textarea>
+					         						</div><!-- </form-group> -->
+					         					</div><!-- </col-md-12> -->
+					         				</div><!-- </row> -->
+				         					<div class="md-padder text-center">
+				 									<button type="submit" data-tooltip="Change personal infos" class="btn btn-primary btn-lg margin-btm-30"> <i class="fa fa-user"></i> <span class="hidden-xs"> Update </span> Infos </button>
+				 								</div>
+					         				<div class="clearfix"></div>
+					         			</form>
+					         		</div><!-- </content> -->
+					         	</div>
+					         </div>
+
+					      </div><!-- </row> -->
+					      <div class="row">
+					      	<div class="col-md-12">
+
+					      	</div>
+					      </div>
+					   </div><!-- </container-fluid> -->
+					</div><!-- </container> -->
+				</section>			   			
+			</main><!-- </main> Final Corpo de Conteúdo-->		

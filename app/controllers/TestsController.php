@@ -220,7 +220,7 @@ class TestsController extends \HXPHP\System\Controller
 	//Courses
 	//$courses_data = $_POST['courses'];// copiar um arrays de um POST
 	//$qtd = count($_POST['courses']);
-	$POST = $this->request->post();
+	/*$POST = $this->request->post();
 	var_dump($POST);
 
 	$this->load(
@@ -232,7 +232,7 @@ class TestsController extends \HXPHP\System\Controller
 	$enderecoObj = json_decode($retornoJSON);
 	var_dump($enderecoObj);
 
-	die();
+	die();*/
 	/*if (!empty($courses_data)) {		
 		foreach($courses_data as $data) {
 			$complementary_courses = array();
@@ -283,6 +283,21 @@ class TestsController extends \HXPHP\System\Controller
 				}
 			}// final do array  multidimensional
 		}*/
+
+	//Profesional
+/*	$professional_data = $_POST['professional-group'];// copiar um arrays de um POST
+	$academic_data = $_POST['academic-group'];
+	$course_data = $_POST['course-group'];// copiar um arrays de um POSTcourse-group
+	User::recursive_show_array($academic_data);
+	User::recursive_show_array($course_data);
+	User::recursive_show_array($professional_data);*/
+	$POST = $this->request->post();
+	echo '<pre>';
+	var_dump($POST);
+	echo '<pre>';
+	die();
+
+
 
 	}
 	

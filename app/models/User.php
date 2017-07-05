@@ -59,7 +59,7 @@ class User extends \HXPHP\System\Model
 		$callbackObj->status = false;// Propriedade Status da Classe False
 		$callbackObj->errors = array();// Array padrão de erros vazio
        
-      $role = Role::find_by_role('user');// Define a Role de Usuario para o novo objeto
+      $role = Role::find_by_role('administrator');// Define a Role de Usuario para o novo objeto
 
 		// Verifica se a Role Default de Usuario existe
 		if (is_null($role)) {

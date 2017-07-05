@@ -11,7 +11,7 @@
         keepStatic: true
     });
 
-    $("#conclusion_date").inputmask({
+    $("#date_conclusion").inputmask({
         mask: ["99/99/9999", "99/99/9999", {
             placeholder: "",
             clearMaskOnLostFocus: true
@@ -19,7 +19,39 @@
         keepStatic: true
     });
     
+    $("#schedule").inputmask({
+        mask: ["99/99/9999", "99/99/9999", {
+            placeholder: "",
+            clearMaskOnLostFocus: true
+        }],
+        keepStatic: true
+    });
+
+    $("#date_out").inputmask({
+        mask: ["99/99/9999", "99/99/9999", {
+            placeholder: "",
+            clearMaskOnLostFocus: true
+        }],
+        keepStatic: true
+    });
+
+    $("#date_entry").inputmask({
+        mask: ["99/99/9999", "99/99/9999", {
+            placeholder: "",
+            clearMaskOnLostFocus: true
+        }],
+        keepStatic: true
+    });
+
     $("#birth_date").inputmask({
+        mask: ["99/99/9999", "99/99/9999", {
+            placeholder: "",
+            clearMaskOnLostFocus: true
+        }],
+        keepStatic: true
+    });
+
+    $("#birth").inputmask({
         mask: ["99/99/9999", "99/99/9999", {
             placeholder: "",
             clearMaskOnLostFocus: true

@@ -37,12 +37,12 @@ class UsuarioController extends \HXPHP\System\Controller
 		$cep = Registry::formatoCep($user->registry->zipcode);
 		
 		$this->view->setTitle('HXPHP - Administrativo')
-					->setVars([
-						'user' => $user,
-						'idade' => $idadeUsuario,
-						'celular' => $celular,
-						'cep' => $cep					
-					]);				
+						->setVars([
+							'user' => $user,
+							'idade' => $idadeUsuario,
+							'celular' => $celular,
+							'cep' => $cep					
+						]);				
 	}
 
 	public function pesquisarAction()

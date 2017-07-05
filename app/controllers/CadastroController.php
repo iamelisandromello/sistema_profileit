@@ -2,7 +2,7 @@
 
 class CadastroController extends \HXPHP\System\Controller
 {
-	   public function indexAction()
+	 public function indexAction()
     {
         //$this->view->setAssets('css', $this->configs->baseURI . 'public/css/register.css');
         $this->view->setHeader('cadastro/header')
@@ -48,7 +48,6 @@ class CadastroController extends \HXPHP\System\Controller
 			'celular'	=> $post['celular'],
 			'phone'		=> $post['phone'],
 			'address'	=> $post['address'],
-			'number'		=> $post['number'],
 			'zipcode'	=> $post['zipcode']
 		);
 
@@ -62,7 +61,9 @@ class CadastroController extends \HXPHP\System\Controller
 			'twitter'	=> $post['twitter']
 		);
 
-		$historic_data = $_POST['historic'];// copiar um arrays de um POST
+		$professional_group = $_POST['professional-group'];// copiar um arrays de um POST
+		$academic_group = $_POST['academic-group'];
+		$course_group = $_POST['course-group'];// copiar um arrays de um POST
 
 		if (!empty($registry_data)) {
 			$cadastrarRegistry = Registry::cadastrar($registry_data);
@@ -106,9 +107,64 @@ class CadastroController extends \HXPHP\System\Controller
 			}
 		}
 
-		if (!empty($historic_data)) {
+		//Bloco Cadastro Histórico Acadêmico
+		if (!empty($academic_group)) {
 			$user_id = $cadastrarUsuario->user->id;
-			foreach($historic_data as $data) {
+			foreach($academic_group as $data) {
+				$colum = 0;
+				$academic_data = array();
+				if(is_array($data)) {
+					foreach($data as $other_data) {
+						$academic_data[$colum] = $other_data;
+						$colum++;
+					}
+					$cadastrarAcademic = Academic::cadastrar($academic_data, $user_id);
+					if ($cadastrarAcademic->status === false) {
+						$this->load('Helpers\Alert', array(
+										'danger',
+										'Ops! Não foi possível efetuar seu cadastro. <br> Verifique os erros abaixo:',
+										$cadastrarAcademic->errors
+										));
+					}
+				}
+				else {
+					echo "teste", '<br/>';
+					//echo "Imagem: {$data}<br>";
+				}
+			}// final do array  multidimensional
+		}
+
+		//Bloco Cadastro de Cursos Livres
+		if (!empty($course_group)) {
+			$user_id = $cadastrarUsuario->user->id;
+			foreach($course_group as $data) {
+				$colum = 0;
+				$course_data = array();
+				if(is_array($data)) {
+					foreach($data as $other_data) {
+						$course_data[$colum] = $other_data;
+						$colum++;
+					}
+					$cadastrarCourse = Course::cadastrar($course_data, $user_id);
+					if ($cadastrarCourse->status === false) {
+						$this->load('Helpers\Alert', array(
+										'danger',
+										'Ops! Não foi possível efetuar seu cadastro. <br> Verifique os erros abaixo:',
+										$cadastrarCourse->errors
+										));
+					}
+				}
+				else {
+					echo "teste", '<br/>';
+					//echo "Imagem: {$data}<br>";
+				}
+			}// final do array  multidimensional
+		}
+		
+		//Bloco Cadastro de Historico Profissional
+		if (!empty($professional_group)) {
+			$user_id = $cadastrarUsuario->user->id;
+			foreach($professional_group as $data) {
 				$colum = 0;
 				$professional_data = array();
 				if(is_array($data)) {
@@ -135,6 +191,5 @@ class CadastroController extends \HXPHP\System\Controller
 				$this->auth->login($cadastrarUsuario->user->id, $cadastrarUsuario->user->username);
 			}
 		}
-
 	}
 }
