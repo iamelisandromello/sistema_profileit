@@ -3,20 +3,12 @@
       ====================================-->
 		<div class="layout">
 			<main>
-				<!-- ==============================================
-			    Formulario Dados Pessoais (Dados Pessoais)
-			   =============================================== -->
-				<section class="update-dataInfo" id="update-dataInfo">
+				<!-- ==============================================================
+			    Questionário de Análise Pefil Profissional (Perguntas Avaliativas)
+			   =============================================================== -->
+				<section class="quiz-questions" id="quiz-questions">
 					<div class="container">
-					   <div class="container-fluid">
-
-				    		<!-- TitleSection -->
-				    		<div class="cols">
-				    			<div class="title-section">
-				    				<h2 class="title">Information and personal data<span class="cursor-tag">_</span></h2>
-				    				<h3 class="title-description">Address, phone, city, description.</h3>
-				    			</div>
-				    		</div>				   
+					   <div class="container-fluid">   
 					      <div class="row">
 					      	<div class="col-lg-4 col-md-5">
 					      		<div class="card card-user">
@@ -128,15 +120,15 @@
 					         <div class="col-lg-8 col-md-7">
 					         	<div class="card">
 					         		<div class="header">
-					         			<h4 class="title">Edit Profile</h4>
+					         			<h4 class="title">Questionário Microsoft</h4>
 					         		</div>
 					         		<div class="content">
-					         			<form>
+											<form action="<?php echo BASE; ?>tests/cadastrar/" method="post" id="quiz-form" class="quiz-form">					         			
 					         				<div class="row">
 					         					<div class="col-md-3">
 					         						<div class="form-group">
 					         							<label>Username</label>
-					         							<input type="text" class="form-control border-input" disabled placeholder="Company" value="Creative Code Inc.">
+					         							<input type="text" class="form-control border-input" disabled placeholder="Company" value="<?php echo $view_user->name;  ?>">
 					         						</div><!-- </form-group> -->
 					         					</div><!-- </col-md-5> --> 
 					         					<div class="col-md-4">
@@ -145,145 +137,558 @@
 					         							<input type="email" class="form-control border-input" disabled placeholder="Email">
 					         						</div><!-- </form-group> -->
 					         					</div><!-- </col-md-3> -->
-					         					<div class="col-md-5">
-					         						<div class="form-group">
-															<label class="card-genero">Sexo</label>
-															<input type="radio" id="radio03" name="radio" />
-															<label for="radio03"><span></span>Female</label>
-															<input type="radio" id="radio04" name="radio" />
-															<label for="radio04"><span></span>Male</label>
-					         						</div><!-- </form-group> -->
-					         					</div><!-- </col-md-4> -->
-					         				</div><!-- </row> 1º Linha do formulario --> 				         				
+					         				</div><!-- </row> 1º Linha do formulario -->
+			         						<div class="questions">
+			         							<!--
+			         								1º Pergunta Questionário
+			         							-->
+			         							<div class="row">
+						         					<div class="col-md-12 linha_branca">
+						         						<div class="form-group">
+																<div class="row">
+																	<div class="col-md-12">
+																		<label class="label_impar">1) Qual seu nível de Inglês?</label>
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-md-3">
+																		<input type="radio" class="valida_teste" value="1" id="radio01" name="question1" />
+																		<label for="radio01"><span></span>Leitura, Escrita e Conversação  </label>
+																	</div>
 
-					         				<div class="row">
-					         					<div class="col-md-6">
-					         						<div class="form-group">
-					         							<label>First Name</label>
-					         							<input type="text" class="form-control border-input" placeholder="Company" value="<?php echo $view_user->name; ?>">
-					         						</div><!-- </form-group> -->
-					         					</div><!-- </col-md-6> -->
-					         					<div class="col-md-6">
-					         						<div class="form-group">
-					         							<label>Last Name</label>
-					         							<input type="text" class="form-control border-input" placeholder="Last Name" value="M. Corrêa">
-					         						</div><!-- </form-group> -->
-					         					</div><!-- </col-md-6> -->
-					         				</div><!-- </row> 2º Linha do formulario --> 
+																	<div class="col-md-3">
+																		<input type="radio" class="valida_teste" value="2" id="radio02" name="question1" />
+																		<label for="radio02"><span></span>Leitura e Escrita  </label>	
+																	</div>												
+																	<div class="col-md-2">
+																		<input type="radio" class="valida_teste" value="3" id="radio03" name="question1" />
+																		<label for="radio03"><span></span>Escrita   </label>	
+																	</div>												
+																	<div class="col-md-2">
+																		<input type="radio" class="valida_teste" value="4" id="radio04" name="question1" />
+																		<label for="radio04"><span></span>Leitura   </label>	
+																	</div>
+																	<div class="col-md-2">
+																		<input type="radio" class="valida_teste" value="5" id="radio05" name="question1" />
+																		<label for="radio05"><span></span>Não possui</label>	
+																	</div>
+																</div>
+						         						</div><!-- </form-group> -->
+						         					</div><!-- </col-md-4> -->
+						         				</div><!-- </row> 1º Pergunta Questionário-->
+			         							<!--
+			         								2º Pergunta Questionário
+			         							-->
+			         							<div class="row">
+						         					<div class="col-md-12 linha_cinza">
+						         						<div class="form-group">
+																<div class="row">
+																	<div class="col-md-12">
+																		<label class="label_par">2) Quantos anos de eperiência na área de tecnologia?</label>
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-md-2">
+																		<input type="radio" class="valida_teste" value="1" id="radio06" name="question2" />
+																		<label for="radio06"><span></span>+ 8 anos</label>
+																	</div>
 
-					         				<div class="row">
-					         					<div class="col-md-4">
-					         						<div class="form-group">
-					         							<label>Phone</label>
-					         							<input type="text" class="form-control border-input" placeholder="Phone" value="(51)3042-5993">
-					         						</div><!-- </form-group> -->
-					         					</div><!-- </col-md-4> -->
-					         					<div class="col-md-4">
-					         						<div class="form-group">
-					         							<label>Celular Mobile</label>
-					         							<input type="text" class="form-control border-input" placeholder="Mobile" value="(51)9910-91855">
-					         						</div><!-- </form-group> -->
-					         					</div><!-- </col-md-4> -->
-					         					<div class="col-md-4">
-					         						<div class="form-group">
-					         							<label>State</label>
-						    								<select name="state" class="form-control border-input" >
-						    									<option value=" " >Please select your state</option>
-						    									<option>Acre</option>
-						    									<option>Alagoas</option>
-						    									<option>Amampá</option>
-						    									<option>Amazonas</option>
-						    									<option>Bahia</option>
-						    									<option>Ceará</option>
-						    									<option>Distrito Federal</option>
-						    									<option>Espírito Santo</option>
-						    									<option>Góias</option>
-						    									<option>Maranhão</option>
-						    									<option>Mato Grosso</option>
-						    									<option>Mato Grosso do Sul</option>
-						    									<option>Minas Gerais</option>
-						    									<option>Pará</option>
-						    									<option>Paraíba</option>
-						    									<option>Paraná</option>
-						    									<option>Pernambuco</option>
-						    									<option>Piauí</option>
-						    									<option>Rio de Janeiro</option>
-						    									<option>Rio Grande do Norte</option>
-						    									<option>Rio Grande do Sul</option>
-						    									<option>Rondônia</option>
-						    									<option>Roraima</option>
-						    									<option>Santa Catarina</option>
-						    									<option>São Paulo</option>
-						    									<option>Sergipe</option>
-						    									<option>Tocantins</option>
-						    								</select>
-					         						</div><!-- </form-group> -->
-					         					</div><!-- </col-md-4> -->				         					
-					         				</div><!-- </row> 2º Linha do formulario --> 
+																	<div class="col-md-3">
+																		<input type="radio" class="valida_teste" value="2" id="radio07" name="question2" />
+																		<label for="radio07"><span></span>Entre 5 e 8 anos</label>	
+																	</div>												
 
-					         				<div class="row">
-					         					<div class="col-md-9">
-					         						<div class="form-group">
-					         							<label>Address</label>
-					         							<input type="text" class="form-control border-input" placeholder="Home Address" value="Melbourne, Australia">
-					         						</div><!-- </form-group> -->
-					         					</div><!-- </col-md-10> -->
-					         					<div class="col-md-3">
-					         						<div class="form-group">
-					         							<label>Number</label>
-					         							<input type="text" class="form-control border-input" placeholder="Number" value="00000">
-					         						</div><!-- </form-group> -->
-					         					</div><!-- </col-md-2> -->				         					
-					         				</div><!-- </row> 3º Linha do formulario --> 
+																	<div class="col-md-2">
+																		<input type="radio" class="valida_teste" value="3" id="radio08" name="question2" />
+																		<label for="radio08"><span></span>Entre 3 e 5 anos</label>	
+																	</div>												
+																	<div class="col-md-2">
+																		<input type="radio" class="valida_teste" value="4" id="radio09" name="question2" />
+																		<label for="radio09"><span></span>Entre 1 e 3 anos </label>	
+																	</div>
 
-					         				<div class="row">
-					         					<div class="col-md-4">
-					         						<div class="form-group">
-					         							<label>City</label>
-					         							<input type="text" class="form-control border-input" placeholder="City" value="Melbourne">
-					         						</div><!-- </form-group> -->
-					         					</div><!-- </col-md-4> -->
-					         					<div class="col-md-4">
-					         						<div class="form-group">
-					         							<label>Country</label>
-					         							<input type="text" class="form-control border-input" placeholder="Country" value="Australia">
-					         						</div><!-- </form-group> -->
-					         					</div><!-- </col-md-4> -->
-					         					<div class="col-md-4">
-					         						<div class="form-group">
-					         							<label>Postal Code</label>
-					         							<input type="number" class="form-control border-input" placeholder="ZIP Code">
-					         						</div><!-- </form-group> -->
-					         					</div><!-- </col-md-4> -->
-					         				</div><!-- </row> 4º Linha do formulario --> 
+																	<div class="col-md-2">
+																		<input type="radio" class="valida_teste" value="5" id="radio10" name="question2" />
+																		<label for="radio10"><span></span>- 1 ano</label>	
+																	</div>
+																</div>
+						         						</div><!-- </form-group> -->
+						         					</div><!-- </col-md-4> -->
+						         				</div><!-- </row> 2º Pergunta Questionário-->
+			         							<!--
+			         								3º Pergunta Questionário
+			         							-->
+			         							<div class="row">
+						         					<div class="col-md-12 linha_branca">
+						         						<div class="form-group">
+																<div class="row">
+																	<div class="col-md-12">
+																		<label class="label_par">3) Possui Certificação Oficial Microsoft?</label>
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-md-2">
+																		<input type="radio" class="valida_teste" value="1" id="radio11" name="question3" />
+																		<label for="radio11"><span></span>MCSE</label>
+																	</div>
 
-					         				<div class="row">
-					         					<div class="col-md-12">
-					         						<div class="form-group">
-					         							<label>About Me</label>
-					         							<textarea rows="5" class="form-control border-input" placeholder="Here can be your description" value="Mike">Oh so, your weak rhyme
-You doubt I'll bother, reading into it
-I'll probably won't, left to my own devices
-But that's the difference in our opinions.
-					         							</textarea>
-					         						</div><!-- </form-group> -->
-					         					</div><!-- </col-md-12> -->
-					         				</div><!-- </row> -->
+																	<div class="col-md-3">
+																		<input type="radio" class="valida_teste" value="2" id="radio12" name="question3" />
+																		<label for="radio12"><span></span>MCSA</label>	
+																	</div>												
+																	<div class="col-md-2">
+																		<input type="radio" class="valida_teste" value="3" id="radio13" name="question3" />
+																		<label for="radio13"><span></span>MCTIP</label>	
+																	</div>												
+																	<div class="col-md-2">
+																		<input type="radio" class="valida_teste" value="4" id="radio14" name="question3" />
+																		<label for="radio14"><span></span>MCT</label>	
+																	</div>
+
+																	<div class="col-md-2">
+																		<input type="radio" class="valida_teste" value="5" id="radio15" name="question3" />
+																		<label for="radio15"><span></span>MCP</label>	
+																	</div>
+																</div>
+						         						</div><!-- </form-group> -->
+						         					</div><!-- </col-md-4> -->
+						         				</div><!-- </row> 3º Pergunta Questionário-->
+			         							<!--
+			         								4º Pergunta Questionário
+			         							-->
+			         							<div class="row">
+						         					<div class="col-md-12 linha_cinza">
+						         						<div class="form-group">
+																<div class="row">
+																	<div class="col-md-12">
+																		<label class="label_par">4) Qual seu Nível Formação Acadêmica?</label>
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-md-3">
+																		<input type="radio" class="valida_teste" value="1" id="radio16" name="question4" />
+																		<label for="radio16"><span></span>Bacharel</label>
+																	</div>
+
+																	<div class="col-md-3">
+																		<input type="radio" class="valida_teste" value="2" id="radio17" name="question4" />
+																		<label for="radio17"><span></span>Tecnólogo</label>	
+																	</div>												
+																	<div class="col-md-2">
+																		<input type="radio" class="valida_teste" value="3" id="radio18" name="question4" />
+																		<label for="radio18"><span></span>Técnico</label>	
+																	</div>												
+																	<div class="col-md-2">
+																		<input type="radio" class="valida_teste" value="4" id="radio19" name="question4" />
+																		<label for="radio19"><span></span>Médio</label>	
+																	</div>
+
+																	<div class="col-md-2">
+																		<input type="radio" class="valida_teste" value="5" id="radio20" name="question4" />
+																		<label for="radio20"><span></span>Primário</label>	
+																	</div>
+																</div>
+						         						</div><!-- </form-group> -->
+						         					</div><!-- </col-md-4> -->
+						         				</div><!-- </row> 4º Pergunta Questionário-->
+													<!--
+			         								5º Pergunta Questionário
+			         							-->
+			         							<div class="row">
+						         					<div class="col-md-12 linha_branca">
+						         						<div class="form-group">
+																<div class="row">
+																	<div class="col-md-12">
+																		<label class="label_impar">5) Situação Acadêmica?</label>
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-md-4">
+																		<input type="radio" class="valida_teste" value="1" id="radio21" name="question5" />
+																		<label for="radio21"><span></span>Completo</label>
+																	</div>
+
+																	<div class="col-md-4">
+																		<input type="radio" class="valida_teste" value="2" id="radio22" name="question5" />
+																		<label for="radio22"><span></span>Cursando</label>	
+																	</div>												
+																	<div class="col-md-4">
+																		<input type="radio" class="valida_teste" value="3" id="radio23" name="question5" />
+																		<label for="radio23"><span></span>Incompleto</label>	
+																	</div>												
+																</div>
+						         						</div><!-- </form-group> -->
+						         					</div><!-- </col-md-4> -->
+						         				</div><!-- </row> 5º Pergunta Questionário-->
+			         							<!--
+			         								6º Pergunta Questionário
+			         							-->
+			         							<div class="row">
+						         					<div class="col-md-12 linha_cinza">
+						         						<div class="form-group">
+																<div class="row">
+																	<div class="col-md-12">
+																		<label class="label_par">6) Possui algum Nível de Pós Graduação?</label>
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-md-2">
+																		<input type="radio" class="valida_teste" value="1" id="radio24" name="question6" />
+																		<label for="radio24"><span></span>PHD</label>
+																	</div>
+
+																	<div class="col-md-3">
+																		<input type="radio" class="valida_teste" value="2" id="radio25" name="question6" />
+																		<label for="radio25"><span></span>Doutorado</label>	
+																	</div>												
+																	<div class="col-md-3">
+																		<input type="radio" class="valida_teste" value="3" id="radio26" name="question6" />
+																		<label for="radio26"><span></span>Mestrado</label>	
+																	</div>												
+																	<div class="col-md-2">
+																		<input type="radio" class="valida_teste" value="4" id="radio27" name="question6" />
+																		<label for="radio27"><span></span>MBA</label>	
+																	</div>
+
+																	<div class="col-md-2">
+																		<input type="radio" class="valida_teste" value="5" id="radio28" name="question6" />
+																		<label for="radio28"><span></span>Não Possui</label>	
+																	</div>
+																</div>
+						         						</div><!-- </form-group> -->
+						         					</div><!-- </col-md-4> -->
+						         				</div><!-- </row> 6º Pergunta Questionário-->
+													<!--
+			         								7º Pergunta Questionário
+			         							-->
+			         							<div class="row">
+						         					<div class="col-md-12 linha_branca">
+						         						<div class="form-group">
+																<div class="row">
+																	<div class="col-md-12">
+																		<label class="label_impar">7) Situação Pós Graduação?</label>
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-md-3">
+																		<input type="radio" class="valida_teste" value="1" id="radio29" name="question7" />
+																		<label for="radio29"><span></span>Completo</label>
+																	</div>
+
+																	<div class="col-md-3">
+																		<input type="radio" class="valida_teste" value="2" id="radio30" name="question7" />
+																		<label for="radio30"><span></span>Cursando</label>	
+																	</div>												
+																	<div class="col-md-3">
+																		<input type="radio" class="valida_teste" value="3" id="radio31" name="question7" />
+																		<label for="radio31"><span></span>Incompleto</label>	
+																	</div>
+
+																	<div class="col-md-3">
+																		<input type="radio" class="valida_teste" value="4" id="radio32" name="question7" />
+																		<label for="radio32"><span></span>Não Iniciado</label>	
+																	</div>				
+																</div>
+						         						</div><!-- </form-group> -->
+						         					</div><!-- </col-md-4> -->
+						         				</div><!-- </row> 7º Pergunta Questionário-->
+			         							<!--
+			         								8º Pergunta Questionário
+			         							-->
+			         							<div class="row">
+						         					<div class="col-md-12 linha_cinza">
+						         						<div class="form-group">
+																<div class="row">
+																	<div class="col-md-12">
+																		<label class="label_par">8) Conhecimento em Dominio Microsoft?</label>
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-md-2">
+																		<input type="radio" class="valida_teste" value="1" id="radio33" name="question8" />
+																		<label for="radio33"><span></span>Design Florestas</label>
+																	</div>
+
+																	<div class="col-md-3">
+																		<input type="radio" class="valida_teste" value="2" id="radio34" name="question8" />
+																		<label for="radio34"><span></span>Arquiteto de Dominio</label>	
+																	</div>												
+																	<div class="col-md-3">
+																		<input type="radio" class="valida_teste" value="3" id="radio35" name="question8" />
+																		<label for="radio35"><span></span>Administrador</label>	
+																	</div>												
+																	<div class="col-md-2">
+																		<input type="radio" class="valida_teste" value="4" id="radio36" name="question8" />
+																		<label for="radio36"><span></span>Operador</label>	
+																	</div>
+
+																	<div class="col-md-2">
+																		<input type="radio" class="valida_teste" value="5" id="radio37" name="question8" />
+																		<label for="radio37"><span></span>Cliente</label>	
+																	</div>
+																</div>
+						         						</div><!-- </form-group> -->
+						         					</div><!-- </col-md-4> -->
+						         				</div><!-- </row> 8º Pergunta Questionário-->
+			         							<!--
+			         								9º Pergunta Questionário
+			         							-->
+			         							<div class="row">
+						         					<div class="col-md-12 linha_branca">
+						         						<div class="form-group">
+																<div class="row">
+																	<div class="col-md-12">
+																		<label class="label_par">9) Nível de conhecimento Microsoft Exchange?</label>
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-md-2">
+																		<input type="radio" class="valida_teste" value="1" id="radio38" name="question9" />
+																		<label for="radio38"><span></span>Projetista</label>
+																	</div>
+
+																	<div class="col-md-3">
+																		<input type="radio" class="valida_teste" value="2" id="radio39" name="question9" />
+																		<label for="radio39"><span></span>Administrador</label>	
+																	</div>												
+																	<div class="col-md-2">
+																		<input type="radio" class="valida_teste" value="3" id="radio40" name="question9" />
+																		<label for="radio40"><span></span>Operador</label>	
+																	</div>												
+																	<div class="col-md-2">
+																		<input type="radio" class="valida_teste" value="4" id="radio41" name="question9" />
+																		<label for="radio41"><span></span>Cliente</label>	
+																	</div>
+
+																</div>
+						         						</div><!-- </form-group> -->
+						         					</div><!-- </col-md-4> -->
+						         				</div><!-- </row> 9º Pergunta Questionário-->
+			         							<!--
+			         								10º Pergunta Questionário
+			         							-->
+			         							<div class="row">
+						         					<div class="col-md-12 linha_cinza">
+						         						<div class="form-group">
+																<div class="row">
+																	<div class="col-md-12">
+																		<label class="label_par">10) Conhecimento em Virtualização?</label>
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-md-4">
+																		<input type="radio" class="valida_teste" value="1" id="radio42" name="question10" />
+																		<label for="radio42"><span></span>Profissional Certificado</label>
+																	</div>
+
+																	<div class="col-md-3">
+																		<input type="radio" class="valida_teste" value="2" id="radio43" name="question10" />
+																		<label for="radio43"><span></span>Avançado</label>	
+																	</div>												
+																	<div class="col-md-3">
+																		<input type="radio" class="valida_teste" value="3" id="radio44" name="question10" />
+																		<label for="radio44"><span></span>Intermediário</label>	
+																	</div>												
+																	<div class="col-md-2">
+																		<input type="radio" class="valida_teste" value="4" id="radio45" name="question10" />
+																		<label for="radio45"><span></span>Básico</label>	
+																	</div>
+																</div>
+						         						</div><!-- </form-group> -->
+						         					</div><!-- </col-md-4> -->
+						         				</div><!-- </row> 10º Pergunta Questionário-->
+													<!--
+			         								11º Pergunta Questionário
+			         							-->
+			         							<div class="row">
+						         					<div class="col-md-12 linha_branca">
+						         						<div class="form-group">
+																<div class="row">
+																	<div class="col-md-12">
+																		<label class="label_impar">11) Conhecimento em Roteadores?</label>
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-md-4">
+																		<input type="radio" class="valida_teste" value="1" id="radio46" name="question11" />
+																		<label for="radio46"><span></span>Profissional Certificado</label>
+																	</div>
+
+																	<div class="col-md-3">
+																		<input type="radio" class="valida_teste" value="2" id="radio47" name="question11" />
+																		<label for="radio47"><span></span>Avançado</label>	
+																	</div>												
+																	<div class="col-md-3">
+																		<input type="radio" class="valida_teste" value="3" id="radio48" name="question11" />
+																		<label for="radio48"><span></span>Intermediário</label>	
+																	</div>																								<div class="col-md-2">
+																		<input type="radio" class="valida_teste" value="4" id="radio49" name="question11" />
+																		<label for="radio49"><span></span>Básico</label>	
+																	</div>	
+																</div>
+						         						</div><!-- </form-group> -->
+						         					</div><!-- </col-md-4> -->
+						         				</div><!-- </row> 11º Pergunta Questionário-->
+			         							<!--
+			         								12º Pergunta Questionário
+			         							-->
+			         							<div class="row">
+						         					<div class="col-md-12 linha_cinza">
+						         						<div class="form-group">
+																<div class="row">
+																	<div class="col-md-12">
+																		<label class="label_par">12) Possui algum Nível de Pós Graduação?</label>
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-md-2">
+																		<input type="radio" class="valida_teste" value="1" id="radio50" name="question12" />
+																		<label for="radio50"><span></span>PHD</label>
+																	</div>
+
+																	<div class="col-md-3">
+																		<input type="radio" class="valida_teste" value="2" id="radio51" name="question12" />
+																		<label for="radio51"><span></span>Doutorado</label>	
+																	</div>												
+																	<div class="col-md-3">
+																		<input type="radio" class="valida_teste" value="3" id="radio52" name="question12" />
+																		<label for="radio52"><span></span>Mestrado</label>	
+																	</div>												
+																	<div class="col-md-2">
+																		<input type="radio" class="valida_teste" value="4" id="radio53" name="question12" />
+																		<label for="radio53"><span></span>MBA</label>	
+																	</div>
+
+																	<div class="col-md-2">
+																		<input type="radio" class="valida_teste" value="5" id="radio54" name="question12" />
+																		<label for="radio54"><span></span>Não Possui</label>	
+																	</div>
+																</div>
+						         						</div><!-- </form-group> -->
+						         					</div><!-- </col-md-4> -->
+						         				</div><!-- </row> 12º Pergunta Questionário-->
+													<!--
+			         								13º Pergunta Questionário
+			         							-->
+			         							<div class="row">
+						         					<div class="col-md-12 linha_branca">
+						         						<div class="form-group">
+																<div class="row">
+																	<div class="col-md-12">
+																		<label class="label_impar">13) Situação Pós Graduação?</label>
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-md-3">
+																		<input type="radio" class="valida_teste" value="1" id="radio55" name="question13" />
+																		<label for="radio55"><span></span>Completo</label>
+																	</div>
+
+																	<div class="col-md-3">
+																		<input type="radio" class="valida_teste" value="2" id="radio56" name="question13" />
+																		<label for="radio56"><span></span>Cursando</label>	
+																	</div>												
+																	<div class="col-md-3">
+																		<input type="radio" class="valida_teste" value="3" id="radio57" name="question13" />
+																		<label for="radio57"><span></span>Incompleto</label>	
+																	</div>
+
+																	<div class="col-md-3">
+																		<input type="radio" class="valida_teste" value="4" id="radio58" name="question13" />
+																		<label for="radio58"><span></span>Não Iniciado</label>	
+																	</div>	
+																</div>
+						         						</div><!-- </form-group> -->
+						         					</div><!-- </col-md-4> -->
+						         				</div><!-- </row> 13º Pergunta Questionário-->
+													<!--
+			         								14º Pergunta Questionário
+			         							-->
+			         							<div class="row">
+						         					<div class="col-md-12 linha_cinza">
+						         						<div class="form-group">
+																<div class="row">
+																	<div class="col-md-12">
+																		<label class="label_par">14) Possui algum Nível de Pós Graduação?</label>
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-md-2">
+																		<input type="radio" class="valida_teste" value="1" id="radio59" name="question14" />
+																		<label for="radio59"><span></span>PHD</label>
+																	</div>
+
+																	<div class="col-md-3">
+																		<input type="radio" class="valida_teste" value="2" id="radio60" name="question14" />
+																		<label for="radio60"><span></span>Doutorado</label>	
+																	</div>												
+																	<div class="col-md-3">
+																		<input type="radio" class="valida_teste" value="3" id="radio61" name="question14" />
+																		<label for="radio61"><span></span>Mestrado</label>	
+																	</div>												
+																	<div class="col-md-2">
+																		<input type="radio" class="valida_teste" value="4" id="radio62" name="question14" />
+																		<label for="radio62"><span></span>MBA</label>	
+																	</div>
+
+																	<div class="col-md-2">
+																		<input type="radio" class="valida_teste" value="5" id="radio63" name="question14" />
+																		<label for="radio63"><span></span>Não Possui</label>	
+																	</div>
+																</div>
+						         						</div><!-- </form-group> -->
+						         					</div><!-- </col-md-4> -->
+						         				</div><!-- </row> 14º Pergunta Questionário-->
+													<!--
+			         								15º Pergunta Questionário
+			         							-->
+			         							<div class="row">
+						         					<div class="col-md-12 linha_branca">
+						         						<div class="form-group">
+																<div class="row">
+																	<div class="col-md-12">
+																		<label class="label_impar">15) Situação Pós Graduação?</label>
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-md-3">
+																		<input type="radio" class="valida_teste" value="1" id="radio64" name="question15" />
+																		<label for="radio64"><span></span>Completo</label>
+																	</div>
+
+																	<div class="col-md-3">
+																		<input type="radio" class="valida_teste" value="2" id="radio65" name="question15" />
+																		<label for="radio65"><span></span>Cursando</label>	
+																	</div>												
+																	<div class="col-md-3">
+																		<input type="radio" class="valida_teste" value="3" id="radio66" name="question15" />
+																		<label for="radio66"><span></span>Incompleto</label>	
+																	</div>
+
+																	<div class="col-md-3">
+																		<input type="radio" class="valida_teste" value="4" id="radio67" name="question15" />
+																		<label for="radio67"><span></span>Não Iniciado</label>	
+																	</div>		
+																</div>
+						         						</div><!-- </form-group> -->
+						         					</div><!-- </col-md-4> -->
+						         				</div><!-- </row> 15º Pergunta Questionário-->						         								
+												</div><!-- </questions> -->
 				         					<div class="md-padder text-center">
-				 									<button type="submit" data-tooltip="Change personal infos" class="btn btn-primary btn-lg margin-btm-30"> <i class="fa fa-user"></i> <span class="hidden-xs"> Update </span> Infos </button>
+				 									<button type="submit" value="Submit" class="btn btn-primary btn-lg margin-btm-30 btn-send> <i class="fa fa-user"></i> <span class="hidden-xs"> Send </span> Quiz </button>
+
+	                        			<button type="button" class="btn-next">
+	                        				<i class="fa fa-arrow-right"></i>
+	                        				<span>Next</span>
+	                        			</button>
+
 				 								</div>
 					         				<div class="clearfix"></div>
 					         			</form>
 					         		</div><!-- </content> -->
 					         	</div>
-					         </div>
-
+					         </div>				
 					      </div><!-- </row> -->
-					      <div class="row">
-					      	<div class="col-md-12">
-
-					      	</div>
-					      </div>
 					   </div><!-- </container-fluid> -->
 					</div><!-- </container> -->
 				</section>			   			

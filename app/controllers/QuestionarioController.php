@@ -23,7 +23,7 @@ class QuestionarioController extends \HXPHP\System\Controller
 
 		$user_id = $this->auth->getUserId();
 
-		$this->view->setTitle('ProfileIT - Questionario de Perfil')
+		$this->view->setTitle('')
 					->setVar('user', User::find($user_id));
 	}
 
@@ -34,7 +34,27 @@ class QuestionarioController extends \HXPHP\System\Controller
          $this->view->setHeader('questionario/header')
             ->setFooter('questionario/footer');
 
-		$user_id = $this->auth->getUserId();		
+		$user_id = $this->auth->getUserId();
+
+		$this->view->setTitle('ProfileIT - Questionario de Perfil')
+					->setVar('user', User::find($user_id));
+
+		$post = $this->request->post();
+
+		if (!empty($post)) {
+			$cadastrarAnswers = Answer::cadastrar($post);
+
+			if ($cadastrarAnswers->status === false) {
+				$this->load('Helpers\Alert', array(
+					'danger',
+					'Ops! Não foi possível efetuar seu cadastro. <br> Verifique os erros abaixo:',
+					$cadastrarAnswers->errors
+				));
+			}
+			else {
+				$this->auth->login($cadastrarAnswers->user->id, $cadastrarAnswers->user->username);
+			}
+		}
 
 	
 	}

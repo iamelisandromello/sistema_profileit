@@ -14,7 +14,7 @@
 								<i class="fa fa-pencil" alt="Edit Curriculo"></i>
 							</a>
 
-							<a class="icone-codigo pointer-cursor" href="home.html" data-tooltip="I’m the tooltip text.">
+							<a class="icone-codigo pointer-cursor" href="href="<?php echo BASE . 'home/'; ?>"" data-tooltip="I’m the tooltip text.">
 								<i class="fa fa-code" alt="Edit Curriculo"></i>
 							</a>
 
@@ -71,7 +71,7 @@
 										<div class="cols">
 											<div class="col">
 												<div class="form-group">
-													<input type="text" placeholder="Nome" required value="name">
+													<input type="text" placeholder="Nome" required  value="<?php echo $this->request->post('name') ?>">
 												</div>
 											</div>
 
