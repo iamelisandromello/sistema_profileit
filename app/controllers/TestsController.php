@@ -295,8 +295,8 @@ class TestsController extends \HXPHP\System\Controller
 	echo '<pre>';
 	var_dump($POST);
 	echo '<pre>';
-	$this->redirectTo('/profileit/perfil/editar/');
-	//die();
+	//$this->redirectTo('/profileit/perfil/editar/');
+	die();
 
 
 

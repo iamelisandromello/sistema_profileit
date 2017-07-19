@@ -20,8 +20,13 @@ class Answer extends \HXPHP\System\Model
     $callbackObj->answer = null;// Propriedade user da classe null
     $callbackObj->status = false;// Propriedade Status da Classe False
     $callbackObj->errors = array();// Array padrão de erros vazio
+
+    //array de informações adicionais para Novo Questionário
+    $answer_data = array(
+      'user_id'  => $user_id
+    );
    
-    $post = array_merge($post, $user_id);
+    $post = array_merge($post, $answer_data);
 
     $cadastrar = self::create($post);
 

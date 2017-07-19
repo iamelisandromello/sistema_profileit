@@ -33,6 +33,11 @@ class Academic extends \HXPHP\System\Model
        
     $cadastrar = self::create($academic);
 
+    //Academic::transaction(function() {
+    //  Academic::create($academic);
+    //  return false; # rollback!
+    //});     
+
     if ($cadastrar->is_valid()) {
       $callbackObj->academic = $cadastrar;
       $callbackObj->status = true;

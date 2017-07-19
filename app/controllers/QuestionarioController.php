@@ -42,7 +42,7 @@ class QuestionarioController extends \HXPHP\System\Controller
 		$post = $this->request->post();
 
 		if (!empty($post)) {
-			$cadastrarAnswers = Answer::cadastrar($post);
+			$cadastrarAnswers = Answer::cadastrar($post, $user_id);
 
 			if ($cadastrarAnswers->status === false) {
 				$this->load('Helpers\Alert', array(
@@ -52,7 +52,7 @@ class QuestionarioController extends \HXPHP\System\Controller
 				));
 			}
 			else {
-				$this->auth->login($cadastrarAnswers->user->id, $cadastrarAnswers->user->username);
+				$this->redirectTo('/profileit/home/');
 			}
 		}
 
