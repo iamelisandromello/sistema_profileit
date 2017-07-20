@@ -10,6 +10,7 @@ class LoginController extends \HXPHP\System\Controller
 			'Services\Auth',
 			$configs->auth->after_login,
 			$configs->auth->after_logout,
+			$configs->auth->answer_login,
 			true
 		);
 	}
@@ -35,7 +36,13 @@ class LoginController extends \HXPHP\System\Controller
 			$login = User::login($post);
 
 			if ($login->status === true) {
-				$this->auth->login($login->user->id, $login->user->username, $login->user->role->role);
+	      	$answer = Answer::verificar($login->user->id);
+				if($answer->status === false){
+					$this->auth->teste($login->user->id, $login->user->username, $login->user->role->role);
+				}
+				else{
+					$this->auth->login($login->user->id, $login->user->username, $login->user->role->role);
+				}
 			}
 			else {
 				$this->load('Modules\Messages', 'auth');

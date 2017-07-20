@@ -13,7 +13,7 @@
 		'dbname' => 'sistematcc'
 	));
 
-	$configs->env->development->auth->setURLs('/profileit/home/', '/profileit/login/');
+	$configs->env->development->auth->setURLs('/profileit/home/', '/profileit/login/', '/profileit/questionario/responder/');
 
     $configs->env->development->menu->setMenus(array(
         'Home/dashboard' => '%baseURI%/home',
@@ -47,6 +47,6 @@
 		'dbname' => 'hxphp190_sistemahx'
 	));
 
-	$configs->env->production->auth->setURLs('/home/', '/login/');
+	$configs->env->production->auth->setURLs('/home/', '/login/', '/questionario/responder/' );
 
 	return $configs;

@@ -8,11 +8,25 @@ class Answer extends \HXPHP\System\Model
 	}
 
   public function relations()
-   {
-      return array(
-      	'user'=>array(self::BELONGS_TO, 'User', 'user_id'),
-      );
-   }
+  {
+    return array(
+    	'user'=>array(self::BELONGS_TO, 'User', 'user_id'),
+    );
+  }
+  
+  public static function verificar($user_id)
+  {
+    $user = Answer::find_by_user_id($user_id);
+    $answerbackObj = new \stdClass;// Cria classe vazia
+    $answerbackObj->status = false;// Propriedade Status da Classe False
+
+    if ($user) {
+      $answerbackObj->status = true;
+      return $answerbackObj;
+    }
+    
+    return $answerbackObj;
+  }
 
   public static function cadastrar(array $post, $user_id)
   {

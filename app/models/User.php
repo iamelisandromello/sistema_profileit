@@ -59,7 +59,7 @@ class User extends \HXPHP\System\Model
 		$callbackObj->status = false;// Propriedade Status da Classe False
 		$callbackObj->errors = array();// Array padrão de erros vazio
        
-      $role = Role::find_by_role('administrator');// Define a Role de Usuario para o novo objeto
+      $role = Role::find_by_role('temp');// Define a Role de Usuario para o novo objeto
 
 		// Verifica se a Role Default de Usuario existe
 		if (is_null($role)) {
@@ -71,7 +71,7 @@ class User extends \HXPHP\System\Model
 		$user_data = array(
 			'birth_date'	=> date('Y-m-d',strtotime($post['birth_date'])),
 			'role_id'		=> $role->id,
-			'registry_id'	=> $id_registry,
+			'regitry_id'	=> $id_registry,
 			'network_id'	=> $id_network,
 			'status'			=> 1
 		);

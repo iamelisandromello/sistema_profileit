@@ -6,6 +6,13 @@
       show: function () {
         console.log('academic show');
         $(this).slideDown();
+        $('.date').datepicker({
+            format: "dd/mm/yyyy",
+            language: "pt-BR",
+            clearBtn: true,
+            autoclose: true,
+            toggleActive: true
+        });
       },
       hide: function (deleteElement) {
         console.log('academic delete');
@@ -18,6 +25,13 @@
       show: function () {
         console.log('course show');
         $(this).slideDown();
+        $('.date').datepicker({
+            format: "dd/mm/yyyy",
+            language: "pt-BR",
+            clearBtn: true,
+            autoclose: true,
+            toggleActive: true
+        });
       },
       hide: function (deleteElement) {
         console.log('course delete');
@@ -30,6 +44,14 @@
       show: function () {
         console.log('professional show');
         $(this).slideDown();
+
+        $('.date').datepicker({
+            format: "dd/mm/yyyy",
+            language: "pt-BR",
+            clearBtn: true,
+            autoclose: true,
+            toggleActive: true
+        });
       },
       hide: function (deleteElement) {
         console.log('professional delete');

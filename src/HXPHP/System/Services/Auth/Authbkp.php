@@ -39,7 +39,6 @@ class Auth
 	public function __construct(
 		$after_login,
 		$after_logout,
-		$answer_login,
 		$redirect = false,
 		$subfolder = 'default'
 	)
@@ -58,7 +57,6 @@ class Auth
 		//Configuração
 		$this->url_redirect_after_login = $after_login[$subfolder];
 		$this->url_redirect_after_logout = $after_logout[$subfolder];
-		$this->url_redirect_answer =  $answer_login[$subfolder];
 		$this->redirect = $redirect;
 
 		$this->subfolder = $subfolder;
@@ -87,21 +85,6 @@ class Auth
 			return $this->response->redirectTo($this->url_redirect_after_login);
 	}
 
-		public function teste($user_id, $username, $user_role = null)
-	{
-		$user_id = intval(preg_replace("/[^0-9]+/", "", $user_id));
-		$username = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $username);
-		$login_string = hash('sha512', $username . $this->request->server('REMOTE_ADDR') . $this->request->server('HTTP_USER_AGENT'));
-
-		$this->storage->set('user_id', $user_id);
-		$this->storage->set('username', $username);
-      $this->storage->set('user_role', $user_role);
-		$this->storage->set($this->subfolder . '_login_string', $login_string);
-
-		if ($this->redirect)
-			return $this->response->redirectTo($this->url_redirect_answer);
-	}
-
 	/**
 	 * Método de logout de usuários
 	 */
@@ -125,14 +108,8 @@ class Auth
 	 */
 	public function redirectCheck($redirect = false)
 	{
-		if ($redirect && $this->login_check()) {
-
-			if ($this->getUserRole() == 'temp') {
-                $this->response->redirectTo('http://localhost/profileit/questionario/responder');
-			}
-
+		if ($redirect && $this->login_check())
 			$this->response->redirectTo($this->url_redirect_after_login);
-		}
 		elseif (!$this->login_check())
 			if (!$redirect)
 				$this->logout();
@@ -146,7 +123,6 @@ class Auth
     {
         if($this->login_check())
         {
-
             if(!in_array($this->getUserRole(), $roles))
                 $this->redirectCheck(true);
         }

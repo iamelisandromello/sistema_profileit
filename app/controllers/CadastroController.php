@@ -65,6 +65,9 @@ class CadastroController extends \HXPHP\System\Controller
 		$academic_group = $_POST['academic-group'];
 		$course_group = $_POST['course-group'];// copiar um arrays de um POST
 
+		$connection = Professional::connection();
+		$connection->transaction();
+
 		if (!empty($registry_data)) {
 			$cadastrarRegistry = Registry::cadastrar($registry_data);
 
@@ -187,6 +190,16 @@ class CadastroController extends \HXPHP\System\Controller
 				}
 			}// final do array  multidimensional
 
+			try
+			{
+				$connection->commit();
+			}
+			catch (\Exception $e)
+			{
+				$connection->rollback();
+				throw $e;
+			}
+			
 			if ($cadastrarHistoric->status === true) {
 				$this->auth->login($cadastrarUsuario->user->id, $cadastrarUsuario->user->username);
 			}

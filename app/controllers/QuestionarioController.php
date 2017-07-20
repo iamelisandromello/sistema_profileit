@@ -20,6 +20,9 @@ class QuestionarioController extends \HXPHP\System\Controller
 		);
 
 		$this->auth->redirectCheck();
+		$this->auth->roleCheck(array(
+		'temp'
+		));
 
 		$user_id = $this->auth->getUserId();
 
