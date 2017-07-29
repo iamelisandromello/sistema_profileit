@@ -132,7 +132,6 @@ class CadastroController extends \HXPHP\System\Controller
 				}
 				else {
 					echo "teste", '<br/>';
-					//echo "Imagem: {$data}<br>";
 				}
 			}// final do array  multidimensional
 		}
@@ -159,7 +158,6 @@ class CadastroController extends \HXPHP\System\Controller
 				}
 				else {
 					echo "teste", '<br/>';
-					//echo "Imagem: {$data}<br>";
 				}
 			}// final do array  multidimensional
 		}

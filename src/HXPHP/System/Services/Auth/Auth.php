@@ -87,7 +87,14 @@ class Auth
 			return $this->response->redirectTo($this->url_redirect_after_login);
 	}
 
-		public function teste($user_id, $username, $user_role = null)
+	public function update($user_role = null)
+	{
+      $this->storage->set('user_role', $user_role);
+		if ($this->redirect)
+			return $this->response->redirectTo($this->url_redirect_after_login);
+	}
+
+	public function loginTemp($user_id, $username, $user_role = null)
 	{
 		$user_id = intval(preg_replace("/[^0-9]+/", "", $user_id));
 		$username = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $username);

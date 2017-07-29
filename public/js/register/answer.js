@@ -1,53 +1,117 @@
 
 jQuery(document).ready(function() {
 
+    var ok = "#btnOK";
+    var clean = "#btnClean";
+    var radio = ":radio";
+    var color;
+    var i = 1;
+    var parte1 = "question_";
+    var parte2 = "msg-box";
+    var msg;
+    var successBack;
+    var failureBack;
+    var answer;
+    var state = true;
 
-var ok = "#btnOK";
-var clean = "#btnClean";
-var radio = ":radio";
-var msgbox ="#msg-box span";
-var color;
+    function successRadio(mensagem) {
+        successBack = "#" + mensagem + " span";
+        $(successBack)
+        .html("Foi selecionado a opção <strong>" + color + "</strong>.")
+        .removeClass()
+        .addClass("alert alert-success")
+        .show();
+        setTimeout(function(){
+          $(successBack).hide();
+        } , 5000);
+    }
 
-$(ok).on("click" , function(){
-  //Check se há alguma opção selecionada
-  if($(radio).is(":checked")){
+    function failureRadio(mensagem) {
+        state = false;
+        failureBack = "#" + mensagem + " span";
+        $(failureBack)
+        .html("Não foi selecionado nenhuma opção")
+        .removeClass()
+        .addClass("alert alert-danger")
+        .show();
 
-    $.each($("input[type='radio']"), function(id , val){
-      if($(val).is(":checked")){
-        color = $(val).val();
-        return false;
-      };
+        setTimeout(function(){
+          $(failureBack + " span").hide();
+        } , 5000);
+    }
+
+    function validaRadio(nome, msgbox) {       
+        if ( $('input[type="radio"][name="' + nome + '"]').is(':checked') ){
+            //return false; // para submit habilite esta linha
+            $.each($('input[type="radio"][name="' + nome + '"]'), function(id , val){
+                if($(val).is(":checked")){
+                    color = $(val).val();
+                    return false;
+                };
+            });
+            //var color = $(radio).is("checked").prop("id");
+            console.log(color);
+            successRadio(msgbox);
+        }
+        else {
+            failureRadio(msgbox);
+        }
+    }
+
+    $( "input" ).on( "click", function() {
+        $( "#log" + i).html( $( "input:checked" ).val() + " is checked!" );
     });
-    //var color = $(radio).is("checked").prop("id");
-    console.log(color);
-    $(msgbox)
-    .html("Foi selecionado a opção <strong>" + color + "</strong>.")
-    .removeClass()
-    .addClass("alert alert-success")
-    .show();
 
-    setTimeout(function(){
-      $(msgbox).hide();
-    } , 5000);                      
-  } else {
+    $(ok).on("click" , function(){
+        $(".pergunta").each(function(index, value){//percorre as #div[pergunta]
+            answer = parte1+i;//concatena question_ com o contador, para defenir a pergunta em análise
+            msg = parte2+i;//concatena msg-box_ com o contador, para defenir a mensagem
+            validaRadio(answer, msg);//Função de análise de status RadioBox
+            i++;//contador         
+            if(i > 15){//verifica o contador de perguntas
+                i = 1;
+            }
+        });
+    });
 
-    $(msgbox)
-    .html("Não foi selecionado nenhuma opção")
-    .removeClass()
-    .addClass("alert alert-danger")
-    .show();
+    $(clean).on('click' , function(){
+        i=1;
+        $(".pergunta").each(function(index, value){//percorre as #div[pergunta]
+            msg = parte2+i;//concatena msg-box_ com o contador, para defenir a mensagem
+            successBack = "#" + msg + " span";
+            $(successBack)
+            .html("")
+            .removeClass();        
+            i++;//contador
+            if(i > 15){//verifica o contador de perguntas
+                i = 1;
+            }
+        });
+        $(radio).prop("checked" , false); 
+    });
 
-    setTimeout(function(){
-      $(msgbox + " span").hide();
-    } , 5000);
 
-  }
-});
+    // submit
+    $('.quiz-form').on('submit', function(e) {
+        state = true;
+        $(".pergunta").each(function(index, value){//percorre as #div[pergunta]
+            answer = parte1+i;//concatena question_ com o contador, para defenir a pergunta em análise
+            msg = parte2+i;//concatena msg-box_ com o contador, para defenir a mensagem
+            validaRadio(answer, msg);//Função de análise de status RadioBox
+            i++;//contador         
+            if(i > 15){//verifica o contador de perguntas
+                i = 1;
+            }
+        });
+        
+        if(state == false){
+            e.preventDefault();
+            $(this).addClass('input-error');
+        }
+        else{
+            $(this).removeClass('input-error');
+        }
+       
+    });    
 
-$(clean).on('click' , function(){
-  $(radio).prop("checked" , false);
-})
-    
-    
-    
 });

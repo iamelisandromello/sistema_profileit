@@ -52,6 +52,7 @@ class QuestionarioController extends \HXPHP\System\Controller
 			$cadastrarAnswers = Answer::cadastrar($post, $user_id);
 			if ($cadastrarAnswers->status === true) {
 				$updateRole = User::upRole($user_id);
+				$this->auth->update($updateRole->role);
 				$this->redirectTo('/profileit/home/');
 			}	
 			else {

@@ -7,6 +7,17 @@ class HomeController extends \HXPHP\System\Controller
    {
       $this->view->setHeader('home/header')
            ->setFooter('home/footer');
+
+		$user_id = $this->auth->getUserId();
+		$user = User::find($user_id);
+		$role = Role::find($user->role_id);
+		$total = User::experiencia($user);
+
+		$this->auth->roleCheck(array(
+		'user', 'administrator'
+		));
+		$this->auth->redirectCheck();
+
    }
 
 	public function __construct($configs)

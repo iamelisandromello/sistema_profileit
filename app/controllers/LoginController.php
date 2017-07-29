@@ -38,7 +38,7 @@ class LoginController extends \HXPHP\System\Controller
 			if ($login->status === true) {
 	      	$answer = Answer::verificar($login->user->id);
 				if($answer->status === false){
-					$this->auth->teste($login->user->id, $login->user->username, $login->user->role->role);
+					$this->auth->loginTemp($login->user->id, $login->user->username, $login->user->role->role);
 				}
 				else{
 					$this->auth->login($login->user->id, $login->user->username, $login->user->role->role);

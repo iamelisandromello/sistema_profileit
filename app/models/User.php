@@ -244,7 +244,7 @@ class User extends \HXPHP\System\Model
 	public static function upRole($user_id)
 	{
 		$callbackObj = new \stdClass;
-		$callbackObj->user = null;
+		$callbackObj->role = null;
 		$callbackObj->status = false;
 		$callbackObj->errors = array();
 
@@ -261,7 +261,7 @@ class User extends \HXPHP\System\Model
 		$atualizar = $user->save(false);
 
 		if ($atualizar) {
-			$callbackObj->user = $user;
+			$callbackObj->role = $role->role;
 			$callbackObj->status = true;
 			return $callbackObj;
 		}
