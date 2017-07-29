@@ -15,7 +15,7 @@ class UsuariosController extends \HXPHP\System\Controller
 
 		$this->auth->redirectCheck();
 		$this->auth->roleCheck(array(
-			'administrator'
+			'administrator', 'user'
 		));
 
 		$user_id = $this->auth->getUserId();

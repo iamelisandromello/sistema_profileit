@@ -7,6 +7,7 @@ class User extends \HXPHP\System\Model
 		array('role'),
       array('registry', 'foreign_key' => 'registry_id', 'class_name' => 'Registry'),
       array('network', 'foreign_key' => 'network_id', 'class_name' => 'Network'),
+      array('answer', 'foreign_key' => 'user_id', 'class_name' => 'Answer')
 	);
 
 	//Relacionamnetos 1:n entre as tabelas
@@ -238,6 +239,42 @@ class User extends \HXPHP\System\Model
 
 		return $callbackObj;
 	}
+
+
+	public static function upRole($user_id)
+	{
+		$callbackObj = new \stdClass;
+		$callbackObj->user = null;
+		$callbackObj->status = false;
+		$callbackObj->errors = array();
+
+		$role = Role::find_by_role('user');// Define a Role de Usuario para o novo objeto
+
+		// Verifica se a Role Default de Usuario existe
+		if (is_null($role)) {
+			array_push($callbackObj->errors, 'A role user não existe. Contate o administrador');
+			return $callbackObj;
+		}
+
+		$user = self::find($user_id);
+		$user->role_id = $role->id;
+		$atualizar = $user->save(false);
+
+		if ($atualizar) {
+			$callbackObj->user = $user;
+			$callbackObj->status = true;
+			return $callbackObj;
+		}
+
+		$errors = $cadastrar->errors->get_raw_errors();
+
+		foreach ($errors as $field => $message) {
+			array_push($callbackObj->errors, $message[0]);
+		}
+
+		return $callbackObj;
+	}
+
 
 	public static function login(array $post)
 	{

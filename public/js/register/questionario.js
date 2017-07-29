@@ -19,7 +19,7 @@ jQuery(document).ready(function() {
         var validaRadio = "";
 
         // Verificando Radio Button
-        $('.quiz-form radio').each(function(i){
+        $('.valida_teste').each(function(i){
             if ($(this).is(':checked')) {
                 validaRadio = $(this).val();
             }
@@ -28,10 +28,11 @@ jQuery(document).ready(function() {
         if(validaRadio == "") {
             $(this).addClass('input-error');
             next_step = false;
-            alert( "Handler for .keyup() called." );
+            alert( "RESPONDA TODOS." );
         }
         else{
             $(this).removeClass('input-error');
+                        alert( "TODOS oK." );
         }
    	
     	if( next_step ) {

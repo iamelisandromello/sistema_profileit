@@ -13,7 +13,7 @@
 		'dbname' => 'sistematcc'
 	));
 
-	$configs->env->development->auth->setURLs('/profileit/home/', '/profileit/login/', '/profileit/questionario/responder/');
+	$configs->env->development->auth->setURLs('/profileit/home/', '/profileit/login/', '/profileit/questionario/');
 
     $configs->env->development->menu->setMenus(array(
         'Home/dashboard' => '%baseURI%/home',
