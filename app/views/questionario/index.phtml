@@ -121,7 +121,7 @@
 					         					<div class="col-md-3">
 					         						<div class="form-group">
 					         							<label>Username</label>
-					         							<input type="text" class="form-control border-input" disabled placeholder="Company" value="<?php echo $view_user->name;  ?>">
+					         							<input type="text" class="form-control border-input" disabled placeholder="Company" value="<?php echo $view_user->name; ?>">
 					         						</div><!-- </form-group> -->
 					         					</div><!-- </col-md-5> --> 
 					         					<div class="col-md-4">
@@ -791,19 +791,17 @@
 				 										<i class="fa fa-user"> </i>
 				 										<span class="hidden-xs"> Send </span> Quiz
 				 									</button>
-
-		                        			<button type="button" class="btn btn-primary btn-lg margin-btm-30" id="btnClean">
+		                        			<button type="button" value="<?php echo $view_user->name; ?>" onclick="clean(this.value)" class="btn btn-primary btn-lg margin-btm-30" id="btnoClean">
 		                        				<i class="fa fa-arrow-right"></i>
 		                        				<span>Limpar</span>
 		                        			</button>
-				 								</div>
-								
-								            <div>
-													<button type="button" class="btn btn-primary" id="btnOK">
-														<span>OK</span>
-													</button>
-								            </div>
 
+		                        			<button type="button" class="btn btn-primary btn-lg margin-btm-30" id="btnOK">
+		                        				<i class="fa fa-bomb"></i>
+		                        				<span>OK</span>
+		                        			</button>
+
+				 								</div>
 					         				<div class="clearfix"></div>
 					         			</form>
 					         		</div><!-- </content> -->

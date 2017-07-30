@@ -6,13 +6,78 @@ jQuery(document).ready(function() {
     var radio = ":radio";
 
     /**
+     * <b>triggerConfirm:</b> Gera uma mensagem de confirmação para o usuário antes de executar o trexo de código.
+     * @example if(trggerConfirm(params){ Execute; }
+     * @param icon Ícone a ser utilizada Ex: [ warning | info | checkmark ]
+     * @param confirm Pergunta de confirmação
+     * @param btn_true Texto do botão de aceitação
+     * @param btn_false Texto do borão de cancelamento
+     * @param callback um array com ação a ser executada
+     * @param action uma função para determinar a ação do usuário
+     */
+    //function triggerConfirm(icon, confirm, btn_true, btn_false, action) {
+    window.triggerConfirm = function(icon, confirm, btn_true, btn_false, action) {
+        //CREATE BOX
+        btn_false = (btn_false ? "<span class='btn btn-primary btn-lg margin-btm-30 up_confirm_false'>" + btn_false + "</span>" : "");
+        $("body").append("<div class='up_confirm'><div class='up_confirm_box'><div class='up_confirm_box_content'><span class='up_confirm_box_content_icon icon-" + icon + " icon-notext'></span>" + confirm + "</div><div class='up_confirm_box_action'><span class='btn btn-primary btn-lg margin-btm-30 up_confirm_true'>" + btn_true + "</span>" + btn_false + "</div></div></div>");
+
+        //SHOW BOX
+        $(".up_confirm").fadeIn(200, function () {
+            $(".up_confirm_box").animate({"top": "0", "opacity": "1"}, 200);
+        }).css("display", "flex");
+
+        //ACTION BOX
+        $(".up_confirm_true").click(function (data) {
+            confirmRemove();
+            action(true);
+        });
+
+        $(".up_confirm_false").click(function () {
+            confirmRemove();
+            action(false);
+        });
+
+        function confirmRemove() {
+            $(".up_confirm_box").animate({"top": "100", "opacity": "0"}, 200, function () {
+                $(".up_confirm").fadeOut(200, function () {
+                    $(this).remove();
+                });
+            });
+        }
+    }
+
+    //Executa triggerConfirm com Array e monitora eventos!
+    function upTriggerConfirm(data) {
+        //Array Action
+        var confirmAction = data.confirm.callback;
+
+        //Trigger SHOW
+        triggerConfirm(data.confirm.icon, data.confirm.confirm, data.confirm.btn_true, data.confirm.btn_false, function (callback) {
+            if (callback === true) {
+                //Redirect Action
+                if (confirmAction.redirect) {
+                    window.location.href = BASE + "/" + confirmAction.redirect;
+                }
+
+                //Reload
+                if (confirmAction.reload) {
+                    window.location.reload();
+                }
+            }
+        });
+    }
+
+
+
+    /**
      * <b>triggerNotify:</b> Gera uma notificação rápida para o aluno sem travar o fluxo de navegação.
      * @param color cor da modal [ green | blue | red | yellow ]
      * @param icon Ícone a ser utilizada Ex: [ warning | info | checkmark ]
      * @param title Título da nofiticação
      * @param notify Mensagem da notificação
      */
-    function triggerNotify(color, icon, title, notify) {
+    //function triggerNotify(color, icon, title, notify) {
+    window.triggerNotify = function(color, icon, title, notify) {        
         if (!$(".up_notify").length) {
             $("body").append("<div class='up_notify'></div>");
         }
@@ -59,7 +124,8 @@ jQuery(document).ready(function() {
      * @param title Título do alerta
      * @param alert Mensagem do alerta
      */
-    function triggerAlert(color, icon, title, alert) {
+    //function triggerAlert(color, icon, title, alert) {
+    window.triggerAlert = function(color, icon, title, alert) {          
         $("body").css("overflow", "hidden").append("<div class='up_alert'><div class='up_alert_box bg_" + color + "'><span class='icon-cross icon-notext up_alert_close'></span><div class='up_alert_box_icon icon-" + icon + "'></div><div class='up_alert_box_content'><p class='title'>" + title + "</p><p>" + alert + "</p></div></div></div>");
         $(".up_alert").fadeIn(200, function () {
             $(".up_alert_box").animate({"top": "0", "opacity": "1"}, 200);
@@ -81,15 +147,8 @@ jQuery(document).ready(function() {
         triggerAlert(data.alert.color, data.alert.icon, data.alert.title, data.alert.alert);
     }
 
-
-    $(clean).on('click' , function(){
-
+    /*$(ok).on('click' , function(){
         triggerAlert('cyan', 'mug', 'Eeei Elisandro, vc terminou seu cadastro com sucesso?', 'Desconecte sua conta, e relaize Login novamente!');
-
-    });
-
-    $(ok).on('click' , function(){
-        triggerNotify('purple', 'bubbles', 'Eeei Elisandro, vai tomar um café?', 'Você desconectou sua conta com sucesso Elisandro então é hora de relaxar, mas volte logo ok?');
-    });
+    });*/
 
 });

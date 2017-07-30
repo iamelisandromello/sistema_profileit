@@ -1,6 +1,5 @@
 
 jQuery(document).ready(function() {
-
     var ok = "#btnOK";
     var clean = "#btnClean";
     var radio = ":radio";
@@ -62,7 +61,7 @@ jQuery(document).ready(function() {
         $( "#log" + i).html( $( "input:checked" ).val() + " is checked!" );
     });
 
-    $(ok).on("click" , function(){
+    /*$(ok).on("click" , function(){
         $(".pergunta").each(function(index, value){//percorre as #div[pergunta]
             answer = parte1+i;//concatena question_ com o contador, para defenir a pergunta em análise
             msg = parte2+i;//concatena msg-box_ com o contador, para defenir a mensagem
@@ -72,9 +71,10 @@ jQuery(document).ready(function() {
                 i = 1;
             }
         });
-    });
+    });*/
 
-    $(clean).on('click' , function(){
+    window.clean = function(value) {
+        triggerNotify('purple', 'bubbles', 'Eeei ' + value + ', Vamos Iniciar o Questionário Novamente?', 'Você Precisa Completar esta Etapa para Criar seu Perfil!!');
         i=1;
         $(".pergunta").each(function(index, value){//percorre as #div[pergunta]
             msg = parte2+i;//concatena msg-box_ com o contador, para defenir a mensagem
@@ -87,7 +87,11 @@ jQuery(document).ready(function() {
                 i = 1;
             }
         });
-        $(radio).prop("checked" , false); 
+        $(radio).prop("checked" , false);
+    };
+
+    $(ok).on('click' , function(){
+        triggerConfirm('cool', ';) Ohhhhh. Vamos Enviar o Questionário para Análise?', 'OK', 'Cancel', 'teste');
     });
 
 
