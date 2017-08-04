@@ -173,6 +173,7 @@
 												               	<span></span>
 												            	</div>
 												            </div>
+												            <div id="log1"></div>
 
 						         						</div><!-- </form-group> -->
 						         					</div><!-- </col-md-4> -->
@@ -787,16 +788,12 @@
 						         				</div><!-- </row> 15º Pergunta Questionário-->						         								
 												</div><!-- </questions> -->
 				         					<div class="md-padder text-center">
-				 									<button type="submit" value="Submit" class="btn btn-primary btn-lg margin-btm-30 btn-send">
-				 										<i class="fa fa-user"> </i>
-				 										<span class="hidden-xs"> Send </span> Quiz
-				 									</button>
 		                        			<button type="button" value="<?php echo $view_user->name; ?>" onclick="clean(this.value)" class="btn btn-primary btn-lg margin-btm-30" id="btnoClean">
 		                        				<i class="fa fa-arrow-right"></i>
 		                        				<span>Limpar</span>
 		                        			</button>
 
-		                        			<button type="button" class="btn btn-primary btn-lg margin-btm-30" id="btnOK">
+		                        			<button type="button" value="<?php echo $view_user->name; ?>" onclick="sendAnswer(this.value)" class="btn btn-primary btn-lg margin-btm-30" id="btnOK">
 		                        				<i class="fa fa-bomb"></i>
 		                        				<span>OK</span>
 		                        			</button>

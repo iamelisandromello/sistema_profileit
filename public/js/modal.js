@@ -7,7 +7,7 @@ jQuery(document).ready(function() {
 
     /**
      * <b>triggerConfirm:</b> Gera uma mensagem de confirmação para o usuário antes de executar o trexo de código.
-     * @example if(trggerConfirm(params){ Execute; }
+     * @example if(triggerConfirm(params){ Execute; }
      * @param icon Ícone a ser utilizada Ex: [ warning | info | checkmark ]
      * @param confirm Pergunta de confirmação
      * @param btn_true Texto do botão de aceitação
@@ -16,7 +16,7 @@ jQuery(document).ready(function() {
      * @param action uma função para determinar a ação do usuário
      */
     //function triggerConfirm(icon, confirm, btn_true, btn_false, action) {
-    window.triggerConfirm = function(icon, confirm, btn_true, btn_false, action) {
+    window.triggerConfirm = function(icon, nome, confirm, btn_true, btn_false, action) {
         //CREATE BOX
         btn_false = (btn_false ? "<span class='btn btn-primary btn-lg margin-btm-30 up_confirm_false'>" + btn_false + "</span>" : "");
         $("body").append("<div class='up_confirm'><div class='up_confirm_box'><div class='up_confirm_box_content'><span class='up_confirm_box_content_icon icon-" + icon + " icon-notext'></span>" + confirm + "</div><div class='up_confirm_box_action'><span class='btn btn-primary btn-lg margin-btm-30 up_confirm_true'>" + btn_true + "</span>" + btn_false + "</div></div></div>");
@@ -29,12 +29,12 @@ jQuery(document).ready(function() {
         //ACTION BOX
         $(".up_confirm_true").click(function (data) {
             confirmRemove();
-            action(true);
+            action(true, nome);
         });
 
         $(".up_confirm_false").click(function () {
             confirmRemove();
-            action(false);
+            action(false, nome);
         });
 
         function confirmRemove() {
@@ -47,7 +47,7 @@ jQuery(document).ready(function() {
     }
 
     //Executa triggerConfirm com Array e monitora eventos!
-    function upTriggerConfirm(data) {
+    window.upTriggerConfirm = function(data) {
         //Array Action
         var confirmAction = data.confirm.callback;
 
@@ -66,8 +66,6 @@ jQuery(document).ready(function() {
             }
         });
     }
-
-
 
     /**
      * <b>triggerNotify:</b> Gera uma notificação rápida para o aluno sem travar o fluxo de navegação.

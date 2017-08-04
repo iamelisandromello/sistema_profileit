@@ -41,12 +41,12 @@
 													<!--<img class="avatar-lg wow bounceIn" src="<?php echo IMAGES; ?>elisandromello.jpg" >-->
 
 								               <?php
-								                  if (!is_null($view_user->image)) {
-								                     echo '<img class="avatar-lg wow bounceIn" src="' . BASE . 'public/uploads/users/' . $view_user->id . '/' . $view_user->image . '" width="160">';
+								                   if (!is_null($view_user->image)) {
+								                       echo '<img class="avatar-lg wow bounceIn" src="' . BASE . 'public/uploads/users/' . $view_user->id . '/' . $view_user->image . '" width="160">';
 								                   }
-								                  else{
-								                     echo '<img class="avatar-lg wow bounceIn" src="' . BASE . 'public/uploads/users/' . 'default' . '/' . 'default.png' . '" width="160">';
-								                  }
+								                   else{
+								                       echo '<img class="avatar-lg wow bounceIn" src="' . BASE . 'public/uploads/users/' . 'default' . '/' . 'default.png' . '" width="160">';
+								                   }
 								               ?>
 
 												</div>
@@ -301,6 +301,7 @@
 		 								</div>
 
 			    					</div><!-- </col-sm-12> -->
+
 			    				</div><!-- </row> -->
 			    			</div><!-- </col-sm-12> -->
 			    		</div><!-- </row> -->
@@ -320,187 +321,104 @@
 	 						</div>
 	 					</div>
 	 					<!-- End Title Section -->
-						<div class="row">
-						<!--
-	 					*	Atualizar Competências Atuais
-	 					*-->
-							<div class="col-md-6">
-								<div class="row">
-									<div class="col-md-12">
-
-										<form method="POST" class="form-horizontal wrapper-repeater" role="form">
-											<fieldset>
-												<legend>Atualizar Competências Atuais</legend>
-											
-												<?php
-													foreach ($view_user->competencies as $competency):
-												?>
-													<div class="row">
-														<div class="col-md-5 col-sm-12 wow flipInx" data-wow-delay="0.3s">
-															<div class="skill-bar">
-														    	<ul>
-																	<li>
-																		<div class="bar" data-value="" style="width: <?php echo $competency->level ?>0%;">
-																			<h5><?php echo $competency->competency ?></h5>
-																		</div>
-																		<span><?php echo $competency->level ?> / 10</span>
-																	</li>
-														      </ul><!-- </ul> Lista de Barras Skill -->
-														   </div><!-- </skill-bar> -->
-														</div><!-- </col-md-5 col-sm-12> -->
-
-														<div class="col-md-2  wow flipInx">
-															<select name="make" class="form-control">
-																<option value="1" <?php ($competency->level == "1") ? print "selected" : ""; ?>>
-																	1
-																</option>
-																<option value="2" <?php ($competency->level == '2') ? print "selected" : ""; ?>>
-																	2
-																</option>
-																<option value="3" <?php ($competency->level == '3') ? print "selected" : ""; ?>>
-																	3
-																</option>
-																<option value="4" <?php ($competency->level == '4') ? print "selected" : ""; ?>>
-																	4
-																</option>
-																<option value="5" <?php ($competency->level == '5') ? print "selected" : ""; ?> >
-																	5
-																</option>
-																<option value="6" <?php ($competency->level == '6') ? print "selected" : ""; ?>>
-																	6
-																</option>
-																<option value="7" <?php ($competency->level == '7') ? print "selected" : ""; ?>>
-																	7
-																</option>
-																<option value="8" <?php ($competency->level == '8') ? print "selected" : ""; ?>>
-																	8
-																</option>
-																<option value="9" <?php ($competency->level == '9') ? print "selected" : ""; ?>>
-																	9
-																</option>
-																<option value="10" <?php ($competency->level == '10') ? print "selected" : ""; ?>>
-																	10
-																</option>
-															</select>
-					         						</div><!-- </col-md-1> -->
-													<div class="col-md-2  wow flipInx">
-														<a class="btn btn-primary btn-sm margin-btm-30" > <i class="fa fa-pencil"></i> <span class="hidden-xs"></span> Editar </a>
-													</div>
-													<div class="col-md-2  wow flipInx">
-														<a class="btn btn-primary btn-sm margin-btm-30" > <i class="fa fa-eraser"></i> <span class="hidden-xs"></span> Deletar </a>
-													</div>
-												</div>	
-											<?php	endforeach
+	 					<div class="row">	    	
+	 						<form method="POST" class="form-horizontal wrapper-repeater" role="form">
+	 							<fieldset>
+	 								<legend>Technical Skills</legend>
+	 								<div class="repeater-custom-show-hide">
+ 										<div class="row">	
+											<div class="col-md-3">
+												<label>Competências</label>
+											</div>
+											<div class="col-md-1">
+												<label>Nível</label>		
+											</div>
+											<div class="col-md-2">
+												<label>Excluir</label>
+											</div>
+										</div><!-- </row> -->
+	 									<div data-repeater-list="car">
+											<?php
+												foreach ($view_user->competencies as $competency):
 											?>
-											</fieldset>
-										</form>
-									</div><!-- </col-md-12> -->
-								</div><!-- </row> -->
-							</div><!-- </col-md-6> -->	 					
-	 					<!--
-	 					*	Add Novas Competências
-	 					*-->						
-							<div class="col-md-6">
-								<div class="row">
-									<div class="col-md-12">
-										<form method="POST" class="form-horizontal wrapper-repeater" role="form">
-											<fieldset>
-												<legend>Add Novas Competências</legend>
-												<div class="repeater-custom-show-hide">
-													<div class="row">
-														<div class="col-md-5">
-															<label>Competências</label>
-														</div>
-														<div class="col-md-3">
-															<label>Domínio</label>		
-														</div>
-														<div class="col-md-2">
-															<label>Nível</label>		
-														</div>
-														<div class="col-md-2">
-															<label>Excluir</label>
-														</div>
-													</div><!-- </row> -->
-													<div data-repeater-list="car">
-							      					<div data-repeater-item>
-								      					<div class="row">
-																<div class="col-md-5 wow flipInx">
-									   							<div class="box-input">
-									   								<input type="text" name="competency" id="competency" class="form-control border-input" placeholder="Competência" value="">
-									   							</div>
-									      					</div><!-- </col-md-5> -->
-																<div class="col-md-3 wow flipInx">
-									   							<div class="box-input">
-									   								<input type="text" name="domain" id="domain" class="form-control border-input" placeholder="Domínio" value="">	
-									   							</div>
-									      					</div><!-- </col-md-5> -->
-																<div class="col-md-2 wow flipInx">
-				 													<div class="box-input">
-				 														<select name="make" class="form-control">
-						 													<option value="1">
-						 														1
-						 													</option>
-						 													<option value="2">
-						 														2
-						 													</option>
-						 													<option value="3">
-						 														3
-						 													</option>
-						 													<option value="4">
-						 														4
-						 													</option>
-						 													<option value="5">
-						 														5
-						 													</option>
-						 													<option value="6">
-						 														6
-						 													</option>
-						 													<option value="7">
-						 														7
-						 													</option>
-						 													<option value="8">
-						 														8
-						 													</option>
-						 													<option value="9">
-						 														9
-						 													</option>
-						 													<option value="10">
-						 														10
-						 													</option>
-					 													</select>
-				 													</div>
-								         					</div><!-- </col-md-1> -->
-
-									      					<div class="col-md-2 wow flipInx">
-																	<div class="box-input">
-																		<a data-repeater-delete class="btn btn-primary btn-sm margin-btm-30" > <i class="fa fa-minus-circle"></i> <span class="hidden-xs"></span> Delete </a>
+	 										<div data-repeater-item>
+					         				<div class="row">
+						         				<div class="col-md-3">
+				         							<input type="text" name="competency" id="competency" class="form-control border-input" placeholder="Competência" value="<?php echo $competency->competency ?>">
+					         					</div><!-- </col-md-3> -->
+						         				
+						         				<div class="col-md-1">
+	 													<select name="make" class="form-control">
+		 													<option value="1" <?php ($competency->level == "1") ? print "selected" : ""; ?>>
+		 														1
+		 													</option>
+		 													<option value="2" <?php ($competency->level == '2') ? print "selected" : ""; ?>>
+		 														2
+		 													</option>
+		 													<option value="3" <?php ($competency->level == '3') ? print "selected" : ""; ?>>
+		 														3
+		 													</option>
+		 													<option value="4" <?php ($competency->level == '4') ? print "selected" : ""; ?>>
+		 														4
+		 													</option>
+		 													<option value="5" <?php ($competency->level == '5') ? print "selected" : ""; ?> >
+		 														5
+		 													</option>
+		 													<option value="6" <?php ($competency->level == '6') ? print "selected" : ""; ?>>
+		 														6
+		 													</option>
+		 													<option value="7" <?php ($competency->level == '7') ? print "selected" : ""; ?>>
+		 														7
+		 													</option>
+		 													<option value="8" <?php ($competency->level == '8') ? print "selected" : ""; ?>>
+		 														8
+		 													</option>
+		 													<option value="9" <?php ($competency->level == '9') ? print "selected" : ""; ?>>
+		 														9
+		 													</option>
+		 													<option value="10" <?php ($competency->level == '10') ? print "selected" : ""; ?>>
+		 														10
+		 													</option>
+	 													</select>
+					         					</div><!-- </col-md-1> -->
+													<div class="col-md-2">
+														<a data-repeater-delete class="btn btn-primary btn-sm margin-btm-30" > <i class="fa fa-minus-circle"></i> <span class="hidden-xs"></span> Delete </a>
+		 											</div>
+													<div class="col-md-4 col-sm-12 wow bounceInRight" data-wow-delay="0.3s">
+														<div class="skill-bar">
+													    	<ul>
+																<li>
+																	<div class="bar" data-value="" style="width: <?php echo $competency->level ?>0%;">
+																		<h5 name="descCompetency"><?php echo $competency->competency ?></h5>
 																	</div>
-		 														</div>
-															</div><!-- </row> -->
-														</div>	<!-- </data-repeater-item> -->
-													</div><!-- </data-repeater-list> -->
+																	<span><?php echo $competency->level ?> / 10</span>
+																</li>
+													      </ul><!-- </ul> Lista de Barras Skill -->
+													   </div><!-- </skill-bar> -->
+													</div><!-- </col-md-6 col-sm-12> -->
 
-				 									<div class="form-group wow flipInx">
-				 										<div class="col-sm-offset-1 col-sm-11">
-				 											<span data-repeater-create data-tooltip="Include new skills" class="btn btn-info btn-md">
-				 												<span class="glyphicon glyphicon-plus"></span> add
-				 											</span>
-				 										</div>
-				 									</div>
-				 									<hr/>
-												</div><!-- </repeater-custom-show-hide> -->
-												<div class="md-padder text-left wow flipInx">
-				 									<a class="btn btn-primary btn-lg margin-btm-30" data-tooltip="Update skills infos" href="update.html" target="_blank"> <i class="fa fa-user"></i> <span class="hidden-xs"> Update </span> Skill </a>
-				 								</div>
+					         				</div><!-- </row>-->
+	 										</div><!-- </data-repeater-item> -->
+											<?php
+												endforeach
+											?>
 
-											</fieldset>
-										</form>				
-									</div><!-- </col-md-12> -->
-								</div><!-- </row> -->
-							</div><!-- </col-md-6> -->
-						
-						</div><!-- </row> -->
-
+	 									</div>
+	 									<div class="form-group">
+	 										<div class="col-sm-offset-1 col-sm-11">
+	 											<span data-repeater-create data-tooltip="Include new skills" class="btn btn-info btn-md">
+	 												<span class="glyphicon glyphicon-plus"></span> add
+	 											</span>
+	 										</div>
+	 									</div>
+	 									<hr/>		      			
+	 								</div><!-- </repeater-custom-show-hide> -->
+	 								<div class="md-padder text-left">
+	 									<a class="btn btn-primary btn-lg margin-btm-30" data-tooltip="Update skills infos" href="update.html" target="_blank"> <i class="fa fa-user"></i> <span class="hidden-xs"> Update </span> Skill </a>
+	 								</div>
+	 							</fieldset>
+	 						</form><!-- </form-horizontal well> -->
+	 					</div><!-- </row> -->
 	 				</div><!-- </container> -->
 	 			</section><!-- </section-technical> -->
 				<!-- ==============================================
