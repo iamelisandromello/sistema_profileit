@@ -40,7 +40,7 @@ class Alert
 		$render = $render->get($message);
 
 		/**
-		 * Recupera o template html ara a mensagem
+		 * Recupera o template html para a mensagem
 		 * @var html
 		 */
 		$template = new Template();

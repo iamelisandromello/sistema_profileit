@@ -100,8 +100,37 @@ class PerfilController extends \HXPHP\System\Controller
 
 				$this->view->setVar('user', $atualizarUsuario->user);
 
-				
 			}
 		}
 	}
+
+	public function upcompetencyAction($competency_id = null, $level = null)
+	{
+
+		$this->view->setFile('editar');
+         $this->view->setHeader('perfil/header')
+            ->setFooter('perfil/footer');
+
+		$user_id = $this->auth->getUserId();
+		$user = User::find($user_id);
+
+		if (is_numeric($competency_id) && is_numeric($level)) {
+			$atualizarCompetency = Competency::atualizar($competency_id, $level, $user_id);
+
+			if ($atualizarCompetency->status == false) {
+				$this->load('Helpers\Alert', array(
+					'error',
+					'Ops! Não foi possível atualizar suas competências. <br> Verifique os erros abaixo:',
+					$atualizarCompetency->errors
+				));
+			}			
+		}
+		else{
+			var_dump('teste');
+			die();
+		}
+		
+		$this->view->setVar('user', $user);
+	}
+
 }

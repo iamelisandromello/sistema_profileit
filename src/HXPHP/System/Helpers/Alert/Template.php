@@ -28,7 +28,7 @@ class Template
 	}
 
 	/**
-	 * Método resposnável pela obtenção do conteúdo do template
+	 * Método responsável pela obtenção do conteúdo do template
 	 * @return html
 	 */
 	public function get($list = false)

@@ -3,6 +3,7 @@
       ====================================-->
 		<div class="layout">
 			<main>
+				<?php echo (isset($this->alert) ? $this->alert : ''); ?>	
 				<section class="update-menu">
 					<div class="container">
 						<div class="options-menu">										
@@ -25,7 +26,12 @@
 							<a class="icone-compartilhar pointer-cursor" data-tooltip="Find User." href="home.html">
 								<i class="fa fa-users" alt="Localizar Usuário" ></i>
 							</a>
-						</div><!-- </options-menu> -->						
+						</div><!-- </options-menu> -->
+						<div class="row">
+							<div class="col-md-12">
+									
+							</div>
+						</div>				
 					</div><!-- </container> -->
 				</section><!-- </update-menu> Section de Menu de Acessos Rápidos-->
 
@@ -327,11 +333,9 @@
 							<div class="col-md-6">
 								<div class="row">
 									<div class="col-md-12">
-
 										<form method="POST" class="form-horizontal wrapper-repeater" role="form">
 											<fieldset>
 												<legend>Atualizar Competências Atuais</legend>
-											
 												<?php
 													foreach ($view_user->competencies as $competency):
 												?>
@@ -350,7 +354,7 @@
 														</div><!-- </col-md-5 col-sm-12> -->
 
 														<div class="col-md-2  wow flipInx">
-															<select name="make" class="form-control">
+															<select name="make" id="level<?php echo $competency->id ?>" class="form-control">
 																<option value="1" <?php ($competency->level == "1") ? print "selected" : ""; ?>>
 																	1
 																</option>
@@ -383,15 +387,19 @@
 																</option>
 															</select>
 					         						</div><!-- </col-md-1> -->
-													<div class="col-md-2  wow flipInx">
-														<a class="btn btn-primary btn-sm margin-btm-30" > <i class="fa fa-pencil"></i> <span class="hidden-xs"></span> Editar </a>
-													</div>
-													<div class="col-md-2  wow flipInx">
-														<a class="btn btn-primary btn-sm margin-btm-30" > <i class="fa fa-eraser"></i> <span class="hidden-xs"></span> Deletar </a>
-													</div>
-												</div>	
-											<?php	endforeach
-											?>
+														<div class="col-md-2  wow flipInx">
+
+				                        			<button type="button" value="level<?php echo $competency->id ?>" onclick="sendEdit(this.value, <?php echo $competency->id ?>, <?php echo $competency->level?> ,'<?php echo $view_user->name?>')" class="btn btn-primary btn-sm margin-btm-30" id="btnUP">
+			                        					<i class="fa fa-pencil"></i>
+			                        					<span>Editar</span>
+			                        				</button>
+														</div>
+														<div class="col-md-2  wow flipInx">
+															<a class="btn btn-primary btn-sm margin-btm-30" > <i class="fa fa-eraser"></i> <span class="hidden-xs"></span> Excluir </a>
+														</div>
+													</div><!-- </row> -->	
+												<?php	endforeach
+												?>
 											</fieldset>
 										</form>
 									</div><!-- </col-md-12> -->

@@ -174,7 +174,7 @@ class User extends \HXPHP\System\Model
 			return $callbackObj;
 		}
 
-		$errors = $cadastrar->errors->get_raw_errors();
+		$errors = $pesquisar->errors->get_raw_errors();
 
 		foreach ($errors as $field => $message) {
 			array_push($callbackObj->errors, $message[0]);
@@ -266,7 +266,7 @@ class User extends \HXPHP\System\Model
 			return $callbackObj;
 		}
 
-		$errors = $cadastrar->errors->get_raw_errors();
+		$errors = $atualizar->errors->get_raw_errors();
 
 		foreach ($errors as $field => $message) {
 			array_push($callbackObj->errors, $message[0]);

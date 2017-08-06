@@ -5,6 +5,37 @@ jQuery(document).ready(function() {
     var clean = "#btnClean";
     var radio = ":radio";
 
+    window.triggerConfirmUp = function(icon, nome, confirm, btn_true, btn_false, action, idCompetency, level) {
+        //CREATE BOX
+        btn_false = (btn_false ? "<span class='btn btn-primary btn-lg margin-btm-30 up_confirm_false'>" + btn_false + "</span>" : "");
+        $("body").append("<div class='up_confirm'><div class='up_confirm_box'><div class='up_confirm_box_content'><span class='up_confirm_box_content_icon icon-" + icon + " icon-notext'></span>" + confirm + "</div><div class='up_confirm_box_action'><span class='btn btn-primary btn-lg margin-btm-30 up_confirm_true'>" + btn_true + "</span>" + btn_false + "</div></div></div>");
+
+        //SHOW BOX
+        $(".up_confirm").fadeIn(200, function () {
+            $(".up_confirm_box").animate({"top": "0", "opacity": "1"}, 200);
+        }).css("display", "flex");
+
+        //ACTION BOX
+        $(".up_confirm_true").click(function (data) {
+            confirmRemove();
+            action(true, nome, idCompetency, level);
+        });
+
+        $(".up_confirm_false").click(function () {
+            confirmRemove();
+            action(false, nome, idCompetency, level);
+        });
+
+        function confirmRemove() {
+            $(".up_confirm_box").animate({"top": "100", "opacity": "0"}, 200, function () {
+                $(".up_confirm").fadeOut(200, function () {
+                    $(this).remove();
+                });
+            });
+        }
+    }
+
+
     /**
      * <b>triggerConfirm:</b> Gera uma mensagem de confirmação para o usuário antes de executar o trexo de código.
      * @example if(triggerConfirm(params){ Execute; }

@@ -57,7 +57,7 @@ class UsuarioController extends \HXPHP\System\Controller
 			if ($pesquisarUsuario->status === false) {
 				$this->load('Helpers\Alert', array(
 					'danger',
-					'Ops! Não foi possível localizar nenhums Usuário. <br> Verifique as Mensagens abaixo:',
+					'Ops! Não foi possível localizar nenhum Usuário. <br> Verifique as Mensagens abaixo:',
 					$pesquisarUsuario->errors
 				));
 			}
