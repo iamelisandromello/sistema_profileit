@@ -6,9 +6,9 @@ class TestsController extends \HXPHP\System\Controller
 	public function indexAction()
 	{
 		
-		$this->load(
+		/*$this->load(
 		    'Services\Correios'
-		);
+		);*/
 		
 		$user = User::find(22);
 		$adviser = User::find(20);
@@ -68,7 +68,12 @@ class TestsController extends \HXPHP\System\Controller
 
 
 	}
-	
+
+	public function upconclusionAction(){
+		$post = $this->request->post();
+		var_dump($post);
+		die();
+	}
 
 	public function cadastrarAction(){
 
@@ -131,11 +136,90 @@ class TestsController extends \HXPHP\System\Controller
 			}
 		}
 	}*/
+		
+	$POST = $this->request->post();
+	echo '<pre>';
+	var_dump($POST);
+	echo '<pre>';	
+
+	$competencies_data = $_POST['competencies-group'];// copiar um arrays de um POST
+	$qtd = count($_POST['competencies-group']);
+
+	/*foreach($competencies_data as $data)
+	{
+	     if(is_array($data))
+	     {
+	          foreach($data as $other_data)
+	          {
+	               echo $other_data, '<br/>';
+	          }
+	     }
+	     else
+	     {
+	          echo "teste", '<br/>';
+	          //echo "Imagem: {$data}<br>";
+	     }
+	}*/
+
+	if (!empty($competencies_data)) {		
+		foreach($competencies_data as $data) {
+			$competency_data = array();
+			$colum = 0;
+			if(is_array($data)) {
+				foreach($data as $other_data) {
+					$competency_data[$colum] = $other_data;
+					$colum++;
+				}
+				echo('<pre>');
+					var_dump($competency_data);
+				echo('</pre>');
+				echo "<hr>";
+			}
+			else {
+				echo "teste", '<br/>';
+				//echo "Imagem: {$data}<br>";
+			}
+		}
+	}
+	
+	$skill = Competency::find_by_user_id('22');
+	
+	if (is_null($skill)) {
+		echo('Erro para encontrar');
+	}
+	else {
+		echo "<hr>";
+
+		$skill_id = $skill->skill_id;
+		$skill_competency = $skill->competency;
+		echo('<pre>');
+			var_dump($skill_id);
+			echo "<br>";
+			echo ($skill_competency);
+		echo('</pre>');
+		echo "<hr>";
+	}
 
 
-	//User::recursive_show_array($dados);
 
-		//die();
+
+	/*foreach($competency_data as $data)
+	{
+	     if(is_array($data))
+	     {
+	          foreach($data as $other_data)
+	          {
+	               echo $other_data, '<br/>';
+	          }
+	     }
+	     else
+	     {
+	          echo "teste", '<br/>';
+	          //echo "Imagem: {$data}<br>";
+	     }
+	}*/
+
+	die();
 
 		/*if (!empty($historic_data)) {
 			$user_id = 20;
@@ -291,12 +375,10 @@ class TestsController extends \HXPHP\System\Controller
 	User::recursive_show_array($academic_data);
 	User::recursive_show_array($course_data);
 	User::recursive_show_array($professional_data);*/
-	$POST = $this->request->post();
-	echo '<pre>';
-	var_dump($POST);
-	echo '<pre>';
+
+
 	//$this->redirectTo('/profileit/perfil/editar/');
-	die();
+
 
 
 

@@ -6,7 +6,8 @@ window.onload = function () {
 
     $('.repeater-custom-show-hide').repeater({
       defaultValues: {
-        make: '1',
+        nivel: '1',
+       domain: -1,
       },
       show: function () {
         $(this).slideDown();

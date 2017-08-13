@@ -4,329 +4,7 @@
 		<div class="layout">
 			<main>
 				<?php echo (isset($this->alert) ? $this->alert : ''); ?>	
-				<section class="update-menu">
-					<div class="container">
-						<div class="options-menu">										
-							<a class="item-central pointer-cursor" href="home.html">
-								<img src="<?php echo IMAGES; ?>curriculo-tag-miolo.png" alt="Curriculo TAG">
-							</a>
-
-							<a class="icone-lapis pointer-cursor" data-tooltip="Visualizar Alterações" href="<?php echo BASE . 'usuario/'; ?>" >
-								<i class="fa fa-refresh" alt="Edit Curriculo"></i>
-							</a>
-
-							<a class="icone-codigo pointer-cursor" href="<?php echo BASE . 'home/'; ?>" data-tooltip="I’m the tooltip text.">
-								<i class="fa fa-code" alt="Edit Curriculo"></i>
-							</a>
-
-							<a class="icone-coracao pointer-cursor" data-tooltip="Change Questionnaire" href="<?php echo BASE . 'upquestionario/responder/'; ?>">
-								<i class="fa fa-question" alt="Alterar Questionário" ></i>
-							</a>
-
-							<a class="icone-compartilhar pointer-cursor" data-tooltip="Find User." href="home.html">
-								<i class="fa fa-users" alt="Localizar Usuário" ></i>
-							</a>
-						</div><!-- </options-menu> -->
-						<div class="row">
-							<div class="col-md-12">
-									
-							</div>
-						</div>				
-					</div><!-- </container> -->
-				</section><!-- </update-menu> Section de Menu de Acessos Rápidos-->
-
-				<section class="update-access" id="access">
-					<div class="container">
-						<div class="row">					
-							<div class="col-sm-6 infos">
-								<div class="row">
-									<div class="col-sm-12">
-										<div class="quadro1">
-											<picture-profile>
-												<div class="picture-top">
-													<!--<img class="avatar-lg wow bounceIn" src="<?php echo IMAGES; ?>elisandromello.jpg" >-->
-
-								               <?php
-								                  if (!is_null($view_user->image)) {
-								                     echo '<img class="avatar-lg wow bounceIn" src="' . BASE . 'public/uploads/users/' . $view_user->id . '/' . $view_user->image . '" width="160">';
-								                   }
-								                  else{
-								                     echo '<img class="avatar-lg wow bounceIn" src="' . BASE . 'public/uploads/users/' . 'default' . '/' . 'default.png' . '" width="160">';
-								                  }
-								               ?>
-
-												</div>
-												<div class="picture-bottom">
-													<div class="col-sm-12">
-														<div class="separator"></div>
-														<h1><strong><?php echo $view_user->name; ?></strong></h1>
-														<p>#User Experience    #Music    #Creative Direction</p>
-														<div class="separator"></div>
-													</div>
-												</div>
-											</picture-profile>
-										
-										</div><!-- </quadro1> -->
-									</div><!-- </col-sm-12> -->
-								</div><!-- </row> -->
-							</div><!-- </col-sm-6 infos> -->						
-							<div class="col-sm-6">
-								<div class="quadro">
-									<h1>Access and login data</h1>
-									<form>
-										<div class="cols">
-
-											<div class="col">
-												<div class="form-group">
-													<input type="text" required  placeholder="usuário"  value="<?php echo $view_user->username;?>">
-												</div>
-											</div>											
-
-											<div class="col">
-												<div class="form-group">
-													<input type="text" required  placeholder="e-mail"  value="<?php echo $view_user->email;?>">
-												</div>
-											</div>
-
-											<div class="col">
-												<div class="form-group">
-													<input type="password" placeholder="******" />
-												</div>
-											</div>											
-
-											<div class="md-padder text-right">
-												<a class="btn btn-primary btn-lg margin-btm-30" data-tooltip="Change system access." href="update.html" target="_blank"> <i class="fa fa-user"></i> <span class="hidden-xs"> Update </span> Access </a>
-											</div>
-										</div><!-- </cols> -->	
-									</form>
-								</div><!-- </quadro> -->
-							</div><!-- </col-sm-6 infos> -->							
-						</div><!-- </row> -->
-					</div><!-- </container> -->
-				</section><!-- </update-access> -->
-
-				<!-- ==============================================
-			    Update Midias Sociais (Edit Peronal Information)
-			    =============================================== -->							
-			   <section class="update-social" id="social">
-			    	<div class="container">
-			    		<!-- TitleSection -->
-			    		<div class="cols">
-			    			<div class="title-section" id="shortcodes">
-			    				<h2 class="title">Social Media Information<span class="cursor-tag">_</span></h2>
-			    				<h3 class="title-description">Social networks and web contacts.</h3>
-			    			</div>
-			    		</div>
-			    		<!-- End Title Section -->	
-			    		<div class="row">					
-			    			<form class="form-social">
-			    				<div class="col-sm-6 infos">
-			    					<div class="row">
-			    						<div class="col-sm-12">
-			    							<div class="quadro30">
-			    								<div class="col">
-			    									<div class="form-group">
-			    										<span class="icone-campo"><i class="fa fa-facebook fa-2x"></i></span>
-			    									</div>
-			    								</div>											
-			    								<div class="col">
-			    									<div class="form-group">
-			    										<input name="facebook" placeholder="facebook" type="text" value="<?php echo $view_user->network->facebook; ?>" >
-			    									</div>
-			    								</div>
-
-			    								<div class="col">
-			    									<div class="form-group">
-			    										<span class="icone-campo"><i class="fa fa-linkedin fa-2x"></i></span>
-			    									</div>
-			    								</div>											
-			    								<div class="col">
-			    									<div class="form-group">
-			    										<input type="text" placeholder="LinkedIn" value="<?php echo $view_user->network->linkedin; ?>">
-			    									</div>
-			    								</div>
-
-			    								<div class="col">
-			    									<div class="form-group">
-			    										<span class="icone-campo"><i class="fa fa-twitter fa-2x"></i></span>
-			    									</div>
-			    								</div>											
-			    								<div class="col">
-			    									<div class="form-group">
-			    										<input type="text" placeholder="Twitter" value="<?php echo $view_user->network->twitter; ?>" required>
-			    									</div>
-			    								</div>										
-
-			    							</div><!-- </quadro30> -->
-			    						</div><!-- </col-sm-12> -->
-			    					</div><!-- </row> -->
-			    				</div><!-- </col-sm-6 infos> -->
-			    				<div class="col-sm-6">
-			    					<div class="quadro31">
-			    						<div class="col">
-			    							<div class="form-group">
-			    								<span class="icone-campo"><i class="fa fa-instagram fa-2x"></i></span>
-			    							</div>
-			    						</div>											
-			    						<div class="col">
-			    							<div class="form-group">
-			    								<input type="text" placeholder="Instagram" value="<?php echo $view_user->network->instagram; ?>" required>
-			    							</div>
-			    						</div>
-			    						<div class="col">
-			    							<div class="form-group">
-			    								<span class="icone-campo"><i class="fa fa-github fa-2x"></i></span>
-			    							</div>
-			    						</div>											
-			    						<div class="col">
-			    							<div class="form-group">
-			    								<input type="text"  name="comments" placeholder="GitHub" value="<?php echo $view_user->network->github; ?>" required>
-			    							</div>
-			    						</div>			
-			    						<div class="col">
-			    							<div class="form-group">
-			    								<span class="icone-campo"><i class="fa fa-globe fa-2x"></i></span>
-			    							</div>
-			    						</div>
-			    						<div class="col">
-			    							<div class="form-group">
-			    								<input type="text"  name="comments" placeholder="Website or domain name" value="<?php echo $view_user->network->web; ?>" required>
-			    							</div>
-			    						</div>
-			    					</div>
-			    					<div class="md-padder text-right">
-			    						<a class="btn btn-primary btn-lg margin-btm-30" data-tooltip="Social media information." href="update.html" target="_blank"> <i class="fa fa-user"></i> <span class="hidden-xs"> Update </span> Social </a>
-			    					</div><!-- </quadro31> -->
-			    				</div><!-- </col-sm-6> -->
-			    			</form><!-- </form-social> -->
-			    		</div><!-- </row> -->
-			    	</div><!-- </container> -->
-			   </section><!-- </update-social> -->
-				<!-- ==============================================
-			   Históric (Historico Profissional e Academico)
-			   =============================================== -->
-			   <section class="update-historic" id="historic">
-			    	<div class="container">
-			    		<!-- TitleSection -->
-			    		<div class="cols">
-			    			<div class="title-section">
-			    				<h2 class="title">Academic and professional history<span class="cursor-tag">_</span></h2>
-			    				<h3 class="title-description">Experiences and formations.</h3>
-			    			</div>
-			    		</div>						
-
-			    		<div class="row">
-			    			<div class="col-md-12 text-center">
-			    				<div class="row">
-			    					<div class="col-md-6 col-xs-12">
-			    						<h3 class="spec">Professional Historic</h3>
-			    						<table>
-			    							<thead>
-			    								<tr>
-			    									<th>Company</th>
-			    									<th>Function</th>
-			    									<th>Admission</th>
-			    									<th>OutPut</th>
-			    									<th>Edit</th>
-			    									<th>Delete</th>
-			    								</tr>
-			    							</thead>
-			    							<tbody>
-												<?php 
-													foreach ($view_user->professionals as $professional):
-												?>			    								
-			    								<tr>
-			    									<td class="historic"><?php echo $professional->company ?></td>
-			    									<td class="historic"><?php echo $professional->function ?></td>
-			    									<td class="historic"><?php echo $professional->date_entry->format('Y') ?></td>
-			    									<td class="historic"><?php echo $professional->date_out->format('Y') ?></td>
-			    									<td class="historic">
-			    										<a href="" class="btn btn-xs btn-warning">
-			    											<i class="fa fa-unlock"></i> Edit
-			    										</a>
-			    									</td>
-			    									<td class="historic">
-			    										<a href="" class="btn btn-xs btn-danger">
-			    											<i class="fa fa-trash"></i> Delete
-			    										</a>
-			    									</td>
-			    								</tr>
-												<?php 
-													endforeach;
-												?>			    								
-			    							</tbody>
-			    						</table>
-										<div class="separator"></div>
-	    								<div class="md-padder text-center">
-		 									<button type="submit" data-tooltip="Include professional item" class="btn btn-primary btn-lg margin-btm-30"> <i class="fa fa-user"></i> <span class="hidden-xs"> Update </span> Professional </button>
-		 								</div>
-			    					</div><!-- </col-sm-12> -->
-
-			    					<div class="col-md-6 col-xs-12">
-			    						<h3 class="spec">Academic Historic</h3>
-			    						<table>
-			    							<thead>
-			    								<tr>
-			    									<th>Institution</th>
-			    									<th>Course</th>
-			    									<th>Level</th>
-			    									<th>Conclusion</th>
-			    									<th>Edit</th>
-			    									<th>Delete</th>
-			    								</tr>
-			    							</thead>
-			    							<tbody>
-			    								<?php
-			    									foreach ($view_user->academics as $academic):
-			    								?>
-			    								<tr>
-			    									<td class="academic"><?php echo $academic->institution ?></td>
-			    									<td class="academic"><?php echo $academic->course ?></td>
-			    									<td class="academic"><?php echo $academic->level ?></td>
-			    									<td class="academic">
-
-														<?php if ($academic->date_conclusion === NULL) : ?>
-															-	
-														<?php else: ?>
-															<?php echo $academic->date_conclusion->format('Y') ?>
-														<?php endif; ?>
-			    									</td>
-
-			    									<td class="academic">
-														
-														<?php if ($academic->status === 1) : ?>
-															<a href="" class="btn btn-xs btn-success disabled">
-																<i class="fa fa-lock"></i> Concluído
-															</a>	
-														<?php else: ?>
-															<button type="button" onclick="sendUpAcademic(<?php echo $academic->id ?>)" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#modal1">
-																<i class="fa fa-unlock"></i> Cursando
-															</button>
-														<?php endif; ?>
-
-			    									</td>
-			    									<td class="academic">
-			    										<button type="button" value="<?php echo $academic->id ?>" onclick="sendDelAcademic(this.value, '<?php echo $view_user->name?>')" class="btn btn-xs btn-danger">
-			    											<i class="fa fa-trash"></i> Delete
-			    										</button>
-			    									</td> 
-			    								</tr>
-			    								
-			    								<?php
-			    									endforeach;
-			    								?>
-			    							</tbody>
-			    						</table>
-		         					<div class="separator"></div>
-		         					<div class="md-padder text-center">
-		 									<button type="submit" data-tooltip="Include academic item" class="btn btn-primary btn-lg margin-btm-30"> <i class="fa fa-user"></i> <span class="hidden-xs"> Add</span> Formação </button>
-		 								</div>
-			    					</div><!-- </col-sm-12> -->
-			    				</div><!-- </row> -->
-			    			</div><!-- </col-sm-12> -->
-			    		</div><!-- </row> -->
-			    	</div><!-- </container> -->
-			   </section><!--</update-historic> -->
+				
 				<!-- ==============================================
 	    		Skill Técnico (Technical Skill)
 	    		=============================================== -->
@@ -402,6 +80,7 @@
 															</select>
 					         						</div><!-- </col-md-1> -->
 														<div class="col-md-2  wow flipInx">
+
 				                        			<button type="button" value="level<?php echo $competency->id ?>" onclick="sendEdit(this.value, <?php echo $competency->id ?>, <?php echo $competency->level?> ,'<?php echo $view_user->name?>')" class="btn btn-primary btn-sm margin-btm-30" id="btnUP">
 			                        					<i class="fa fa-pencil"></i>
 			                        					<span>Editar</span>
@@ -423,14 +102,14 @@
 							</div><!-- </col-md-6> -->	 					
 		 					<!--
 		 					*	Add Novas Competências
-		 					*-->						
+		 					*-->
 							<div class="col-md-6">
 								<div class="row">
 									<div class="col-md-12">
-										<form method="POST" action="<?php echo BASE; ?>perfil/addcompetency/"  name="addcompetency" id="addcompetency" class="form-horizontal wrapper-repeater" >
+										<form method="POST" action="<?php echo BASE; ?>tests/cadastrar/"  name="addcompetency" id="addcompetency" class="form-horizontal wrapper-repeater" >
 											<fieldset>
 												<legend>Add Novas Competências</legend>
-												<div class="repeater-custom-show-hide">
+							 					<div class="repeater-custom-show-hide">
 													<div class="row">
 														<div class="col-md-5">
 															<label>Competências</label>
@@ -445,9 +124,10 @@
 															<label>Excluir</label>
 														</div>
 													</div><!-- </row> -->
-													<div data-repeater-list="competencies-group">
-							      					<div data-repeater-item>
-								      					<div class="row">
+
+							 						<div data-repeater-list="car">
+							 							<div data-repeater-item="">
+															<div class="row">
 																<div class="col-md-5 wow flipInx">
 									   							<div class="box-input">
 									   								<input type="text" name="competency" id="competency" class="form-control border-input" placeholder="Competência">
@@ -455,87 +135,60 @@
 									      					</div><!-- </col-md-5> -->
 																<div class="col-md-3 wow flipInx">
 																	<div class="box-input">
-				 														<select name="domain" id="domain" class="form-control">
-				 															<option class="opt-placeholder" value="-1" selected="">Select…</option>
-						 													<option value="1">
-						 														Microsoft
-						 													</option>
-						 													<option value="2">
-						 														Linux
-						 													</option>
-						 													<option value="3">
-						 														Especializações
-						 													</option>
-					 													</select>
-			 														</div>							
-									      					</div><!-- </col-md-3> -->
-																<div class="col-md-2 wow flipInx">
-				 													<div class="box-input">
-				 														<select name="nivel" id="nivel" class="form-control">
-						 													<option value="1">
-						 														1
-						 													</option>
-						 													<option value="2">
-						 														2
-						 													</option>
-						 													<option value="3">
-						 														3
-						 													</option>
-						 													<option value="4">
-						 														4
-						 													</option>
-						 													<option value="5">
-						 														5
-						 													</option>
-						 													<option value="6">
-						 														6
-						 													</option>
-						 													<option value="7">
-						 														7
-						 													</option>
-						 													<option value="8">
-						 														8
-						 													</option>
-						 													<option value="9">
-						 														9
-						 													</option>
-						 													<option value="10">
-						 														10
-						 													</option>
-					 													</select>
-				 													</div>
-								         					</div><!-- </col-md-1> -->
+																		<select name="domain" id="domain" class="form-control">
+																			<option value="1">
+																				Microsoft
+																			</option>
+																			<option value="2">
+																				Linux
+																			</option>
+																			<option value="3">
+																				Especializações
+																			</option>
+																		</select>
+																	</div>							
+										      				</div><!-- </col-md-3> -->
 
+							 									<div class="col-md-2">
+							 										<div class="box-input">
+							 										<select name="nivel" class="form-control">
+							 											<option value="1" selected="">1</option>
+							 											<option value="2">2</option>
+							 											<option value="3">3</option>
+							 										</select>
+							 										</div>
+							 									</div>
 									      					<div class="col-md-2 wow flipInx">
 																	<div class="box-input">
 																		<a data-repeater-delete class="btn btn-primary btn-sm margin-btm-30" > <i class="fa fa-minus-circle"></i> <span class="hidden-xs"></span> Delete </a>
 																	</div>
-		 														</div>
+																</div>
 															</div><!-- </row> -->
-														</div>	<!-- </data-repeater-item> -->
-													</div><!-- </data-repeater-list> -->
-
-				 									<div class="form-group wow flipInx">
-				 										<div class="col-sm-offset-1 col-sm-11">
-				 											<span data-repeater-create data-tooltip="Include new skills" class="btn btn-info btn-md">
-				 												<span class="glyphicon glyphicon-plus"></span> add
-				 											</span>
-				 										</div>
-				 									</div>
-				 									<hr/>
-												</div><!-- </repeater-custom-show-hide> -->
-												<div class="md-padder text-left">
+							 							</div><!-- </data-repeater-item> -->
+							 						</div><!-- </data-repeater-list> -->
+						 							<div class="form-group">
+						 								<div class="col-sm-offset-1 col-sm-11">
+						 									<span class="btn btn-info btn-md" data-repeater-create="">
+						 										<span class="glyphicon glyphicon-plus"></span> Add
+						 									</span>
+						 								</div>
+						 							</div>
+						 							<hr>
+						 						</div><!-- </repeater-custom-show-hide> -->
+												<div class="md-padder text-left wow flipInx">
 	                        				<button type="button" value="<?php echo $view_user->name; ?>" onclick="sendAdd(this.value)" class="btn btn-primary btn-lg margin-btm-30" id="btnOK">
 	                        					<i class="fa fa-send"></i>
 	                        					<span>OK</span>
 	                        				</button>
-				 								</div><!-- </md-padder> -->
+				 								</div>
 											</fieldset>
 										</form>				
 									</div><!-- </col-md-12> -->
 								</div><!-- </row> -->
 							</div><!-- </col-md-6> -->
+						
 						</div><!-- </row> -->
+
 	 				</div><!-- </container> -->
 	 			</section><!-- </section-technical> -->
 				<!-- ==============================================

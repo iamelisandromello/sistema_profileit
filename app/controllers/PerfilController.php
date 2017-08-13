@@ -114,23 +114,135 @@ class PerfilController extends \HXPHP\System\Controller
 		$user_id = $this->auth->getUserId();
 		$user = User::find($user_id);
 
-		if (is_numeric($competency_id) && is_numeric($level)) {
-			$atualizarCompetency = Competency::atualizar($competency_id, $level, $user_id);
+		$atualizarCompetency = Competency::atualizar($competency_id, $level, $user_id);
 
-			if ($atualizarCompetency->status == false) {
-				$this->load('Helpers\Alert', array(
-					'error',
-					'Ops! Não foi possível atualizar suas competências. <br> Verifique os erros abaixo:',
-					$atualizarCompetency->errors
-				));
-			}			
-		}
-		else{
-			var_dump('teste');
-			die();
-		}
-		
+		if ($atualizarCompetency->status == false) {
+			$this->load('Helpers\Alert', array(
+				'error',
+				'Ops! Não foi possível atualizar suas competências. <br> Verifique os erros abaixo:',
+				$atualizarCompetency->errors
+			));
+		}			
+
 		$this->view->setVar('user', $user);
 	}
+
+	public function delcompetencyAction($competency_id = null)
+	{
+
+		$this->view->setFile('editar');
+         $this->view->setHeader('perfil/header')
+            ->setFooter('perfil/footer');
+
+		$user_id = $this->auth->getUserId();
+		$user = User::find($user_id);
+
+		$excluirCompetency = Competency::excluir($competency_id, $user_id);
+
+		if ($excluirCompetency->status == false) {
+			$this->load('Helpers\Alert', array(
+				'error',
+				'Ops! Não foi possível atualizar suas competências. <br> Verifique os erros abaixo:',
+				$excluirCompetency->errors
+			));
+		}			
+
+		$this->view->setVar('user', $user);
+	}
+
+
+	public function addcompetencyAction()
+	{
+		$this->view->setFile('editar');
+         $this->view->setHeader('perfil/header')
+            ->setFooter('perfil/footer');
+		
+		$post = $this->request->post();
+		$user_id = $this->auth->getUserId();
+		$user = User::find($user_id);
+
+		if (!empty($post)) {
+			$competencies_group = $_POST['competencies-group'];// copiar um arrays de um POST
+
+			//Bloco Cadastro Competências
+			if (!empty($competencies_group)) {			
+				foreach($competencies_group as $data) {
+					$colum = 0;
+					$competencies_data = array();
+					if(is_array($data)) {
+						foreach($data as $other_data) {
+							$competencies_data[$colum] = $other_data;
+							$colum++;
+						}
+						$adicionarCompetency = Competency::adicionar($competencies_data, $user_id);
+						if ($adicionarCompetency->status === false) {
+							$this->load('Helpers\Alert', array(
+											'error',
+											'Ops! Não foi possível efetuar seu cadastro. <br> Verifique os erros abaixo:',
+											$adicionarCompetency->errors
+											));
+						}
+					}
+					else {
+						echo "teste", '<br/>';
+					}
+				}// final do array  multidimensional
+			}
+			$this->view->setVar('user', $user);
+		}
+	}
+
+	/*
+	* Processos de Atualização de Informaçoes
+	* do Histórico Acadêmico
+	*/
+
+	public function upconclusionAction()
+	{
+
+		$this->view->setFile('editar');
+         $this->view->setHeader('perfil/header')
+            ->setFooter('perfil/footer');
+		
+		$post = $this->request->post();
+		$user_id = $this->auth->getUserId();
+		$user = User::find($user_id);
+
+		$atualizarAcademic = Academic::atualizar($post, $user_id);
+
+		if ($atualizarAcademic->status == false) {
+			$this->load('Helpers\Alert', array(
+				'error',
+				'Ops! Não foi possível atualizar seu Histórico Acadêmico. <br> Verifique os erros abaixo:',
+				$atualizarAcademic->errors
+			));
+		}			
+
+		$this->view->setVar('user', $user);
+	}
+
+	public function delAcademicAction($academic_id = null)
+	{
+
+		$this->view->setFile('editar');
+         $this->view->setHeader('perfil/header')
+            ->setFooter('perfil/footer');
+
+		$user_id = $this->auth->getUserId();
+		$user = User::find($user_id);
+
+		$excluirAcademic = Academic::excluir($academic_id, $user_id);
+
+		if ($excluirAcademic->status == false) {
+			$this->load('Helpers\Alert', array(
+				'error',
+				'Ops! Não foi possível atualizar seu Histórico Acadêmico. <br> Verifique os erros abaixo:',
+				$excluirAcademic->errors
+			));
+		}			
+
+		$this->view->setVar('user', $user);
+	}
+
 
 }

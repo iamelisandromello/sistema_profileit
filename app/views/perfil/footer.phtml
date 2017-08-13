@@ -41,6 +41,61 @@
 				<i class="font-icon-arrow-simple-up"></i>
 			</a>
 			<!-- End Back to Top -->
+			
+			<!-- ==============================================
+			    Modal Contato (Contact)
+			=============================================== -->
+			<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			    <div class="modal-dialog">
+			    	<div class="modal-content modal-popup">
+			        	<div class="modal-header">
+		            	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		                <h2 class="modal-title">Conclusão</h2>
+			        	</div><!-- </modal-header> -->
+
+    					<div class="row">
+							<div class="col-md-10 centered">
+								<div class="modal-containerStep">
+									<span class="step-num">1</span>
+									<div class="modal-text">
+										Incluir Data de Conclusão
+									</div><!-- </modal-text> -->
+								</div><!-- </moldal-containerStep> -->
+							</div><!-- </col-md-10> -->
+						</div><!-- </row>  -->
+						<form method="POST" action="<?php echo BASE; ?>perfil/upconclusion/" onsubmit="myFunction()" name="addconclusion" id="addconclusion" >
+							
+							<!-- Inicio Grupo Componente -->
+							<div class="row">
+								<div class="col-md-6 centered">
+									<div class="modal-groupForm">
+										<div class="grupo-input">
+											<input type="text" name="modalId" id="modalId" class="input-modal hideme" readonly>
+										</div><!-- </grupo-input> -->
+									</div><!-- </modal-groupForm> -->
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-6 centered" id="sandbox-container">
+									<div class="input-group date">
+										<input type="text" name="date_conclusion" id="date_conclusion" class="input-modal" placeholder="00/00/0000">
+										<span class="input-group-addon">
+											<i class="glyphicon glyphicon-th"></i>
+										</span>
+									</div> 
+								</div>
+							</div>	
+							<button type="button" class="btn btn-default" data-dismiss="modal" onclick="academicConclusion()">Concluir</button>
+		               <!--<input name="submit" type="submit" class="form-control" id="submit" value="Concluir">-->
+		            </form>
+			      </div><!-- </modal-content> -->
+			   </div><!-- </modal-dialog> -->
+			</div><!-- </modal fade> -->
+			<!-- ==============================================
+			End Session Modal's (Final área de modal's)
+			=============================================== -->
+
 
 		</div><!--  </layout> Final do Layout Visivel-->
 		
@@ -66,8 +121,20 @@
 		<!-- Função Repeater -->
 		<script src="<?php echo JS; ?>front/jquery.repeater.min.js"></script>
 		<script src="<?php echo JS; ?>front/use-repeater.js"></script>
+      <script src="<?php echo JS; ?>register/data/bootstrap-datepicker.js"></script>
+      <script src="<?php echo CSS; ?>locales/bootstrap-datepicker.pt-BR.min.js"></script>		
 		<script src="<?php echo JS; ?>modal.js"></script>		
 		<script src="<?php echo JS; ?>competency.js"></script>
+
+      <Script>
+      $('#sandbox-container .input-group.date').datepicker({
+          format: "dd/mm/yyyy",
+          language: "pt-BR",
+          clearBtn: true,
+          autoclose: true,
+          toggleActive: true
+      });
+      </Script>		
 
 		<!-- Tuner ACessibilidade de Cores -->
 		<script src="<?php echo TUNER; ?>js/tuner.js"></script>

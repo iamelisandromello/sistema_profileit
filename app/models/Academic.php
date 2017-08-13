@@ -8,11 +8,11 @@ class Academic extends \HXPHP\System\Model
 	}
 
   public function relations()
-   {
-      return array(
-      	'user'=>array(self::BELONGS_TO, 'User', 'user_id'),
-      );
-   }
+  {
+    return array(
+    	'user'=>array(self::BELONGS_TO, 'User', 'user_id'),
+    );
+  }
 
   public static function cadastrar(array $post, $user_id)
   {
@@ -33,11 +33,6 @@ class Academic extends \HXPHP\System\Model
        
     $cadastrar = self::create($academic);
 
-    //Academic::transaction(function() {
-    //  Academic::create($academic);
-    //  return false; # rollback!
-    //});     
-
     if ($cadastrar->is_valid()) {
       $callbackObj->academic = $cadastrar;
       $callbackObj->status = true;
@@ -45,6 +40,87 @@ class Academic extends \HXPHP\System\Model
     }
 
     $errors = $cadastrar->errors->get_raw_errors();
+
+    foreach ($errors as $field => $message) {
+      array_push($callbackObj->errors, $message[0]);
+    }
+
+    return $callbackObj;
+  }
+
+  public static function atualizar($post, $user_id)
+  {
+    $callbackObj = new \stdClass;
+    $callbackObj->academic = null;
+    $callbackObj->status = false;
+    $callbackObj->errors = array();
+       
+    $academic_id = $post['modalId'];
+    $conclusion   = date('Y-m-d',strtotime($post['date_conclusion']));
+
+    $academic = self::find($academic_id);
+    $owner = $academic->user_id;
+    // Verifica se a Competência Pertence ao Usuario
+    
+    if ($owner != $user_id) {
+      array_push($callbackObj->errors, 'Huummm! A Competência em Processo não é de propriedade deste Usuário');
+      return $callbackObj;
+    }
+
+    $academic->status = 1;
+    $academic->date_conclusion = $conclusion;
+    $atualizar = $academic->save(false);
+
+    if ($atualizar) {
+      $callbackObj->academic = $academic;
+      $callbackObj->status = true;
+      return $callbackObj;
+    }
+
+    $errors = $atualizar->errors->get_raw_errors();
+
+    foreach ($errors as $field => $message) {
+      array_push($callbackObj->errors, $message[0]);
+    }
+
+    return $callbackObj;
+  }
+
+  public static function excluir($academic_id, $user_id)
+  {
+    $callbackObj = new \stdClass;
+    $callbackObj->academic = null;
+    $callbackObj->status = false;
+    $callbackObj->errors = array();
+    
+    if (!is_numeric($academic_id)) {
+      array_push($callbackObj->errors, 'Huummm! Inconsistência nos dados informados');
+      return $callbackObj;
+    }
+    
+    $academic = self::find($academic_id);
+    // Localiza o Registro da competência BD
+    if (is_null($academic)) {
+      array_push($callbackObj->errors, 'Huummm! O Histórico em Processo não Foi Localizado para este Usuário');
+      return $callbackObj;
+    }
+    
+    // Verifica se a Competência Pertence ao Usuario
+    $owner = $academic->user_id;    
+    if ($owner != $user_id) {
+      array_push($callbackObj->errors, 'Huummm! O Histórico em Processo não é de propriedade deste Usuário');
+      return $callbackObj;
+    }
+
+    $excluir = $academic->delete();
+
+    if ($excluir) {
+      $callbackObj->academic = $academic;
+      $callbackObj->status = true;
+      return $callbackObj;
+    }
+
+    $errors = $excluir->errors->get_raw_errors();
 
     foreach ($errors as $field => $message) {
       array_push($callbackObj->errors, $message[0]);
