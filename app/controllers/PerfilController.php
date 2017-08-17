@@ -15,6 +15,9 @@ class PerfilController extends \HXPHP\System\Controller
 		);
 
 		$this->auth->redirectCheck();
+		$this->auth->roleCheck(array(
+		'user', 'administrator'
+		)); 
 
 		$this->load(
 			'Helpers\Menu',
@@ -29,11 +32,20 @@ class PerfilController extends \HXPHP\System\Controller
 					->setVar('user', User::find($user_id));
 	}
 
+	/*
+	* Métodos Controller's de Atualização de Informaçoes
+	* de Informações de Usuário
+	*/
 	public function editarAction()
 	{
 		$this->view->setFile('editar');
          $this->view->setHeader('perfil/header')
             ->setFooter('perfil/footer');
+		
+		$this->auth->redirectCheck();
+		$this->auth->roleCheck(array(
+		'user', 'administrator'
+		));             
 
 		$user_id = $this->auth->getUserId();
 
@@ -104,6 +116,10 @@ class PerfilController extends \HXPHP\System\Controller
 		}
 	}
 
+	/*
+	* Métodos Controller's de Atualização de Informaçoes
+	* do Skill de COmpetências
+	*/
 	public function upcompetencyAction($competency_id = null, $level = null)
 	{
 
@@ -193,10 +209,9 @@ class PerfilController extends \HXPHP\System\Controller
 	}
 
 	/*
-	* Processos de Atualização de Informaçoes
+	* Métodos Controller's de Atualização de Informaçoes
 	* do Histórico Acadêmico
 	*/
-
 	public function upconclusionAction()
 	{
 
@@ -244,5 +259,27 @@ class PerfilController extends \HXPHP\System\Controller
 		$this->view->setVar('user', $user);
 	}
 
+	public function addAcademicAction($academic_id = null)
+	{
+
+		$this->view->setFile('editar');
+         $this->view->setHeader('perfil/header')
+            ->setFooter('perfil/footer');
+
+		$user_id = $this->auth->getUserId();
+		$user = User::find($user_id);
+
+		$addAcademic = Academic::adicionar($academic_id, $user_id);
+
+		if ($addAcademic->status == false) {
+			$this->load('Helpers\Alert', array(
+				'error',
+				'Ops! Não foi possível atualizar seu Histórico Acadêmico. <br> Verifique os erros abaixo:',
+				$addAcademic->errors
+			));
+		}			
+
+		$this->view->setVar('user', $user);
+	}
 
 }

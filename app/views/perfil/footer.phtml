@@ -52,7 +52,6 @@
 		            	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 		                <h2 class="modal-title">Conclusão</h2>
 			        	</div><!-- </modal-header> -->
-
     					<div class="row">
 							<div class="col-md-10 centered">
 								<div class="modal-containerStep">
@@ -64,7 +63,6 @@
 							</div><!-- </col-md-10> -->
 						</div><!-- </row>  -->
 						<form method="POST" action="<?php echo BASE; ?>perfil/upconclusion/" onsubmit="myFunction()" name="addconclusion" id="addconclusion" >
-							
 							<!-- Inicio Grupo Componente -->
 							<div class="row">
 								<div class="col-md-6 centered">
@@ -73,9 +71,8 @@
 											<input type="text" name="modalId" id="modalId" class="input-modal hideme" readonly>
 										</div><!-- </grupo-input> -->
 									</div><!-- </modal-groupForm> -->
-								</div>
-							</div>
-
+								</div><!-- </col-md-6 centered> -->
+							</div><!-- </row> -->
 							<div class="row">
 								<div class="col-md-6 centered" id="sandbox-container">
 									<div class="input-group date">
@@ -83,15 +80,109 @@
 										<span class="input-group-addon">
 											<i class="glyphicon glyphicon-th"></i>
 										</span>
-									</div> 
-								</div>
-							</div>	
+									</div><!-- </input-group date> -->
+								</div><!-- </col-md-6 centered> -->
+							</div><!-- </row> -->
 							<button type="button" class="btn btn-default" data-dismiss="modal" onclick="academicConclusion()">Concluir</button>
-		               <!--<input name="submit" type="submit" class="form-control" id="submit" value="Concluir">-->
 		            </form>
 			      </div><!-- </modal-content> -->
 			   </div><!-- </modal-dialog> -->
 			</div><!-- </modal fade> -->
+			<!-- ==============================================
+			   Modal Acadêmico (Contact)
+			=============================================== -->
+			<div class="modal fade" id="formAcademic" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			    <div class="modal-dialog">
+			    	<div class="modal-content modal-popup">
+			        	<div class="modal-header">
+		            	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		                <h2 class="modal-title">Incluir Nova Formação</h2>
+			        	</div><!-- </modal-header> -->
+						<div class="row">
+							<div class="col-lg-12 col-md-12">
+				         	<div class="">
+				         		<div class="header">
+				         			<h4 class="title"></h4>
+				         		</div><!-- </header> -->
+				         		<div class="content">
+				         			<form id="editAcademic-form" class="editAcademic-form">
+				         				<fieldset>
+					         				<div class="row">
+					         					<div class="col-md-12">
+					         						<div class="form-group">
+					         							<label>Curso</label>
+					         							<input type="text" name="addCurso" id="addCurso" class="input-modal" placeholder="Curso" >
+					         						</div><!-- </form-group> -->
+					         					</div><!-- </col-md-12> -->
+					         				</div><!-- </row> 1º Linha do formulario --> 
+
+					         				<div class="row">
+					         					<div class="col-md-12">
+					         						<div class="form-group">
+					         							<label>Insituição</label>
+					         							<input type="text" name="addInstituicao" id="addInstituicao" class="input-modal" placeholder="Instituição" >
+					         						</div><!-- </form-group> -->
+					         					</div><!-- </col-md-4> -->
+					         				</div><!-- </row> 2º Linha do formulario -->
+
+					         				<div class="row">
+					         					<div class="col-md-6">
+					         						<div class="form-group">
+					         							<label>Local</label>
+					         							<input type="text" class="input-modal" name="addLocal" id="addLocal" placeholder="Local" >
+					         						</div><!-- </form-group> -->
+					         					</div><!-- </col-md-4> --> 
+													<div class="col-md-6">
+					         						<div class="form-group">
+					         							<label>Nivel</label>
+															<select name="state" class="select-modal selectpicker" >
+																<option class="opt-placeholder" value="-1" selected="" data-type="pos">
+																	You…
+																</option>
+																<option>
+																	Microsoft IT Analyst na InterOp
+																</option>
+																<option>
+																	Server Administrator Pleno na Processor
+																</option>
+																<option value="310229553" data-type="pos">
+																	Server Administrator na Constat Serviços em Informática - Brazil
+																</option>
+																<option>
+																	Analista de Redes Microsoft na Grupo VG
+																</option>
+																<option>
+																	Supervisor TI na Broker Glambert Nestlé
+																</option>
+																<option value="178533085" data-type="edu">
+																	Aluno na Pontifícia Universidade Católica do Rio Grande do Sul
+																<option>
+															</select>
+					         						</div><!-- </form-group> -->
+					         					</div><!-- </col-md-4> -->
+					         				</div><!-- </row> 3º Linha do formulario --> 
+
+												<div class="row">
+													<div class="col-md-6 centered" id="sandbox-container">
+														<div class="input-group date">
+															<input type="text" name="date_conclusion" id="date_conclusion" class="input-modal" placeholder="00/00/0000">
+															<span class="input-group-addon">
+																<i class="glyphicon glyphicon-th"></i>
+															</span>
+														</div><!-- </input-group date> -->
+													</div><!-- </col-md-6 centered> -->
+												</div><!-- </row> 4º Linha do formulario -->
+												<button type="button" class="btn btn-default btn-UpAcademic" onclick="addFormacao('<?php echo $view_user->name?>')" >Add Formação</button>
+				         				</fieldset>
+				         			</form>
+				         		</div><!-- </content> -->
+				         	</div>
+				         </div><!-- </col-md-12> -->
+						</div><!-- </row> -->
+			      </div><!-- </modal-content> -->
+			   </div><!-- </modal-dialog> -->
+			</div><!-- </modal fade> -->
+
 			<!-- ==============================================
 			End Session Modal's (Final área de modal's)
 			=============================================== -->
@@ -106,25 +197,33 @@
 		<script src="<?php echo BOWER; ?>jquery/dist/jquery.min.js"></script>
 		<script src="<?php echo JS; ?>front/modernizr.js"></script>
 		<script src="<?php echo JS; ?>front/jquery.custom-file-input.js"></script>
-
-		<script src="<?php echo BOWER; ?>bootstrap-sass/assets/javascripts/bootstrap.min.js"></script> <!-- Bootstrap -->
+		<!-- Bootstrap -->
+		<script src="<?php echo BOWER; ?>bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
 		<script src="<?php echo JS; ?>front/tmp/classie.js"></script>
-		<!-- Contact JS -->
-		<script src="<?php echo BOWER; ?>jqBootstrapValidation/src/jqBootstrapValidation.js"></script><!--BootstrapValida-->
-		<!-- Inclua os plugins compilados (abaixo) ou inclua arquivos individuais conforme necessário -->		
-		<script src="<?php echo BOWER; ?>wow/dist/wow.min.js"></script> <!-- WOW --> 
-		<script src="<?php echo BOWER; ?>jquery.scrollTo/jquery.scrollTo.min.js"></script> <!-- ScrollTo -->		
-		<script src="<?php echo BOWER; ?>jquery.easing/js/jquery.easing.min.js"></script> <!-- Easing -->
-		<script src="<?php echo BOWER; ?>jpreloader/js/jpreloader.min.js"></script> <!-- PreLoader -->	
-		<script src="<?php echo JS; ?>front/smooth-scrolling.js"></script> <!-- Deslocamento Suave Sesões - One Page -->
-		<script src="<?php echo JS; ?>front/main-update.js"></script> <!-- Default JS Pagina Update-->
+		<!--BootstrapValida-->
+		<script src="<?php echo BOWER; ?>jqBootstrapValidation/src/jqBootstrapValidation.js"></script>
+		<!-- Inclua os plugins compilados (abaixo) ou inclua arquivos individuais conforme necessário -->
+		<!-- WOW --> 
+		<script src="<?php echo BOWER; ?>wow/dist/wow.min.js"></script>
+		<!-- ScrollTo -->
+		<script src="<?php echo BOWER; ?>jquery.scrollTo/jquery.scrollTo.min.js"></script>	<!-- Easing -->
+		<script src="<?php echo BOWER; ?>jquery.easing/js/jquery.easing.min.js"></script> 
+		<!-- PreLoader -->	
+		<script src="<?php echo BOWER; ?>jpreloader/js/jpreloader.min.js"></script>
+		<!-- Deslocamento Suave Sesões - One Page -->
+		<script src="<?php echo JS; ?>front/smooth-scrolling.js"></script>
+		<script src="<?php echo JS; ?>front/tmp/classie.js"></script>
 		<!-- Função Repeater -->
 		<script src="<?php echo JS; ?>front/jquery.repeater.min.js"></script>
-		<script src="<?php echo JS; ?>front/use-repeater.js"></script>
-      <script src="<?php echo JS; ?>register/data/bootstrap-datepicker.js"></script>
-      <script src="<?php echo CSS; ?>locales/bootstrap-datepicker.pt-BR.min.js"></script>		
-		<script src="<?php echo JS; ?>modal.js"></script>		
+		<!-- DatePicker -->
+		<script src="<?php echo JS; ?>register/data/bootstrap-datepicker.js"></script>
+		      <script src="<?php echo CSS; ?>locales/bootstrap-datepicker.pt-BR.min.js"></script>	
+		 <!-- Default JS Pagina Update-->
+		<script src="<?php echo JS; ?>front/main-update.js"></script>
+		<script src="<?php echo JS; ?>front/use-repeater.js"></script>	
+		<script src="<?php echo JS; ?>boxmessage.js"></script>		
 		<script src="<?php echo JS; ?>competency.js"></script>
+		<script src="<?php echo JS; ?>edit/academic.js"></script>	
 
       <Script>
       $('#sandbox-container .input-group.date').datepicker({

@@ -96,7 +96,6 @@ jQuery(document).ready(function() {
     
     }
 
-
     /**
      * <b>triggerConfirm:</b> Gera uma mensagem de confirmação para o usuário antes de executar o trexo de código.
      * @example if(triggerConfirm(params){ Execute; }

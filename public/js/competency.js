@@ -1,6 +1,6 @@
 jQuery(document).ready(function() {
     
-	 /**
+	/**
 	* <b>editReturn:</b> Recebe o <Return> da função de Confirmação[triggerConfirmUp], direcionando para o Controller de Execução ou para a Função de Cancelamento [window.cancelar].
 	* @param data return de True ou False da Confirmação
 	* @param nome Usuário Logado que está executando o processo
@@ -34,14 +34,13 @@ jQuery(document).ready(function() {
         }
 	}
 
-	 /**
+	/**
 	* <b>sendEdit:</b> Funcão no Onclick do buton de edit de competência, recebe os parâmetros que serão analisados pelas funções de execução
 	* @param idElemento recebe o ID do elemento HTML que está sendo operado
 	* @param idCompetency ID da competência que será atualizada no BD 
 	* @param goback valor atual da competência para ataulização FrontEnd, em caso de Cancel	
 	* @param user Usuário Logado que está executando o processo
 	*/
-
 	window.sendEdit = function(idElemento, idCompetency, goback , user) {    
 		level = $('#' + idElemento).val();
 		triggerConfirmUp('cool',user,';) Ohhhhh ' + user + ', Vamos Realizar um Upgrade de Competências?', ';) Agora', ':( Ainda Não', editReturn, idCompetency, level);
@@ -56,13 +55,12 @@ jQuery(document).ready(function() {
 		triggerConfirmDel('confused',user,';) Ohhhhh ' + user + ', Vamos Realizar a Exclusão desta Competência?', ';) Agora', ':( Ainda Não', delReturn, idCompetency);	
 	};
 
-
 	window.sendAdd = function(user) {
  		triggerConfirmDel('confused',user,';) Ohhhhh ' + user + ', Vamos Realizar a Inclusão de uma Nova Competência?', ';) Só se For Agora', ':( Ainda Não', addReturn);	
    };
 
 	/**
-	* <b>onClick:</b> Funcão no Onclick do BoxDe Mensagem BackEnd para Fechamento
+	* <b>onClick:</b> Funcão no Onclick do Box de Mensagem BackEnd para Fechamento
 	*/
    $("#boxTransitions").click(function (e) {
       var notifyBox = $(this);
