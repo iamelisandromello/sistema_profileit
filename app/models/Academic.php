@@ -21,12 +21,19 @@ class Academic extends \HXPHP\System\Model
     $callbackObj->status = false;// Propriedade Status da Classe False
     $callbackObj->errors = array();// Array padrão de erros vazio
 
+    if (is_null($post[4])){
+      $dataConclusao = 'NULL';
+    }
+    else {
+      $dataConclusao = date('Y-m-d',strtotime($post[4]));
+    }
+ 
     $academic = array(
       'institution' => $post[0],
       'local'       => $post[1],
       'course'      => $post[2],
       'level'       => $post[3],
-      'date_conclusion' => date('Y-m-d',strtotime($post[4])),
+      'date_conclusion' => strtotime($post[4]),
       'status'      => $post[5],
       'user_id'     => $user_id
     );    

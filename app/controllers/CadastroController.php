@@ -46,7 +46,7 @@ class CadastroController extends \HXPHP\System\Controller
 		$registry_data = array(
 			'about'		=> $post['about'],
 			'celular'	=> $post['celular'],
-			'phone'		=> $post['phone'],
+			'scope'		=> $post['scope'],
 			'address'	=> $post['address'],
 			'zipcode'	=> $post['zipcode']
 		);

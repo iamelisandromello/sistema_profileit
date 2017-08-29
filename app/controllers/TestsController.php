@@ -137,13 +137,13 @@ class TestsController extends \HXPHP\System\Controller
 		}
 	}*/
 		
-	$POST = $this->request->post();
+	/*$POST = $this->request->post();
 	echo '<pre>';
 	var_dump($POST);
 	echo '<pre>';	
 
 	$competencies_data = $_POST['competencies-group'];// copiar um arrays de um POST
-	$qtd = count($_POST['competencies-group']);
+	$qtd = count($_POST['competencies-group']);*/
 
 	/*foreach($competencies_data as $data)
 	{
@@ -161,7 +161,7 @@ class TestsController extends \HXPHP\System\Controller
 	     }
 	}*/
 
-	if (!empty($competencies_data)) {		
+	/*if (!empty($competencies_data)) {		
 		foreach($competencies_data as $data) {
 			$competency_data = array();
 			$colum = 0;
@@ -198,7 +198,7 @@ class TestsController extends \HXPHP\System\Controller
 			echo ($skill_competency);
 		echo('</pre>');
 		echo "<hr>";
-	}
+	}*/
 
 
 
@@ -219,7 +219,7 @@ class TestsController extends \HXPHP\System\Controller
 	     }
 	}*/
 
-	die();
+	//die();
 
 		/*if (!empty($historic_data)) {
 			$user_id = 20;
@@ -249,8 +249,10 @@ class TestsController extends \HXPHP\System\Controller
 
 
 /*Academic*/
-
-	/*if (!empty($academic_data)) {		
+	$post = $this->request->post();
+	$academic_data = $_POST['academic'];// copiar um arrays de um POST
+	$qtd = count($_POST['academic']);
+	if (!empty($academic_data)) {		
 		foreach($academic_data as $data) {
 			$course_data = array();
 			$colum = 0;

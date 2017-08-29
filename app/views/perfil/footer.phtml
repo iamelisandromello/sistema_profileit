@@ -105,12 +105,11 @@
 				         			<h4 class="title"></h4>
 				         		</div><!-- </header> -->
 				         		<div class="content">
-				         			<form id="editAcademic-form" class="editAcademic-form">
+				         			<form method="POST" action="<?php echo BASE; ?>temp/cadastrar/" id="addAcademicForm" class="addAcademicForm">
 				         				<fieldset>
 					         				<div class="row">
 					         					<div class="col-md-12">
 					         						<div class="form-group">
-					         							<label>Curso</label>
 					         							<input type="text" name="addCurso" id="addCurso" class="input-modal" placeholder="Curso" >
 					         						</div><!-- </form-group> -->
 					         					</div><!-- </col-md-12> -->
@@ -119,7 +118,6 @@
 					         				<div class="row">
 					         					<div class="col-md-12">
 					         						<div class="form-group">
-					         							<label>Insituição</label>
 					         							<input type="text" name="addInstituicao" id="addInstituicao" class="input-modal" placeholder="Instituição" >
 					         						</div><!-- </form-group> -->
 					         					</div><!-- </col-md-4> -->
@@ -128,51 +126,88 @@
 					         				<div class="row">
 					         					<div class="col-md-6">
 					         						<div class="form-group">
-					         							<label>Local</label>
 					         							<input type="text" class="input-modal" name="addLocal" id="addLocal" placeholder="Local" >
 					         						</div><!-- </form-group> -->
 					         					</div><!-- </col-md-4> --> 
 													<div class="col-md-6">
 					         						<div class="form-group">
-					         							<label>Nivel</label>
-															<select name="state" class="select-modal selectpicker" >
+															<select name="addLevel" class="select-modal selectpicker" >
 																<option class="opt-placeholder" value="-1" selected="" data-type="pos">
-																	You…
+																	Nivel…
 																</option>
 																<option>
-																	Microsoft IT Analyst na InterOp
+																	Graduação
 																</option>
 																<option>
-																	Server Administrator Pleno na Processor
+																	Tecnólogo
 																</option>
 																<option value="310229553" data-type="pos">
-																	Server Administrator na Constat Serviços em Informática - Brazil
+																	Técnico
 																</option>
 																<option>
-																	Analista de Redes Microsoft na Grupo VG
-																</option>
+																	Médio
+																</option>											
 																<option>
-																	Supervisor TI na Broker Glambert Nestlé
+																	Pós Profissional
+																</option>				
+																<option>
+																	Mestrado
 																</option>
 																<option value="178533085" data-type="edu">
-																	Aluno na Pontifícia Universidade Católica do Rio Grande do Sul
+																	Doutorado
 																<option>
 															</select>
 					         						</div><!-- </form-group> -->
 					         					</div><!-- </col-md-4> -->
 					         				</div><!-- </row> 3º Linha do formulario --> 
+												
+												<div class="row titleRadio">
+													<div class="col-md-12">
+														<label>NIVEL DA FORMAÇÃO</label>
+													</div>
+												</div>
+					         				<div class="row boxRadio" id="boxRadio">
+					         					<div class="col-md-4">
+					         						<div class="form-group">
+															<input type="radio" id="level01" name="addAcademic" class="radio-academic academic" value="1">
+                            						<label for="level01"><span></span>Completo</label>
+					         						</div><!-- </form-group> -->
+					         					</div><!-- </col-md-4> -->
+					         					<div class="col-md-4">	
+					         						<div class="form-group">
+															<input type="radio" id="level02" name="addAcademic" class="radio-academic academic" value="2">
+                            						<label for="level02"><span></span>Trancado</label>
+					         						</div><!-- </form-group> -->
+					         					</div><!-- </col-md-4> -->
+					         					<div class="col-md-4">
+					         						<div class="form-group">
+															<input type="radio" id="level03" name="addAcademic" class="radio-academic academic" value="3">
+                            						<label for="level03"><span></span>em Andamento</label>
+					         						</div><!-- </form-group> -->
+					         					</div><!-- </col-md-4> -->
+					         				</div><!-- </row> 4º Linha do formulario -->
 
+												<div id="boxDataConclusion">
 												<div class="row">
 													<div class="col-md-6 centered" id="sandbox-container">
+														<label for="">Incluir Data de Conclusão</label>
 														<div class="input-group date">
-															<input type="text" name="date_conclusion" id="date_conclusion" class="input-modal" placeholder="00/00/0000">
+															<input type="text" name="adddate_conclusion" id="adddate_conclusion" class="input-modal" placeholder="00/00/0000">
 															<span class="input-group-addon">
 																<i class="glyphicon glyphicon-th"></i>
 															</span>
 														</div><!-- </input-group date> -->
 													</div><!-- </col-md-6 centered> -->
 												</div><!-- </row> 4º Linha do formulario -->
-												<button type="button" class="btn btn-default btn-UpAcademic" onclick="addFormacao('<?php echo $view_user->name?>')" >Add Formação</button>
+												</div>
+												<button type="button" class="btn btn-default btn-UpAcademic" >Add Formação</button>
+												
+								            <div class="row">
+								            	<div class="col-md-12 msgbox" id="msg-box3">
+								               	<span></span>
+								            	</div>
+								            </div>
+
 				         				</fieldset>
 				         			</form>
 				         		</div><!-- </content> -->

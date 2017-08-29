@@ -259,7 +259,7 @@ class PerfilController extends \HXPHP\System\Controller
 		$this->view->setVar('user', $user);
 	}
 
-	public function addAcademicAction($academic_id = null)
+	public function addAcademicAction()
 	{
 
 		$this->view->setFile('editar');
@@ -268,8 +268,17 @@ class PerfilController extends \HXPHP\System\Controller
 
 		$user_id = $this->auth->getUserId();
 		$user = User::find($user_id);
+		$post = $this->request->post();
 
-		$addAcademic = Academic::adicionar($academic_id, $user_id);
+		$academic = [];
+		$academic[] = $post['addInstituicao'];
+		$academic[] = $post['addLocal'];
+		$academic[] = $post['addCurso'];
+		$academic[] = $post['addLevel'];
+		$academic[] = $post['date_conclusion'];
+		$academic[] = $post['addAcademic'];
+
+		$addAcademic = Academic::cadastrar($academic, $user_id);
 
 		if ($addAcademic->status == false) {
 			$this->load('Helpers\Alert', array(

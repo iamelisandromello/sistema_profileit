@@ -35,19 +35,6 @@ jQuery(document).ready(function() {
     return true;
     }
 
-    /*$( "#schedule" ).keyup(function() {
-        //alert( "Handler for .keyup() called." );
-        var x = "";
-        x = isValdata(document.getElementById("schedule").value);
-        if (x== false){
-            document.getElementById("labelSchedule").innerHTML = "Data Invalida";
-        }
-        else {
-            document.getElementById("labelSchedule").innerHTML = "";
-        }  
-        document.getElementById("schedule").focus();        
-    });*/
-
     $( "#title" ).keyup(function() {
         //alert( "Handler for .keyup() called." );
         var x = "";
@@ -102,19 +89,6 @@ jQuery(document).ready(function() {
     	var parent_fieldset = $(this).parents('fieldset');
     	var next_step = true;
 
-        /*if(document.getElementById("schedule").value !=""){
-            var x = "";
-            x = isValdata(document.getElementById("schedule").value);
-            if (x== false){
-                document.getElementById("labelSchedule").innerHTML = "Data Invalida";
-            }
-            else {
-                document.getElementById("labelSchedule").innerHTML = "";
-            }  
-            document.getElementById("schedule").focus();
-        }*/
-
-
     	parent_fieldset.find('input[type="text"], input[type="password"], textarea, select').each(function() {
 
             if( $(this).val() == "") {
@@ -126,12 +100,40 @@ jQuery(document).ready(function() {
             }        
 
     	});
+
+        //Validação Seleção radio Button
+        if ( $('input[type="radio"][name="scope"]').is(':checked') ){ //Verifica se o Radio Name Scope foi Selecionado
+            $.each($('input[type="radio"][name="scope"]'), function(id , val){ //Verifica qual dos Radio foi Selecionado
+                if($(val).is(":checked")){
+                    status = $(val).val();
+                    return false;
+                };
+            });
+            $('#boxRadio').removeClass('input-error'); // Remove a Claass Input-error 
+        }
+        else {
+            $('#boxRadio').addClass("input-error"); // Adiciona a Class Input-error
+            next_step = false; //Desabilita o Button de Avançar o Formulário
+        }        
   	
     	if( next_step ) {
     		parent_fieldset.fadeOut(400, function() {
 	    		$(this).next().fadeIn();
 	    	});
     	}
+        else{
+            successCorrect = "#msg-box3";
+            $(successCorrect)
+            .html("")
+            .html("Não Foram Selecionados as <strong> Opções Obrigatórias </strong>.")
+            .removeClass()
+            .addClass("alertProfileIT alertRegister")
+            .show();
+            setTimeout(function(){
+              $("#msg-box3").hide();
+            } , 5000);
+
+        }
     	
     });
     
