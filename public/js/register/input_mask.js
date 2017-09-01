@@ -1,13 +1,8 @@
   $(document).ready(function () {
     'use strict';
 
-    $("#phone").inputmask({
-        mask: ["(99)9999-9999", "(99)99999-9999", ],
-        keepStatic: true
-    });
-
     $("#celular").inputmask({
-        mask: ["(99) 90000-00000", "(99) 90000-0000", ],
+        mask: ["(99) 99999-9999", "(99) 99999-9999", ],
         keepStatic: true
     });
 

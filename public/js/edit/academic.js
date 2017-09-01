@@ -115,7 +115,7 @@ jQuery(document).ready(function() {
 
     /*
     * Função para habilitar/desabilitar
-    * InputDate Danta de Conclusão dA Formação
+    * InputDate Danta de Conclusão da Formação
     */
     $( "#level03" ).on( "click", function() {
         //alert(this.id); // alerta 'seuid'

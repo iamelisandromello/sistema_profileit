@@ -249,7 +249,7 @@ $(document).ready(function () {
                 required: "Dominio Web requerido"
             },
             confirmPassword: {
-                equalTo: "Whoops, passwords do not match!"
+                equalTo: "Whoops, senhas não são idênticas"
             },
             termos: {
                 required: "Por gentileza, aceite os termos para prosseguir"
