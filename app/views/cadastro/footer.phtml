@@ -51,18 +51,43 @@
       <!-- Repeater - Inclusão de Elementos Dinâmicos p/Cadastro -->
       <script src="<?php echo JS; ?>register/jquery.repeater.min.js"></script>
       <script src="<?php echo JS; ?>register/jquery.backstretch.min.js"></script>
-      
+      <!-- <script src="<?php echo JS; ?>register/register.js"></script> -->
+      <script src="<?php echo JS; ?>jquery.form-repeater.js"></script>
       <script src="<?php echo JS; ?>register/data/bootstrap-datepicker.js"></script>
-      <script src="<?php echo CSS; ?>locales/bootstrap-datepicker.pt-BR.min.js"></script>
+      <script src="<?php echo CSS; ?>locales/bootstrap-datepicker.pt-BR.min.js"></script>      
+      <script src="<?php echo JS; ?>register/input_validate.js"></script>
+      <script src="<?php echo JS; ?>register/input_mask.js"></script>
+      <script src="<?php echo JS; ?>register/search_cep.js"></script>
 
+      <script src="<?php echo JS; ?>register/scripts.js"></script>
+      
+      <!--      
+      <script src="<?php echo JS; ?>jquery.form-repeater.js"></script>
       <script src="<?php echo JS; ?>register/use-repeater.js"></script>
       <script src="<?php echo JS; ?>register/input_validate.js"></script>
       <script src="<?php echo JS; ?>register/register.js"></script>
       <script src="<?php echo JS; ?>register/input_mask.js"></script>
-      <script src="<?php echo JS; ?>register/search_cep.js"></script>
-      
+      <script src="<?php echo JS; ?>register/search_cep.js"></script>-->
+
+      <script type="text/javascript">
+        $('#example1').repeater({
+            btnAddClass: 'r-btnAdd',
+            btnRemoveClass: 'r-btnRemove',
+            groupClass: 'r-group',
+            minItems: 1,
+            maxItems: 0,
+            startingIndex: 0,
+            reindexOnDelete: true,
+            repeatMode: 'append',
+            animation: 'fade',
+            animationSpeed: 800,
+            animationEasing: 'swing',
+            clearValues: true
+        });
+      </script>
+
       <Script>
-      $('#sandbox-container .input-group.date').datepicker({
+      $('#wraper_conclusion .input-group.date').datepicker({
           format: "dd/mm/yyyy",
           language: "pt-BR",
           clearBtn: true,
@@ -105,6 +130,6 @@
 
       });
     </script>
-
+    </div><!-- Fechamento div Geral -->
    </body>
 </html>

@@ -250,7 +250,8 @@ class TestsController extends \HXPHP\System\Controller
 
 /*Academic*/
 	$post = $this->request->post();
-	$academic_data = $_POST['academic'];// copiar um arrays de um POST
+	var_dump($post);
+	/*$academic_data = $_POST['academic'];// copiar um arrays de um POST
 	$qtd = count($_POST['academic']);
 	if (!empty($academic_data)) {		
 		foreach($academic_data as $data) {
@@ -271,6 +272,8 @@ class TestsController extends \HXPHP\System\Controller
 			}
 		}
 	}*/
+
+	die();
 
 
 	//User::recursive_show_array($dados);

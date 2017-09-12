@@ -14,6 +14,83 @@ class Academic extends \HXPHP\System\Model
     );
   }
 
+  public function listFormations( $user ) {
+     $formations_data = array();
+     $controle = 0;
+     $ctrPos = 0;
+     $formacao = 0;
+     $statusGra = 0;
+     $pos = 0;
+     $statusPos = 0;
+
+
+    foreach ($user->academics as $academic):
+
+      $nivel = $academic->level;
+      $status = $academic->status;
+
+      //Verificação Nivel Graduação
+      if ($nivel == "Bacharelado") {
+        $controle = 1;
+      }
+      else if ($nivel == "Tecnologo") {
+         $controle = 2;
+      }
+      else if ($nivel == "Tecnico") {
+         $controle = 3;
+      }
+      else if ($nivel == "Medio") {
+         $controle = 4;
+      }
+      else {
+         $controle = 5;
+      }
+
+      if ($formacao == 0) {
+        $formacao = $controle;
+        $statusGra = ($controle == 5) ? $statusGra = 1 : $statusGra = $status ;
+      }
+      else if ( $formacao > $controle ) {
+        $formacao = $controle;
+        $statusGra = ($controle == 5) ? $statusGra = 1 : $statusGra = $status ;
+      }
+
+      //Verificação Nivel Pós
+      if ($nivel == "PHD") {
+        $ctrPos = 1;
+      }
+      else if ($nivel == "Doutorado") {
+         $ctrPos = 2;
+      }
+      else if ($nivel == "Mestrado") {
+         $ctrPos = 3;
+      }
+      else if ($nivel == "MBA") {
+         $ctrPos = 4;
+      }
+      else {
+         $ctrPos = 5;
+      } 
+
+      if ($pos == 0) {
+        $pos = $ctrPos;
+        $statusPos = ($ctrPos == 5) ? 4 : $status ;
+      }
+      else if ( $pos > $ctrPos ) {
+        $pos = $ctrPos;
+        $statusPos = ($ctrPos == 5) ? 4 : $status ;
+      }     
+
+    endforeach;
+    
+    $formations_data[0] = $formacao;
+    $formations_data[1] = $statusGra;
+    $formations_data[2] = $pos;
+    $formations_data[3] = $statusPos;
+
+    return $formations_data;
+  }
+
   public static function cadastrar(array $post, $user_id)
   {
     $callbackObj = new \stdClass;// Cria classe vazia

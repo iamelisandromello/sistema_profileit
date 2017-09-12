@@ -1,0 +1,32 @@
+//Configuração de Radio Button
+input[type=radio]
+  opacity: 0 !important
+  margin-right: -12px !important
+  cursor: pointer  !important
+  width: 12px !important
+  height: 12px !important
+
+input[type=radio] + span
+  font-weight: bold !important
+  color: #888 !important
+
+
+input[type=radio] + span:before
+  content: "\00a0" !important
+  display: inline-block !important
+  margin-right: 15px !important
+  width: 18px !important
+  height: 18px !important
+  visibility: visible !important
+  border: 2px dashed $cyan !important
+  -webkit-border-radius: 2px !important
+  -moz-border-radius: 2px !important
+  border-radius: 2px !important
+  line-height: 16px !important
+  font-size: 18px !important
+  text-align: center !important
+  font-weight: bold !important
+  color: $orange !important
+
+input[type=radio]:checked + span:before
+  content: "\00d7" !important

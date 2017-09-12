@@ -29,9 +29,23 @@ class QuestionarioController extends \HXPHP\System\Controller
             ->setFooter('questionario/footer');
 
 		$user_id = $this->auth->getUserId();
+		$user = User::find($user_id);
+		$preQuestionnaire = Answer::preQuestionnaire($user);
+		$experiencia = $preQuestionnaire[0];
+		$formacao = $preQuestionnaire[1];
+		$sitFormacao = $preQuestionnaire[2];
+		$pos = $preQuestionnaire[3];
+		$sitPos = $preQuestionnaire[4];
 
 		$this->view->setTitle('ProfileIT - Questionario de Perfil')
-					->setVar('user', User::find($user_id));
+					->setVars([
+						'user' => $user,
+						'experiencia' => $experiencia,
+						'formacao' => $formacao,
+						'sitFormacao' => $sitFormacao,
+						'pos' => $pos,
+						'sitPos' => $sitPos
+					]);
 	}
 
 	public function responderAction()
@@ -42,9 +56,15 @@ class QuestionarioController extends \HXPHP\System\Controller
             ->setFooter('questionario/footer');
 
 		$user_id = $this->auth->getUserId();
+		$user = User::find($user_id);
+		$experiencia = Answer::preQuestionnaire($user);
 
 		$this->view->setTitle('ProfileIT - Questionario de Perfil')
-					->setVar('user', User::find($user_id));
+					->setVars([
+						'user' => $user,
+						'experiencia' => $experiencia
+					]);
+
 
 		$post = $this->request->post();
 

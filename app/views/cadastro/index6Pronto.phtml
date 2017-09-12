@@ -1,0 +1,147 @@
+		<!-- Top content -->
+		<div class="top-content">
+			<div class="inner-bg">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-8 col-sm-offset-2 form-box">
+							<?php echo (isset($this->alert) ? $this->alert : ''); ?>
+							<form action="<?php echo BASE; ?>temp/experiencia/" method="post" id="registration-form" class="registration-form" >
+								<!--
+		                     Passo Formulario de Histórico Acadêmico
+		                  -->
+		                  <fieldset id="stepCourse">
+		                  	<div class="form-top">
+		                  		<div class="form-top-left">
+		                  			<h3>Passo 6 / 7</h3>
+		                  			<p>Cursos Livres:</p>
+		                  		</div>
+		                  		<div class="form-top-right">
+		                  			<i class="fa-graduation-cap"></i>
+		                  		</div>
+		                  	</div>
+									<div class="form-bottom">
+										<div id="example1">
+										   <div class="r-group">
+												<!--
+													1º Linha Formulario Acadêmico
+												-->										  
+											   <div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+												         <label for="academic_0_0" data-pattern-text="Curso Titulo +=1:" class="sr-only" >Cursos Titulo 1:</label>
+															<input type="text" name="course[0][title]" id="course_0_title" placeholder="Curso" data-pattern-name="course[++][title]" data-pattern-id="course_++_title" value="<?php echo $this->request->post('title') ?>" >
+															<div class="help-block with-errors"></div>
+														</div>
+													</div><!-- </col-md-6> -->
+													<div class="col-md-6">
+														<div class="form-group">
+															<label for="academic_0_0" data-pattern-text="Course Institution +=1:" class="sr-only">Curso Instituição 1:</label>
+											          	<input type="text" name="course[0][institution]" id="course_0_institution" placeholder="Instituição" data-pattern-name="course[++][institution]" data-pattern-id="course_++_institution" class="form-institution form-control course" value="<?php echo $this->request->post('institution') ?>"/>
+															<div class="help-block with-errors"></div>
+														</div><!-- </form-group> -->
+													</div><!-- </col-md-6> -->
+												</div><!-- </row>-->
+
+												<!--
+	                               		2º Linha Formulario Acadêmico
+	                               	-->
+	                               	<div class="row">
+	                               		<div class="col-md-6">
+	                               			<div class="form-group">
+															<label for="course_0_0" data-pattern-text="Course Workload +=1:" class="sr-only">Course Workload 1:</label>
+											          	<input type="text" name="course[0][worload]" id="course_0_workload" placeholder="Carga Horária" data-pattern-name="course[++][worload]" data-pattern-id="course_++_workload"  class="form-control course" value="<?php echo $this->request->post('workload') ?>" />
+															<div class="help-block with-errors"></div>
+	                               			</div><!-- </form-group> -->
+	                               		</div><!-- </col-md-6> -->
+	                               		<div class="col-md-6">
+	                               			<div class="form-group">       				
+															<label for="course_0_0" data-pattern-text="Course SegmentList +=1:" class="sr-only" >Course Segment List 1:</label>
+											          	<select name="course[0][segmentlist]" id="course_0_segmentlist" data-pattern-name="course[++][segmentlist]" data-pattern-id="course_++_segmentlist" class="form-control register-select course"/>
+	                               					<option class="opt-placeholder" value="-1" selected="">Segmento
+	                               					</option>
+	                               					<optgroup label="Área de competência">
+                               						   <option value="Microsoft">Microsoft</option>
+                               						   <option value="Linux">Linux</option>
+                               						   <option value="Processos">Processos</option>
+                               						   <option value="Pos">Especializações</option>
+	                               					</optgroup>
+	                               				</select>
+	                               				<div class="help-block with-errors"></div>
+	                               			</div><!-- </form-group> -->
+	                               		</div><!-- </col-md-6> -->
+	                               	</div><!-- </row>-->
+												<!--
+	                               		3º Linha Formulario Acadêmico
+	                               	-->
+	                               	<div class="row wraper_conclusion" id="wraper_conclusion">
+													<div class="col-md-4" id="boxDataConclusion" >
+														<div class="sandbox-container" id="sandbox-container">
+															<label for="academic_0_0" data-pattern-text="Course Schedule +=1:" class="sr-only">Course Schedule 1:</label>
+															<div class="input-group date">
+																<input type="text" class="inputData" name="course[0][schedule]" id="course_0_schedule"  data-pattern-name="course[++][schedule]" data-pattern-id="course_++_schedule" placeholder="00/00/0000" value="<?php echo $this->request->post('schedule') ?>">
+																<span class="input-group-addon">
+																	<i class="glyphicon glyphicon-th"></i>
+																</span>
+															</div><!-- </input-group date> -->
+															<div class="msgFront" name="msgFront">
+								               			<span></span>
+								            			</div>
+
+														</div><!-- </col-md-6 centered> -->
+													</div><!-- </boxDataConclusion>-->
+	                               	</div><!-- </row> -->
+	                               	<hr/><!-- Traço separador do Repeater -->
+
+												<!-- Adicione um botão remover para o item. Se não existisse, seria adicionado ao grupo geral-->
+										      <div class="row">
+							      	    		<div class="col-md-2">
+			                         			<div class="form-group">
+			                         				<span data-repeater-delete class="btn btn-danger btn-sm academic r-btnRemove">
+			                         					<span class="glyphicon glyphicon-remove"></span> Delete
+			                         				</span>
+			                         			</div>
+			                         		</div><!-- </col-md-4> -->
+										      </div>
+										   </div>
+				                     <!--
+				                     	Botão Add do Repeater
+				                     -->										  
+			                     	<div class="row">
+			                     		<div class="col-md-4">
+			                     			<div class="form-group">
+			                     				<span data-tooltip="Include new skills" name="add-academic" id="add-academic" class="btn btn-info btn-md academic r-btnAdd">
+			                     					<span class="glyphicon glyphicon-plus"></span> add
+			                     				</span>
+			                     			</div>
+			                     		</div><!-- </col-md-4> -->
+			                     	</div>
+										</div>
+			                     <!--
+			                     	Linha de Contole Formulario Historico Profissional
+			                     -->
+			                     <div class="row">
+			                     	<div class="col-md-12">
+			                     		<div class="form-group">
+			                     			<button type="button" class="btn-previous">
+			                     				<i class="fa fa-arrow-left"></i>
+			                     				<span>Previous</span>
+			                     			</button>
+			                     			<button type="button" class="btn-next" value="Validate!">
+	                        					<i class="fa fa-arrow-right"></i>
+	                        					<span>Próximo</span>
+	                        				</button>
+			                     			<button type="submit" value="Submit" class="disabled">
+			                     				<i class="fa fa-user"></i>
+			                     				<span>Sign UP</span>
+			                     			</button>
+			                     		</div><!-- </form-group> -->
+			                     	</div><!-- </col-md-12> -->
+			                     </div><!-- </row> -->
+		                     </div><!-- </form-bottom> -->
+								</fieldset><!-- </ > -->
+							</form><!-- </ > -->
+						</div><!-- </col-sm-8 col-sm-offset-2 form-box> -->
+					</div><!-- </row> -->
+				</div><!-- </container> -->
+			</div><!-- </inner-bg> -->
+		</div><!-- </top-content> -->

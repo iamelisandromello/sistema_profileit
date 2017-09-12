@@ -15,7 +15,7 @@ jQuery(document).ready(function() {
     //Função Add Mensagem de Resposta Selecionada FrontEnd
     function successTeste(mensagem) {  
         successCorrect = "#" + mensagem + " span";
-        alert(successCorrect);
+        //alert(successCorrect);
         $(successCorrect)
         .html("")
         .html("Foi selecionado a opção <strong>" + color + "</strong>.")
@@ -72,6 +72,14 @@ jQuery(document).ready(function() {
             failureRadio(msgbox);
         }
     }
+
+    //ReadOnly Perguntas Pré-respondidas
+    $("input[type='radio'][name='question_2']:not(:checked)").attr('disabled', true);
+    $("input[type='radio'][name='question_4']:not(:checked)").attr('disabled', true);
+    $("input[type='radio'][name='question_5']:not(:checked)").attr('disabled', true);
+    $("input[type='radio'][name='question_6']:not(:checked)").attr('disabled', true);
+    $("input[type='radio'][name='question_7']:not(:checked)").attr('disabled', true);
+
 
     $( "input" ).on( "click", function() {
         $( "#log" + i).html( $( "input:checked" ).val() + " is checked!" );

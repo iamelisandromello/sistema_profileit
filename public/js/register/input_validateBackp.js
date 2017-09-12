@@ -6,9 +6,17 @@ $(document).ready(function () {
         success: "valid",
     });
     
+    jQuery.validator.addMethod("schedule1", function(value, element) {
+      return this.optional(element) || /^(((0[1-9]|[12]\d|3[01])\/(0[13578]|1[02])\/((19|[2-9]\d)\d{2}))|((0[1-9]|[12]\d|30)\/(0[13456789]|1[012])\/((19|[2-9]\d)\d{2}))|((0[1-9]|1\d|2[0-8])\/02\/((19|[2-9]\d)\d{2}))|(29\/02\/((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))$/.test(value);
+    }, "Formato de Data Inválido");
+   
     jQuery.validator.addMethod("celular", function(value, element) {
         return this.optional(element) || /^(\(11\) [9][0-9]{4}-[0-9]{4})|(\(1[2-9]\) [5-9][0-9]{4}-[0-9]{4})|(\([2-9][1-9]\) [5-9][0-9]{4}-[0-9]{4})$/.test(value);
     }, "Hiii, número inválido no Brasil");
+
+    jQuery.validator.addMethod("phone", function(value, element) {
+        return this.optional(element) || /^(\(11\) [9][0-9]{4}-[0-9]{4})|(\(1[2-9]\) [5-9][0-9]{4}-[0-9]{4})|(\([2-9][1-9]\) [5-9][0-9]{4}-[0-9]{4})$/.test(value);
+    }, "Telefone Residencial com Formato Inválido Brasil");
 
     jQuery.validator.addMethod("password", function(value, element) {
         return this.optional(element) || /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/.test(value);
@@ -91,6 +99,10 @@ $(document).ready(function () {
                 required: true,
                 email: true,
                 minlength: 10
+            },
+            phone: {
+                required: true,
+                phone: true
             },
             celular: {
                 required: true,
@@ -182,6 +194,9 @@ $(document).ready(function () {
             email: {
                 required: "Bruh, informe um endereço de e-mail válido"
             },
+            phone: {
+                required: "Digite corretamente seu telefone"
+            },
             date_out: {
                 required: "Informe Data de Saída"
             },
@@ -218,7 +233,7 @@ $(document).ready(function () {
                 minlength: "Mínimo de caracteres permitidos 8",
                 maxlength: "Maxímo de caracteres permitidos 15"
             },
-            password: {
+            senha: {
                 required: "Defina senha de acesso!"
             },            
             facebook: {

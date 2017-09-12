@@ -282,68 +282,7 @@ jQuery(document).ready(function() {
             }
 
         }
-        else if (idFieldset == "stepAcademic") {
-            
-            /*var retornoS = window.returnName(idFieldset);
-            alert(retornoS);*/
-
-            var contE = window.contaElementos(idFieldset);
-            alert('Numero d eloop: ' + contE);
-
-            var arraySelects = window.returnSelects(idFieldset);
-            var arrayRadios = window.returnRadios(idFieldset);
-
-            for (var i = 0; i < contE; i++) { 
-                alert('Nomes Selects: ' + arraySelects[i]);
-                alert('Nomes Selects: ' + arrayRadios[i]);
-
-            } 
-
-
-
-            /*
-            * Valida se Radio Button foi Selecionado e Qual Opção Escolhida
-            * Variável statusAcademic armazena a opção selecionada 
-            */
-            var statusAcademic;
-            $('#' + idFieldset).find('input[type="radio"]').each(function(id , val) {
-                if($(val).is(":checked")){
-                    statusAcademic = $(val).val();
-                    return false;
-                };
-            });
-            if (statusAcademic) {
-                $('#boxAcademic').removeClass("input-error");
-            }
-            else {
-                $('#boxAcademic').addClass("input-error");
-                next_step = false;
-            }
-
-            /*
-            * Função Verifica se foi Selecionado
-            * a Opção de Formação Concluída
-            * através do valor armazenado na var statusAcademic
-            */
-            
-            if (statusAcademic == 1) {
-                var inputText = $('#adddate_conclusion').val();
-                if( inputText !== undefined) {
-                  if ( inputText == '' ) {
-                    alert('Foi carregado e não está preenchido!');
-                    $('#adddate_conclusion').addClass("input-error");
-                    next_step = false;  
-                  }
-                } else {
-                 alert('Não foi carregado!');      
-                }
-            }
-            else {
-                $('#adddate_conclusion').removeClass("input-error");
-                $('adddate_conclusion').datepicker('setDate', null);
-            }
-        }//Final do Step2 (Histórico Acadêmico)
-
+        
         /*
         * Contole de Avanço e Validação de Erros
         *

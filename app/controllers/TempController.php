@@ -52,6 +52,36 @@ class TempController extends \HXPHP\System\Controller
 		}
 	}
 
+	public function registrarAction()
+	{
+
+	$POST = $this->request->post();
+	echo '<pre>';
+	var_dump($POST);
+	echo '<pre>';	
+
+	$competencies_data = $POST;// copiar um arrays de um POST
+	$qtd = count($POST);
+var_dump($qtd);
+foreach($competencies_data as $data)
+	{
+	     if(is_array($data))
+	     {
+	          foreach($data as $other_data)
+	          {
+	               echo $other_data, '<br/>';
+	          }
+	     }
+	     else
+	     {
+	          echo "teste", '<br/>';
+	          //echo "Imagem: {$data}<br>";
+	     }
+	}
+
+		die();
+	}	
+
 	public function cadastrarAction()
 	{
 
@@ -92,9 +122,110 @@ class TempController extends \HXPHP\System\Controller
 	}
 
 
-  public static function experiencia() {
-     echo "teste";
-  }
+	public function experienciaAction() {
+		$post = $this->request->post();
+	
+		/*$academic_data = $_POST;// copiar um arrays de um POST
+		$qtd = count($_POST);
+
+		echo('<pre>');
+			print_r( $academic_data ); // exibirá o array 
+		echo('<pre>');
+
+		echo('<pre>');
+			print_r( $qtd ); // exibirá o array 
+		echo('<pre>');*/
+
+		$academic_data = $_POST['academic'];// copiar um arrays de um POST
+		$qtd = count($_POST['academic']);
+
+		foreach($academic_data as $data)
+		{
+		     if(is_array($data))
+		     {
+		          foreach($data as $other_data)
+		          {
+		               echo $other_data, '<br/>';
+		          }
+		     }
+		     else
+		     {
+		          echo "teste", '<br/>';
+		          //echo "Imagem: {$data}<br>";
+		     }
+		}
+
+	die();
+
+	}
+
+	public function testarAction()
+	{
+		
+		$user = User::find_by_id(20);
+		var_dump($user->name);
+		$questionnaire_data = array();
+
+    	//Pergunta 2 - Formação Acadêmica
+   	$graduacao = Academic::listFormations($user);
+
+		echo ("<br>");
+			echo($graduacao);
+		echo ("<hr>");
+   	
+   	$questionnaire_data[1] = $graduacao;
+
+   	echo ("<br>");
+			echo('Cod Formacao: ' . $questionnaire_data[1]);
+		echo ("<hr>");
+
+
+
+	   /*$controle = 0;
+	   $opcao = 0;
+
+		foreach ($user->academics as $academic):
+
+			$curso = $academic->course;
+			$nivel = $academic->level;
+			$status = $academic->status;
+
+			if ($nivel == "Bacharelado") {
+			  $controle = 1;
+			}
+			else if ($nivel == "Tecnologo") {
+			   $controle = 2;
+			}
+			else if ($nivel == "Tecnico") {
+			   $controle = 3;
+			}
+			else if ($nivel == "Medio") {
+			   $controle = 4;
+			}
+			else {
+			   $controle = 5;
+			}
+
+			if ($opcao == 0) {
+			  $opcao = $controle;
+			}
+			else if ( $opcao > $controle ) {
+			  $ocpao = $controle;
+			}
+
+		endforeach;
+
+		echo ("<br>");
+			echo($opcao);
+		echo ("<hr>");*/
+
+			$post = $this->request->post();
+			echo('<pre>');
+				var_dump($post);
+			echo('</pre>');
+			die();
+
+	}
 
 	public function calculoAction()
 	{

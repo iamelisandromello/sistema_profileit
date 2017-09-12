@@ -13,6 +13,40 @@ class Answer extends \HXPHP\System\Model
     	'user'=>array(self::BELONGS_TO, 'User', 'user_id'),
     );
   }
+
+  public static function preQuestionnaire ($user) {
+    $questionnaire_data = array();    
+
+    //Pergunta 2 - Experiência
+    $total = User::experiencia($user);
+    $experiencia = 0;
+
+    if ($total >= 8) {
+      $experiencia = 1; 
+    }
+    else if ( $total < 8 && $total >= 5 ) {
+      $experiencia = 2;
+    }
+    else if ( $total < 5 && $total >= 3 ) {
+      $experiencia = 3;
+    }
+    else if ( $total < 3 && $total >= 1 ) {
+      $experiencia = 4;
+    }
+    else if ( $total < 1) {
+      $experiencia = 5;
+    }
+    $questionnaire_data[0] = $experiencia;
+    
+    //Pergunta 4,5,6 e 7 - Formação Acadêmica
+    $graduacao = Academic::listFormations($user);
+    $questionnaire_data[1] = $graduacao[0];
+    $questionnaire_data[2] = $graduacao[1];
+    $questionnaire_data[3] = $graduacao[2];
+    $questionnaire_data[4] = $graduacao[3];
+
+    return $questionnaire_data;
+  }
   
   public static function verificar($user_id)
   {
