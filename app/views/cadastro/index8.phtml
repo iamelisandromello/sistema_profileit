@@ -1,0 +1,201 @@
+		<!-- Top content -->
+		<div class="top-content">
+			<div class="inner-bg">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-8 col-sm-offset-2 form-box">
+							<?php echo (isset($this->alert) ? $this->alert : ''); ?>
+							<form action="<?php echo BASE; ?>temp/experiencia/" method="POST" id="registration-form" class="registration-form" >
+								<!--
+		                     Passo Formulario de Histórico Acadêmico
+		                  -->
+		                  <fieldset id="stepCertification">
+		                  	<div class="form-top">
+		                  		<div class="form-top-left">
+		                  			<h3>Passo 8 / 8</h3>
+		                  			<p>Certificações Oficiais:</p>
+		                  		</div>
+		                  		<div class="form-top-right">
+		                  			<i class="fa-graduation-cap"></i>
+		                  		</div>
+		                  	</div><!-- </form-top> Header and Title Fieldset -->
+									<div class="form-bottom">
+										<!--
+                            		1º Linha Formulario Acadêmico
+                            	-->
+                            	<div class="row">
+                            		<div class="col-md-6 select_input" >
+                            			<div class="form-group">
+   											   <label for="certificationmicrosof" class="sr-only" >Certification Microsoft:</label>
+   								          	<select name="certificationmicrosoft" id="certificationmicrosoft" class="form-control register-select certification"/>
+                            					<option class="opt-placeholder" value="-1" selected="">Microsoft
+                            					</option>
+                            					<optgroup label="Nível">
+                         							<option value="Nao">Não Possui</option>
+                         						   <option value="MCSE">MCSE</option>
+                         						   <option value="MCSA">MCSA</option>
+                         						   <option value="MCTS">MCTS</option>
+                         						   <option value="MCP">MCP</option>
+                            					</optgroup>
+                               			</select>
+                            				<div class="help-block with-errors"></div>
+                                       <div class="msgFront" name="msgFront">
+                                          <span></span>
+                                       </div>                                         
+                            			</div><!-- </form-group> -->
+                            		</div><!-- </col-md-6> -->
+											<div class="col-md-6 select_input">
+                            			<div class="form-group">
+													<label for="certificationlinux" class="sr-only" >Certification Linux:</label>
+									          	<select name="certificationlinux" id="certificationlinux" class="form-control register-select certification"/>
+                            					<option class="opt-placeholder" value="-1" selected="">Linux
+                            					</option>
+                            					<optgroup label="Nível">
+                            							<option value="Nao">Não Possui</option>
+                            						   <option value="LPIC-1">LPIC-1</option>
+                            						   <option value="LPIC-2">LPIC-2</option>
+                            						   <option value="LPIC-3">LPIC-3</option>
+                            						   <option value="RHCA">RHCA</option>
+                               						<option value="RHCE">RHCE</option>
+                               						<option value="RHCVA">RHCVA</option>
+                               						<option value="RHCSA">RHCSA</option>
+                            					</optgroup>
+                            				</select>
+                            				<div class="help-block with-errors"></div>
+                                       <div class="msgFront" name="msgFront"></div>
+                            			</div><!-- </form-group> -->
+                            		</div><!-- </col-md-6> -->
+                            	</div><!-- </row>-->
+										<!--
+                            		2º Linha Formulario Acadêmico
+                            	-->
+                            	<div class="row">
+                            		<div class="col-md-6 select_input">
+                            			<div class="form-group">
+													<label for="certificationcisco" class="sr-only" >Certification Cisco</label>
+									          	<select name="certificationcisco" id="certificationcisco" class="form-control register-select certification"/>
+                            					<option class="opt-placeholder" value="-1" selected="">CISCO
+                            					</option>
+                            					<optgroup label="Nível">
+                            						   <option value="Nao">Não Possui</option>
+                            							<option value="CCIE">CCIE</option>
+                            						   <option value="CCNP">CCNP</option>
+                            						   <option value="CCDP">CCDP</option>
+                            						   <option value="CCNA">CCNA</option>
+                            						<option value="CCDA">CCDA</option>
+                            					</optgroup>
+                            				</select>
+                            				<div class="help-block with-errors"></div>
+                                       <div class="msgFront" name="msgFront"></div>
+                            			</div><!-- </form-group> -->
+                            		</div><!-- </col-md-6> -->
+											<div class="col-md-6 select_input">
+                            			<div class="form-group">
+													<label for="certificationvmware" class="sr-only" >Certification VMware:</label>
+									          	<select name="certificationvmare" id="certificationvmware" class="form-control register-select certification"/>
+                            					<option class="opt-placeholder" value="-1" selected="">VMware
+                            					</option>
+                            					<optgroup label="Nível">
+                            						   <option value="Nao">Não Possui</option>
+                            							<option value="VCP5-DCV">VMware (VCP5-DCV)</option>
+                            						   <option value="HyperV">Hyper-V (74-409)</option>
+                            						   <option value="LPIC-3">LPIC-3</option>
+                            					</optgroup>
+                            				</select>
+                            				<div class="help-block with-errors"></div>
+                                       <div class="msgFront" name="msgFront"></div>
+                            			</div><!-- </form-group> -->
+                            		</div><!-- </col-md-6> -->
+                            	</div><!-- </row>-->
+										<!--
+                            		3º Linha Formulario Acadêmico
+                            	-->
+                            	<div class="row">
+                            		<div class="col-md-6 select_input">
+                            			<div class="form-group">
+													<label for="certificationpmi" class="sr-only" >Certification PMI</label>
+									          	<select name="certificationpmi" id="certificationpmi" class="form-control register-select certification"/>
+                            					<option class="opt-placeholder" value="-1" selected="">PMI
+                            					</option>
+                            					<optgroup label="Nível">
+	                            						<option value="Nao">Não Possui</option>  
+	                            						<option value="PMP">PMP </option>
+                            						   <option value="CAPM ">CAPM</option>
+                            					</optgroup>
+                            				</select>
+                            				<div class="help-block with-errors"></div>
+                                       <div class="msgFront" name="msgFront"></div>
+                            			</div><!-- </form-group> -->
+                            		</div><!-- </col-md-6> -->
+											<div class="col-md-6 select_input">
+                            			<div class="form-group">
+													<label for="certificationagile" class="sr-only" >Certification Agile</label>
+									          	<select name="certificationagile" id="certificationagile" class="form-control register-select certification"/>
+                            					<option class="opt-placeholder" value="-1" selected="">Agile/Scrum
+                            					</option>
+                            					<optgroup label="Nível">
+                         						   <option value="Nao">Não Possui</option>
+                         							<option value="PSM-I">PSM I</option>
+                         						   <option value="CSM">CSM</option>
+                         						   <option value="ASF">ASF</option>
+                            						<option value="SFC">SFC</option>
+                            						<option value="ACP">ACP</option>
+                            					</optgroup>
+                            				</select>
+                            				<div class="help-block with-errors"></div>
+                                       <div class="msgFront" name="msgFront"></div>
+                            			</div><!-- </form-group> -->
+                            		</div><!-- </col-md-6> -->
+                            	</div><!-- </row>-->	
+										<!--
+                            		4º Linha Formulario Acadêmico
+                            	-->
+                            	<div class="row">
+                            		<div class="col-md-6 select_input">
+                            			<div class="form-group">
+													<label for="certificationitil" class="sr-only" >Certification ITIL</label>
+									          	<select name="certificationitil" id="certificationitil" class="form-control register-select certification"/>
+                            					<option class="opt-placeholder" value="-1" selected="">ITIL
+                            					</option>
+                            					<optgroup label="Nível">
+                            						<option value="Nao">Não Possui</option>
+                            						<option value="Foundation">Foundation</option>
+                            						<option value="Expert">Expert</option>
+                            						<option value="Master">Master</option>
+                            					</optgroup>
+                            				</select>
+                            				<div class="help-block with-errors"></div>
+                                       <div class="msgFront" name="msgFront"></div>
+                            			</div><!-- </form-group> -->
+                            		</div><!-- </col-md-6> -->
+                            	</div><!-- </row>-->		
+                            	<hr/><!-- Traço separador do Repeater -->
+			                     <!--
+			                     	Linha de Contole Formulario Historico Profissional
+			                     -->
+			                     <div class="row">
+			                     	<div class="col-md-12">
+			                     		<div class="form-group">
+			                     			<button type="button" class="btn-previous">
+			                     				<i class="fa fa-arrow-left"></i>
+			                     				<span>Previous</span>
+			                     			</button>
+			                     			<button type="button" class="btn-next" value="Validate!">
+	                        					<i class="fa fa-arrow-right"></i>
+	                        					<span>Próximo</span>
+	                        				</button>
+			                     			<button type="button" class="btn-finish">
+			                     				<i class="fa fa-user"></i>
+			                     				<span>Sign UP</span>
+			                     			</button>
+			                     		</div><!-- </form-group> -->
+			                     	</div><!-- </col-md-12> -->
+			                     </div><!-- </row> -->
+		                     </div><!-- </form-bottom> -->
+								</fieldset><!-- </ > -->
+							</form><!-- </ > -->
+						</div><!-- </col-sm-8 col-sm-offset-2 form-box> -->
+					</div><!-- </row> -->
+				</div><!-- </container> -->
+			</div><!-- </inner-bg> -->
+		</div><!-- </top-content> -->

@@ -1,0 +1,151 @@
+		<!-- Top content -->
+		<div class="top-content">
+			<div class="inner-bg">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-8 col-sm-offset-2 form-box">
+							<?php echo (isset($this->alert) ? $this->alert : ''); ?>
+							<form action="<?php echo BASE; ?>temp/experiencia/" method="post" id="registration-form" class="registration-form" >
+								<!--
+		                     Passo Formulario de Histórico Acadêmico
+		                  -->
+		                  <fieldset id="stepProfessional">
+		                  	<div class="form-top">
+		                  		<div class="form-top-left">
+		                  			<h3>Passo 7 / 8</h3>
+		                  			<p>Histórico Profissinal:</p>
+		                  		</div>
+		                  		<div class="form-top-right">
+		                  			<i class="fa-graduation-cap"></i>
+		                  		</div>
+		                  	</div>
+									<div class="form-bottom">
+										<div id="professionalRepeater">
+										   <div class="p-group">
+												<!--
+													1º Linha Formulario Profissional
+												-->										  
+											   <div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+												         <label for="academic_0_0" data-pattern-text="Professional Company +=1:" class="sr-only" >Professional Company 1:</label>
+															<input type="text" name="professional[0][company]" id="professional_0_company"  data-pattern-name="professional[++][company]" data-pattern-id="professional_++_company" placeholder="Empresa" value="<?php echo $this->request->post('company') ?>" >
+															<div class="help-block with-errors"></div>
+														</div>
+													</div><!-- </col-md-6> -->
+													<div class="col-md-6">
+														<div class="form-group">
+															<label for="academic_0_0" data-pattern-text="Professional Função +=1:" class="sr-only">Professional Função 1:</label>
+											          	<input type="text" name="professional[0][function]" id="professional_0_function" data-pattern-name="professional[++][function]" data-pattern-id="professional_++_function" class="form-function form-control professional" placeholder="Função" value="<?php echo $this->request->post('function') ?>"/>
+															<div class="help-block with-errors"></div>
+														</div><!-- </form-group> -->
+													</div><!-- </col-md-6> -->
+												</div><!-- </row>-->
+												<!--
+	                               		2º Linha Formulario Profissional
+	                               	-->
+	                               	<div class="row wraper_conclusion" id="wraper_conclusion">
+													<div class="col-md-4" id="boxDataConclusion" >
+														<div class="sandbox-container" id="sandbox-container">
+															<div class="form-group">
+																<label for="academic_0_0" data-pattern-text="Professional Entry +=1:" class="sr-only">Professional Entry 1:</label>
+																<div class="input-group date">
+																	<input type="text" class="inputData" name="professional[0][dateEntry]" id="professional_0_dateEntry"  data-pattern-name="professional[++][dateEntry]" data-pattern-id="professional_++_dateEntry" placeholder="Admissão" value="<?php echo $this->request->post('date_entry') ?>">
+																	<span class="input-group-addon">
+																		<i class="glyphicon glyphicon-th"></i>
+																	</span>
+																</div><!-- </input-group date> -->
+																<div class="msgFront" name="msgFront">
+									               			<span></span>
+									            			</div>
+															</div>
+														</div><!-- </col-md-6 centered> -->
+													</div><!-- </boxDataConclusion>-->
+													<div class="col-md-4" id="boxDataConclusion" >
+														<div class="sandbox-container" id="sandbox-container">
+															<div class="form-group">
+																<label for="academic_0_0" data-pattern-text="Professional Out +=1:" class="sr-only">Professional Out 1:</label>
+																<div class="input-group date">
+																	<input type="text" class="inputData" name="professional[0][dateOut]" id="professional_0_dateOut"  data-pattern-name="professional[++][dateOut]" data-pattern-id="professional_++_dateOut" placeholder="Saída" value="<?php echo $this->request->post('date_out') ?>">
+																	<span class="input-group-addon">
+																		<i class="glyphicon glyphicon-th"></i>
+																	</span>
+																</div><!-- </input-group date> -->
+																<div class="msgFront" name="msgFront">
+									               			<span></span>
+									            			</div>
+															</div>
+														</div><!-- </col-md-6 centered> -->
+													</div><!-- </boxDataConclusion>-->	
+	                               	</div><!-- </row> -->
+
+				                        <!--
+				                        	3º Linha Formulario Dados Pessoais
+				                        -->
+				                        <div class="row textareaInput">
+				                        	<div class="col-md-12">
+				                        		<div class="form-group">
+				                        			<label class="sr-only" for="form-about-yourself">Resumo Sobre Mim</label>
+				                        			<textarea name="professional[0][assignments]" id="professional_0_assignments" data-pattern-name="professional[++][assignments]" data-pattern-id="professional_++_assignments" placeholder="Atribuições" class="form-about-yourself form-control"></textarea>
+				                        			<div class="msgFront" name="msgFront">
+																<span></span>
+															</div>
+				                        		</div><!-- </form-group> -->
+				                        	</div><!-- </col-md-12> -->
+				                        </div><!-- </row> 4º Linha -->
+	                               	<hr/><!-- Traço separador do Repeater -->
+
+												<!-- Adicione um botão remover para o item. Se não existisse, seria adicionado ao grupo geral-->
+										      <div class="row">
+							      	    		<div class="col-md-2">
+			                         			<div class="form-group">
+			                         				<span data-repeater-delete class="btn btn-danger btn-sm academic p-btnRemove">
+			                         					<span class="glyphicon glyphicon-remove"></span> Delete
+			                         				</span>
+			                         			</div>
+			                         		</div><!-- </col-md-4> -->
+										      </div>
+										   </div>
+				                     <!--
+				                     	Botão Add do Repeater
+				                     -->										  
+			                     	<div class="row">
+			                     		<div class="col-md-4">
+			                     			<div class="form-group">
+			                     				<span data-tooltip="Include new skills" name="add-academic" id="add-academic" class="btn btn-info btn-md academic p-btnAdd">
+			                     					<span class="glyphicon glyphicon-plus"></span> add
+			                     				</span>
+			                     			</div>
+			                     		</div><!-- </col-md-4> -->
+			                     	</div>
+										</div>
+			                     <!--
+			                     	Linha de Contole Formulario Historico Profissional
+			                     -->
+			                     <div class="row">
+			                     	<div class="col-md-12">
+			                     		<div class="form-group">
+			                     			<button type="button" class="btn-previous">
+			                     				<i class="fa fa-arrow-left"></i>
+			                     				<span>Previous</span>
+			                     			</button>
+			                     			<button type="button" class="btn-next" id="step07" value="Validate!">
+	                        					<i class="fa fa-arrow-right"></i>
+	                        					<span>Próximo</span>
+	                        				</button>
+			                        		<div class="form-group">
+			                        			<div class="msgbox" id="msg-step07">
+							               			<span></span>
+							            			</div>
+							            		</div>
+			                     		</div><!-- </form-group> -->
+			                     	</div><!-- </col-md-12> -->
+			                     </div><!-- </row> -->
+		                     </div><!-- </form-bottom> -->
+								</fieldset><!-- </ > -->
+							</form><!-- </ > -->
+						</div><!-- </col-sm-8 col-sm-offset-2 form-box> -->
+					</div><!-- </row> -->
+				</div><!-- </container> -->
+			</div><!-- </inner-bg> -->
+		</div><!-- </top-content> -->

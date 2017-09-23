@@ -297,10 +297,8 @@ jQuery(document).ready(function() {
                 alert('Nomes Selects: ' + arraySelects[i]);
                 alert('Nomes Selects: ' + arrayRadios[i]);
 
-            } 
-
-
-
+            }
+            
             /*
             * Valida se Radio Button foi Selecionado e Qual Opção Escolhida
             * Variável statusAcademic armazena a opção selecionada 

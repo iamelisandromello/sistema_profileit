@@ -70,10 +70,10 @@
       <script src="<?php echo JS; ?>register/search_cep.js"></script>-->
 
       <script type="text/javascript">
-        $('#example1').repeater({
-            btnAddClass: 'r-btnAdd',
-            btnRemoveClass: 'r-btnRemove',
-            groupClass: 'r-group',
+        $('#academicRepeater').repeater({
+            btnAddClass: 'a-btnAdd',
+            btnRemoveClass: 'a-btnRemove',
+            groupClass: 'a-group',
             minItems: 1,
             maxItems: 0,
             startingIndex: 0,
@@ -85,6 +85,38 @@
             clearValues: true
         });
       </script>
+      <script type="text/javascript">
+        $('#courseRepeater').repeater({
+            btnAddClass: 'c-btnAdd',
+            btnRemoveClass: 'c-btnRemove',
+            groupClass: 'c-group',
+            minItems: 1,
+            maxItems: 0,
+            startingIndex: 0,
+            reindexOnDelete: true,
+            repeatMode: 'append',
+            animation: 'fade',
+            animationSpeed: 800,
+            animationEasing: 'swing',
+            clearValues: true
+        });
+      </script>
+      <script type="text/javascript">
+        $('#professionalRepeater').repeater({
+            btnAddClass: 'p-btnAdd',
+            btnRemoveClass: 'p-btnRemove',
+            groupClass: 'p-group',
+            minItems: 1,
+            maxItems: 0,
+            startingIndex: 0,
+            reindexOnDelete: true,
+            repeatMode: 'append',
+            animation: 'fade',
+            animationSpeed: 800,
+            animationEasing: 'swing',
+            clearValues: true
+        });
+      </script>      
 
       <Script>
       $('#wraper_conclusion .input-group.date').datepicker({
@@ -96,40 +128,6 @@
       });
       </Script>
 
-
-      <script type="text/javascript">
-        $(document).ready(function() {
-        // pular campos, mais simplificado, dá para usar também, mas o de baixo tá funcionando...
-        /*                $('#tabela').on('keyup', 'input', function(event) {
-          if (event.which == 13) {
-              var generico = $("#tabela").find('input:visible');
-              var indice = generico.index(event.target) + 1;
-              var seletor = $(generico[indice]).focus();
-
-              if (seletor.length == 0) {
-                  event.target.focus();
-              }
-          }
-          });*/
-        // Método para pular campos teclando ENTER
-        $('.pulacampos').on('keypress', function(e) {
-          var tecla = (e.keyCode ? e.keyCode : e.which);
-
-            if (tecla == 13) {
-              campo = $('.pulacampos');
-              indice = campo.index(this);
-
-              if (campo[indice + 1] != null) {
-                proximo = campo[indice + 1];
-                proximo.focus();
-                e.preventDefault(e);
-                return false; // impede o envio do formulario
-              }
-                }
-        });
-
-      });
-    </script>
     </div><!-- Fechamento div Geral -->
    </body>
 </html>

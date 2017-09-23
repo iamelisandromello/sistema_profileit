@@ -7,12 +7,12 @@
 							<?php echo (isset($this->alert) ? $this->alert : ''); ?>
 							<form action="<?php echo BASE; ?>temp/experiencia/" method="post" id="registration-form" class="registration-form" >
 								<!--
-		                     Passo Formulario de Histórico Acadêmico
+		                     Passo Formulario de Cursos Livres
 		                  -->
 		                  <fieldset id="stepCourse">
 		                  	<div class="form-top">
 		                  		<div class="form-top-left">
-		                  			<h3>Passo 6 / 7</h3>
+		                  			<h3>Passo 6 / 8</h3>
 		                  			<p>Cursos Livres:</p>
 		                  		</div>
 		                  		<div class="form-top-right">
@@ -20,8 +20,8 @@
 		                  		</div>
 		                  	</div>
 									<div class="form-bottom">
-										<div id="example1">
-										   <div class="r-group">
+										<div id="courseRepeater">
+										   <div class="c-group">
 												<!--
 													1º Linha Formulario Acadêmico
 												-->										  
@@ -96,7 +96,7 @@
 										      <div class="row">
 							      	    		<div class="col-md-2">
 			                         			<div class="form-group">
-			                         				<span data-repeater-delete class="btn btn-danger btn-sm academic r-btnRemove">
+			                         				<span data-repeater-delete class="btn btn-danger btn-sm academic c-btnRemove">
 			                         					<span class="glyphicon glyphicon-remove"></span> Delete
 			                         				</span>
 			                         			</div>
@@ -109,7 +109,7 @@
 			                     	<div class="row">
 			                     		<div class="col-md-4">
 			                     			<div class="form-group">
-			                     				<span data-tooltip="Include new skills" name="add-academic" id="add-academic" class="btn btn-info btn-md academic r-btnAdd">
+			                     				<span data-tooltip="Include new skills" name="add-academic" id="add-academic" class="btn btn-info btn-md academic c-btnAdd">
 			                     					<span class="glyphicon glyphicon-plus"></span> add
 			                     				</span>
 			                     			</div>
@@ -126,14 +126,15 @@
 			                     				<i class="fa fa-arrow-left"></i>
 			                     				<span>Previous</span>
 			                     			</button>
-			                     			<button type="button" class="btn-next" value="Validate!">
+			                     			<button type="button" class="btn-next" value="Validate!" id="step06" >
 	                        					<i class="fa fa-arrow-right"></i>
 	                        					<span>Próximo</span>
 	                        				</button>
-			                     			<button type="submit" value="Submit" class="disabled">
-			                     				<i class="fa fa-user"></i>
-			                     				<span>Sign UP</span>
-			                     			</button>
+			                        		<div class="form-group">
+			                        			<div class="msgbox" id="msg-step06">
+							               			<span></span>
+							            			</div>
+							            		</div>	                        				
 			                     		</div><!-- </form-group> -->
 			                     	</div><!-- </col-md-12> -->
 			                     </div><!-- </row> -->

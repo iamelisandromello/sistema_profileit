@@ -52,6 +52,40 @@ class TempController extends \HXPHP\System\Controller
 		}
 	}
 
+
+public function academicAction (){
+
+/*Academic*/
+	$post = $this->request->post();
+	var_dump($post);
+	$academic_data = $_POST['academic'];// copiar um arrays de um POST
+	$qtd = count($_POST['academic']);
+	if (!empty($academic_data)) {		
+		foreach($academic_data as $data) {
+			$course_data = array();
+			$colum = 0;
+			if(is_array($data)) {
+				foreach($data as $other_data) {
+					$course_data[$colum] = $other_data;
+					$colum++;
+				}
+				echo('<pre>');
+					var_dump($course_data);
+				echo('</pre>');
+			}
+			else {
+				echo "teste", '<br/>';
+				//echo "Imagem: {$data}<br>";
+			}
+		}
+	}
+
+	die();
+
+
+}
+
+
 	public function registrarAction()
 	{
 
@@ -125,7 +159,8 @@ foreach($competencies_data as $data)
 	public function experienciaAction() {
 		$post = $this->request->post();
 	
-		/*$academic_data = $_POST;// copiar um arrays de um POST
+	echo ("acessando");
+		$academic_data = $_POST;// copiar um arrays de um POST
 		$qtd = count($_POST);
 
 		echo('<pre>');
@@ -134,7 +169,7 @@ foreach($competencies_data as $data)
 
 		echo('<pre>');
 			print_r( $qtd ); // exibirá o array 
-		echo('<pre>');*/
+		echo('<pre>');
 
 		$academic_data = $_POST['academic'];// copiar um arrays de um POST
 		$qtd = count($_POST['academic']);

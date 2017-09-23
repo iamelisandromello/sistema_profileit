@@ -4,7 +4,7 @@ jQuery(document).ready(function() {
     /*
         Fullscreen background
     */
-    $.backstretch("/profileit/public/images/backgrounds/1.jpg");
+    $.backstretch("assets/img/backgrounds/1.jpg");
     
     $('#top-navbar-1').on('shown.bs.collapse', function(){
     	$.backstretch("resize");
@@ -12,13 +12,13 @@ jQuery(document).ready(function() {
     $('#top-navbar-1').on('hidden.bs.collapse', function(){
     	$.backstretch("resize");
     });
-    
+
     /*
         Form
     */
     $('.registration-form fieldset:first-child').fadeIn('slow');
     
-    $('.registration-form input[type="text"], .registration-form input[type="password"], .registration-form textarea, .registration-form select, .registration-form radio').on('focus', function() {
+    $('.registration-form input[type="text"], .registration-form input[type="password"], .registration-form textarea').on('focus', function() {
     	$(this).removeClass('input-error');
     });
     
@@ -27,7 +27,7 @@ jQuery(document).ready(function() {
     	var parent_fieldset = $(this).parents('fieldset');
     	var next_step = true;
     	
-    	parent_fieldset.find('input[type="text"], input[type="password"], textarea, select, radio').each(function() {
+    	parent_fieldset.find('input[type="text"], input[type="password"], textarea').each(function() {
     		if( $(this).val() == "" ) {
     			$(this).addClass('input-error');
     			next_step = false;
@@ -54,16 +54,19 @@ jQuery(document).ready(function() {
     
     // submit
     $('.registration-form').on('submit', function(e) {
-    	
+    	alert('registro');
     	$(this).find('input[type="text"], input[type="password"], textarea').each(function() {
     		if( $(this).val() == "" ) {
+                alert('falha');
     			e.preventDefault();
     			$(this).addClass('input-error');
+
     		}
     		else {
     			$(this).removeClass('input-error');
     		}
     	});
+        document.getElementById("registration-form").submit();
     	
     });
     
