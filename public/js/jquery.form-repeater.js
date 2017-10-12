@@ -264,7 +264,14 @@
             boxData = $(target).find('#boxDataConclusion');
             $(boxData).show(1000);
         });
-        
+
+        /*
+        *   Add Metodos MAscara de numeros
+        */
+        $(".numero").inputmask({
+            mask: ["999", "999", ],
+            keepStatic: true
+        });
 
         return false;
     }

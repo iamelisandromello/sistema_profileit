@@ -7,6 +7,7 @@ class User extends \HXPHP\System\Model
 		array('role'),
       array('registry', 'foreign_key' => 'registry_id', 'class_name' => 'Registry'),
       array('network', 'foreign_key' => 'network_id', 'class_name' => 'Network'),
+      array('certification', 'foreign_key' => 'certification_id', 'class_name' => 'Certification'),
       array('answer', 'foreign_key' => 'user_id', 'class_name' => 'Answer')
 	);
 
@@ -72,7 +73,7 @@ class User extends \HXPHP\System\Model
 		$user_data = array(
 			'birth_date'	=> date('Y-m-d',strtotime($post['birth_date'])),
 			'role_id'		=> $role->id,
-			'regitry_id'	=> $id_registry,
+			'registry_id'	=> $id_registry,
 			'network_id'	=> $id_network,
 			'status'			=> 1
 		);

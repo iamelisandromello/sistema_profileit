@@ -5,9 +5,9 @@
 					<div class="row">
 						<div class="col-sm-8 col-sm-offset-2 form-box">
 							<?php echo (isset($this->alert) ? $this->alert : ''); ?>
-							<form action="<?php echo BASE; ?>temp/experiencia/" method="POST" id="registration-form" class="registration-form" >
-								<!--
-		                     Passo Formulario de Histórico Acadêmico
+							<form action="<?php echo BASE; ?>temp/academic/" method="post" id="registration-form" class="registration-form">
+   	 						<!--
+		                     Passo Formulario Certificações Oficiais
 		                  -->
 		                  <fieldset id="stepCertification">
 		                  	<div class="form-top">
@@ -26,8 +26,8 @@
                             	<div class="row">
                             		<div class="col-md-6 select_input" >
                             			<div class="form-group">
-   											   <label for="certificationmicrosof" class="sr-only" >Certification Microsoft:</label>
-   								          	<select name="certificationmicrosoft" id="certificationmicrosoft" class="form-control register-select certification"/>
+   											   <label for="microsoft" class="sr-only" >Certification Microsoft:</label>
+   								          	<select name="microsoft" id="microsoft" class="form-control register-select certification"/>
                             					<option class="opt-placeholder" value="-1" selected="">Microsoft
                             					</option>
                             					<optgroup label="Nível">
@@ -41,13 +41,13 @@
                             				<div class="help-block with-errors"></div>
                                        <div class="msgFront" name="msgFront">
                                           <span></span>
-                                       </div>                                         
+                                       </div>
                             			</div><!-- </form-group> -->
                             		</div><!-- </col-md-6> -->
 											<div class="col-md-6 select_input">
                             			<div class="form-group">
-													<label for="certificationlinux" class="sr-only" >Certification Linux:</label>
-									          	<select name="certificationlinux" id="certificationlinux" class="form-control register-select certification"/>
+													<label for="linux" class="sr-only" >Certification Linux:</label>
+									          	<select name="linux" id="linux" class="form-control register-select certification"/>
                             					<option class="opt-placeholder" value="-1" selected="">Linux
                             					</option>
                             					<optgroup label="Nível">
@@ -72,8 +72,8 @@
                             	<div class="row">
                             		<div class="col-md-6 select_input">
                             			<div class="form-group">
-													<label for="certificationcisco" class="sr-only" >Certification Cisco</label>
-									          	<select name="certificationcisco" id="certificationcisco" class="form-control register-select certification"/>
+													<label for="cisco" class="sr-only" >Certification Cisco</label>
+									          	<select name="cisco" id="cisco" class="form-control register-select certification"/>
                             					<option class="opt-placeholder" value="-1" selected="">CISCO
                             					</option>
                             					<optgroup label="Nível">
@@ -91,8 +91,8 @@
                             		</div><!-- </col-md-6> -->
 											<div class="col-md-6 select_input">
                             			<div class="form-group">
-													<label for="certificationvmware" class="sr-only" >Certification VMware:</label>
-									          	<select name="certificationvmare" id="certificationvmware" class="form-control register-select certification"/>
+													<label for="virtualizacao" class="sr-only" >Certification VMware:</label>
+									          	<select name="virtualizacao" id="virtualizacao" class="form-control register-select certification"/>
                             					<option class="opt-placeholder" value="-1" selected="">VMware
                             					</option>
                             					<optgroup label="Nível">
@@ -113,8 +113,8 @@
                             	<div class="row">
                             		<div class="col-md-6 select_input">
                             			<div class="form-group">
-													<label for="certificationpmi" class="sr-only" >Certification PMI</label>
-									          	<select name="certificationpmi" id="certificationpmi" class="form-control register-select certification"/>
+													<label for="pmi" class="sr-only" >Certification PMI</label>
+									          	<select name="pmi" id="pmi" class="form-control register-select certification"/>
                             					<option class="opt-placeholder" value="-1" selected="">PMI
                             					</option>
                             					<optgroup label="Nível">
@@ -129,8 +129,8 @@
                             		</div><!-- </col-md-6> -->
 											<div class="col-md-6 select_input">
                             			<div class="form-group">
-													<label for="certificationagile" class="sr-only" >Certification Agile</label>
-									          	<select name="certificationagile" id="certificationagile" class="form-control register-select certification"/>
+													<label for="agile" class="sr-only" >Certification Agile</label>
+									          	<select name="agile" id="agile" class="form-control register-select certification"/>
                             					<option class="opt-placeholder" value="-1" selected="">Agile/Scrum
                             					</option>
                             					<optgroup label="Nível">
@@ -153,8 +153,8 @@
                             	<div class="row">
                             		<div class="col-md-6 select_input">
                             			<div class="form-group">
-													<label for="certificationitil" class="sr-only" >Certification ITIL</label>
-									          	<select name="certificationitil" id="certificationitil" class="form-control register-select certification"/>
+													<label for="itil" class="sr-only" >Certification ITIL</label>
+									          	<select name="itil" id="itil" class="form-control register-select certification"/>
                             					<option class="opt-placeholder" value="-1" selected="">ITIL
                             					</option>
                             					<optgroup label="Nível">
@@ -193,9 +193,9 @@
 			                     </div><!-- </row> -->
 		                     </div><!-- </form-bottom> -->
 								</fieldset><!-- </ > -->
-							</form><!-- </ > -->
-						</div><!-- </col-sm-8 col-sm-offset-2 form-box> -->
-					</div><!-- </row> -->
-				</div><!-- </container> -->
-			</div><!-- </inner-bg> -->
+		               </form>
+		            </div><!-- </form-box> -->
+		         </div><!-- </row>  -->
+		      </div><!-- </container>  -->
+		   </div><!-- </inner-bg> -->
 		</div><!-- </top-content> -->

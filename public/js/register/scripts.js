@@ -19,10 +19,12 @@ jQuery(document).ready(function() {
    var radioStatus = true;
    var dataStatus = true;
    var radioAcademic = [];
+   var geral = 0;
    var a = []; //criar array;
    var b = []; //criar array;
    var c = []; //criar array;
    var d = []; //criar array;
+   var resume = []; // resumo final
 
    /*
      Fullscreen background
@@ -36,8 +38,8 @@ jQuery(document).ready(function() {
    	$.backstretch("resize");
    });
 
-   function msgTeste( $idFront, $msg ) {
-      target = $('#' + $idFront).closest('.select_input');
+   function msgTeste( $idFront, $msg, $classe ) {
+      target = $('#' + $idFront).closest($classe);
       boxData = $(target).find('.msgFront');
       $(boxData)
       .html("")
@@ -231,6 +233,27 @@ jQuery(document).ready(function() {
       return d;
    }
 
+   window.returnNumeros = function($idFieldset) {
+      var dataWorkload;
+      var temp;
+      var matriz = []; //criar array;
+      var ctr = 0;
+      $('#' + $idFieldset).find('.numero').each(function() {
+         temp = $(this).attr("id");
+         if (!dataWorkload) {
+            dataWorkload = temp;
+            matriz[ctr] = dataWorkload;
+            ctr = ctr + 1;
+         }
+         else if (temp != dataWorkload){
+            dataWorkload = temp;
+            matriz[ctr] =dataWorkload;
+            ctr = ctr + 1;
+         }
+      });
+      return matriz;
+   }
+
       /* Valida InputRadio
    *  $idFieldset: Recebe o ID do fieldset do Step
    *  $idName: Recebe comoparametro o Name do conjunto RadioInput
@@ -286,7 +309,7 @@ jQuery(document).ready(function() {
             }
          }
       }
-      msgFront( $idData, msgInvalida );
+      msgFront( $idData, msgInvalida);
       return dataStatus;    
    }
 
@@ -375,13 +398,35 @@ jQuery(document).ready(function() {
       }
    }
 
-   // Validação dos Inputs do Form
+   window.validaNumeros = function($idFieldset, $idNumero) {
+      var status;
+      var numero = $("#" + $idNumero);
+      if(numero != "") {
+         var filtro = /[^\d]/g;
+         if(filtro.test(numero.val())){
+            numero.val("");
+            status = false;
+            msgInvalida = "Somente Números";
+            msgTeste( $idNumero, msgInvalida, '.numeros_input' );
+            offMessage(idFieldset);//Função Ocultar Mensagens Front
+
+         }
+         else {
+            status = true;  
+         }
+      }   
+      return status;
+   } 
+
+    // Validação dos Inputs do Form
    jQuery.validator.setDefaults({
    debug: true,
    success: "valid"
    });
    var form = $( "#registration-form" );
    form.validate();
+
+   $('#boxDataOut').hide("slow");
 
    /*
      Formulario de Cadastro <registration-form>
@@ -397,20 +442,25 @@ jQuery(document).ready(function() {
       parent_fieldset = $(this).parents('fieldset');
       next_step = true;
       var id = $(this).attr("id"); // captura o ID do Button Step
-      idFieldset = parent_fieldset.attr("id")
-
+      idFieldset = parent_fieldset.attr("id");
 
       parent_fieldset.find('input[type="text"], input[type="password"], input[type="email"], textarea, select').each(function() {
-         if (!$(this).hasClass("inputData")) {            
-            if( $(this).val() == "" || $(this).val() === "-1") {
-               $(this).addClass('input-error');
-               next_step = false;
-            }
-            else{
-               $(this).removeClass('input-error');
-            }
-         }
+
+
+         if (!$(this).hasClass("inputData")) {
+            if (!$(this).hasClass("no_obligatory")) {            
+               if( $(this).val() == "" || $(this).val() === "-1") {
+                  $(this).addClass('input-error');
+                  next_step = false;
+               }
+               else{
+                  $(this).removeClass('input-error');
+               }// Verfica se Input Obrigatório não está vazio
+            }// Verifica se é um Input Obrigatóriio
+         }//Verifica Se não é a data de Conclusão Academica
+
       });
+
       if (idFieldset == "stepPersonal") {
          //Validação de Seleção radioInput 
          var radioSegmento = window.validaRadio(idFieldset, 'scope');
@@ -433,7 +483,7 @@ jQuery(document).ready(function() {
                var returnIdade = calculaIdade( returnString );
                if( returnIdade < 0 ) {
                   $( '#birth_date' ).addClass( "input-error" );
-                  next_step = false;                
+                  next_step = false;
                   msgInvalida = "Data Informada Inválida";
                   msgRegister( idBirth, msgInvalida );
                   document.getElementById( 'birth_date' ).value = ''; // Limpa o campo
@@ -443,7 +493,7 @@ jQuery(document).ready(function() {
                   next_step = false;
                   msgInvalida = "Idade Minima p/Cadastro 16 anos!";
                   msgRegister( idBirth, msgInvalida );
-                  document.getElementById( 'birth_date' ).value=''; // Limpa o campo                    
+                  document.getElementById( 'birth_date' ).value=''; // Limpa o campo
                }
                else {
                   $('span[name="mensagem"').html('');
@@ -451,6 +501,14 @@ jQuery(document).ready(function() {
                }
             }// Validação de Data Informada
          }//Validação Data Vazia
+
+         if (next_step == true) {
+            resume[0] = $('#name').val();
+            resume[1] = $('#last_name').val();
+            resume[3] = $('#about').val();
+         }
+
+
       }// Final StepPersonal
       else if (idFieldset == "stepAcademic") {
          //Identifica todos os Radios e valida se opções foram selecionada
@@ -477,6 +535,14 @@ jQuery(document).ready(function() {
          offMessage(idFieldset);//Função Ocultar Mensagens Front
       }//Final StepAcademic
       else if (idFieldset == "stepCourse") {
+       
+         var inputNumeros = window.returnNumeros(idFieldset);
+         for (var i = 0; i < inputNumeros.length; i++) {
+            temp = window.validaNumeros(idFieldset, inputNumeros[i]);
+            if (!temp) {next_step = false;}    
+         }
+
+
          //Identifica todos os DatePicker e valida se Data Válida
          datasPicker = window.returnDatas(idFieldset);
          for (var i = 0; i < datasPicker.length; i++) {
@@ -489,7 +555,14 @@ jQuery(document).ready(function() {
          //Identifica todos os DatePicker e valida se Data Válida
          datasPicker = window.returnDatas(idFieldset);
          for (var i = 0; i < datasPicker.length; i++) {
-            temp = window.validaPeriodo(idFieldset, datasPicker[i], datasPicker[i+1]);
+            //Verifica se Usuário Informou Empregado
+            if (i == 0 && $('input[type="checkbox"][name="atual"]').is(':checked') ) {
+               temp = window.validaData(idFieldset, datasPicker[i]); //Verifica Data Válida
+            }
+            else {
+               //Verifica Período de Entrada e Saída Válida
+               temp = window.validaPeriodo(idFieldset, datasPicker[i], datasPicker[i+1]); 
+            }
             if (!temp) {next_step = false;}
             i = i + 1;
          }
@@ -500,9 +573,23 @@ jQuery(document).ready(function() {
             //temp = window.validaData(idFieldset, textsAreas[i]);
             temp = window.validaText(textsAreas[i]);
             if (!temp) {next_step = false;}
-            
+
          }
          offMessage(idFieldset);//Função Ocultar Mensagens Front
+      }
+      else if (idFieldset == "stepCertification") {
+         if (!$(this).hasClass("inputData")) {
+            if( $(this).val() == -1 ) {
+               next_step = false;
+               $(this).addClass('input-error');
+               msgInvalida = "Selecionar opção";
+               msgTeste( $(this).attr("ID"), msgInvalida, '.select_input' );
+               offMessage(idFieldset);//Função Ocultar Mensagens Front
+            }
+            else {
+               $(this).removeClass('input-error');
+            }
+         }
       }
 
       /*
@@ -541,6 +628,34 @@ jQuery(document).ready(function() {
 
    });
 
+   $( "#loader" ).on( "click", function() {
+            resume[0] = $('#name').val();
+            resume[1] = $('#last_name').val();
+
+      $("#resumeNome")
+      .html("")
+      .html(resume[0] + " " + resume[1])
+      .show();
+      $("#resumeLastNome")
+      .html("")
+      .html("Profissonal: " + resume[2])
+      .show();
+      $("#resumeAbout")
+      .html("")
+      .html(resume[3])
+      .show();
+
+   });
+
+   $( "#atual" ).on( "click", function() {
+      if ( ! $('input[type="checkbox"][name="atual"]').is(':checked') ) {
+         $('#boxDataOut').show(1000);
+      }
+      else {
+         $('#boxDataOut').hide("slow");
+      }
+   });
+
    /*
    * Função para habilitar/desabilitar
    * InputDate DataPicker de Conclusão da Formação
@@ -568,10 +683,11 @@ jQuery(document).ready(function() {
    //$('.registration-form').on('submit', function(e) {
    $('.registration-form .btn-finish').on('click', function(e) {   
       parent_fieldset = $(this).parents('fieldset');
-      idFieldset = parent_fieldset.attr("id") 
+      idFieldset = parent_fieldset.attr("id");
 
-    	parent_fieldset.find('input[type="text"], input[type="password"], select').each(function() {
-         /*if (!$(this).hasClass("inputData")) { 
+
+    	/*parent_fieldset.find('input[type="text"], input[type="password"], select').each(function() {
+         if (!$(this).hasClass("inputData")) { 
             if( $(this).val() == -1 ) {
                e.preventDefault();
         			$(this).addClass('input-error');
@@ -583,8 +699,8 @@ jQuery(document).ready(function() {
      			   $(this).removeClass('input-error');
                document.getElementById("registration-form").submit();
      		   }
-         }*/
+         }
          document.getElementById("registration-form").submit();
-    	});
+    	});*/
    });
 });

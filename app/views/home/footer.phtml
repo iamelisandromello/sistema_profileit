@@ -51,7 +51,7 @@
 		    				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 		    				<h2 class="modal-title">Search System without Refresh</h2>
 		    			</div>
-		    			
+
 		    			<div class="row">
 		    				<div class="col-md-10 centered">
 		    					<div class="modal-containerStep">
@@ -93,8 +93,7 @@
 								                       echo '<img class="avatar-busca" src="' . BASE . 'public/uploads/users/' . 'default' . '/' . 'default.png' . '" width="160">';
 								                  }
 							               	?>
-												</div><!-- </> -->										
-												
+												</div><!-- </> -->
 											</div><!-- </> -->
 											<div class="col-md-10 ">
 												<div class="row">
@@ -105,8 +104,8 @@
 												<div class="row">
 													<div class="col-md-12 search-charge">
 														<h5><?php echo $view_user->professionals[0]->function; ?></h5>
-													</div>													
-												</div>												
+													</div>
+												</div>
 											</div><!-- </> -->
 										</div><!-- </row> -->
 
@@ -118,7 +117,7 @@
 
 		    		</div><!-- </modal-content> -->
 		    	</div><!-- </modal-dialog> -->
-		   </div><!-- </modal> -->	
+		   </div><!-- </modal> -->
 
 			<!--==============================================
 			Modal Delete (Delete Opportunity )
@@ -128,16 +127,15 @@
 		    		<div class="modal-content modal-popup">
 		    			<div class="modal-header">
 		    				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		    				<h2 class="modal-title">Opportunities Management</h2>
+		    				<h2 class="modal-title">Gerenciamneto de Oportunidade</h2>
 		    			</div>
 
-		    			
 		    			<div class="row">
 		    				<div class="col-md-10 centered">
 		    					<div class="modal-containerStep">
 		    						<span class="step-num">1</span>
 		    						<div class="modal-text">
-		    							<span class="hidden-xs">About the </span> opportunity
+		    							<span class="hidden-xs">Sobre </span> Oportunidade
 		    						</div>
 		    					</div>
 		    				</div>
@@ -152,7 +150,7 @@
 		    				</div>
 
 							<div class="modal-groupForm">
-								<textarea class="textarea-modal" rows="5" placeholder="Describe the job opportunity assignments"></textarea>	
+								<textarea class="textarea-modal" rows="5" placeholder="Describe the job opportunity assignments"></textarea>
 							</div>
 
 							<div class="col-md-12 text-center">
@@ -167,151 +165,417 @@
 			<!--==============================================
 			Modal Add Opportunitty (Add Nova Oportunidade )
 			===============================================-->
-		   <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		    	<div class="modal-dialog">
+		   <div class="modal fade" id="modal10" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		    	<div class="modal-dialog modal-lg">
 		    		<div class="modal-content modal-popup">
 		    			<div class="modal-header">
 		    				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		    				<h2 class="modal-title">Inclusion of Opportunity</h2>
-		    			</div>
-
-		    			
-		    			<div class="row">
-		    				<div class="col-md-10 centered">
-		    					<div class="modal-containerStep">
-		    						<span class="step-num">1</span>
-		    						<div class="modal-text">
-		    							<span class="hidden-xs">About the </span> opportunity
-		    						</div>
-		    					</div>
-		    				</div>
+		    				<h2 class="modal-title">Inclusão de Oportunidade</h2>
 		    			</div>
 
 		    			<form action="#" method="post">
-		    				<div class="modal-groupForm">
-		    					<div class="grupo-input">
-		    						<span class="grupo-input-img"><i class="fa fa-user-plus"></i></span>
-		    						<input type="text" name="comment" class="input-modal" placeholder="Ex. Analista Jr" >
-		    					</div>
-		    				</div>
 
-							<div class="modal-groupForm">
-								<textarea class="textarea-modal" rows="5" placeholder="Describe the job opportunity assignments"></textarea>	
-							</div>
+							<div class="row">
+			    				<div class="col-md-10 centered">
+			    					<div class="modal-containerStep">
+			    						<span class="step-num">1</span>
+			    						<div class="modal-text">
+											Perfil da Vaga	
+			    						</div>
+			    					</div>
+			    				</div>
+			    			</div>
+
+		    				<div class="modal-groupForm">
+		    					<div class="row">
+		    						<div class="col-md-10 centered">
+			    						<div class="col-md-4">
+			    							<input type="radio" value="1" name="checkboxProfile" id="checkboxSenior" class="css-radiobox senior" checked="checked" />
+											<label for="checkboxSenior" class="css-label">Sênior</label>
+			    						</div>
+
+			    						<div class="col-md-4">
+											<input type="radio" value="2" name="checkboxProfile" id="checkboxPleno" class="css-radiobox pleno" />
+											<label for="checkboxPleno" class="css-label">Pleno</label>
+			    						</div>
+
+			    						<div class="col-md-4">
+		    								<input type="radio" value="3" name="checkboxProfile" id="checkboxJunior" class="css-radiobox	junior" />
+											<label for="checkboxJunior" class="css-label">Júnior</label>
+			    						</div>
+		    						</div><!--</col-md-10 centered>-->
+		    					</div><!--</row>-->
+		    				</div><!-- </modal-groupForm>-->
 
 							<div class="row">
 			    				<div class="col-md-10 centered">
 			    					<div class="modal-containerStep">
 			    						<span class="step-num">2</span>
 			    						<div class="modal-text">
-			    							Requirements
+			    							Requirementos
 			    						</div>
 			    					</div>
 			    				</div>
 			    			</div>
+							<div class="containerRequerimento">
+				    			<div class="row">
+				    				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+				    					<!-- Seleção de Funções -->
+										<label for="requerimentoFormacao">Formação</label>
+										<select name="requerimentoFormacao" id="requerimentoFormacao" class="select-modal selectpicker" >
+											<option value="1">
+												Bacharel
+											</option>
+											<option value="2">
+												Tecnólogo
+											</option>
+											<option value="3">
+												Técnico
+											</option>
+											<option value="4">
+												Médio
+											</option>
+											<option value="5">
+												Primário
+											</option>
+										</select>
+				    				</div>
+				    				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+				    					<!-- Seleção de Funções -->
+										<label for="requerimentoStatusF">Situação Acadêmica</label>
+										<select name="requerimentoStatusF" id="requerimentoStatusF" class="select-modal selectpicker" >
+											<option value="1">
+												Completo
+											</option>
+											<option value="2">
+												Cursando
+											</option>
+											<option value="3">
+												Trancado
+											</option>
+										</select>
+				    				</div>
+				    				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+				    					<!-- Seleção de Funções -->
+										<label for="requerimentoPos">Pós Graduação</label>
+										<select name="requerimentoPos" id="requerimentoPos" class="select-modal selectpicker" >
+											<option value="1">
+												PHD
+											</option>
+											<option value="2">
+												Doutorado
+											</option>
+											<option value="3">
+												Mestrado
+											</option>
+											<option value="4">
+												MBA
+											</option>
+											<option value="5">
+												Não Possui
+											</option>
+										</select>
+				    				</div>
+				    				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+				    					<!-- Seleção de Funções -->
+										<label for="requerimentoStatusP">Situação Pós</label>
+										<select name="requerimentoStatusP" id="requerimentoStatusP" class="select-modal selectpicker" >
+											<option value="1">
+												Completo
+											</option>
+											<option value="2">
+												Cursando
+											</option>
+											<option value="3">
+												Trancado
+											</option>
+											<option value="4">
+												Não Iniciado
+											</option>
+										</select>
+				    				</div>
+				    			</div><!-- <row> -->
+								<!-- 2º Linha de Requerimentos Vaga-->
+				    			<div class="row">
+				    				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+				    					<!-- Seleção de Funções -->
+										<label for="requerimentoInglês">Inglês</label>
+										<select name="requerimentoInglês" id="requerimentoInglês" class="select-modal selectpicker" >
+											<option value="1">
+												Fluente
+											</option>
+											<option value="2">
+												Leitura e Escrita
+											</option>
+											<option value="3">
+												Leitura
+											</option>
+											<option value="4">
+												Não Possui
+											</option>
+										</select>
+				    				</div>
+				    				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+				    					<!-- Seleção de Funções -->
+										<label for="requerimentoExperiencia">Experiência</label>
+										<select name="requerimentoExperiencia" id="requerimentoExperiencia" class="select-modal selectpicker" >
+											<option value="1">
+												+ de 8 anos
+											</option>
+											<option value="2">
+												Entre 5 e 8 anos
+											</option>
+											<option value="3">
+												Entre 3 e 5 anos
+											</option>
+											<option value="4">
+												Entre 1 e 3 anos
+											</option>
+											<option value="5">
+												- de 1 ano
+											</option>
+										</select>
+				    				</div>
+				    				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+				    					<!-- Seleção de Funções -->
+										<label for="requerimentoCertificacao">Certificação</label>
+										<select name="requerimentoCertificacao" id="requerimentoCertificacao" class="select-modal selectpicker" >
+											<option value="1">
+												MCSE
+											</option>
+											<option value="2">
+												MCSA
+											</option>
+											<option value="3">
+												MCTIP
+											</option>
+											<option value="4">
+												MCT
+											</option>
+											<option value="5">
+												MCP
+											</option>
+										</select>
+				    				</div>
+				    				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+				    					<!-- Seleção de Funções -->
+										<label for="requerimentoDominio">Domínio</label>
+										<select name="requerimentoDominio" id="requerimentoDominio" class="select-modal selectpicker" >
+											<option value="1">
+												Design de Florestas
+											</option>
+											<option value="2">
+												Arquiteto de Domínio
+											</option>
+											<option value="3">
+												Administrador
+											</option>
+											<option value="4">
+												Operador
+											</option>
+											<option value="5">
+												Cliente
+											</option>
+										</select>
+				    				</div>
+				    			</div>
 
-		    				<div class="modal-groupForm">
-								<table>
-									<tr>
-										<td>
-											<input type="checkbox" name="checkbox-bnf01" id="checkbox-rqs01" class="css-checkbox" checked="checked" />
-											<label for="checkbox-rqs01" class="css-label">Servers</label>
-										</td>
-										<td>
-											<input type="checkbox" name="checkbox-rqs02" id="checkbox-rqs02" class="css-checkbox" />
-											<label for="checkbox-rqs02" class="css-label">Cloud</label>
-										</td>
-										<td>
-											<input type="checkbox" name="checkbox-rqs03" id="checkbox-rqs03" class="css-checkbox" />
-											<label for="checkbox-rqs03" class="css-label">Virtualization</label>
-										</td>
-										<td>
-											<input type="checkbox" name="checkbox-rqs04" id="checkbox-rqs04" class="css-checkbox" />
-											<label for="checkbox-rqs04" class="css-label">Routers</label>
-										</td>
-									</tr>
-								</table>
-		    				</div>
-
-		    				<div class="modal-groupForm">
-		    					<table>
-									<tr>
-										<td>
-											<input type="checkbox" name="checkbox-rqs05" id="checkbox-rqs05" class="css-checkbox" />
-											<label for="checkbox-rqs05" class="css-label">Firewalls</label>
-										</td>
-										<td>
-											<input type="checkbox" name="checkbox-rqs06" id="checkbox-rqs06" class="css-checkbox" />
-											<label for="checkbox-rqs06" class="css-label">Backup</label>
-										</td>
-										<td>
-											<input type="checkbox" name="checkbox-rqs07" id="checkbox-rqs07" class="css-checkbox" />
-											<label for="checkbox-rqs07" class="css-label">Sotorage</label>
-										</td>
-									</tr>
-								</table>
-		    				</div>
-
+								<!-- 3º Linha de Requerimentos Vaga-->
+				    			<div class="row">
+				    				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+				    					<!-- Seleção de Funções -->
+										<label for="requerimentoExchange">Microsoft Exchange</label>
+										<select name="requerimentoExchange" id="requerimentoExchange" class="select-modal selectpicker" >
+											<option value="1">
+												Projetista
+											</option>
+											<option value="2">
+												Administrador
+											</option>
+											<option value="3">
+												Operador
+											</option>
+											<option value="4">
+												Cliente
+											</option>
+										</select>
+				    				</div>
+				    				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+				    					<!-- Seleção de Funções -->
+										<label for="requerimentoVirtualizacao">Virtualização</label>
+										<select name="requerimentoVirtualizacao" id="requerimentoVirtualizacao" class="select-modal selectpicker" >
+											<option value="1">
+												Profissional Certificado
+											</option>
+											<option value="2">
+												Avançado
+											</option>
+											<option value="3">
+												Intermediário
+											</option>
+											<option value="4">
+												Básico
+											</option>
+										</select>
+				    				</div>
+				    				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+				    					<!-- Seleção de Funções -->
+										<label for="requerimentoRoteadores">Roteadores</label>
+										<select name="requerimentoRoteadores" id="requerimentoRoteadores" class="select-modal selectpicker" >
+											<option value="1">
+												Profissional Certificado
+											</option>
+											<option value="2">
+												Avançado
+											</option>
+											<option value="3">
+												Intermediário
+											</option>
+											<option value="4">
+												Básico
+											</option>
+										</select>
+				    				</div>
+				    				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+				    					<!-- Seleção de Funções -->
+										<label for="requerimentoItil">ITIL</label>
+										<select name="requerimentoItil" id="requerimentoItil" class="select-modal selectpicker" >
+											<option value="1">
+												Certificação Master
+											</option>
+											<option value="2">
+												Profissional Certificado
+											</option>
+											<option value="3">
+												Cursos ITIL
+											</option>
+											<option value="4">
+												Conhecimento dos Processos
+											</option>
+											<option value="5">
+												Não Possui
+											</option>
+										</select>
+				    				</div>
+				    			</div>
+								<!-- 4º Linha de Requerimentos Vaga-->
+				    			<div class="row">
+				    				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+				    					<!-- Seleção de Funções -->
+										<label for="requerimentoAgile">Agile</label>
+										<select name="requerimentoAgile" id="requerimentoAgile" class="select-modal selectpicker" >
+											<option value="1">
+												Certificação
+											</option>
+											<option value="2">
+												Cursos Scrum
+											</option>
+											<option value="3">
+												Experiência de Execução
+											</option>
+											<option value="4">
+												Não Possui
+											</option>
+										</select>
+				    				</div>
+				    				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+				    					<!-- Seleção de Funções -->
+										<label for="requerimentoProjetos">Projetos</label>
+										<select name="requerimentoProjetos" id="requerimentoProjetos" class="select-modal selectpicker" >
+											<option value="1">
+												Certificação PMP
+											</option>
+											<option value="2">
+												Cursos PMP
+											</option>
+											<option value="3">
+												Experiência de Execução
+											</option>
+											<option value="4">
+												Não Possui
+											</option>
+										</select>
+				    				</div>
+				    				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+				    					<!-- Seleção de Funções -->
+										<label for="requerimentoHabilitacao">Carteira de Habilitação</label>
+										<select name="requerimentoHabilitacao" id="requerimentoHabilitacao" class="select-modal selectpicker" >
+											<option value="1">
+												+ de 5 anos
+											</option>
+											<option value="2">
+												Entre 2 e 3 anos
+											</option>
+											<option value="3">
+												Provisória
+											</option>
+											<option value="4">
+												Não Possui
+											</option>
+										</select>
+				    				</div>
+				    			</div>
+							</div><!-- </containerRequerimento>-->
 							<div class="row">
 			    				<div class="col-md-10 centered">
 			    					<div class="modal-containerStep">
 			    						<span class="step-num">3</span>
 			    						<div class="modal-text">
-			    							Additional Benefits
+			    							Beneficíos Adicionais
 			    						</div>
 			    					</div>
 			    				</div>
 			    			</div>
 
-							<div class="modal-groupForm">
-								<table>
-									<tr>
-										<td>
-											<input type="checkbox" name="checkbox-bnf01" id="checkbox-bnf01" class="css-checkbox" checked="checked" />
-											<label for="checkbox-bnf01" class="css-label">Health Care</label>
-										</td>
-										<td>
-											<input type="checkbox" name="checkbox-bnf02" id="checkbox-bnf02" class="css-checkbox" />
-											<label for="checkbox-bnf02" class="css-label">Dental Care</label>
-										</td>
-										<td>
-											<input type="checkbox" name="checkbox-bnf03" id="checkbox-bnf03" class="css-checkbox" />
-											<label for="checkbox-bnf03" class="css-label">Fuel Aidon</label>
-										</td>
-										<td>
-											<input type="checkbox" name="checkbox-bnf04" id="checkbox-bnf04" class="css-checkbox" />
-											<label for="checkbox-bnf04" class="css-label">Parking</label>
-										</td>
-									</tr>
-								</table>
-		    				</div>
+			    			<div class="row">
+			    				<div class="col-md-12 col-sm-12 col-xs-12">
+									<div class="containerBeneficios">
+										<div class="row">
+											<div class="col-md-3 col-sm-6 col-xs-12 ">
+												<input type="checkbox" name="checkbox-bnf01" id="checkbox-bnf01" class="css-checkbox" checked="checked" />
+												<label for="checkbox-bnf01" class="css-label">Plano de Saúde</label>
+											</div>
+											<div class="col-md-3 col-sm-6 col-xs-12">
+												<input type="checkbox" name="checkbox-bnf02" id="checkbox-bnf02" class="css-checkbox" />
+												<label for="checkbox-bnf02" class="css-label">Plano Dental</label>
+											</div>
+											<div class="col-md-3 col-sm-6 col-xs-12">
+												<input type="checkbox" name="checkbox-bnf03" id="checkbox-bnf03" class="css-checkbox" />
+												<label for="checkbox-bnf03" class="css-label">Ajuda Combustível</label>
+											</div>
+											<div class="col-md-3 col-sm-6 col-xs-12">
+												<input type="checkbox" name="checkbox-bnf04" id="checkbox-bnf04" class="css-checkbox" />
+												<label for="checkbox-bnf04" class="css-label">Estacionamento</label>
+											</div>
+										</div><!-- </row> -->
+										<div class="row">
+											<div class="col-md-3 col-sm-6 col-xs-12 ">
+												<input type="checkbox" name="checkbox-bnf01" id="checkbox-bnf01" class="css-checkbox" checked="checked" />
+												<label for="checkbox-bnf01" class="css-label">Vale Alimentação</label>
+											</div>
+											<div class="col-md-3 col-sm-6 col-xs-12">
+												<input type="checkbox" name="checkbox-bnf02" id="checkbox-bnf02" class="css-checkbox" />
+												<label for="checkbox-bnf02" class="css-label">Vale Refeição</label>
+											</div>
+											<div class="col-md-3 col-sm-6 col-xs-12">
+												<input type="checkbox" name="checkbox-bnf03" id="checkbox-bnf03" class="css-checkbox" />
+												<label for="checkbox-bnf03" class="css-label">Previdência Provada</label>
+											</div>
+										</div><!-- </row> -->
+									</div><!-- </containerBeneficios> -->
 
-		    				<div class="modal-groupForm">
-		    					<table>
-									<tr>
-										<td>
-											<input type="checkbox" name="checkbox-bnf05" id="checkbox-bnf05" class="css-checkbox" />
-											<label for="checkbox-bnf05" class="css-label">Meal Ticket</label>
-										</td>
-										<td>
-											<input type="checkbox" name="checkbox-bnf06" id="checkbox-bnf06" class="css-checkbox" /><label for="checkbox-bnf06" class="css-label">Food Stamps</label>
-										</td>
-										<td>
-											<input type="checkbox" name="checkbox-bnf07" id="checkbox-bnf07" class="css-checkbox" />
-											<label for="checkbox-bnf07" class="css-label">Private Pension</label>
-										</td>
-									</tr>
-								</table>
-		    				</div>			    													
+							<div class="modal-groupForm">
+								<textarea class="textarea-modal" rows="3" placeholder="Descreva as atribuições de oportunidade de trabalho"></textarea>
+							</div>
 
 							<div class="col-md-12 text-center">
-								<input name="submit" type="submit" class="form-control" id="submit" value=" Add Opportunity ">
+								<input name="submit" type="submit" class="form-control" id="submit" value=" Add Oportunidade ">
 							</div>
 
 		    			</form>
 		    		</div><!-- </modal-content> -->
 		    	</div><!-- </modal-dialog> -->
-		   </div><!-- </modal> -->			
+		   </div><!-- </modal> -->
 		</div><!-- /div de Layout Geral -->
 
 		<!-- ==============================================
@@ -319,11 +583,9 @@
 		================================================== -->
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="<?php echo BOWER; ?>jquery/dist/jquery.min.js"></script>
-		<!-- Include all compiled plugins (below), or include individual files as needed -->		
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="<?php echo BOWER; ?>bootstrap-sass/assets/javascripts/bootstrap.min.js"></script> <!-- Bootstrap -->
-		<script type="text/javascript" src="js/tmp/classie.js"></script>
 		<!-- Contact JS -->
-		<script src="<?php echo BOWER; ?>jqBootstrapValidation/src/jqBootstrapValidation.js"></script><!--BootstrapValidation-->
 		<!-- Wow JS -->
 		<script src="<?php echo BOWER; ?>wow/dist/wow.min.js"></script> <!-- WOW --> 
 		<script src="<?php echo BOWER; ?>flexslider/jquery.flexslider-min.js"></script> <!-- FlexSlider JS (Slider Indicações) -->
@@ -334,6 +596,7 @@
 		<script src="<?php echo JS; ?>front/main.js"></script> <!-- Default JS -->
 		<script src="<?php echo JS; ?>boxmessage.js"></script> <!-- Default JS -->
 		<script src="<?php echo JS; ?>front/timeline-loader.js"></script> <!-- Plus Timeline Item -->
+		<script src="<?php echo JS; ?>profile.js"></script> <!-- Plus Timeline Item -->
 
 		<!-- Tuner ACessibilidade de Cores -->
 		<script src="<?php echo TUNER; ?>js/tuner.js"></script>

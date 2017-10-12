@@ -2,12 +2,12 @@
 
 class CadastroController extends \HXPHP\System\Controller
 {
-	 public function indexAction()
-    {
-        //$this->view->setAssets('css', $this->configs->baseURI . 'public/css/register.css');
-        $this->view->setHeader('cadastro/header')
-                   ->setFooter('cadastro/footer');
-    }
+	public function indexAction()
+	{
+	   //$this->view->setAssets('css', $this->configs->baseURI . 'public/css/register.css');
+	   $this->view->setHeader('cadastro/header')
+	              ->setFooter('cadastro/footer');
+	}
 
     public function __construct($configs)
 	{
@@ -39,6 +39,7 @@ class CadastroController extends \HXPHP\System\Controller
 			'username'		=> $post['username'],
 			'birth_date'	=> $post['birth_date'],
 			'email'			=> $post['email'],
+			'scope'			=> $post['scope'],
 			'password'		=> $post['password']
 		);
 	
@@ -61,9 +62,19 @@ class CadastroController extends \HXPHP\System\Controller
 			'twitter'	=> $post['twitter']
 		);
 
-		$professional_group = $_POST['professional-group'];// copiar um arrays de um POST
-		$academic_group = $_POST['academic-group'];
-		$course_group = $_POST['course-group'];// copiar um arrays de um POST
+		$certification_data = array(
+			'microsoft'		=> $post['microsoft'],
+			'linux'			=> $post['linux'],
+			'cisco'			=> $post['cisco'],
+			'virtualizacao'=> $post['virtualizacao'],
+			'pmi' 			=> $post['pmi'],
+			'agile' 			=> $post['agile'],
+			'itil'			=> $post['itil']
+		);
+
+		$professional_group = $_POST['professional'];// copiar um arrays de um POST
+		$academic_group = $_POST['academic'];
+		$course_group = $_POST['course'];// copiar um arrays de um POST
 
 		$connection = Professional::connection();
 		$connection->transaction();
@@ -106,6 +117,20 @@ class CadastroController extends \HXPHP\System\Controller
 					'danger',
 					'Ops! Não foi possível efetuar seu cadastro. <br> Verifique os erros abaixo:',
 					$cadastrarUsuario->errors
+				));
+			}
+		}
+
+		//Cadastro de Certificações
+		if (!empty($certification_data)) {
+			$user_id = $cadastrarUsuario->user->id;
+			$cadastrarCertification = Certification::cadastrar($certification_data,$user_id);
+
+			if ($cadastrarCertification->status === false) {
+				$this->load('Helpers\Alert', array(
+					'danger',
+					'Ops! Não foi possível efetuar seu cadastro. <br> Verifique os erros abaixo:',
+					$cadastrarCertification->errors
 				));
 			}
 		}

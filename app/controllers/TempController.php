@@ -57,9 +57,68 @@ public function academicAction (){
 
 /*Academic*/
 	$post = $this->request->post();
-	var_dump($post);
 	$academic_data = $_POST['academic'];// copiar um arrays de um POST
+	$courses_data = $_POST['course'];// copiar um arrays de um POST
+	$professional_data = $_POST['professional'];// copiar um arrays de um POST
+	
 	$qtd = count($_POST['academic']);
+
+		$user_data = array(
+			'name'			=> $post['name'],
+			'last_name'		=> $post['last_name'],
+			'username'		=> $post['username'],
+			'birth_date'	=> $post['birth_date'],
+			'email'			=> $post['email'],
+			'scope'		=> $post['scope'],
+			'password'		=> $post['password']
+		);
+	
+		//array de informações adicionais para Novo Usuário (Registros)
+		$registry_data = array(
+			'about'		=> $post['about'],
+			'celular'	=> $post['celular'],
+			'scope'		=> $post['scope'],
+			'address'	=> $post['address'],
+			'zipcode'	=> $post['zipcode']
+		);
+
+		//array de informações adicionais para Novo Usuário (Redes Sociais)
+		$network_data = array(
+			'facebook'	=> $post['facebook'],
+			'linkedin'	=> $post['linkedin'],
+			'github'		=> $post['github'],
+			'web'			=> $post['web'],
+			'instagram' => $post['instagram'],
+			'twitter'	=> $post['twitter']
+		);
+
+		$certification_data = array(
+			'microsoft'		=> $post['microsoft'],
+			'linux'			=> $post['linux'],
+			'cisco'			=> $post['cisco'],
+			'virtualizacao'=> $post['virtualizacao'],
+			'pmi' 			=> $post['pmi'],
+			'agile' 			=> $post['agile'],
+			'itil'			=> $post['itil']
+		);
+
+	foreach ($user_data as $data) {
+		echo $data, '<br/>';
+	}
+
+	foreach ($registry_data as $data) {
+		echo $data, '<br/>';
+	}
+
+	foreach ($network_data as $data) {
+		echo $data, '<br/>';
+	}
+
+	foreach ($certification_data as $data) {
+		echo $data, '<br/>';
+	}
+
+
 	if (!empty($academic_data)) {		
 		foreach($academic_data as $data) {
 			$course_data = array();
@@ -79,6 +138,47 @@ public function academicAction (){
 			}
 		}
 	}
+
+	if (!empty($courses_data)) {		
+		foreach($courses_data as $data) {
+			$livre_data = array();
+			$colum = 0;
+			if(is_array($data)) {
+				foreach($data as $other_data) {
+					$livre_data[$colum] = $other_data;
+					$colum++;
+				}
+				echo('<pre>');
+					var_dump($livre_data);
+				echo('</pre>');
+			}
+			else {
+				echo "teste", '<br/>';
+				//echo "Imagem: {$data}<br>";
+			}
+		}
+	}
+
+	if (!empty($professional_data)) {		
+		foreach($professional_data as $data) {
+			$work_data = array();
+			$colum = 0;
+			if(is_array($data)) {
+				foreach($data as $other_data) {
+					$work_data[$colum] = $other_data;
+					$colum++;
+				}
+				echo('<pre>');
+					var_dump($work_data);
+				echo('</pre>');
+			}
+			else {
+				echo "teste", '<br/>';
+				//echo "Imagem: {$data}<br>";
+			}
+		}
+	}
+
 
 	die();
 

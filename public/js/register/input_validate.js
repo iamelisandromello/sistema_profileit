@@ -124,16 +124,17 @@ $(document).ready(function () {
                 required: true,
                 usersocial: true
             },
-            instagram: {
+            linkedin: {
                 required: true,
                 usersocial: true
             },            
+            instagram: {
+                usersocial: true
+            },            
             twitter: {
-                required: true,
                 twitter: true
             },
             web: {
-                required: true,
                 web: true
             },
             password: {
@@ -222,8 +223,11 @@ $(document).ready(function () {
                 required: "Defina senha de acesso!"
             },            
             facebook: {
-                required: "Usuário facebook requerido"
+                required: "Usuário Facebook requerido"
             },
+            linkedin: {
+                required: "Usuário LinkedIn requerido"
+            },            
             twitter: {
                 required: "Usuário Twitter requerido"
             },

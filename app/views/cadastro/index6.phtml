@@ -26,33 +26,37 @@
 													1º Linha Formulario Acadêmico
 												-->										  
 											   <div class="row">
-													<div class="col-md-6">
+													<div class="col-md-8">
 														<div class="form-group">
 												         <label for="academic_0_0" data-pattern-text="Curso Titulo +=1:" class="sr-only" >Cursos Titulo 1:</label>
 															<input type="text" name="course[0][title]" id="course_0_title" placeholder="Curso" data-pattern-name="course[++][title]" data-pattern-id="course_++_title" value="<?php echo $this->request->post('title') ?>" >
 															<div class="help-block with-errors"></div>
 														</div>
-													</div><!-- </col-md-6> -->
-													<div class="col-md-6">
-														<div class="form-group">
-															<label for="academic_0_0" data-pattern-text="Course Institution +=1:" class="sr-only">Curso Instituição 1:</label>
-											          	<input type="text" name="course[0][institution]" id="course_0_institution" placeholder="Instituição" data-pattern-name="course[++][institution]" data-pattern-id="course_++_institution" class="form-institution form-control course" value="<?php echo $this->request->post('institution') ?>"/>
+													</div><!-- </col-md-8> -->
+	                               		<div class="col-md-3 numeros_input">
+	                               			<div class="form-group">
+															<label for="course_0_0" data-pattern-text="Course Workload +=1:" class="sr-only">Course Workload 1:</label>
+											          	<input type="text" pattern="[0-9]{3}" name="course[0][worload]" id="course_0_workload" placeholder="Hs" data-pattern-name="course[++][worload]" data-pattern-id="course_++_workload"  class="form-control course numero" value="<?php echo $this->request->post('workload') ?>" />
 															<div class="help-block with-errors"></div>
-														</div><!-- </form-group> -->
-													</div><!-- </col-md-6> -->
+															<div class="msgFront" name="msgFront">
+								               			<span></span>
+								            			</div>
+	                               			</div><!-- </form-group> -->
+	                               		</div><!-- </col-md-6> -->
 												</div><!-- </row>-->
 
 												<!--
 	                               		2º Linha Formulario Acadêmico
 	                               	-->
 	                               	<div class="row">
-	                               		<div class="col-md-6">
-	                               			<div class="form-group">
-															<label for="course_0_0" data-pattern-text="Course Workload +=1:" class="sr-only">Course Workload 1:</label>
-											          	<input type="text" name="course[0][worload]" id="course_0_workload" placeholder="Carga Horária" data-pattern-name="course[++][worload]" data-pattern-id="course_++_workload"  class="form-control course" value="<?php echo $this->request->post('workload') ?>" />
+													<div class="col-md-6">
+														<div class="form-group">
+															<label for="academic_0_0" data-pattern-text="Course Institution +=1:" class="sr-only">Curso Instituição 1:</label>
+											          	<input type="text" name="course[0][institution]" id="course_0_institution" placeholder="Instituição" data-pattern-name="course[++][institution]" data-pattern-id="course_++_institution" class="form-institution form-control course" value="<?php echo $this->request->post('institution') ?>"/>
 															<div class="help-block with-errors"></div>
-	                               			</div><!-- </form-group> -->
-	                               		</div><!-- </col-md-6> -->
+														</div><!-- </form-group> -->
+													</div><!-- </col-md-6> -->	                               		
+
 	                               		<div class="col-md-6">
 	                               			<div class="form-group">       				
 															<label for="course_0_0" data-pattern-text="Course SegmentList +=1:" class="sr-only" >Course Segment List 1:</label>
@@ -78,7 +82,7 @@
 														<div class="sandbox-container" id="sandbox-container">
 															<label for="academic_0_0" data-pattern-text="Course Schedule +=1:" class="sr-only">Course Schedule 1:</label>
 															<div class="input-group date">
-																<input type="text" class="inputData" name="course[0][schedule]" id="course_0_schedule"  data-pattern-name="course[++][schedule]" data-pattern-id="course_++_schedule" placeholder="00/00/0000" value="<?php echo $this->request->post('schedule') ?>">
+																<input type="text" class="inputData" name="course[0][schedule]" id="course_0_schedule"  data-pattern-name="course[++][schedule]" data-pattern-id="course_++_schedule" placeholder="Conclusão" value="<?php echo $this->request->post('schedule') ?>">
 																<span class="input-group-addon">
 																	<i class="glyphicon glyphicon-th"></i>
 																</span>
@@ -139,8 +143,8 @@
 			                     	</div><!-- </col-md-12> -->
 			                     </div><!-- </row> -->
 		                     </div><!-- </form-bottom> -->
-								</fieldset><!-- </ > -->
-							</form><!-- </ > -->
+								</fieldset><!-- </Step Cursos Livres > -->
+							</form><!-- </Form > -->
 						</div><!-- </col-sm-8 col-sm-offset-2 form-box> -->
 					</div><!-- </row> -->
 				</div><!-- </container> -->

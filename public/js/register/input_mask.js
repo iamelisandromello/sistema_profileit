@@ -6,6 +6,11 @@
         keepStatic: true
     });
 
+    $(".numero").inputmask({
+        mask: ["999", "99", ],
+        keepStatic: true
+    });
+
     $("#date_conclusion").inputmask({
         mask: ["99/99/9999", "99/99/9999", {
             placeholder: "",
