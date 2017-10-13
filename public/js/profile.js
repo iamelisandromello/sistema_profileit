@@ -64,8 +64,8 @@ jQuery(document).ready(function() {
    });
 
    /*
-   * Função para habilitar/desabilitar
-   * InputDate DataPicker de Conclusão da Formação
+   * Função para definir Perfil da Nova Vaga
+   *
    */
    $( ".senior" ).on( "click", function() {
       valSenior();
@@ -78,12 +78,5 @@ jQuery(document).ready(function() {
    $( ".junior" ).on( "click", function() {
       valJunior();
    });
-
-   $( ".yes_enabled" ).on( "click", function() {
-      target = $(this).closest('.wraper_conclusion');
-      boxData = $(target).find('#boxDataConclusion');
-      $(boxData).show(1000);
-   });
-
 
 });

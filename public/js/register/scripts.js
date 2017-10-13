@@ -38,6 +38,51 @@ jQuery(document).ready(function() {
    	$.backstretch("resize");
    });
 
+   function impResume( $idResume, $id ) {
+      $($idResume)
+      .html("")
+      .html(resume[$id])
+      .show();
+   }
+
+   function loadResume() {
+      if (resume[2] == 1) {
+         $("#resumeProfessional")
+         .html("")
+         .html("Profissonal: " + "Microsoft")
+         .show();
+      }
+      else {
+         $("#resumeProfessional")
+         .html("")
+         .html("Profissonal: " + "Linux")
+         .show();
+      }
+      impResume( "#resumeNome", 0 );
+      impResume( "#resumeDataNasc", 3 );
+      impResume( "#resumeCelular", 4 );
+      impResume( "#resumeAbout", 5 );
+      impResume( "#resumeUser", 6 );
+      impResume( "#resumeEmail", 7 );
+      impResume( "#resumeAddress", 8 );
+      impResume( "#resumeCity", 9 );
+      impResume( "#resumeBeighborhood", 10 );
+      impResume( "#resumeState", 11 );
+      impResume( "#resumeFacebook", 12  );
+      impResume( "#resumeTwitter", 13  );
+      impResume( "#resumeLinkedIn", 14  );
+      impResume( "#resumeInstagram", 15  );
+      impResume( "#resumeGitHub", 16  );
+      impResume( "#resumeWeb", 17  );
+      impResume( "#resumeMicrosoft", 18 );
+      impResume( "#resumeLinux", 19 );
+      impResume( "#resumeCisco", 20 );
+      impResume( "#resumeVirtualizacao", 21 );
+      impResume( "#resumePMI", 22 );
+      impResume( "#resumeAgile", 23 );
+      impResume( "#resumeItil", 24 );
+   }
+
    function msgTeste( $idFront, $msg, $classe ) {
       target = $('#' + $idFront).closest($classe);
       boxData = $(target).find('.msgFront');
@@ -94,7 +139,7 @@ jQuery(document).ready(function() {
       setTimeout(function(){
        $( $idMsg ).hide();
       } , 5000);
-   }   
+   }
 
    /*
    * Oculta as Mensagens de Front End após período programado
@@ -115,13 +160,13 @@ jQuery(document).ready(function() {
    * return objeto date formato EN
    */
    function convertBREN ($dataBR) {
-      var dataTemp = $($dataBR ).val();   
+      var dataTemp = $($dataBR ).val();
       if (dataTemp == '') {
          dataEN = '';
       }
       else {
          var dataQuebrada = $($dataBR).val().split("/");
-         var dataEN = new Date(dataQuebrada[2], dataQuebrada[1] - 1, dataQuebrada[0]); 
+         var dataEN = new Date(dataQuebrada[2], dataQuebrada[1] - 1, dataQuebrada[0]);
       }
       return dataEN;
    }
@@ -293,7 +338,7 @@ jQuery(document).ready(function() {
          if (inputText == '') {
             $("#" + $idData).addClass("input-error");
             dataStatus = false;
-            msgInvalida = "Informar Data!!";                
+            msgInvalida = "Informar Data!!";
          }
          else {
             dataIngles = convertBREN( "#" + $idData ); // Variável recebe date EN
@@ -310,7 +355,7 @@ jQuery(document).ready(function() {
          }
       }
       msgFront( $idData, msgInvalida);
-      return dataStatus;    
+      return dataStatus;
    }
 
    /* Valida Periodo de Dats
@@ -334,31 +379,31 @@ jQuery(document).ready(function() {
                msgElemento = $idOut;
             }
             dataStatus = false;
-            msgInvalida = "Informar Data!!";                
+            msgInvalida = "Informar Data!!";
          }
          else if (inputEntry > hoje) {
             msgInvalida = "Data de Entrada deve ser anterior a data atual!!";
             dataStatus = false;
             msgElemento = $idEntry;
-            $("#" + $idEntry).addClass("input-error"); 
+            $("#" + $idEntry).addClass("input-error");
          }
          else if (inputEntry > inputOut) {
             msgInvalida = "Data de Entrada deve ser anterior a data de saída!!";
             dataStatus = false;
             msgElemento = $idOut;
-            $("#" + $idEntry).addClass("input-error");  
+            $("#" + $idEntry).addClass("input-error");
          }
          else if (inputOut > hoje) {
             msgInvalida = "Data de Saída deve ser anterior a data atual!!";
             dataStatus = false;
             msgElemento = $idEntry;
-            $("#" + $idEntry).addClass("input-error"); 
+            $("#" + $idEntry).addClass("input-error");
          }
          else {
             msgInvalida = "";
             dataStatus = true;
             msgElemento = $idEntry;
-            $("#" + $idEntry).removeClass("input-error"); 
+            $("#" + $idEntry).removeClass("input-error");
          }
 
       }
@@ -412,11 +457,11 @@ jQuery(document).ready(function() {
 
          }
          else {
-            status = true;  
+            status = true;
          }
-      }   
+      }
       return status;
-   } 
+   }
 
     // Validação dos Inputs do Form
    jQuery.validator.setDefaults({
@@ -436,7 +481,7 @@ jQuery(document).ready(function() {
    $('.registration-form input[type="text"], .registration-form input[type="password"], .registration-form textarea, .registration-form select, .registration-form radio').on('focus', function() {
    	$(this).removeClass('input-error');
    });
-    
+
    // next step
    $('.registration-form .btn-next').on('click', function() {
       parent_fieldset = $(this).parents('fieldset');
@@ -448,7 +493,7 @@ jQuery(document).ready(function() {
 
 
          if (!$(this).hasClass("inputData")) {
-            if (!$(this).hasClass("no_obligatory")) {            
+            if (!$(this).hasClass("no_obligatory")) {
                if( $(this).val() == "" || $(this).val() === "-1") {
                   $(this).addClass('input-error');
                   next_step = false;
@@ -505,11 +550,36 @@ jQuery(document).ready(function() {
          if (next_step == true) {
             resume[0] = $('#name').val();
             resume[1] = $('#last_name').val();
-            resume[3] = $('#about').val();
+            resume[2] = $('#scope01').val();
+            resume[3] = $('#birth_date').val();
+            resume[4] = $('#celular').val();
+            resume[5] = $('#about').val();
          }
-
-
       }// Final StepPersonal
+      else if (idFieldset == "stepAccess") {
+         if (next_step == true) {
+            resume[6] = $('#username').val();
+            resume[7] = $('#email').val();
+         }
+      }// Final StepAcesso
+      else if (idFieldset == "stepAddress") {
+         if (next_step == true) {
+            resume[8] = $('#address').val();
+            resume[9] = $('#city').val();
+            resume[10] = $('#beighborhood').val();
+            resume[11] = $('#state').val();
+         }
+      }// Final StepAddress
+      else if (idFieldset == "stepSocial") {
+         if (next_step == true) {
+            resume[12] = $('#facebook').val();
+            resume[13] = $('#twitter').val();
+            resume[14] = $('#linkedin').val();
+            resume[15] = $('#instagram').val();
+            resume[16] = $('#github').val();
+            resume[17] = $('#web').val();
+         }
+      }
       else if (idFieldset == "stepAcademic") {
          //Identifica todos os Radios e valida se opções foram selecionada
          radios = window.returnRadios(idFieldset);
@@ -529,28 +599,25 @@ jQuery(document).ready(function() {
                $(datasPicker[i]).datepicker('setDate', null);
             }
             else {
-               if (!temp) {next_step = false;}    
+               if (!temp) {next_step = false;}
             }
          }
          offMessage(idFieldset);//Função Ocultar Mensagens Front
       }//Final StepAcademic
       else if (idFieldset == "stepCourse") {
-       
          var inputNumeros = window.returnNumeros(idFieldset);
          for (var i = 0; i < inputNumeros.length; i++) {
             temp = window.validaNumeros(idFieldset, inputNumeros[i]);
-            if (!temp) {next_step = false;}    
+            if (!temp) {next_step = false;}
          }
-
-
          //Identifica todos os DatePicker e valida se Data Válida
          datasPicker = window.returnDatas(idFieldset);
          for (var i = 0; i < datasPicker.length; i++) {
             temp = window.validaData(idFieldset, datasPicker[i]);
-            if (!temp) {next_step = false;}    
+            if (!temp) {next_step = false;}
          }
          offMessage(idFieldset);//Função Ocultar Mensagens Front
-      }
+      }//Final StepCourse
       else if (idFieldset == "stepProfessional") {
          //Identifica todos os DatePicker e valida se Data Válida
          datasPicker = window.returnDatas(idFieldset);
@@ -561,13 +628,13 @@ jQuery(document).ready(function() {
             }
             else {
                //Verifica Período de Entrada e Saída Válida
-               temp = window.validaPeriodo(idFieldset, datasPicker[i], datasPicker[i+1]); 
+               temp = window.validaPeriodo(idFieldset, datasPicker[i], datasPicker[i+1]);
             }
             if (!temp) {next_step = false;}
             i = i + 1;
          }
 
-         //Identifica todos osTextArea 
+         //Identifica todos osTextArea
          textsAreas = window.returnTextArea(idFieldset);
          for (var i = 0; i < textsAreas.length; i++) {
             //temp = window.validaData(idFieldset, textsAreas[i]);
@@ -576,7 +643,7 @@ jQuery(document).ready(function() {
 
          }
          offMessage(idFieldset);//Função Ocultar Mensagens Front
-      }
+      }//Final StepProfessional
       else if (idFieldset == "stepCertification") {
          if (!$(this).hasClass("inputData")) {
             if( $(this).val() == -1 ) {
@@ -590,20 +657,30 @@ jQuery(document).ready(function() {
                $(this).removeClass('input-error');
             }
          }
-      }
+         if (next_step) {
+            resume[18] = $('#microsft').val();
+            resume[19] = $('#linux').val();
+            resume[20] = $('#cisco').val();
+            resume[21] = $('#virtualizacaom').val();
+            resume[22] = $('#pmi').val();
+            resume[23] = $('#agile').val();
+            resume[24] = $('#itil').val();
+            loadResume();
+         }
+      }//Final StepCertification
 
       /*
       * Contole de Avanço e Validação de Erros
       *
       */
       if (! form.valid()) {
-         if (next_step) { 
+         if (next_step) {
             next_step = false; //Desabilita o Button de Avançar o Formulário
             msgRodape = ": ( Ops! Dados com Formatos Incorretos <strong> nos Campos Indicados!</strong>.";
          }
          else {
-            msgRodape = ": ( Bhurrr! Não Foram Informadas <strong> Opções Obrigatórias </strong>.";                
-         }       
+            msgRodape = ": ( Bhurrr! Não Foram Informadas <strong> Opções Obrigatórias </strong>.";
+         }
       }
       else {
          msgRodape = ": ( Bhurrr! Verifique <strong> Opções Obrigatórias </strong>.";
@@ -615,10 +692,10 @@ jQuery(document).ready(function() {
          });
       }
       else {
-         var msg100 = "#msg-" + id;            
+         var msg100 = "#msg-" + id;
          msgValidacao( msg100, msgRodape );
-      }      
-      
+      }
+
       //Verifica se Step de Avanço está Habilitado
     	/*if( next_step ) {
     		parent_fieldset.fadeOut(400, function() {
@@ -628,25 +705,10 @@ jQuery(document).ready(function() {
 
    });
 
-   $( "#loader" ).on( "click", function() {
-            resume[0] = $('#name').val();
-            resume[1] = $('#last_name').val();
-
-      $("#resumeNome")
-      .html("")
-      .html(resume[0] + " " + resume[1])
-      .show();
-      $("#resumeLastNome")
-      .html("")
-      .html("Profissonal: " + resume[2])
-      .show();
-      $("#resumeAbout")
-      .html("")
-      .html(resume[3])
-      .show();
-
-   });
-
+   /*
+   * Função para habilitar/desabilitar
+   * InputDate DataPicker de Trabalho Atual
+   */
    $( "#atual" ).on( "click", function() {
       if ( ! $('input[type="checkbox"][name="atual"]').is(':checked') ) {
          $('#boxDataOut').show(1000);
@@ -678,16 +740,14 @@ jQuery(document).ready(function() {
    		$(this).prev().fadeIn();
    	});
    });
-    
-    // submit
-   //$('.registration-form').on('submit', function(e) {
-   $('.registration-form .btn-finish').on('click', function(e) {   
+
+   // submit
+   $('.registration-form .btn-finish').on('click', function(e) {
       parent_fieldset = $(this).parents('fieldset');
       idFieldset = parent_fieldset.attr("id");
 
-
     	/*parent_fieldset.find('input[type="text"], input[type="password"], select').each(function() {
-         if (!$(this).hasClass("inputData")) { 
+         if (!$(this).hasClass("inputData")) {
             if( $(this).val() == -1 ) {
                e.preventDefault();
         			$(this).addClass('input-error');

@@ -1,0 +1,227 @@
+		<!-- Top content -->
+		<div class="top-content">
+			<div class="inner-bg">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-8 col-sm-offset-2 form-box">
+							<?php echo (isset($this->alert) ? $this->alert : ''); ?>
+							<form action="<?php echo BASE; ?>cadastro/cadastrar/" method="post" id="registration-form" class="registration-form">
+								<!--
+								   Passo Formulario Dados Pessoais
+								-->
+								<fieldset id="stepPersonal">
+									<div class="form-top">
+										<div class="form-top-left">
+											<h3>Passo 1 / 8</h3>
+											<p>Dados Pessoais:</p>
+										</div>
+										<div class="form-top-right">
+											<i class="fa fa-user"></i>
+										</div>
+									</div><!-- </form-top> -->
+									<div class="form-bottom">
+	                           <!--
+	                           	1º Linha Formulario Dados Pessoais
+	                           -->
+	                           <div class="row">
+	                           	<div class="col-md-4">
+	                           		<div class="form-group">
+	                           			<!--<label class="sr-only" for="name">Nome</label>-->
+	                           			<input type="text" name="name" id="name" placeholder="Nome" class="form-control academic" value="<?php echo $this->request->post('name') ?>" >
+	                           		</div><!-- </form-group> -->
+	                           	</div><!-- </col-md-4> -->
+	                           	<div class="col-md-8">
+	                           		<div class="form-group">
+	                           			<label class="sr-only" for="form_last_name">Sobrenome</label>
+	                           			<input type="text" name="last_name" id="last_name" placeholder="Sobrenome" class="form-control academic">
+	                           		</div><!-- </form-group> -->
+	                           	</div><!-- </col-md-8> -->
+	                           </div><!-- </row> -->
+
+										<!--
+											3º Linha Formulario Acadêmico
+										-->
+										<div class="row wraper_conclusion centered" id="wraper_conclusion">
+											<div class="col-md-6" id="boxDataConclusion" >
+												<div class="dataContainer" id="dataContainer">
+													<label for="birth_date" class="sr-only">Data Aniversário:</label>
+													<div class="input-group date">
+														<input type="text" class="inputData" name="birth_date" id="birth_date" Placeholder="Aniversário" value="<?php echo $this->request->post('date_conclusion') ?>">
+														<span class="input-group-addon">
+															<i class="glyphicon glyphicon-th"></i>
+														</span>
+													</div><!-- </input-group date> -->
+
+													<div class="msgFront1" name="msgFront">
+														<span class="mensagem" name="mensagem"></span>
+													</div>
+
+												</div><!-- </col-md-6 centered> -->
+											</div><!-- </boxDataConclusion>-->
+											<div class="col-md-6">
+												<div class="form-group">
+													<label class="sr-only" for="celular">Celular</label>
+													<input type="text" class="form-control academic" name="celular" id="celular" placeholder="(00) 90000-0000" value="<?php echo $this->request->post('celular') ?>" >
+													<div class="help-block with-errors"></div>
+												</div><!-- </form-group> -->
+											</div><!-- </col-md-6> -->
+										</div><!-- </row> -->
+	                           <!--
+	                           	3º Linha Formulario Dados Pessoais
+	                           -->
+										<div class="row">
+											<div class="form-group">
+												<div class="col-md-8 centered boxRadio" id="boxAniver">
+													<div class="row">
+														<div class="col-md-6">
+															<div class="form-group">
+																<input type="radio" name="scope" id="scope01" class="radio-academic" value="1">
+																<span>Microsoft</span>
+															</div><!-- </form-group> -->
+														</div><!-- </col-md-6> -->
+														<div class="col-md-6">
+															<div class="form-group">
+																<input type="radio" name="scope" id="scope01" class="radio-academic" value="2">
+																<span>Linux</span>
+															</div><!-- </form-group> -->
+														</div><!-- </col-md-6> -->
+													</div>
+												</div><!-- </boxRadio> -->
+											</div><!-- </form-group> -->
+										</div><!-- </row> Final 3º Linha -->
+		                        <!--
+		                        	4º Linha Formulario Dados Pessoais
+		                        -->
+		                        <div class="row">
+		                        	<div class="col-md-12">
+		                        		<div class="form-group">
+		                        			<label class="sr-only" for="form-about-yourself">Resumo Sobre Mim</label>
+		                        			<textarea name="about" id="about" placeholder="Resumo Sobre Mim..." class="form-about-yourself form-control"></textarea>
+		                        		</div><!-- </form-group> -->
+		                        	</div><!-- </col-md-12> -->
+		                        </div><!-- </row> 4º Linha -->
+		                        <!--
+		                        	Linha de Contole Formulario Dados Pessoais
+		                        -->
+		                        <div class="row">
+		                        	<div class="col-md-12">
+		                        		<div class="form-group">
+		                        			<button type="button" class="btn-next" id="step01" value="Validate!">
+		                        				<i class="fa fa-arrow-right"></i>
+		                        				<span>Próximo</span>
+		                        			</button>
+		                        		</div><!-- </form-group> -->
+		                        		<div class="form-group">
+		                        			<div class="msgbox" id="msg-step01">
+						               			<span></span>
+						            			</div>
+						            		</div>
+		                        	</div><!-- </col-md-12> -->
+		                        </div><!-- </row> -->
+	                     	</div><!-- </form-bottom> -->
+	                  	</fieldset>
+								<!--
+									Passo Foto Avatar Perfil
+								-->
+								<fieldset id="stepAvatar">
+									<div class="form-top">
+										<div class="form-top-left">
+											<h3>Foto</h3>
+											<p>Imagem Avatar de Perfil:</p>
+										</div>
+										<div class="form-top-right">
+											<i class="fa-graduation-cap"></i>
+										</div>
+									</div><!-- </form-top> Header and Title Fieldset -->
+									<div class="form-bottom">
+
+										<div class="row">
+											<div class="col-md-8">
+												<div class="row">
+												  	<div class="col-md-10">
+												    	<p><strong>Nome do Usuário</strong></p>
+												   	<p class="resumo" id= resumeNome></p>
+												  	</div>
+												</div> <!-- .row -->
+
+												<div class="row">
+												  	<div class="col-md-8">
+												   	<p class="resumo" id="resumeProfessional"></p>
+												  	</div>
+												</div> <!-- .row -->
+
+												<div class="row">
+												  	<div class="col-md-4">
+												    	<p><strong>Data Nascimento</strong></p>
+												    	<p class="resumo" id="resumeDataNasc"></p>
+												  	</div>
+												  	<div class="col-md-4">
+												    	<p><strong>Telefone</strong></p>
+												    	<p class="resumo" id="resumeCelular"></p>
+												  	</div>
+												</div> <!-- .row -->
+
+												<div class="row">
+												  	<div class="col-md-4">
+												    	<p><strong>Sobre</strong></p>
+														<p class="resumo" id="resumeAbout"></p>
+												  	</div>
+												</div> <!-- .row -->
+
+
+											</div>
+
+											<div class="col-md-4">
+												<div class="row">
+													<div class="col-md-12 centered" id="wrapper">
+
+														<div class="row">
+															<div class="col-md-10 centered">
+																<div id="image-holder">
+																	<img src="<?php echo BASE . 'public/uploads/users/default/userdefault.png'; ?>" height="160" width="160" alt="">
+																</div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-md-12">
+																<div class="box-input">
+																	<input type="file" name="file-1[]" id="file-1" class="upFile upFile-1" data-multiple-caption="{count} files selected" multiple />
+																	<label for="file-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> <span>Selecionar Foto</span></label>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+
+										</div>
+										<hr/><!-- Traço separador do Repeater -->
+										<!--
+											Linha de Contole Formulario Historico Profissional
+										-->
+										<div class="row">
+											<div class="col-md-12">
+												<div class="form-group">
+													<button type="button" class="btn-previous">
+														<i class="fa fa-arrow-left"></i>
+														<span>Previous</span>
+													</button>
+													<button type="button" class="btn-finish">
+														<i class="fa fa-user"></i>
+														<span>Sign UP</span>
+													</button>
+													<button type="button" class="btn-load" id="loader">
+														<i class="fa fa-load"></i>
+														<span>Load</span>
+													</button>
+												</div><!-- </form-group> -->
+											</div><!-- </col-md-12> -->
+										</div><!-- </row> -->
+									</div><!-- </form-bottom> -->
+								</fieldset><!-- </Step Foto Avatar > -->
+							</form>
+						</div><!-- </form-box> -->
+					</div><!-- </row>  -->
+				</div><!-- </container>  -->
+			</div><!-- </inner-bg> -->
+		</div><!-- </top-content> -->
