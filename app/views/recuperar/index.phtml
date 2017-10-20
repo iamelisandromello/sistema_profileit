@@ -1,31 +1,27 @@
-                <div class="container">          
-                  <header>                  
-                    <h1> <strong>ProfileIT</strong> Sistema Colaborativo</h1>
-                    <h2>Otimize seus Relacionamnetos Profissionais</h2>         
-
-                    <div class="support-note">
-                      <span class="note-ie">Sorry, only modern browsers.</span>
-                    </div>
-                    
-                  </header>
-                  
-                  <section class="main">
-                    <?php echo (isset($this->alert) ? $this->alert : ''); ?>
-                    <form class="form-recovery clearfix" action="<?php echo BASE; ?>recuperar/solicitar/"  method="post">        
-                      <p>
-                        <input type="email" name="email" class="form-control" id="email" placeholder="youremail@domain.com" value="<?php echo $this->request->post('email') ?>">
-                      </p>
-                      <button type="submit" name="submit">
-                        <i class="fa fa-envelope"></i>
-                        <span>Send Link</span>
-                      </button>  
-                      <a href="<?php echo BASE . 'login/sair'; ?>">      
-                        <button type="button" id="cancel" value="cancel" name="cancel"> 
-                        <i class="fa fa-ban"></i>
-                        <span>Cancel</span>
-                      </button>
-                      </a>   
+   	<!-- Top content -->
+   	<div class="top-content">
+   		<div class="inner-bg">
+   			<div class="container">
+   				<div class="row">
+   					<div class="col-sm-8 col-sm-offset-2 form-box">
+                     <?php echo (isset($this->alert) ? $this->alert : ''); ?>
+                     <form class="form-recovery form-before clearfix" action="<?php echo BASE; ?>recuperar/solicitar/"  method="post">
+                        <p>
+                           <input type="email" name="email" class="form-control" id="email" placeholder="youremail@domain.com" value="<?php echo $this->request->post('email') ?>">
+                        </p>
+                        <button type="submit" name="submit">
+                           <i class="fa fa-envelope"></i>
+                           <span>Send Link</span>
+                        </button>
+                        <a href="<?php echo BASE . 'login/sair'; ?>">
+                           <button type="button" id="cancel" value="cancel" name="cancel"> 
+                              <i class="fa fa-ban"></i>
+                           <span>Cancel</span>
+                           </button>
+                        </a>
                     </form>​​​​
-                  </section>
-                  
-                </div>
+   					</div><!-- </form-box> -->
+   				</div><!-- </row> -->
+   			</div><!-- </container> -->
+   		</div><!-- </inner-bg> -->
+   	</div><!-- </top-content> -->

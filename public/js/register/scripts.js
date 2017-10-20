@@ -705,6 +705,22 @@ jQuery(document).ready(function() {
 
    });
 
+   $('.registration-form .btn-teste').on('click', function(e) {
+      var idFinal = $(this).attr("id"); // captura o ID do Button Step
+      if ($('.upFile')[0].files.length == 0) {
+         msgRodape = ": ( Bhurrr! Carregue uma <strong> foto para seu Avatar </strong>.";
+         next_step = false;
+         $('.boxFoto').addClass('input-error');
+         var msg100 = "#msg-" + idFinal;
+         msgValidacao( msg100, msgRodape );
+      }
+      else {
+         alert('Selecionado');
+      }
+
+   });
+
+
    /*
    * Função para habilitar/desabilitar
    * InputDate DataPicker de Trabalho Atual
@@ -745,6 +761,18 @@ jQuery(document).ready(function() {
    $('.registration-form .btn-finish').on('click', function(e) {
       parent_fieldset = $(this).parents('fieldset');
       idFieldset = parent_fieldset.attr("id");
+      var idFinal = $(this).attr("id"); // captura o ID do Button Step
+      if ($('.upFile')[0].files.length == 0) {
+         msgRodape = ": ( Bhurrr! Carregue uma <strong> foto para seu Avatar </strong>.";
+         next_step = false;
+         $('.boxFoto').addClass('input-error');
+         var msg100 = "#msg-" + idFinal;
+         msgValidacao( msg100, msgRodape );
+      }
+      else {
+         $('.boxFoto').removeClass('input-error');
+         document.getElementById("registration-form").submit();
+      }
 
     	/*parent_fieldset.find('input[type="text"], input[type="password"], select').each(function() {
          if (!$(this).hasClass("inputData")) {

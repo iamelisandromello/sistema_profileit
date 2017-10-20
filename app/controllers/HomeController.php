@@ -11,7 +11,7 @@ class HomeController extends \HXPHP\System\Controller
 		$this->auth->redirectCheck();
 		$this->auth->roleCheck(array(
 		'user', 'administrator'
-		));           
+		));
 
 		$user_id = $this->auth->getUserId();
 		$user = User::find($user_id);

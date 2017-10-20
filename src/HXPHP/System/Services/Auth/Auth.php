@@ -106,7 +106,8 @@ class Auth
 		$this->storage->set($this->subfolder . '_login_string', $login_string);
 
 		if ($this->redirect)
-			return $this->response->redirectTo($this->url_redirect_answer);
+			return $this->response->redirectTo('http://localhost/profileit/questionario/responder');
+			//return $this->response->redirectTo($this->url_redirect_answer);
 	}
 
 	/**

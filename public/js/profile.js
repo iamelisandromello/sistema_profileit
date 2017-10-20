@@ -63,6 +63,11 @@ jQuery(document).ready(function() {
       valJunior();
    });
 
+   $( "#testeRedirect" ).on( "click", function() {
+      alert('teste');
+      $(location).attr('href', 'http://localhost/profileit/cadastro/voltar');
+   });
+
    /*
    * Função para definir Perfil da Nova Vaga
    *

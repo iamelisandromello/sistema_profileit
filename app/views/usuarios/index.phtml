@@ -1,50 +1,108 @@
-<div class="panel-body">
-	<?php 
-		echo isset($this->menu) ? $this->menu->getMenu() : '';
-		echo (isset($this->alert) ? $this->alert : '');
-	?>
-	<table class="table">
-		<thead>
-			<tr>
-				<th>Nome</th>
-				<th>E-mail</th>
-				<th>About</th>
-				<th>Celular</th>
-				<th>Login</th>
-				<th>Ações</th>
-			</tr>
-		</thead>
-		<tbody>
-			<?php 
-				if ($view_users) : 
-					foreach ($view_users as $user) : 
-			?>
-						<tr>
-							<td><?php echo $user->name; ?></td>
-							<td><?php echo $user->email; ?></td>
-							<td><?php echo $user->username; ?></td>
-							<td><?php echo @$user->registry->about; ?></td>
-							<td><?php echo @$user->registry->celular; ?></td>
-							<td>
-								<?php if ($user->status === 0) : ?>
-									<a href="<?php echo BASE . 'usuarios/desbloquear/' . $user->id; ?>" class="btn btn-xs btn-success">
-										<i class="fa fa-unlock"></i> Desbloquear
-									</a>	
-								<?php else: ?>
-									<a href="<?php echo BASE . 'usuarios/bloquear/' . $user->id; ?>" class="btn btn-xs btn-warning">
-										<i class="fa fa-lock"></i> Bloquear
-									</a>
-								<?php endif; ?>
-								
-								<a href="<?php echo BASE . 'usuarios/excluir/' . $user->id; ?>" class="btn btn-xs btn-danger">
-									<i class="fa fa-trash"></i> Excluir
-								</a>
-							</td>
-						</tr>
-			<?php 
-					endforeach;
-				endif;
-			?>
-		</tbody>
-	</table>
-</div>
+	   <!-- ==============================================
+	   Layout Content Site (Definição de Layout)
+      ====================================-->
+		<div class="layout">
+			<main>
+				<?php echo (isset($this->alert) ? $this->alert : ''); ?>
+				<section class="update-menu">
+					<div class="container">
+						<div class="options-menu">
+							<a class="item-central pointer-cursor" href="home.html">
+								<img src="<?php echo IMAGES; ?>curriculo-tag-miolo.png" alt="Curriculo TAG">
+							</a>
+
+							<a class="icone-lapis pointer-cursor" data-tooltip="Visualizar Alterações" href="<?php echo BASE . 'usuario/'; ?>" >
+								<i class="fa fa-refresh" alt="Edit Curriculo"></i>
+							</a>
+
+							<a class="icone-codigo pointer-cursor" href="<?php echo BASE . 'home/'; ?>" data-tooltip="I’m the tooltip text.">
+								<i class="fa fa-code" alt="Edit Curriculo"></i>
+							</a>
+
+							<a class="icone-coracao pointer-cursor" data-tooltip="Change Questionnaire" href="<?php echo BASE . 'upquestionario/responder/'; ?>">
+								<i class="fa fa-question" alt="Alterar Questionário" ></i>
+							</a>
+
+							<a class="icone-compartilhar pointer-cursor" data-tooltip="Find User." href="home.html">
+								<i class="fa fa-users" alt="Localizar Usuário" ></i>
+							</a>
+						</div><!-- </options-menu> -->
+					</div><!-- </container> -->
+				</section><!-- </update-menu> Section de Menu de Acessos Rápidos-->
+
+
+				<!-- ==============================================
+			   Históric (Historico Profissional e Academico)
+			   =============================================== -->
+			   <section class="update-historic" id="historic">
+			    	<div class="container">
+			    		<!-- TitleSection -->
+			    		<div class="cols">
+			    			<div class="title-section">
+			    				<h2 class="title">Gerenciamento de Usuários<span class="cursor-tag">_</span></h2>
+			    				<h3 class="title-description">Perfis Cadastrados no Sistema.</h3>
+			    			</div>
+			    		</div>
+
+			    		<div class="row">
+			    			<div class="col-md-12 text-center">
+			    				<div class="row">
+			    					<div class="col-md-6 col-xs-12">
+			    						<h3 class="spec">Lista de Usuários</h3>
+			    						<table>
+			    							<thead>
+			    								<tr>
+
+
+			    									<th>Nome</th>
+			    									<th>e-mail</th>
+			    									<th>Usuario</th>
+			    									<th>Celular</th>
+			    									<th>Ações</th>
+			    									<th>Excluir</th>
+			    								</tr>
+			    							</thead>
+											<tbody>
+											<?php 
+												if ($view_users) : 
+													foreach ($view_users as $user) : 
+											?>
+														<tr>
+															<td><?php echo $user->name; ?></td>
+															<td><?php echo $user->email; ?></td>
+															<td><?php echo $user->username; ?></td>
+															<td><?php echo $user->registry->celular; ?></td>
+															<td>
+																<?php if ($user->status === 0) : ?>
+																	<a href="<?php echo BASE . 'usuarios/desbloquear/' . $user->id; ?>" class="btn btn-xs btn-success">
+																		<i class="fa fa-unlock"></i> Desbloquear
+																	</a>
+																<?php else: ?>
+																	<a href="<?php echo BASE . 'usuarios/bloquear/' . $user->id; ?>" class="btn btn-xs btn-warning">
+																		<i class="fa fa-lock"></i> Bloquear
+																	</a>
+																<?php endif; ?>
+															</td>
+															<td>
+																<a href="<?php echo BASE . 'usuarios/excluir/' . $user->id; ?>" class="btn btn-xs btn-danger">
+																	<i class="fa fa-trash"></i> Excluir
+																</a>
+															</td>
+														</tr>
+											<?php
+													endforeach;
+												endif;
+											?>
+										</tbody>
+			    						</table>
+										<div class="separator"></div>
+	    								<!--<div class="md-padder text-center">
+		 									<button type="submit" data-tooltip="Include professional item" class="btn btn-primary btn-lg margin-btm-30"> <i class="fa fa-user"></i> <span class="hidden-xs"> Update </span> Professional </button>
+		 								</div>-->
+			    					</div><!-- </col-sm-12> -->
+			    				</div><!-- </row> -->
+			    			</div><!-- </col-sm-12> -->
+			    		</div><!-- </row> -->
+			    	</div><!-- </container> -->
+			   </section><!--</update-historic> -->
+			</main><!-- </main> Final Corpo de Conteúdo-->

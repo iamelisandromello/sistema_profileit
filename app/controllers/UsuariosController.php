@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class UsuariosController extends \HXPHP\System\Controller
 {
@@ -37,6 +37,13 @@ class UsuariosController extends \HXPHP\System\Controller
 					]);
 	}
 
+	public function indexAction()
+	{
+	   //$this->view->setAssets('css', $this->configs->baseURI . 'public/css/register.css');
+	   $this->view->setHeader('usuarios/header')
+	              ->setFooter('usuarios/footer');
+	}
+
 	public function bloquearAction($user_id = null)
 	{
 		if (is_numeric($user_id)) {
@@ -69,9 +76,23 @@ class UsuariosController extends \HXPHP\System\Controller
 	{
 		if (is_numeric($user_id)) {
 			$user = User::find_by_id($user_id);
+			$academic = Academic::find_by_user_id($user_id);
+			$professional = Professional::find_by_user_id($user_id);
+			$course = Course::find_by_user_id($user_id);
+			$certification = Certification::find_by_user_id($user_id);
+			$registry_id = $user->registry_id;
+			$network_id = $user->network_id;
+			$registry = Registry::find_by_id($registry_id);
+			$network = Network::find_by_id($network_id);
 
 			if (!is_null($user)) {
+				$academic->delete();
+				$professional->delete();
+				$course->delete();
+				$certification->delete();
 				$user->delete();
+				$registry->delete();
+				$network->delete();
 
 				$this->view->setVar('users', User::all());
 			}

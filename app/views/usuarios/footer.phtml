@@ -1,0 +1,271 @@
+			<footer>
+				<!-- ==============================================
+			    Footer (Rodapé)
+			   =============================================== -->
+			   <section class="social-links">
+			    	<div class="container">
+			    		<div class="row">
+			    			<ul>
+			    				<li> <a href="https://www.facebook.com/profile.php?id=1800765934" target="_blank" title=""> <span> <i class="fa fa-facebook"></i> </span> </a> </li>
+			    				<li> <a href="https://twitter.com/elisandromello" target="_blank" title=""> <span> <i class="fa fa-twitter"></i> </span> </a> </li>
+			    				<li> <a href="http://www.linkedin.com/in/elisandromello" target="_blank" title=""> <span> <i class="fa fa-linkedin"></i> </span> </a> </li>
+			    				<li> <a href="http://www.instagram.com/iamelisandromello" target="_blank" title=""> <span> <i class="fa fa-instagram"></i> </span> </a> </li>
+			    				<li> <a href="https://github.com/iamelisandromello" target="_blank" title=""> <span> <i class="fa fa-github"></i> </span> </a> </li>
+			    				<li> <a href="mailto:iam@elisandromello.com.br?subject=Eu tenho um comentário para você..." title=""><span> <i class="fa fa-envelope"></i></span></a></li>
+			    			</ul>
+			    		</div><!-- /row -->
+			    	</div><!-- /container -->    
+			   </section><!-- </social-links> -->
+
+				<!-- ==============================================
+				   Créditos (Credits)
+				=============================================== --> 
+			   <section class="copyright">
+			   	<div class="container">
+			   		<div class="col-md-12">
+			   			<div class="text-center"> 
+			   				<!-- Logo Header -->
+			   				<section id="fox_footer" class="fox_footer">
+			   					<div>
+			   						<img src="<?php echo IMAGES; ?>logofooter.png" alt="Foxin by Elisandro Mello"> - &copy;<script>document.write(new Date().getFullYear())</script> - Designer coded and designed by <i class="fa fa-cloud-upload"></i> Elisandro Mello
+			   					</div>
+			   				</section><!-- </fox_footer> -->
+			   				<!--/ Logo Header-->
+			   			</div><!-- </text-center> -->
+			   		</div><!-- </col-md-12> -->
+			   	</div><!-- </container> -->
+			   </section><!-- </copyright> -->			
+			</footer>
+			<!-- Back To Top -->
+			<a id="back-to-top" href="#">
+				<i class="font-icon-arrow-simple-up"></i>
+			</a>
+			<!-- End Back to Top -->
+			
+			<!-- ==============================================
+			    Modal Contato (Contact)
+			=============================================== -->
+			<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			    <div class="modal-dialog">
+			    	<div class="modal-content modal-popup">
+			        	<div class="modal-header">
+		            	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		                <h2 class="modal-title">Conclusão</h2>
+			        	</div><!-- </modal-header> -->
+    					<div class="row">
+							<div class="col-md-10 centered">
+								<div class="modal-containerStep">
+									<span class="step-num">1</span>
+									<div class="modal-text">
+										Incluir Data de Conclusão
+									</div><!-- </modal-text> -->
+								</div><!-- </moldal-containerStep> -->
+							</div><!-- </col-md-10> -->
+						</div><!-- </row>  -->
+						<form method="POST" action="<?php echo BASE; ?>perfil/upconclusion/" onsubmit="myFunction()" name="addconclusion" id="addconclusion" >
+							<!-- Inicio Grupo Componente -->
+							<div class="row">
+								<div class="col-md-6 centered">
+									<div class="modal-groupForm">
+										<div class="grupo-input">
+											<input type="text" name="modalId" id="modalId" class="input-modal hideme" readonly>
+										</div><!-- </grupo-input> -->
+									</div><!-- </modal-groupForm> -->
+								</div><!-- </col-md-6 centered> -->
+							</div><!-- </row> -->
+							<div class="row">
+								<div class="col-md-6 centered" id="sandbox-container">
+									<div class="input-group date">
+										<input type="text" name="date_conclusion" id="date_conclusion" class="input-modal" placeholder="00/00/0000">
+										<span class="input-group-addon">
+											<i class="glyphicon glyphicon-th"></i>
+										</span>
+									</div><!-- </input-group date> -->
+								</div><!-- </col-md-6 centered> -->
+							</div><!-- </row> -->
+							<button type="button" class="btn btn-default" data-dismiss="modal" onclick="academicConclusion()">Concluir</button>
+		            </form>
+			      </div><!-- </modal-content> -->
+			   </div><!-- </modal-dialog> -->
+			</div><!-- </modal fade> -->
+			<!-- ==============================================
+			   Modal Acadêmico (Contact)
+			=============================================== -->
+			<div class="modal fade" id="formAcademic" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			    <div class="modal-dialog">
+			    	<div class="modal-content modal-popup">
+			        	<div class="modal-header">
+		            	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		                <h2 class="modal-title">Incluir Nova Formação</h2>
+			        	</div><!-- </modal-header> -->
+						<div class="row">
+							<div class="col-lg-12 col-md-12">
+				         	<div class="">
+				         		<div class="header">
+				         			<h4 class="title"></h4>
+				         		</div><!-- </header> -->
+				         		<div class="content">
+				         			<form method="POST" action="<?php echo BASE; ?>temp/cadastrar/" id="addAcademicForm" class="addAcademicForm">
+				         				<fieldset>
+					         				<div class="row">
+					         					<div class="col-md-12">
+					         						<div class="form-group">
+					         							<input type="text" name="addCurso" id="addCurso" class="input-modal" placeholder="Curso" >
+					         						</div><!-- </form-group> -->
+					         					</div><!-- </col-md-12> -->
+					         				</div><!-- </row> 1º Linha do formulario --> 
+
+					         				<div class="row">
+					         					<div class="col-md-12">
+					         						<div class="form-group">
+					         							<input type="text" name="addInstituicao" id="addInstituicao" class="input-modal" placeholder="Instituição" >
+					         						</div><!-- </form-group> -->
+					         					</div><!-- </col-md-4> -->
+					         				</div><!-- </row> 2º Linha do formulario -->
+
+					         				<div class="row">
+					         					<div class="col-md-6">
+					         						<div class="form-group">
+					         							<input type="text" class="input-modal" name="addLocal" id="addLocal" placeholder="Local" >
+					         						</div><!-- </form-group> -->
+					         					</div><!-- </col-md-4> --> 
+													<div class="col-md-6">
+					         						<div class="form-group">
+															<select name="addLevel" class="select-modal selectpicker" >
+																<option class="opt-placeholder" value="-1" selected="" data-type="pos">
+																	Nivel…
+																</option>
+																<option>
+																	Graduação
+																</option>
+																<option>
+																	Tecnólogo
+																</option>
+																<option value="310229553" data-type="pos">
+																	Técnico
+																</option>
+																<option>
+																	Médio
+																</option>											
+																<option>
+																	Pós Profissional
+																</option>				
+																<option>
+																	Mestrado
+																</option>
+																<option value="178533085" data-type="edu">
+																	Doutorado
+																<option>
+															</select>
+					         						</div><!-- </form-group> -->
+					         					</div><!-- </col-md-4> -->
+					         				</div><!-- </row> 3º Linha do formulario --> 
+												
+												<div class="row titleRadio">
+													<div class="col-md-12">
+														<label>NIVEL DA FORMAÇÃO</label>
+													</div>
+												</div>
+					         				<div class="row boxRadio" id="boxRadio">
+					         					<div class="col-md-4">
+					         						<div class="form-group">
+															<input type="radio" id="level01" name="addAcademic" class="radio-academic academic" value="1">
+                            						<label for="level01"><span></span>Completo</label>
+					         						</div><!-- </form-group> -->
+					         					</div><!-- </col-md-4> -->
+					         					<div class="col-md-4">	
+					         						<div class="form-group">
+															<input type="radio" id="level02" name="addAcademic" class="radio-academic academic" value="2">
+                            						<label for="level02"><span></span>Trancado</label>
+					         						</div><!-- </form-group> -->
+					         					</div><!-- </col-md-4> -->
+					         					<div class="col-md-4">
+					         						<div class="form-group">
+															<input type="radio" id="level03" name="addAcademic" class="radio-academic academic" value="3">
+                            						<label for="level03"><span></span>em Andamento</label>
+					         						</div><!-- </form-group> -->
+					         					</div><!-- </col-md-4> -->
+					         				</div><!-- </row> 4º Linha do formulario -->
+
+												<div id="boxDataConclusion">
+												<div class="row">
+													<div class="col-md-6 centered" id="sandbox-container">
+														<label for="">Incluir Data de Conclusão</label>
+														<div class="input-group date">
+															<input type="text" name="adddate_conclusion" id="adddate_conclusion" class="input-modal" placeholder="00/00/0000">
+															<span class="input-group-addon">
+																<i class="glyphicon glyphicon-th"></i>
+															</span>
+														</div><!-- </input-group date> -->
+													</div><!-- </col-md-6 centered> -->
+												</div><!-- </row> 4º Linha do formulario -->
+												</div>
+												<button type="button" class="btn btn-default btn-UpAcademic" >Add Formação</button>
+												
+								            <div class="row">
+								            	<div class="col-md-12 msgbox" id="msg-box3">
+								               	<span></span>
+								            	</div>
+								            </div>
+
+				         				</fieldset>
+				         			</form>
+				         		</div><!-- </content> -->
+				         	</div>
+				         </div><!-- </col-md-12> -->
+						</div><!-- </row> -->
+			      </div><!-- </modal-content> -->
+			   </div><!-- </modal-dialog> -->
+			</div><!-- </modal fade> -->
+
+			<!-- ==============================================
+			End Session Modal's (Final área de modal's)
+			=============================================== -->
+
+
+		</div><!--  </layout> Final do Layout Visivel-->
+		
+		<!-- ==============================================
+		Javascripts
+		================================================== -->
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="<?php echo BOWER; ?>jquery/dist/jquery.min.js"></script>
+		<!-- Bootstrap -->
+		<script src="<?php echo BOWER; ?>bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
+		<!-- Inclua os plugins compilados (abaixo) ou inclua arquivos individuais conforme necessário -->
+		<!-- WOW --> 
+		<script src="<?php echo BOWER; ?>wow/dist/wow.min.js"></script>
+		<!-- ScrollTo -->
+		<script src="<?php echo BOWER; ?>jquery.scrollTo/jquery.scrollTo.min.js"></script>	<!-- Easing -->
+		<script src="<?php echo BOWER; ?>jquery.easing/js/jquery.easing.min.js"></script> 
+		<!-- PreLoader -->	
+		<script src="<?php echo BOWER; ?>jpreloader/js/jpreloader.min.js"></script>
+		<!-- Deslocamento Suave Sesões - One Page -->
+		<script src="<?php echo JS; ?>front/smooth-scrolling.js"></script>
+		 <!-- Default JS Pagina Update-->
+		<script src="<?php echo JS; ?>front/main-update.js"></script>
+		<script src="<?php echo JS; ?>boxmessage.js"></script>		
+		<script src="<?php echo JS; ?>competency.js"></script>
+		<script src="<?php echo JS; ?>edit/academic.js"></script>	
+
+		<!-- Tuner ACessibilidade de Cores -->
+		<script src="<?php echo TUNER; ?>js/tuner.js"></script>
+		<div id="tuner" class="tuner">
+			<label>Theme Colors</label>
+			<ul class="colors">
+				<li data-color="orange" class="color-orange"><span></span></li>
+				<li data-color="purple" class="color-purple"><span></span></li>
+				<li data-color="green" class="color-green"><span></span></li>
+				<li data-color="pink" class="color-pink"><span></span></li>
+				<li data-color="blue" class="color-blue active"><span></span></li>
+				<li data-color="cyan" class="color-cyan"><span></span></li>
+			</ul>
+			<label>Layout Styles</label>
+			<ul class="layouts">
+				<li data-layout="boxed">Boxed</li>
+				<li data-layout="widescreen" class="active">Widescreen</li>
+			</ul>
+			<i id="tuner-switcher" class="fa fa-cogs"></i>
+		</div><!--/ tuner -->
+	</body>
+</html>

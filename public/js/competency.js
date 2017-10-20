@@ -1,23 +1,23 @@
 jQuery(document).ready(function() {
-    
+
 	/**
 	* <b>editReturn:</b> Recebe o <Return> da função de Confirmação[triggerConfirmUp], direcionando para o Controller de Execução ou para a Função de Cancelamento [window.cancelar].
 	* @param data return de True ou False da Confirmação
 	* @param nome Usuário Logado que está executando o processo
-	* @param idCompetency ID da competência que será atualizada no BD 
+	* @param idCompetency ID da competência que será atualizada no BD
 	* @param levele novo valor da competência a ser atualizada
 	*/
 	window.editReturn = function(data, nome, idCompetency, level) {
-		if (data){   
+		if (data) {
 		   $(location).attr('href', 'http://localhost/profileit/perfil/upcompetency/' + idCompetency + '/' + level);
 		}
 		else{
-			  window.cancelar(nome);    
+			  window.cancelar(nome);
 		}
 	}
 
 	window.delReturn = function(data, nome, idCompetency) {
-		if (data){   
+		if (data){
 		   $(location).attr('href', 'http://localhost/profileit/perfil/delcompetency/' + idCompetency);
 		}
 		else{

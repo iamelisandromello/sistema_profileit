@@ -355,11 +355,11 @@ ul.post-social li a:hover {
 
 
 input[type="radio"] + label span {
-  background-color: #e4812a;
+  background-color: #666262;
 }
 
 input[type="radio"]:checked + label span {
-  background-color: #e4812a;
+  background-color: #0fb5b3;
 }
 
 

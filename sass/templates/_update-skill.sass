@@ -3,11 +3,45 @@
 	min-height: 20px
 	padding: 19px
 	margin-bottom: 20px
-	+gradient(90deg, $Aqualicious2, $Aqualicious1)
-	border: 1px solid #e3e3e3
-	border-radius: 4px
-	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.05)
-	box-shadow: inset 0px 1px 1px rgba(0,0,0,0.05)
+	/*+gradient(90deg, $Aqualicious2, $Aqualicious1)*/
+	background: white
+
+	.selectUpSkill
+		+breakpoint($medium $widescreen)
+			.form-control
+				height: 34px
+				padding: 6px 6px
+				font-size: 12px
+		+breakpoint($default $tablet)
+			.form-control
+				margin-top: 25px !important
+				margin-bottom: 0px
+				width: 30% !important
+		+breakpoint($small)
+			.form-control
+				margin-top: 0px !important
+				margin-bottom: 0px
+
+	.boxButton
+	+breakpoint($medium $widescreen)
+		button
+			padding: 5px 8px !important
+			.fa
+				font-size: 17px
+			span
+				display: none
+	.boxTitles
+		display: none
+		+breakpoint($extra-large)
+			display: block
+
 	.box-input
 		margin-top: 10px
 		margin-bottom: 10px
+		+breakpoint($extra-small)
+			a
+				padding: 5px 8px !important
+				.fa
+					font-size: 17px
+			span
+				display: none

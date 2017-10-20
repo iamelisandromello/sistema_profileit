@@ -4,18 +4,18 @@
    			<div class="container">
    				<div class="row">
    					<div class="col-sm-8 col-sm-offset-2 form-box">
-                     <?php echo (isset($this->alert) ? $this->alert : ''); ?>   						
-                     <form class="form-user clearfix" role="form" data-toggle="validator" action="<?php echo BASE; ?>login/logar/" method="post"> 
+                     <?php echo (isset($this->alert) ? $this->alert : ''); ?>
+                     <form class="form-user form-before clearfix" role="form" data-toggle="validator" action="<?php echo BASE; ?>login/logar/" method="post">
                         <p>
-                           <input type="text" name="username" id="username" value="<?php echo $this->request->post('username') ?>" placeholder="Usuário">       
+                           <input type="text" name="username" id="username" value="<?php echo $this->request->post('username') ?>" placeholder="Usuário">
                            <input type="password" name="password" id="password" placeholder="Sua Senha">
                         </p>
                         <button type="submit" name="submit">
                            <i class="fa fa-arrow-right"></i>
                            <span>Acessar</span>
-                        </button>  
-                        <a href="<?php echo BASE . 'cadastro/'; ?>" >     
-                           <button type="button" id="register" value="register" name="register">   
+                        </button>
+                        <a href="<?php echo BASE . 'cadastro/'; ?>" >
+                           <button type="button" id="register" value="register" name="register">
                               <i class="fa fa-user"></i>
                               <span>Registrar</span>
                            </button>

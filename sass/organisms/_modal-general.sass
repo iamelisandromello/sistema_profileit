@@ -1,8 +1,8 @@
 /*---------------------------------------
-/*   Personalização de Modal Geral             
+/*   Personalização de Modal Geral
 /*---------------------------------------
 .modal-dialog .modal-content
-  background-color: #535bd4
+  +gradient(90deg, $royal2, $royal1)
   border: none
   border-radius: 2px
   text-align: center
@@ -80,7 +80,7 @@
       border-left-color: transparent
       border-bottom-color: #ffffff
   form input[type="submit"]
-    background: #1dc9e3
+    background: $cyan
     border: 3px solid transparent
     border-radius: 100px
     font-weight: 400
@@ -90,10 +90,10 @@
     margin-top: 30px
     &:hover
       background: transparent
-      border-color: #1dc9e3
+      border-color: $cyan
       color: #ffffff
   form button
-    background: #1dc9e3
+    background: $cyan
     border: 3px solid transparent
     border-radius: 100px
     font-weight: 400
@@ -105,7 +105,7 @@
     width: 100%
     &:hover
       background: transparent
-      border-color: #1dc9e3
+      border-color: $cyan
       color: #ffffff
   .form-control
     &::-moz-placeholder

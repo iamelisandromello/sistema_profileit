@@ -9,7 +9,7 @@ class CadastroController extends \HXPHP\System\Controller
 	              ->setFooter('cadastro/footer');
 	}
 
-    public function __construct($configs)
+   public function __construct($configs)
 	{
 		parent::__construct($configs);
 
@@ -17,21 +17,28 @@ class CadastroController extends \HXPHP\System\Controller
 			'Services\Auth',
 			$configs->auth->after_login,
 			$configs->auth->after_logout,
+			$configs->auth->answer_login,
 			true
 		);
 
 		$this->auth->redirectCheck(true);
 	}
 
-	public function cadastrarAction()
-	{
+	public function voltarAction(){
+		var_dump('teste2');
+		die();
+	}
+
+	public function cadastrarAction(){
+	   $this->view->setHeader('cadastro/header')
+	              ->setFooter('cadastro/footer');
 		$this->view->setFile('index');
 
 		/*$this->request->setCustomFilters(array(
 			'email' => FILTER_VALIDATE_EMAIL
 		));*/
 
-		$post = $this->request->post();	
+		$post = $this->request->post();
 		//array de informações para Novo Usuário
 		$user_data = array(
 			'name'			=> $post['name'],
@@ -42,7 +49,7 @@ class CadastroController extends \HXPHP\System\Controller
 			'scope'			=> $post['scope'],
 			'password'		=> $post['password']
 		);
-	
+
 		//array de informações adicionais para Novo Usuário (Registros)
 		$registry_data = array(
 			'about'		=> $post['about'],
@@ -110,27 +117,13 @@ class CadastroController extends \HXPHP\System\Controller
 		}
 
 		if (!empty($user_data)) {
-			$cadastrarUsuario = User::cadastrar($user_data, $registry_id, $network_id);
 
+			$cadastrarUsuario = User::cadastrar($user_data, $registry_id, $network_id);
 			if ($cadastrarUsuario->status === false) {
 				$this->load('Helpers\Alert', array(
 					'danger',
 					'Ops! Não foi possível efetuar seu cadastro. <br> Verifique os erros abaixo:',
 					$cadastrarUsuario->errors
-				));
-			}
-		}
-
-		//Cadastro de Certificações
-		if (!empty($certification_data)) {
-			$user_id = $cadastrarUsuario->user->id;
-			$cadastrarCertification = Certification::cadastrar($certification_data,$user_id);
-
-			if ($cadastrarCertification->status === false) {
-				$this->load('Helpers\Alert', array(
-					'danger',
-					'Ops! Não foi possível efetuar seu cadastro. <br> Verifique os erros abaixo:',
-					$cadastrarCertification->errors
 				));
 			}
 		}
@@ -186,7 +179,7 @@ class CadastroController extends \HXPHP\System\Controller
 				}
 			}// final do array  multidimensional
 		}
-		
+
 		//Bloco Cadastro de Historico Profissional
 		if (!empty($professional_group)) {
 			$user_id = $cadastrarUsuario->user->id;
@@ -212,6 +205,68 @@ class CadastroController extends \HXPHP\System\Controller
 					//echo "Imagem: {$data}<br>";
 				}
 			}// final do array  multidimensional
+		}//
+
+		//Cadastro de Certificações
+		if (!empty($certification_data)) {
+			$user_id = $cadastrarUsuario->user->id;
+			$cadastrarCertification = Certification::cadastrar($certification_data, $user_id);
+
+			if ($cadastrarCertification->status === false) {
+				$this->load('Helpers\Alert', array(
+					'danger',
+					'Ops! Não foi possível efetuar seu cadastro. <br> Verifique os erros abaixo:',
+					$cadastrarCertification->errors
+				));
+			}
+			else {
+				if (isset($_FILES['image']) && !empty($_FILES['image']['tmp_name'])) {
+					$uploadUserImage = new upload($_FILES['image']);
+
+					if ($uploadUserImage->uploaded) {
+						$image_name = md5(uniqid()); //Cria nome Unico e converte em um Hash
+						$uploadUserImage->file_new_name_body = $image_name; //altera nome do arquivo
+						$uploadUserImage->file_new_name_ext = 'png'; //define extensão PNG
+						$uploadUserImage->resize = true;  //Habilita Resize da Imagem
+						$uploadUserImage->image_x = 500;  //Eixo x
+						$uploadUserImage->image_ratio_y = true; //redefine Eixo Y Proporcional a X
+
+						$dir_path = ROOT_PATH . DS . 'public' . DS . 'uploads' . DS . 'users' . DS . $cadastrarUsuario->user->id . DS;
+						$uploadUserImage->process($dir_path); //Executa o Processo de Upload para o diretório definido
+
+						if ($uploadUserImage->processed) { //valida se imagem foi processada c/ êxito
+							$uploadUserImage->clean();
+							$this->load('Helpers\Alert', array(
+								'success',
+								'Uhuul! Perfil atualizado com sucesso!'
+							));
+
+							if (!is_null($cadastrarUsuario->user->image)) {
+								unlink($dir_path . $cadastrarUsuario->user->image);//caso Imagem já exista apaga
+							}
+
+							$cadastrarUsuario->user->image = $image_name . '.png';
+							$cadastrarUsuario->user->save(false);
+						}
+						else {
+							$this->load('Helpers\Alert', array(
+								'error',
+								'Oops! Não foi possível atualizar a sua imagem de perfil',
+								$uploadUserImage->error
+							));
+						}
+					}
+				}
+				else {
+					$this->load('Helpers\Alert', array(
+						'success',
+						'Uhuul! Perfil atualizado com sucesso!'
+					));
+				}
+
+				$this->view->setVar('user', $atualizarUsuario->user);
+
+			}//else Carregamento Imagem
 
 			try
 			{
@@ -222,10 +277,15 @@ class CadastroController extends \HXPHP\System\Controller
 				$connection->rollback();
 				throw $e;
 			}
-			
-			if ($cadastrarHistoric->status === true) {
-				$this->auth->login($cadastrarUsuario->user->id, $cadastrarUsuario->user->username);
-			}
+
+		}//Final Inclusão Certificações
+
+
+		if ($cadastrarHistoric->status === true) {
+			$this->auth->loginTemp($cadastrarUsuario->user->id, $cadastrarUsuario->user->username, $cadastrarUsuario->user->role->role);
+			//$this->auth->loginTemp($cadastrarUsuario->user->id, $cadastrarUsuario->user->username, $cadastrarUsuario->user->role->role);
 		}
-	}
-}
+
+
+	}//cadastrarAction
+}//CadastroController

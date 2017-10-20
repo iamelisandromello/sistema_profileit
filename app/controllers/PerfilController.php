@@ -66,8 +66,8 @@ class PerfilController extends \HXPHP\System\Controller
 				));
 			}
 			else {
-				if (isset($_FILES['image']) && !empty($_FILES['image']['tmp_name'])) {
-					$uploadUserImage = new upload($_FILES['image']);
+				if (isset($_FILES['file-1']) && !empty($_FILES['file-1']['tmp_name'])) {
+					$uploadUserImage = new upload($_FILES['file-1']);
 
 					if ($uploadUserImage->uploaded) {
 						$image_name = md5(uniqid()); //Cria nome Unico e converte em um Hash
@@ -138,7 +138,7 @@ class PerfilController extends \HXPHP\System\Controller
 				'Ops! Não foi possível atualizar suas competências. <br> Verifique os erros abaixo:',
 				$atualizarCompetency->errors
 			));
-		}			
+		}
 
 		$this->view->setVar('user', $user);
 	}

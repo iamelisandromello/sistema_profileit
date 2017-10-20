@@ -1,8 +1,8 @@
-<?php 
+<?php
 
 class TempController extends \HXPHP\System\Controller
 {
-	
+
 	public function __construct($configs)
 	{
 		parent::__construct($configs);
@@ -14,13 +14,13 @@ class TempController extends \HXPHP\System\Controller
 			true
 		);
 
-		$user_id = $this->auth->getUserId();		
+		$user_id = $this->auth->getUserId();
 	}
 
 
 	public function indexAction()
 	{
-	$cep = '94025-260';	
+	$cep = '94025-260';
 	$this->load(
 		'Services\Correios',
 		$cep // 00000-000
@@ -60,47 +60,46 @@ public function academicAction (){
 	$academic_data = $_POST['academic'];// copiar um arrays de um POST
 	$courses_data = $_POST['course'];// copiar um arrays de um POST
 	$professional_data = $_POST['professional'];// copiar um arrays de um POST
-	
+
 	$qtd = count($_POST['academic']);
 
-		$user_data = array(
-			'name'			=> $post['name'],
-			'last_name'		=> $post['last_name'],
-			'username'		=> $post['username'],
-			'birth_date'	=> $post['birth_date'],
-			'email'			=> $post['email'],
-			'scope'		=> $post['scope'],
-			'password'		=> $post['password']
-		);
-	
-		//array de informações adicionais para Novo Usuário (Registros)
-		$registry_data = array(
-			'about'		=> $post['about'],
-			'celular'	=> $post['celular'],
-			'scope'		=> $post['scope'],
-			'address'	=> $post['address'],
-			'zipcode'	=> $post['zipcode']
-		);
+	$user_data = array(
+		'name'			=> $post['name'],
+		'last_name'		=> $post['last_name'],
+		'username'		=> $post['username'],
+		'birth_date'	=> $post['birth_date'],
+		'email'			=> $post['email'],
+		'password'		=> $post['password']
+	);
 
-		//array de informações adicionais para Novo Usuário (Redes Sociais)
-		$network_data = array(
-			'facebook'	=> $post['facebook'],
-			'linkedin'	=> $post['linkedin'],
-			'github'		=> $post['github'],
-			'web'			=> $post['web'],
-			'instagram' => $post['instagram'],
-			'twitter'	=> $post['twitter']
-		);
+	//array de informações adicionais para Novo Usuário (Registros)
+	$registry_data = array(
+		'about'		=> $post['about'],
+		'celular'	=> $post['celular'],
+		'scope'		=> $post['scope'],
+		'address'	=> $post['address'],
+		'zipcode'	=> $post['zipcode']
+	);
 
-		$certification_data = array(
-			'microsoft'		=> $post['microsoft'],
-			'linux'			=> $post['linux'],
-			'cisco'			=> $post['cisco'],
-			'virtualizacao'=> $post['virtualizacao'],
-			'pmi' 			=> $post['pmi'],
-			'agile' 			=> $post['agile'],
-			'itil'			=> $post['itil']
-		);
+	//array de informações adicionais para Novo Usuário (Redes Sociais)
+	$network_data = array(
+		'facebook'	=> $post['facebook'],
+		'linkedin'	=> $post['linkedin'],
+		'github'		=> $post['github'],
+		'web'			=> $post['web'],
+		'instagram' => $post['instagram'],
+		'twitter'	=> $post['twitter']
+	);
+
+	$certification_data = array(
+		'microsoft'		=> $post['microsoft'],
+		'linux'			=> $post['linux'],
+		'cisco'			=> $post['cisco'],
+		'virtualizacao'=> $post['virtualizacao'],
+		'pmi' 			=> $post['pmi'],
+		'agile' 			=> $post['agile'],
+		'itil'			=> $post['itil']
+	);
 
 	foreach ($user_data as $data) {
 		echo $data, '<br/>';
@@ -119,7 +118,7 @@ public function academicAction (){
 	}
 
 
-	if (!empty($academic_data)) {		
+	if (!empty($academic_data)) {
 		foreach($academic_data as $data) {
 			$course_data = array();
 			$colum = 0;
@@ -139,7 +138,7 @@ public function academicAction (){
 		}
 	}
 
-	if (!empty($courses_data)) {		
+	if (!empty($courses_data)) {
 		foreach($courses_data as $data) {
 			$livre_data = array();
 			$colum = 0;
@@ -159,7 +158,7 @@ public function academicAction (){
 		}
 	}
 
-	if (!empty($professional_data)) {		
+	if (!empty($professional_data)) {
 		foreach($professional_data as $data) {
 			$work_data = array();
 			$colum = 0;
@@ -192,7 +191,7 @@ public function academicAction (){
 	$POST = $this->request->post();
 	echo '<pre>';
 	var_dump($POST);
-	echo '<pre>';	
+	echo '<pre>';
 
 	$competencies_data = $POST;// copiar um arrays de um POST
 	$qtd = count($POST);
@@ -214,7 +213,7 @@ foreach($competencies_data as $data)
 	}
 
 		die();
-	}	
+	}
 
 	public function cadastrarAction()
 	{
@@ -246,7 +245,7 @@ foreach($competencies_data as $data)
 	      'level'       		=> $post['addLevel'],
 	      'date_conclusion' => $data,
 	      'status'      		=> $post['addAcademic']
-	   );  
+	   );
 
 		echo('<pre>');
 		var_dump($academic);
@@ -258,8 +257,8 @@ foreach($competencies_data as $data)
 
 	public function experienciaAction() {
 		$post = $this->request->post();
-	
-	echo ("acessando");
+
+		echo ("acessando");
 		$academic_data = $_POST;// copiar um arrays de um POST
 		$qtd = count($_POST);
 
@@ -378,10 +377,10 @@ foreach($competencies_data as $data)
 			$pesosRecuperados = Weight::find_by_id($weigths);//Recupera os Pesos do Atributo
 			$opcaoUser = 'option_' . $valor; //Concatena a expressao com a Opcao Selecionada p/Usuario
 			$pesos_usuario[$i-1] = $pesosRecuperados->$opcaoUser; //Array com os Pesos do Usuario
-			//echo ('Pesos: ' . $pesosRecuperados->$opcaoUser . '<br>');		
+			//echo ('Pesos: ' . $pesosRecuperados->$opcaoUser . '<br>');
 			//echo ('Pesos Array: ' . $pesos_usuario[$i-1]);
 		}
-		
+
 		echo ('<hr>');
 
 		for ($i=0; $i < 15; $i++) { 

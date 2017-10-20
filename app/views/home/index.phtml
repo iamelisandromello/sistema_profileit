@@ -5,14 +5,14 @@
 			<!-- ==============================================
 			Main Start (Inicio do Corpo de Conteúdo)
 			=============================================== -->
-			<main>												
+			<main>
 				<!-- ========================================= -->
 				<!--Section Menu Access(Menu de Acesso Rápido)                            -->
-				<!-- ========================================= -->				
+				<!-- ========================================= -->
 				<section class="update-menu">
 					<div class="container">
-						<div class="options-menu">										
-							<a class="item-central pointer-cursor" href="home.html">
+						<div class="options-menu">
+							<a class="item-central pointer-cursor" href="<?php echo BASE . 'cadastro/voltar/'; ?>">
 								<img src="<?php echo IMAGES; ?>curriculo-tag-miolo.png" alt="Curriculo TAG">
 							</a>
 
@@ -31,7 +31,7 @@
 							<a class="icone-compartilhar pointer-cursor" href="#" data-toggle="modal" data-target="#modal3">
 								<i class="fa fa-users"></i>
 							</a>
-						</div><!-- </options-menu> -->						
+						</div><!-- </options-menu> -->
 					</div><!-- </container> -->
 				</section><!-- </update-menu> --> 
 				<!-- ========================================= -->
@@ -106,7 +106,7 @@
 												</div>
 												<div class="avatar-molde">
 													<img class="avatar-picture wow bounceIn" src="<?php echo IMAGES; ?>profiles/4.jpg" >
-												</div>											
+												</div>
 											</div>
 										</div>
 									</div>
@@ -124,7 +124,7 @@
 												</div>
 												<div class="avatar-molde">
 													<img class="avatar-picture wow bounceIn" src="<?php echo IMAGES; ?>profiles/8.jpg" >
-												</div>											
+												</div>
 											</div>
 										</div>
 									</div>
@@ -142,7 +142,7 @@
 												</div>
 												<div class="avatar-molde">
 													<img class="avatar-picture wow bounceIn" src="<?php echo IMAGES; ?>profiles/12.jpg" >
-												</div>											
+												</div>
 											</div>
 										</div>
 									</div>
@@ -172,7 +172,7 @@
 				<!-- ========================================= -->
 				<!-- Opportuties (Oportunidades Disponiveis)   -->
 				<!-- ========================================= -->
-				<section id="opportunities" class="main-block">
+				<section id="opportunities" class="main-block opportunities">
 					<div class="container text-center">						
 						<!-- Opportunities Title -->
 						<div class="title-main text-left wow fadeIn">
@@ -184,7 +184,7 @@
 								</div><!-- </main-title__left> -->
 								<div class="main-title__right">
 									<p class="resumo">
-										Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer.
+										Através de análise do seu perfil, identificamos algumas vagas disponíveis que se enquadram em suas competências. Contudo você pode realizar consultas de todas as vagas disponíveis atualmente cadastradas no sistema.
 									</p>
 								</div><!-- </main-title__right> -->
 							</div><!-- </main-title__inner> -->
@@ -266,7 +266,7 @@
 				<!-- ==============================================
 			   Recommendations (Acc Recomendações)
 			   =============================================== -->
-				<section id="acc-recommendation" class="main-block">
+				<section id="acc-recommendation" class="main-block acc-recommendation">
 					<div class="container text-center">
 						<!-- Acc RecommendationTitle -->
 						<div class="title-main text-left wow fadeIn">
@@ -278,12 +278,12 @@
 								</div><!-- </main-title__left> -->
 								<div class="main-title__right">
 									<p class="resumo">
-									Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer.
+									Aprove recomendações que foram realizadas por seus colegas, reconhecendo suas competências e conhecimentos. Estas recomendações colaboram para uma melhor apresentação e comprovação de suas experências.
 									</p>
 								</div><!-- </main-title__right> -->
 							</div><!-- </main-title__inner> -->
 						</div><!-- </title-main> -->
-						<!-- End Title Section -->        
+						<!-- End Title Section -->
 
 						<div class="container-recommendation">
 							<?php foreach ($view_user->recommendations as $recommendation):

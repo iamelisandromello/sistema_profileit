@@ -2,7 +2,7 @@
 
 class UsuarioController extends \HXPHP\System\Controller
 {
-	
+
     public function indexAction()
     {
         $this->view->setHeader('usuario/header')

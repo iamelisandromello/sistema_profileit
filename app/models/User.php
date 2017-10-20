@@ -60,7 +60,7 @@ class User extends \HXPHP\System\Model
 		$callbackObj->user = null;// Propriedade usser da classe null
 		$callbackObj->status = false;// Propriedade Status da Classe False
 		$callbackObj->errors = array();// Array padrão de erros vazio
-       
+
       $role = Role::find_by_role('temp');// Define a Role de Usuario para o novo objeto
 
 		// Verifica se a Role Default de Usuario existe
@@ -68,7 +68,7 @@ class User extends \HXPHP\System\Model
 			array_push($callbackObj->errors, 'A role user não existe. Contate o administrador');
 			return $callbackObj;
 		}
-		
+
 		//array de informações adicionais para Novo Usuário
 		$user_data = array(
 			'birth_date'	=> date('Y-m-d',strtotime($post['birth_date'])),

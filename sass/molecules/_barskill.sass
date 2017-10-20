@@ -1,7 +1,3 @@
-.skill-bar
-  +breakpoint($tablet)
-    margin-top: 35px
-
 .skill-bar ul
   list-style: none
   padding: 0
@@ -26,3 +22,26 @@
       color: #fff
       line-height: 40px
       position: absolute
+
+  +breakpoint($medium $widescreen)
+    li
+      margin-bottom: 20px
+      font-size: 14px
+      span
+        right: 15px
+      h5
+        font-size: 14px
+  +breakpoint($default $tablet)
+    +align-items(center)
+    +justify-content(space-around)
+    text-align: center
+    li
+      margin-top: 25px
+      margin-bottom: 0px
+  +breakpoint($small)
+    li
+      width: 70%
+      margin-top: 25px
+      margin-bottom: 0px
+  +breakpoint($extra-small)
+

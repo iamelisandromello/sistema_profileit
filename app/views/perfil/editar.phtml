@@ -3,10 +3,10 @@
       ====================================-->
 		<div class="layout">
 			<main>
-				<?php echo (isset($this->alert) ? $this->alert : ''); ?>	
+				<?php echo (isset($this->alert) ? $this->alert : ''); ?>
 				<section class="update-menu">
 					<div class="container">
-						<div class="options-menu">										
+						<div class="options-menu">
 							<a class="item-central pointer-cursor" href="home.html">
 								<img src="<?php echo IMAGES; ?>curriculo-tag-miolo.png" alt="Curriculo TAG">
 							</a>
@@ -19,25 +19,25 @@
 								<i class="fa fa-code" alt="Edit Curriculo"></i>
 							</a>
 
-							<a class="icone-coracao pointer-cursor" data-tooltip="Change Questionnaire" href="<?php echo BASE . 'upquestionario/responder/'; ?>">
+							<a class="icone-coracao pointer-cursor" data-tooltip="Atualizar Questionário" href="<?php echo BASE . 'upquestionario/responder/'; ?>">
 								<i class="fa fa-question" alt="Alterar Questionário" ></i>
 							</a>
 
-							<a class="icone-compartilhar pointer-cursor" data-tooltip="Find User." href="home.html">
+							<a class="icone-compartilhar pointer-cursor" data-tooltip="Encontrar Usuário." href="home.html">
 								<i class="fa fa-users" alt="Localizar Usuário" ></i>
 							</a>
 						</div><!-- </options-menu> -->
 						<div class="row">
 							<div class="col-md-12">
-									
+
 							</div>
-						</div>				
+						</div>
 					</div><!-- </container> -->
 				</section><!-- </update-menu> Section de Menu de Acessos Rápidos-->
 
 				<section class="update-access" id="access">
 					<div class="container">
-						<div class="row">					
+						<div class="row">
 							<div class="col-sm-6 infos">
 								<div class="row">
 									<div class="col-sm-12">
@@ -65,14 +65,14 @@
 													</div>
 												</div>
 											</picture-profile>
-										
+
 										</div><!-- </quadro1> -->
 									</div><!-- </col-sm-12> -->
 								</div><!-- </row> -->
-							</div><!-- </col-sm-6 infos> -->						
+							</div><!-- </col-sm-6 infos> -->
 							<div class="col-sm-6">
 								<div class="quadro">
-									<h1>Access and login data</h1>
+									<h1>Dados de Acesso e Login</h1>
 									<form>
 										<div class="cols">
 
@@ -80,7 +80,7 @@
 												<div class="form-group">
 													<input type="text" required  placeholder="usuário"  value="<?php echo $view_user->username;?>">
 												</div>
-											</div>											
+											</div>
 
 											<div class="col">
 												<div class="form-group">
@@ -92,33 +92,33 @@
 												<div class="form-group">
 													<input type="password" placeholder="******" />
 												</div>
-											</div>											
+											</div>
 
 											<div class="md-padder text-right">
-												<a class="btn btn-primary btn-lg margin-btm-30" data-tooltip="Change system access." href="update.html" target="_blank"> <i class="fa fa-user"></i> <span class="hidden-xs"> Update </span> Access </a>
+												<a class="btn btn-primary btn-lg margin-btm-30" data-tooltip="Change system access." href="update.html" target="_blank"> <i class="fa fa-user"></i> <span class="hidden-xs"> Atualizar </span> Acesso </a>
 											</div>
-										</div><!-- </cols> -->	
+										</div><!-- </cols> -->
 									</form>
 								</div><!-- </quadro> -->
-							</div><!-- </col-sm-6 infos> -->							
+							</div><!-- </col-sm-6 infos> -->
 						</div><!-- </row> -->
 					</div><!-- </container> -->
 				</section><!-- </update-access> -->
 
 				<!-- ==============================================
 			    Update Midias Sociais (Edit Peronal Information)
-			    =============================================== -->							
+			    =============================================== -->
 			   <section class="update-social" id="social">
 			    	<div class="container">
 			    		<!-- TitleSection -->
 			    		<div class="cols">
 			    			<div class="title-section" id="shortcodes">
-			    				<h2 class="title">Social Media Information<span class="cursor-tag">_</span></h2>
-			    				<h3 class="title-description">Social networks and web contacts.</h3>
+			    				<h2 class="title">Informações de Midias Sociais<span class="cursor-tag">_</span></h2>
+			    				<h3 class="title-description">Redes Sociais e Contatos.</h3>
 			    			</div>
 			    		</div>
-			    		<!-- End Title Section -->	
-			    		<div class="row">					
+			    		<!-- End Title Section -->
+			    		<div class="row">
 			    			<form class="form-social">
 			    				<div class="col-sm-6 infos">
 			    					<div class="row">
@@ -128,7 +128,7 @@
 			    									<div class="form-group">
 			    										<span class="icone-campo"><i class="fa fa-facebook fa-2x"></i></span>
 			    									</div>
-			    								</div>											
+			    								</div>
 			    								<div class="col">
 			    									<div class="form-group">
 			    										<input name="facebook" placeholder="facebook" type="text" value="<?php echo $view_user->network->facebook; ?>" >
@@ -139,7 +139,7 @@
 			    									<div class="form-group">
 			    										<span class="icone-campo"><i class="fa fa-linkedin fa-2x"></i></span>
 			    									</div>
-			    								</div>											
+			    								</div>
 			    								<div class="col">
 			    									<div class="form-group">
 			    										<input type="text" placeholder="LinkedIn" value="<?php echo $view_user->network->linkedin; ?>">
@@ -150,12 +150,12 @@
 			    									<div class="form-group">
 			    										<span class="icone-campo"><i class="fa fa-twitter fa-2x"></i></span>
 			    									</div>
-			    								</div>											
+			    								</div>
 			    								<div class="col">
 			    									<div class="form-group">
 			    										<input type="text" placeholder="Twitter" value="<?php echo $view_user->network->twitter; ?>" required>
 			    									</div>
-			    								</div>										
+			    								</div>
 
 			    							</div><!-- </quadro30> -->
 			    						</div><!-- </col-sm-12> -->
@@ -167,7 +167,7 @@
 			    							<div class="form-group">
 			    								<span class="icone-campo"><i class="fa fa-instagram fa-2x"></i></span>
 			    							</div>
-			    						</div>											
+			    						</div>
 			    						<div class="col">
 			    							<div class="form-group">
 			    								<input type="text" placeholder="Instagram" value="<?php echo $view_user->network->instagram; ?>" required>
@@ -177,12 +177,12 @@
 			    							<div class="form-group">
 			    								<span class="icone-campo"><i class="fa fa-github fa-2x"></i></span>
 			    							</div>
-			    						</div>											
+			    						</div>
 			    						<div class="col">
 			    							<div class="form-group">
 			    								<input type="text"  name="comments" placeholder="GitHub" value="<?php echo $view_user->network->github; ?>" required>
 			    							</div>
-			    						</div>			
+			    						</div>
 			    						<div class="col">
 			    							<div class="form-group">
 			    								<span class="icone-campo"><i class="fa fa-globe fa-2x"></i></span>
@@ -195,7 +195,7 @@
 			    						</div>
 			    					</div>
 			    					<div class="md-padder text-right">
-			    						<a class="btn btn-primary btn-lg margin-btm-30" data-tooltip="Social media information." href="update.html" target="_blank"> <i class="fa fa-user"></i> <span class="hidden-xs"> Update </span> Social </a>
+			    						<a class="btn btn-primary btn-lg margin-btm-30" data-tooltip="Social media information." href="update.html" target="_blank"> <i class="fa fa-user"></i> <span class="hidden-xs"> Atualizar </span> Mídias </a>
 			    					</div><!-- </quadro31> -->
 			    				</div><!-- </col-sm-6> -->
 			    			</form><!-- </form-social> -->
@@ -210,8 +210,8 @@
 			    		<!-- TitleSection -->
 			    		<div class="cols">
 			    			<div class="title-section">
-			    				<h2 class="title">Academic and professional history<span class="cursor-tag">_</span></h2>
-			    				<h3 class="title-description">Experiences and formations.</h3>
+			    				<h2 class="title">Histórico Acadêmico e Profissional<span class="cursor-tag">_</span></h2>
+			    				<h3 class="title-description">Experiências e Formações.</h3>
 			    			</div>
 			    		</div>						
 
@@ -219,15 +219,15 @@
 			    			<div class="col-md-12 text-center">
 			    				<div class="row">
 			    					<div class="col-md-6 col-xs-12">
-			    						<h3 class="spec">Professional Historic</h3>
+			    						<h3 class="spec">Histórico Profissional</h3>
 			    						<table>
 			    							<thead>
 			    								<tr>
-			    									<th>Company</th>
-			    									<th>Function</th>
-			    									<th>Admission</th>
-			    									<th>OutPut</th>
-			    									<th>Edit</th>
+			    									<th>Empresa</th>
+			    									<th>Função</th>
+			    									<th>Admissão</th>
+			    									<th>Saída</th>
+			    									<th>Editar</th>
 			    									<th>Delete</th>
 			    								</tr>
 			    							</thead>
@@ -253,25 +253,25 @@
 			    								</tr>
 												<?php 
 													endforeach;
-												?>			    								
+												?>
 			    							</tbody>
 			    						</table>
 										<div class="separator"></div>
 	    								<div class="md-padder text-center">
-		 									<button type="submit" data-tooltip="Include professional item" class="btn btn-primary btn-lg margin-btm-30"> <i class="fa fa-user"></i> <span class="hidden-xs"> Update </span> Professional </button>
+		 									<button type="submit" data-tooltip="Include professional item" class="btn btn-primary btn-lg margin-btm-30"> <i class="fa fa-user"></i> <span class="hidden-xs"> Atualizar </span> Profissional </button>
 		 								</div>
 			    					</div><!-- </col-sm-12> -->
 
 			    					<div class="col-md-6 col-xs-12">
-			    						<h3 class="spec">Academic Historic</h3>
+			    						<h3 class="spec">Histórico Acadêmico</h3>
 			    						<table>
 			    							<thead>
 			    								<tr>
-			    									<th>Institution</th>
-			    									<th>Course</th>
-			    									<th>Level</th>
-			    									<th>Conclusion</th>
-			    									<th>Edit</th>
+			    									<th>Instituição</th>
+			    									<th>Curso</th>
+			    									<th>Nível</th>
+			    									<th>Conclusão</th>
+			    									<th>Editar</th>
 			    									<th>Delete</th>
 			    								</tr>
 			    							</thead>
@@ -286,32 +286,29 @@
 			    									<td class="academic">
 
 														<?php if ($academic->date_conclusion === NULL) : ?>
-															-	
+															-
 														<?php else: ?>
 															<?php echo $academic->date_conclusion->format('Y') ?>
 														<?php endif; ?>
 			    									</td>
 
 			    									<td class="academic">
-														
 														<?php if ($academic->status === 1) : ?>
 															<a href="" class="btn btn-xs btn-success disabled">
 																<i class="fa fa-lock"></i> Concluído
-															</a>	
+															</a>
 														<?php else: ?>
 															<button type="button" onclick="sendUpAcademic(<?php echo $academic->id ?>)" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#modal1">
 																<i class="fa fa-unlock"></i> Cursando
 															</button>
 														<?php endif; ?>
-
 			    									</td>
 			    									<td class="academic">
 			    										<button type="button" value="<?php echo $academic->id ?>" onclick="sendDelAcademic(this.value, '<?php echo $view_user->name?>')" class="btn btn-xs btn-danger">
 			    											<i class="fa fa-trash"></i> Delete
 			    										</button>
-			    									</td> 
+			    									</td>
 			    								</tr>
-			    								
 			    								<?php
 			    									endforeach;
 			    								?>
@@ -319,7 +316,7 @@
 			    						</table>
 		         					<div class="separator"></div>
 		         					<div class="md-padder text-center">
-		 									<button type="button" data-tooltip="Add Formação Acadêmica" class="btn btn-primary btn-lg margin-btm-30" data-toggle="modal" data-target="#formAcademic"> <i class="fa fa-user"></i> <span class="hidden-xs"> Add</span> Formação </button>
+		 									<button type="button" data-tooltip="Add Formação Acadêmica" class="btn btn-primary btn-lg margin-btm-30" data-toggle="modal" data-target="#formAcademic"> <i class="fa fa-user"></i> <span class="hidden-xs"> + </span> Formação </button>
 		 								</div>
 			    					</div><!-- </col-sm-12> -->
 			    				</div><!-- </row> -->
@@ -335,8 +332,8 @@
 	 					<!-- TitleSection -->
 	 					<div class="cols">
 	 						<div class="title-section">
-	 							<h2 class="title">Skill<span class="cursor-tag">_</span></h2>
-	 							<h3 class="title-description">Summary of qualifications and competences.</h3>
+	 							<h2 class="title">Qualificações<span class="cursor-tag">_</span></h2>
+	 							<h3 class="title-description">Sumário de qualificações e competênciais.</h3>
 	 						</div>
 	 					</div>
 	 					<!-- End Title Section -->
@@ -354,7 +351,7 @@
 													foreach ($view_user->competencies as $competency):
 												?>
 													<div class="row">
-														<div class="col-md-5 col-sm-12 wow flipInx" data-wow-delay="0.3s">
+														<div class="col-xs-12 col-sm-8 col-md-7 col-lg-6 wow flipInx" data-wow-delay="0.3s">
 															<div class="skill-bar">
 														    	<ul>
 																	<li>
@@ -367,7 +364,7 @@
 														   </div><!-- </skill-bar> -->
 														</div><!-- </col-md-5 col-sm-12> -->
 
-														<div class="col-md-2  wow flipInx">
+														<div class="col-xs-2 col-sm-4 col-md-2 col-lg-2 selectUpSkill wow flipInx">
 															<select name="make" id="level<?php echo $competency->id ?>" class="form-control">
 																<option value="1" <?php ($competency->level == "1") ? print "selected" : ""; ?>>
 																	1
@@ -401,59 +398,65 @@
 																</option>
 															</select>
 					         						</div><!-- </col-md-1> -->
-														<div class="col-md-2  wow flipInx">
-				                        			<button type="button" value="level<?php echo $competency->id ?>" onclick="sendEdit(this.value, <?php echo $competency->id ?>, <?php echo $competency->level?> ,'<?php echo $view_user->name?>')" class="btn btn-primary btn-sm margin-btm-30" id="btnUP">
-			                        					<i class="fa fa-pencil"></i>
-			                        					<span>Editar</span>
-			                        				</button>
+														<div class="col-xs-2 col-sm-6 col-md-1 col-lg-2 text-right wow flipInx">
+															<div class="boxButton">
+					                        			<button type="button" value="level<?php echo $competency->id ?>" onclick="sendEdit(this.value, <?php echo $competency->id ?>, <?php echo $competency->level?> ,'<?php echo $view_user->name?>')" class="btn btn-primary btn-sm margin-btm-30" id="btnUP">
+				                        					<i class="fa fa-pencil"></i>
+				                        					<span>Editar</span>
+				                        				</button>
+			                        				</div>
 														</div>
-														<div class="col-md-2  wow flipInx">
-															<button type="button" value="<?php echo $competency->id ?>" onclick="sendDel(this.value, '<?php echo $view_user->name?>')" class="btn btn-primary btn-sm margin-btm-30" id="btnDel">
-			                        					<i class="fa fa-trash"></i>
-			                        					<span>Excluir</span>
-			                        				</button>
+														<div class="col-xs-2 col-sm-6 col-md-1 col-lg-2 wow flipInx">
+															<div class="boxButton">
+																<button type="button" value="<?php echo $competency->id ?>" onclick="sendDel(this.value, '<?php echo $view_user->name?>')" class="btn btn-primary btn-sm margin-btm-30" id="btnDel">
+				                        					<i class="fa fa-trash"></i>
+				                        					<span>Delete</span>
+				                        				</button>
+				                        			</div>	
 														</div>
-													</div><!-- </row> -->	
+													</div><!-- </row> -->
 												<?php	endforeach
 												?>
 											</fieldset>
 										</form>
 									</div><!-- </col-md-12> -->
 								</div><!-- </row> -->
-							</div><!-- </col-md-6> -->	 					
+							</div><!-- </col-md-6> -->
 		 					<!--
 		 					*	Add Novas Competências
-		 					*-->						
+		 					*-->
 							<div class="col-md-6">
 								<div class="row">
 									<div class="col-md-12">
 										<form method="POST" action="<?php echo BASE; ?>perfil/addcompetency/"  name="addcompetency" id="addcompetency" class="form-horizontal wrapper-repeater" >
 											<fieldset>
-												<legend>Add Novas Competências</legend>
+												<legend>+ Novas Competências</legend>
 												<div class="repeater-custom-show-hide">
 													<div class="row">
-														<div class="col-md-5">
-															<label>Competências</label>
-														</div>
-														<div class="col-md-3">
-															<label>Domínio</label>		
-														</div>
-														<div class="col-md-2">
-															<label>Nível</label>		
-														</div>
-														<div class="col-md-2">
-															<label>Excluir</label>
+														<div class="boxTitles">
+															<div class="col-md-5">
+																<label>Competências</label>
+															</div>
+															<div class="col-md-3">
+																<label>Domínio</label>		
+															</div>
+															<div class="col-md-2">
+																<label>Nível</label>		
+															</div>
+															<div class="col-md-2">
+																<label>Excluir</label>
+															</div>
 														</div>
 													</div><!-- </row> -->
 													<div data-repeater-list="competencies-group">
 							      					<div data-repeater-item>
 								      					<div class="row">
-																<div class="col-md-5 wow flipInx">
+																<div class="col-xs-8 col-sm-7 col-md-7 col-lg-5 wow flipInx">
 									   							<div class="box-input">
 									   								<input type="text" name="competency" id="competency" class="form-control border-input" placeholder="Competência">
 									   							</div>
 									      					</div><!-- </col-md-5> -->
-																<div class="col-md-3 wow flipInx">
+																<div class="col-xs-6 col-sm-5 col-md-5 col-lg-3 wow flipInx">
 																	<div class="box-input">
 				 														<select name="domain" id="domain" class="form-control">
 				 															<option class="opt-placeholder" value="-1" selected="">Select…</option>
@@ -467,9 +470,9 @@
 						 														Especializações
 						 													</option>
 					 													</select>
-			 														</div>							
+			 														</div>
 									      					</div><!-- </col-md-3> -->
-																<div class="col-md-2 wow flipInx">
+																<div class="col-xs-2 col-sm-2 col-md-3 col-lg-2 wow flipInx">
 				 													<div class="box-input">
 				 														<select name="nivel" id="nivel" class="form-control">
 						 													<option value="1">
@@ -506,9 +509,12 @@
 				 													</div>
 								         					</div><!-- </col-md-1> -->
 
-									      					<div class="col-md-2 wow flipInx">
+									      					<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 wow flipInx">
 																	<div class="box-input">
-																		<a data-repeater-delete class="btn btn-primary btn-sm margin-btm-30" > <i class="fa fa-minus-circle"></i> <span class="hidden-xs"></span> Delete </a>
+																		<a data-repeater-delete class="btn btn-primary btn-sm margin-btm-30" >
+																			<i class="fa fa-minus-circle"></i>
+																			<span > Delete </span>
+																		</a>
 																	</div>
 		 														</div>
 															</div><!-- </row> -->
@@ -518,7 +524,7 @@
 				 									<div class="form-group wow flipInx">
 				 										<div class="col-sm-offset-1 col-sm-11">
 				 											<span data-repeater-create data-tooltip="Include new skills" class="btn btn-info btn-md">
-				 												<span class="glyphicon glyphicon-plus"></span> add
+				 												<span class="glyphicon glyphicon-plus"></span> Adicionar
 				 											</span>
 				 										</div>
 				 									</div>
@@ -531,53 +537,13 @@
 	                        				</button>
 				 								</div><!-- </md-padder> -->
 											</fieldset>
-										</form>				
+										</form>
 									</div><!-- </col-md-12> -->
 								</div><!-- </row> -->
 							</div><!-- </col-md-6> -->
 						</div><!-- </row> -->
 	 				</div><!-- </container> -->
 	 			</section><!-- </section-technical> -->
-				<!-- ==============================================
-			    Recommendations (Acc Recomendações)
-			    =============================================== -->
-				<section class="quotes" id="recomendations">
-					<div class="container">
-						<!-- TitleSection -->
-					    <div class="cols">
-				            <div class="title-section">
-				                <h2 class="title">Recommendations and Quotes<span class="cursor-tag">_</span></h2>
-				                <h3 class="title-description">Some feedback on my work.</h3>
-				            </div>
-					    </div>
-					    <!-- End Title Section -->        
-				        <!-- Start BlockQuote/Tooltip Section -->
-				        <div class="row">
-				        	<!-- Start Blockquote -->
-				            <div class="col-sm-6">
-				            	<h3 class="spec">Blockquote</h3>
-				                <blockquote>
-					                <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla.</p>
-					                <small>
-				                    	<cite title="John Bostic">John Bostic</cite>
-				                    </small>
-				                </blockquote>
-				            </div>
-				            <!-- End Blockquote -->
-				            
-				            <!-- Start Tooltip -->
-				            <div class="col-sm-6">
-				            	<h3 class="spec">Tooltip</h3>
-				            	
-				                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas neque diam, luctus at laoreet in, <a href="#" data-toggle="tooltip" title="I'm a Simple Tootlip">auctor ut tellus</a>. Etiam enim lacus, ornare et tempor, rhoncus rhoncus sem.</p>
-				                
-				            </div>
-				            <!-- End Tootlip -->
-				        </div>
-				        <!-- End BlockQuote/Tooltip Section -->
-					</div>
-				</section>		 					
-
 				<!-- ==============================================
 			    Formulario Dados Pessoais (Dados Pessoais)
 			   =============================================== -->
@@ -588,10 +554,10 @@
 				    		<!-- TitleSection -->
 				    		<div class="cols">
 				    			<div class="title-section">
-				    				<h2 class="title">Information and personal data<span class="cursor-tag">_</span></h2>
-				    				<h3 class="title-description">Address, phone, city, description.</h3>
+				    				<h2 class="title">Informações e Dados Pessoais<span class="cursor-tag">_</span></h2>
+				    				<h3 class="title-description">Endereço, telefone, cidade, descrição.</h3>
 				    			</div>
-				    		</div>				   
+				    		</div>
 					      <div class="row">
 					      	<div class="col-lg-4 col-md-5">
 					      		<div class="card card-user">
@@ -692,20 +658,20 @@
 					         <div class="col-lg-8 col-md-7">
 					         	<div class="card">
 					         		<div class="header">
-					         			<h4 class="title">Edit Profile</h4>
+					         			<h4 class="title">Editar Perfil</h4>
 					         		</div>
 					         		<div class="content">
 					         			<form>
 					         				<div class="row">
 					         					<div class="col-md-3">
 					         						<div class="form-group">
-					         							<label>Username</label>
+					         							<label>Usuário</label>
 					         							<input type="text" class="form-control border-input" disabled placeholder="usuário" value="<?php echo $view_user->username; ?>">
 					         						</div><!-- </form-group> -->
 					         					</div><!-- </col-md-5> --> 
 					         					<div class="col-md-4">
 					         						<div class="form-group">
-					         							<label for="exampleInputEmail1">Email address</label>
+					         							<label for="exampleInputEmail1">e-mail</label>
 					         							<input type="email" class="form-control border-input" disabled placeholder="Email" value="<?php echo $view_user->email; ?>" >
 					         						</div><!-- </form-group> -->
 					         					</div><!-- </col-md-3> -->
@@ -713,9 +679,9 @@
 					         						<div class="form-group">
 															<label class="card-genero">Sexo</label>
 															<input type="radio" id="radio03" name="radio" />
-															<label for="radio03"><span></span>Female</label>
+															<label for="radio03"><span></span>Feminino</label>
 															<input type="radio" id="radio04" name="radio" />
-															<label for="radio04"><span></span>Male</label>
+															<label for="radio04"><span></span>Masculino</label>
 					         						</div><!-- </form-group> -->
 					         					</div><!-- </col-md-4> -->
 					         				</div><!-- </row> 1º Linha do formulario -->
@@ -723,13 +689,13 @@
 					         				<div class="row">
 					         					<div class="col-md-6">
 					         						<div class="form-group">
-					         							<label>First Name</label>
+					         							<label>Nome</label>
 					         							<input type="text" class="form-control border-input" placeholder="Company" value="<?php echo $view_user->name; ?>">
 					         						</div><!-- </form-group> -->
 					         					</div><!-- </col-md-6> -->
 					         					<div class="col-md-6">
 					         						<div class="form-group">
-					         							<label>Last Name</label>
+					         							<label>Sobrenome</label>
 					         							<input type="text" class="form-control border-input" placeholder="Last Name" value="M. Corrêa">
 					         						</div><!-- </form-group> -->
 					         					</div><!-- </col-md-6> -->
@@ -738,13 +704,13 @@
 					         				<div class="row">
 					         					<div class="col-md-4">
 					         						<div class="form-group">
-					         							<label>Celular Mobile</label>
+					         							<label>Celular Móvel</label>
 					         							<input type="text" class="form-control border-input" placeholder="Mobile" value="<?php echo $view_user->registry->celular; ?>" >
 					         						</div><!-- </form-group> -->
 					         					</div><!-- </col-md-4> -->
 					         					<div class="col-md-4">
 					         						<div class="form-group">
-					         							<label>State</label>
+					         							<label>Estado</label>
 						    								<select name="state" class="form-control border-input" >
 						    									<option value=" " >Please select your state</option>
 						    									<option>Acre</option>
@@ -782,7 +748,7 @@
 					         				<div class="row">
 					         					<div class="col-md-9">
 					         						<div class="form-group">
-					         							<label>Address</label>
+					         							<label>Endereço</label>
 					         							<input type="text" class="form-control border-input" placeholder="Home Address" value="<?php echo $view_user->registry->address; ?>" >
 					         						</div><!-- </form-group> -->
 					         					</div><!-- </col-md-10> -->         					
@@ -791,19 +757,19 @@
 					         				<div class="row">
 					         					<div class="col-md-4">
 					         						<div class="form-group">
-					         							<label>City</label>
+					         							<label>Cidade</label>
 					         							<input type="text" class="form-control border-input" placeholder="City" value="Melbourne">
 					         						</div><!-- </form-group> -->
 					         					</div><!-- </col-md-4> -->
 					         					<div class="col-md-4">
 					         						<div class="form-group">
-					         							<label>Country</label>
+					         							<label>País</label>
 					         							<input type="text" class="form-control border-input" placeholder="Country" value="Australia">
 					         						</div><!-- </form-group> -->
 					         					</div><!-- </col-md-4> -->
 					         					<div class="col-md-4">
 					         						<div class="form-group">
-					         							<label>Postal Code</label>
+					         							<label>CEP</label>
 					         							<input type="number" class="form-control border-input" placeholder="ZIP Code" value="<?php echo $view_user->registry->zipcode; ?>" >
 					         						</div><!-- </form-group> -->
 					         					</div><!-- </col-md-4> -->
@@ -812,7 +778,7 @@
 					         				<div class="row">
 					         					<div class="col-md-12">
 					         						<div class="form-group">
-					         							<label>About Me</label>
+					         							<label>Sobre Mim</label>
 					         							<textarea rows="5" class="form-control border-input" placeholder="Here can be your description" value="<?php echo $view_user->registry->about; ?>" >
 					         							</textarea>
 					         						</div><!-- </form-group> -->

@@ -5,7 +5,9 @@ class RecuperarController extends \HXPHP\System\Controller
 
     public function indexAction()
     {
-        $this->view->setAssets('css', $this->configs->baseURI . 'public/css/recovery.css');
+      //  $this->view->setAssets('css', $this->configs->baseURI . 'public/css/recovery.css');
+		$this->view->setHeader('recuperar/header')
+		  ->setFooter('recuperar/footer');
     }
 
 	public function __construct($configs)
@@ -21,7 +23,7 @@ class RecuperarController extends \HXPHP\System\Controller
 
 		$this->auth->redirectCheck(true);
 
-		$this->view->setTitle('SistemaHX - Altere sua senha');
+		$this->view->setTitle('ProfileIT - Altere sua senha');
 
 		$this->load('Modules\Messages', 'password-recovery');
 		$this->messages->setBlock('alerts');
@@ -152,5 +154,5 @@ class RecuperarController extends \HXPHP\System\Controller
 		if ( ! is_null($error))
 			$this->load('Helpers\Alert', $error);
 	}
-	
+
 }
