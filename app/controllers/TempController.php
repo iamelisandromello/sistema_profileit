@@ -37,7 +37,7 @@ class TempController extends \HXPHP\System\Controller
 
 		if (is_numeric($competency_id) && is_numeric($level)) {
 			$competency = Competency::find_by_id($competency_id);
-	
+
 			if (!is_null($competency)) {
 				$competency->level = $level;
 				$competency->save(false);
@@ -51,7 +51,6 @@ class TempController extends \HXPHP\System\Controller
 			die();
 		}
 	}
-
 
 public function academicAction (){
 
@@ -233,7 +232,7 @@ foreach($competencies_data as $data)
 			$data = $_POST['adddate_conclusion'];
 			echo date('d-m-Y', strtotime($data));
 			echo ('<br>');
-			$data = date("Y-m-d",strtotime(str_replace('/','-',$data)));  
+			$data = date("Y-m-d",strtotime(str_replace('/','-',$data)));
 			echo date('Y-m-d', strtotime($data));
 	      echo('</pre>');
 	   }
@@ -263,11 +262,11 @@ foreach($competencies_data as $data)
 		$qtd = count($_POST);
 
 		echo('<pre>');
-			print_r( $academic_data ); // exibirá o array 
+			print_r( $academic_data ); // exibirá o array
 		echo('<pre>');
 
 		echo('<pre>');
-			print_r( $qtd ); // exibirá o array 
+			print_r( $qtd ); // exibirá o array
 		echo('<pre>');
 
 		$academic_data = $_POST['academic'];// copiar um arrays de um POST
@@ -295,7 +294,7 @@ foreach($competencies_data as $data)
 
 	public function testarAction()
 	{
-		
+
 		$user = User::find_by_id(20);
 		var_dump($user->name);
 		$questionnaire_data = array();
@@ -306,7 +305,7 @@ foreach($competencies_data as $data)
 		echo ("<br>");
 			echo($graduacao);
 		echo ("<hr>");
-   	
+
    	$questionnaire_data[1] = $graduacao;
 
    	echo ("<br>");
@@ -369,7 +368,7 @@ foreach($competencies_data as $data)
 		$respostasusuario = Answer::find_by_user_id(22);
 		$pesos_usuario = array();
 
-		for ($i=1; $i < 16 ; $i++) { 
+		for ($i=1; $i < 16 ; $i++) {
 			$questao = 'question_' . $i; //concatena a expresão com o contador, para formar o campo
 			$valor = $respostasusuario->$questao; //recupera a opção selecionada pelo Usuario na Answers
 			$quesito = Parameter::find_by_id($i); //Recupera o Atributo (Idioma, Experiencia...)
@@ -383,7 +382,7 @@ foreach($competencies_data as $data)
 
 		echo ('<hr>');
 
-		for ($i=0; $i < 15; $i++) { 
+		for ($i=0; $i < 15; $i++) {
 			echo('Pesos array: ' . $pesos_usuario[$i]);
 			echo ('<br>');
 		}
@@ -393,7 +392,7 @@ foreach($competencies_data as $data)
 		echo ('<h4>' . $analistajr->profile . '</h4>');
 		$pesos_junior = Profile::backProfile(1);
 
-		for ($i=0; $i < 15; $i++) { 
+		for ($i=0; $i < 15; $i++) {
 			echo('Pesos Junior: ' . $pesos_junior[$i]);
 			echo ('<br>');
 		}
@@ -404,7 +403,7 @@ foreach($competencies_data as $data)
 		echo ('<h4>' . $analistapl->profile . '</h4>');
 		$pesos_pleno = Profile::backProfile(2);
 
-		for ($i=0; $i < 15; $i++) { 
+		for ($i=0; $i < 15; $i++) {
 			echo('Pesos Pleno: ' . $pesos_pleno[$i]);
 			echo ('<br>');
 		}
@@ -415,7 +414,7 @@ foreach($competencies_data as $data)
 		echo ('<h4>' . $analistasr->profile . '</h4>');
 		$pesos_senior = Profile::backProfile(3);
 
-		for ($i=0; $i < 15; $i++) { 
+		for ($i=0; $i < 15; $i++) {
 			echo('Pesos Senior: ' . $pesos_senior[$i]);
 			echo ('<br>');
 		}
@@ -459,8 +458,6 @@ foreach($competencies_data as $data)
 		$calculoPleno = Profile::calculoFinal($pesos_usuario, $pesos_pleno);
 		$calculoSenior = Profile::calculoFinal($pesos_usuario, $pesos_senior);
 
-
-
 		echo ('<br> Calculo Junior: ');
 		echo round($calculoJunior, 5);
 		echo ('<br> Calculo Pleno: ');
@@ -468,10 +465,107 @@ foreach($competencies_data as $data)
 		echo ('<br> Calculo Senior: ');
 		echo round($calculoSenior, 5);
 
-		$controle = Profile::defineProfile($candidato1);
+		$controle = Profile::defineProfile($pesos_usuario);
 		echo ('<h4> Profile: ' . $controle[1]. ' - Desvio Padrão: ' . round ($controle[0], 4) . '</h4>');
 
 		die();
 	}
+
+	public function defineAction()
+	{
+		$usuario = User::find_by_id(63);
+		echo ('<h4>' . $usuario->name . '</h4>');
+		$pesos_backUser =	Profile::backUserWeights(63);
+
+		echo ('<hr>');
+
+		for ($i=0; $i < 15; $i++) {
+			echo('Pesos array: ' . $pesos_backUser[$i]);
+			echo ('<br>');
+		}
+
+		$controle = Profile::defineProfile($pesos_backUser);
+		echo ('<h4> Profile: ' . $controle[1]. ' - Desvio Padrão: ' . round ($controle[0], 4) . '</h4>');
+
+		die();
+	}
+
+	public function calcAction()
+	{
+		$usuario = User::find_by_id(63);
+		$total = User::experiencia($usuario);
+		$mes = ($total[1] == abs(1) ) ? 'mês' : 'meses' ;
+		echo ('<h4> Experiencia: ' . $total[0] . ' anos e ' . $total[1]  . $mes);
+
+		die();
+	}
+
+	public  function suggestionsAction()
+	{
+		$userSuggestions = array();
+		$user_id = 64;
+		$usuario = User::find_by_id($user_id);
+		foreach ($usuario->certifications as $certification):
+			echo '<br/>';
+			$linux = $certification->linux;
+			$microsoft = $certification->microsoft;
+			if ($certification->virtualizacao == "Nao") {
+				$userSuggestions["Virtualizacao"] = "Certificação Virtualização";
+			} else { $userSuggestions["Virtualizacao"] = null; }
+			if ($certification->cisco == "Nao") {
+				$userSuggestions["Cisco"] = "Certificação Roteadores";
+			} else { $userSuggestions["Cisco"] = null; }
+			if ( $certification->itil == "Nao" &&  $certification->agile == "Nao" && $certification->pmi == "Nao" ) {
+				$userSuggestions["Processos"] = "Certificação em Processos";
+			} else {$userSuggestions["Processos"] = null;}
+			if($certification->microsoft == "Nao") {
+				$userSuggestions["Microsoft"] = "Certificação Microsoft";
+			}
+			else if ($certification->microsoft == "MCP" ) {
+				$userSuggestions["Microsoft"] = "MCSA";
+			}
+			else if ($certification->microsoft == "MCTIP" ) {
+				$userSuggestions["Microsoft"] = "MCSA";
+			}
+			else if ($certification->microsoft == "MCSA" ) {
+				$userSuggestions["Microsoft"] = "MCSE";
+			}
+			else if ($certification->microsoft == "MCSE" ) {
+				$userSuggestions["Microsoft"] = null;
+			}
+		endforeach;
+
+
+
+		foreach ($userSuggestions as $suggestion):
+			echo ($suggestion == NULL) ? null : $suggestion . "<br>";
+		endforeach;
+
+echo "<hr>";
+
+echo ($userSuggestions["Microsoft"] == NULL) ? null : $userSuggestions["Microsoft"] . "<br>";
+echo ($userSuggestions["Virtualizacao"] ==  NULL) ? null : $userSuggestions["Virtualizacao"] . "<br>";
+echo ($userSuggestions["Processos"] ==  NULL) ? null : $userSuggestions["Processos"] . "<br>";
+echo ($userSuggestions["Cisco"] ==  NULL) ? null : $userSuggestions["Cisco"] . "<br>";
+
+echo "<hr>";
+
+		die();
+
+	}
+
+	public static function analyzeSkillAction()
+	{
+		$userSkill;//Declara variável de Retorno
+		$usuario = User::find_by_id(22);//localiza o objeto Usuário
+		$skill = Skill::find_by_id(22);
+		if (!$skill) {
+			$userSkill = false;
+		}
+		else { $userSkill = true; }
+	die();
+		return $userSkill;
+	}
+
 
 }

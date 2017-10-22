@@ -106,7 +106,7 @@ class Auth
 		$this->storage->set($this->subfolder . '_login_string', $login_string);
 
 		if ($this->redirect)
-			return $this->response->redirectTo('http://localhost/profileit/questionario/responder');
+			return $this->response->redirectTo('http://localhost/profileit/questionario');
 			//return $this->response->redirectTo($this->url_redirect_answer);
 	}
 
@@ -136,7 +136,7 @@ class Auth
 		if ($redirect && $this->login_check()) {
 
 			if ($this->getUserRole() == 'temp') {
-                $this->response->redirectTo('http://localhost/profileit/questionario/responder');
+                $this->response->redirectTo('http://localhost/profileit/questionario');
 			}
 
 			$this->response->redirectTo($this->url_redirect_after_login);

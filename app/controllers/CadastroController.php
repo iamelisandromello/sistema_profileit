@@ -24,11 +24,6 @@ class CadastroController extends \HXPHP\System\Controller
 		$this->auth->redirectCheck(true);
 	}
 
-	public function voltarAction(){
-		var_dump('teste2');
-		die();
-	}
-
 	public function cadastrarAction(){
 	   $this->view->setHeader('cadastro/header')
 	              ->setFooter('cadastro/footer');
@@ -117,7 +112,6 @@ class CadastroController extends \HXPHP\System\Controller
 		}
 
 		if (!empty($user_data)) {
-
 			$cadastrarUsuario = User::cadastrar($user_data, $registry_id, $network_id);
 			if ($cadastrarUsuario->status === false) {
 				$this->load('Helpers\Alert', array(
@@ -220,8 +214,8 @@ class CadastroController extends \HXPHP\System\Controller
 				));
 			}
 			else {
-				if (isset($_FILES['image']) && !empty($_FILES['image']['tmp_name'])) {
-					$uploadUserImage = new upload($_FILES['image']);
+				if (isset($_FILES['file-1']) && !empty($_FILES['file-1']['tmp_name'])) {
+					$uploadUserImage = new upload($_FILES['file-1']);
 
 					if ($uploadUserImage->uploaded) {
 						$image_name = md5(uniqid()); //Cria nome Unico e converte em um Hash

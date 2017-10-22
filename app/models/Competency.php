@@ -123,8 +123,8 @@ class Competency extends \HXPHP\System\Model
 		if ($skill_competency) {
 			array_push($callbackObj->errors, 'Competência já Cadastrada para este Usuário');
 				return $callbackObj;
-		}  
-		    
+		}
+
     	$cadastrar = self::create($competency);
 
 		if ($cadastrar->is_valid()) {

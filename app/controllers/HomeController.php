@@ -39,6 +39,9 @@ class HomeController extends \HXPHP\System\Controller
 		$user = User::find($user_id);
 		$role = Role::find($user->role_id);
 		$total = User::experiencia($user);
+		$sugestoes = User::suggestions($user_id);
+		$analiseQualificacoes = User::analyzeSkill($user_id);
+		$analiseRecomendacao = User::analyzeRecommendation($user_id);
 
 		$this->load(
 			'Helpers\Menu',
@@ -50,9 +53,12 @@ class HomeController extends \HXPHP\System\Controller
 		$this->view->setTitle('HXPHP - Administrativo')
 					->setFile('index')
 					->setVars([
-						'user' => $user,
-						'total' => $total,
-						'users' => User::all()
+						'user'		=> $user,
+						'total'		=> $total,
+						'sugestoes'	=> $sugestoes,
+						'analiseQualificacoes'	=> $analiseQualificacoes,
+						'analiseRecomendacao'	=> $analiseRecomendacao,
+						'users'		=> User::all()
 					]);
 	}
 

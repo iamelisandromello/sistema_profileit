@@ -8,8 +8,7 @@ class Weight extends \HXPHP\System\Model
 	}
 
   //Relacionamnetos 1:1 entre as tabelas
-  static $belongs_to = array(    
+  static $belongs_to = array(
     array('parameter', 'foreign_key' => 'weight_id', 'class_name' => 'Parameter')
   );
-   
 }

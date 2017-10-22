@@ -31,54 +31,54 @@ class Academic extends \HXPHP\System\Model
 
       //Verificação Nivel Graduação
       if ($nivel == "Bacharelado") {
-        $controle = 1;
+        $controle = 5;
       }
       else if ($nivel == "Tecnologo") {
-         $controle = 2;
+         $controle = 4;
       }
       else if ($nivel == "Tecnico") {
          $controle = 3;
       }
       else if ($nivel == "Medio") {
-         $controle = 4;
+         $controle = 2;
       }
       else {
-         $controle = 5;
+         $controle = 1;
       }
 
       if ($formacao == 0) {
         $formacao = $controle;
-        $statusGra = ($controle == 5) ? $statusGra = 1 : $statusGra = $status ;
+        $statusGra = ($controle == 1) ? $statusGra = 3 : $statusGra = $status ;
       }
       else if ( $formacao > $controle ) {
         $formacao = $controle;
-        $statusGra = ($controle == 5) ? $statusGra = 1 : $statusGra = $status ;
+        $statusGra = ($controle == 1) ? $statusGra = 3 : $statusGra = $status ;
       }
 
       //Verificação Nivel Pós
       if ($nivel == "PHD") {
-        $ctrPos = 1;
+        $ctrPos = 5;
       }
       else if ($nivel == "Doutorado") {
-         $ctrPos = 2;
+         $ctrPos = 4;
       }
       else if ($nivel == "Mestrado") {
          $ctrPos = 3;
       }
       else if ($nivel == "MBA") {
-         $ctrPos = 4;
+         $ctrPos = 2;
       }
       else {
-         $ctrPos = 5;
+         $ctrPos = 1;
       } 
 
       if ($pos == 0) {
         $pos = $ctrPos;
-        $statusPos = ($ctrPos == 5) ? 4 : $status ;
+        $statusPos = ($ctrPos == 1) ? 1 : $status ;
       }
       else if ( $pos > $ctrPos ) {
         $pos = $ctrPos;
-        $statusPos = ($ctrPos == 5) ? 4 : $status ;
+        $statusPos = ($ctrPos == 1) ? 1 : $status ;
       }     
 
     endforeach;
@@ -113,8 +113,8 @@ class Academic extends \HXPHP\System\Model
       'date_conclusion' => strtotime($post[4]),
       'status'      => $post[5],
       'user_id'     => $user_id
-    );    
-       
+    );
+
     $cadastrar = self::create($academic);
 
     if ($cadastrar->is_valid()) {

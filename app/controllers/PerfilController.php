@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class PerfilController extends \HXPHP\System\Controller
 {
@@ -17,7 +17,7 @@ class PerfilController extends \HXPHP\System\Controller
 		$this->auth->redirectCheck();
 		$this->auth->roleCheck(array(
 		'user', 'administrator'
-		)); 
+		));
 
 		$this->load(
 			'Helpers\Menu',
@@ -286,7 +286,7 @@ class PerfilController extends \HXPHP\System\Controller
 				'Ops! Não foi possível atualizar seu Histórico Acadêmico. <br> Verifique os erros abaixo:',
 				$addAcademic->errors
 			));
-		}			
+		}
 
 		$this->view->setVar('user', $user);
 	}

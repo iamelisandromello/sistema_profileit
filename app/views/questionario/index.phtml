@@ -8,7 +8,7 @@
 			   =============================================================== -->
 				<section class="quiz-questions" id="quiz-questions">
 					<div class="container">
-					   <div class="container-fluid">   
+					   <div class="container-fluid">
 					      <div class="row">
 					      	<div class="col-md-12">
 					      		<?php echo (isset($this->alert) ? $this->alert : ''); ?>
@@ -37,26 +37,26 @@
 					      						<a href="#"><small><?php echo $view_user->email; ?></small></a>
 					      					</h4>
 					      				</div><!-- </author> -->
-					      				<p class="description text-center">
+					      				<!--<p class="description text-center">
 					      					"I like the way you work it <br>
 					      					No diggity <br>
 					      					I wanna bag it up"
-					      				</p>
+					      				</p>-->
 					      			</div><!-- <!/content> -->
 					      			<hr>
-					      			<div class="text-center">
+					      			<!--<div class="text-center">
 					      				<div class="row">
 					      					<div class="col-md-3 col-md-offset-1">
 					      						<h5>12<br /><small>Files</small></h5>
-					      					</div><!-- </col-md-4 col-md-offset-1> -->
+					      					</div>
 					      					<div class="col-md-4">
 					      						<h5>2GB<br /><small>Used</small></h5>
-					      					</div><!-- </col-md-4> -->
+					      					</div>
 					      					<div class="col-md-3">
 					      						<h5>24,6$<br /><small>Spent</small></h5>
-					      					</div><!-- </col-md-3> --> 
-					      				</div><!-- </row> -->
-					      			</div><!-- </text-center> -->
+					      					</div>
+					      				</div>
+					      			</div>-->
 					      		</div><!-- </card card-user> -->
 					      		<div class="card">
 					      			<div class="header">
@@ -116,14 +116,14 @@
 					         			<h4 class="title">Questionário Microsoft</h4>
 					         		</div>
 					         		<div class="content">
-											<form action="<?php echo BASE; ?>temp/responder/" method="post" id="quiz-form" class="quiz-form">					         			
+											<form action="<?php echo BASE; ?>questionario/responder/" method="post" id="quiz-form" class="quiz-form">
 					         				<div class="row">
 					         					<div class="col-md-3">
 					         						<div class="form-group">
 					         							<label>Username</label>
 					         							<input type="text" class="form-control border-input" disabled placeholder="Company" value="<?php echo $view_user->name; ?>">
 					         						</div><!-- </form-group> -->
-					         					</div><!-- </col-md-5> --> 
+					         					</div><!-- </col-md-5> -->
 					         					<div class="col-md-4">
 					         						<div class="form-group">
 					         							<label for="exampleInputEmail1">Email address</label>
@@ -143,24 +143,23 @@
 																		<label class="label_impar">1) Qual seu nível de Inglês?</label>
 																	</div>
 																</div>
-																
+
 																<div class="row">
 																	<div class="col-md-3 radio">
 																		<input type="radio" class="valida_teste" value="1" id="radio01" name="question_1" />
-																		<label for="radio01"><span></span>Leitura, Escrita e Conversação  </label>
+																		<label for="radio01"><span></span>Não possui</label>
 																	</div>
-
 																	<div class="col-md-3 radio">
 																		<input type="radio" class="valida_teste" value="2" id="radio02" name="question_1" />
-																		<label for="radio02"><span></span>Leitura e Escrita  </label>	
-																	</div>										
-																	<div class="col-md-2 radio">
-																		<input type="radio" class="valida_teste" value="4" id="radio03" name="question_1" />
-																		<label for="radio03"><span></span>Leitura   </label>	
+																		<label for="radio02"><span></span>Leitura</label>
 																	</div>
 																	<div class="col-md-2 radio">
-																		<input type="radio" class="valida_teste" value="5" id="radio04" name="question_1" />
-																		<label for="radio04"><span></span>Não possui</label>	
+																		<input type="radio" class="valida_teste" value="3" id="radio03" name="question_1" />
+																		<label for="radio03"><span></span>Leitura e Escrita</label>
+																	</div>
+																	<div class="col-md-2 radio">
+																		<input type="radio" class="valida_teste" value="4" id="radio04" name="question_1" />
+																		<label for="radio04"><span></span>Leitura, Escrita e Conversação</label>
 																	</div>
 																</div>
 
@@ -182,33 +181,34 @@
 						         						<div class="form-group">
 																<div class="row">
 																	<div class="col-md-12">
-																		<label class="label_par">2) Quantos anos de eperiência na área de tecnologia?</label>
+																		<label class="label_par">2) Quantos anos de experiência na área de tecnologia?</label>
 																	</div>
 																</div>
 
 																<div class="row">
 																	<div class="col-md-2">
-																		<input type="radio" class="valida_teste" value="1" <?php echo ($view_experiencia == 1) ? "checked" : null; ?> id="radio05" name="question_2" />
-																		<label for="radio05"><span></span>+ 8 anos</label>
+																		<input type="radio" class="valida_teste" value="1" <?php echo ($view_calculoExp == 1) ? "checked" : null; ?> id="radio05" name="question_2" />
+																		<label for="radio05"><span></span>- 1 ano</label>
 																	</div>
 
 																	<div class="col-md-3">
-																		<input type="radio" class="valida_teste" value="2" <?php echo ($view_experiencia == 2) ? "checked" : null; ?> id="radio06" name="question_2" />
-																		<label for="radio06"><span></span>Entre 5 e 8 anos</label>	
-																	</div>												
-
-																	<div class="col-md-2">
-																		<input type="radio" class="valida_teste" value="3" <?php echo ($view_experiencia == 3) ? "checked" : null; ?> id="radio07" name="question_2" />
-																		<label for="radio07"><span></span>Entre 3 e 5 anos</label>	
-																	</div>												
-																	<div class="col-md-2">
-																		<input type="radio" class="valida_teste" value="4" <?php echo ($view_experiencia == 4) ? "checked" : null; ?> id="radio08" name="question_2" />
-																		<label for="radio08"><span></span>Entre 1 e 3 anos </label>	
+																		<input type="radio" class="valida_teste" value="2" <?php echo ($view_calculoExp == 2) ? "checked" : null; ?> id="radio06" name="question_2" />
+																		<label for="radio06"><span></span>Entre 1 e 3 anos</label>
 																	</div>
 
 																	<div class="col-md-2">
-																		<input type="radio" class="valida_teste " value="5" <?php echo ($view_experiencia == 5) ? "checked" : null; ?> id="radio09" name="question_2" />
-																		<label for="radio09"><span></span>- 1 ano</label>	
+																		<input type="radio" class="valida_teste" value="3" <?php echo ($view_calculoExp == 3) ? "checked" : null; ?>
+																		id="radio07" name="question_2" />
+																		<label for="radio07"><span></span>Entre 3 e 5 anos</label>
+																	</div>
+																	<div class="col-md-2">
+																		<input type="radio" class="valida_teste" value="4" <?php echo ($view_calculoExp == 4) ? "checked" : null; ?> id="radio08" name="question_2" />
+																		<label for="radio08"><span></span>Entre 5 e 8 anos</label>
+																	</div>
+
+																	<div class="col-md-2">
+																		<input type="radio" class="valida_teste " value="5" <?php echo ($view_calculoExp == 5) ? "checked" : null; ?> id="radio09" name="question_2" />
+																		<label for="radio09"><span></span>+ 8 anos</label>
 																	</div>
 																</div>
 
@@ -219,7 +219,7 @@
 												            </div>
 
 						         						</div><!-- </form-group> -->
-						         					</div><!-- </col-md-4> -->
+						         					</div><!-- </col-md-12> -->
 						         				</div><!-- </row> 2º Pergunta Questionário-->
 			         							<!--
 			         								3º Pergunta Questionário
@@ -236,25 +236,25 @@
 																<div class="row">
 																	<div class="col-md-2">
 																		<input type="radio" class="valida_teste" value="1" id="radio10" name="question_3" />
-																		<label for="radio10"><span></span>MCSE</label>
+																		<label for="radio10"><span></span>Não</label>
 																	</div>
 
 																	<div class="col-md-3">
 																		<input type="radio" class="valida_teste" value="2" id="radio11" name="question_3" />
-																		<label for="radio11"><span></span>MCSA</label>	
-																	</div>												
+																		<label for="radio11"><span></span>MCP</label>
+																	</div>
 																	<div class="col-md-2">
 																		<input type="radio" class="valida_teste" value="3" id="radio12" name="question_3" />
-																		<label for="radio12"><span></span>MCTIP</label>	
-																	</div>												
+																		<label for="radio12"><span></span>MCTIP</label>
+																	</div>
 																	<div class="col-md-2">
 																		<input type="radio" class="valida_teste" value="4" id="radio13" name="question_3" />
-																		<label for="radio13"><span></span>MCT</label>	
+																		<label for="radio13"><span></span>MCSA</label>
 																	</div>
 
 																	<div class="col-md-2">
 																		<input type="radio" class="valida_teste" value="5" id="radio14" name="question_3" />
-																		<label for="radio14"><span></span>MCP</label>	
+																		<label for="radio14"><span>MCSE</span></label>
 																	</div>
 																</div>
 
@@ -282,25 +282,25 @@
 																<div class="row">
 																	<div class="col-md-3">
 																		<input type="radio" class="valida_teste" value="1" <?php echo ($view_formacao == 1) ? "checked" : null; ?> id="radio15" name="question_4" />
-																		<label for="radio15"><span></span>Bacharel</label>
+																		<label for="radio15"><span></span>Primário</label>
 																	</div>
 
 																	<div class="col-md-3">
 																		<input type="radio" class="valida_teste" value="2" <?php echo ($view_formacao == 2) ? "checked" : null; ?> id="radio16" name="question_4" />
-																		<label for="radio16"><span></span>Tecnólogo</label>	
-																	</div>												
+																		<label for="radio16"><span></span>Médio</label>
+																	</div>
 																	<div class="col-md-2">
 																		<input type="radio" class="valida_teste" value="3" <?php echo ($view_formacao == 3) ? "checked" : null; ?> id="radio17" name="question_4" />
-																		<label for="radio17"><span></span>Técnico</label>	
-																	</div>												
+																		<label for="radio17"><span></span>Técnico</label>
+																	</div>
 																	<div class="col-md-2">
 																		<input type="radio" class="valida_teste" value="4" <?php echo ($view_formacao == 4) ? "checked" : null; ?> id="radio18" name="question_4" />
-																		<label for="radio18"><span></span>Médio</label>	
+																		<label for="radio18"><span></span>Tecnólogo</label>
 																	</div>
 
 																	<div class="col-md-2">
 																		<input type="radio" class="valida_teste" value="5" <?php echo ($view_formacao == 5) ? "checked" : null; ?> id="radio19" name="question_4" />
-																		<label for="radio19"><span></span>Primário</label>	
+																		<label for="radio19"><span></span>Bacharel</label>
 																	</div>
 																</div>
 
@@ -328,16 +328,16 @@
 																<div class="row">
 																	<div class="col-md-4">
 																		<input type="radio" class="valida_teste" value="1" <?php echo ($view_sitFormacao == 1) ? "checked" : null; ?> id="radio20" name="question_5" />
-																		<label for="radio20"><span></span>Completo</label>
+																		<label for="radio20"><span></span>Trancado</label>
 																	</div>
 
 																	<div class="col-md-4">
 																		<input type="radio" class="valida_teste" value="2" <?php echo ($view_sitFormacao == 2) ? "checked" : null; ?> id="radio21" name="question_5" />
-																		<label for="radio21"><span></span>Cursando</label>	
-																	</div>												
+																		<label for="radio21"><span></span>Cursando</label>
+																	</div>
 																	<div class="col-md-4">
 																		<input type="radio" class="valida_teste" value="3" <?php echo ($view_sitFormacao == 3) ? "checked" : null; ?> id="radio22" name="question_5" />
-																		<label for="radio22"><span></span>Trancado</label>	
+																		<label for="radio22"><span></span>Completo</label>
 																	</div>
 																</div>
 
@@ -365,25 +365,25 @@
 																<div class="row">
 																	<div class="col-md-2">
 																		<input type="radio" class="valida_teste" value="1" <?php echo ($view_pos == 1) ? "checked" : null; ?> id="radio23" name="question_6" />
-																		<label for="radio23"><span></span>PHD</label>
+																		<label for="radio23"><span></span>Não Possui</label>
 																	</div>
 
 																	<div class="col-md-3">
 																		<input type="radio" class="valida_teste" value="2" <?php echo ($view_pos == 2) ? "checked" : null; ?> id="radio24" name="question_6" />
-																		<label for="radio24"><span></span>Doutorado</label>	
-																	</div>												
+																		<label for="radio24"><span></span>MBA</label>
+																	</div>
 																	<div class="col-md-3">
 																		<input type="radio" class="valida_teste" value="3" <?php echo ($view_pos == 3) ? "checked" : null; ?> id="radio25" name="question_6" />
-																		<label for="radio25"><span></span>Mestrado</label>	
-																	</div>												
+																		<label for="radio25"><span></span>Mestrado</label>
+																	</div>
 																	<div class="col-md-2">
 																		<input type="radio" class="valida_teste" value="4" <?php echo ($view_pos == 4) ? "checked" : null; ?> id="radio26" name="question_6" />
-																		<label for="radio26"><span></span>MBA</label>	
+																		<label for="radio26"><span></span>Doutorado</label>
 																	</div>
 
 																	<div class="col-md-2">
 																		<input type="radio" class="valida_teste" value="5" <?php echo ($view_pos == 5) ? "checked" : null; ?> id="radio27" name="question_6" />
-																		<label for="radio27"><span></span>Não Possui</label>	
+																		<label for="radio27"><span></span>PHD</label>
 																	</div>
 																</div>
 
@@ -411,22 +411,22 @@
 																<div class="row">
 																	<div class="col-md-3">
 																		<input type="radio" class="valida_teste" value="1" <?php echo ($view_sitPos == 1) ? "checked" : null; ?> id="radio28" name="question_7" />
-																		<label for="radio28"><span></span>Completo</label>
+																		<label for="radio28"><span></span>Não Iniciado</label>
 																	</div>
 
 																	<div class="col-md-3">
 																		<input type="radio" class="valida_teste" value="2" <?php echo ($view_sitPos == 2) ? "checked" : null; ?> id="radio29" name="question_7" />
-																		<label for="radio29"><span></span>Cursando</label>	
-																	</div>												
+																		<label for="radio29"><span></span>Trancado</label>
+																	</div>
 																	<div class="col-md-3">
 																		<input type="radio" class="valida_teste" value="3" <?php echo ($view_sitPos == 3) ? "checked" : null; ?> id="radio30" name="question_7" />
-																		<label for="radio30"><span></span>Trancado</label>	
+																		<label for="radio30"><span></span>Cursando</label>
 																	</div>
 
 																	<div class="col-md-3">
 																		<input type="radio" class="valida_teste" value="4" <?php echo ($view_sitPos == 4) ? "checked" : null; ?> id="radio31" name="question_7" />
-																		<label for="radio31"><span></span>Não Iniciado</label>	
-																	</div>				
+																		<label for="radio31"><span></span>Completo</label>
+																	</div>
 																</div>
 
 												            <div class="row">
@@ -453,25 +453,25 @@
 																<div class="row">
 																	<div class="col-md-2">
 																		<input type="radio" class="valida_teste" value="1" id="radio32" name="question_8" />
-																		<label for="radio32"><span></span>Design Florestas</label>
+																		<label for="radio32"><span></span>Cliente</label>
 																	</div>
 
 																	<div class="col-md-3">
 																		<input type="radio" class="valida_teste" value="2" id="radio33" name="question_8" />
-																		<label for="radio33"><span></span>Arquiteto de Dominio</label>	
-																	</div>												
+																		<label for="radio33"><span></span>Operador</label>
+																	</div>
 																	<div class="col-md-3">
 																		<input type="radio" class="valida_teste" value="3" id="radio34" name="question_8" />
-																		<label for="radio34"><span></span>Administrador</label>	
-																	</div>												
+																		<label for="radio34"><span></span>Administrador</label>
+																	</div>
 																	<div class="col-md-2">
 																		<input type="radio" class="valida_teste" value="4" id="radio35" name="question_8" />
-																		<label for="radio35"><span></span>Operador</label>	
+																		<label for="radio35"><span></span>Arquiteto de Dominio</label>
 																	</div>
 
 																	<div class="col-md-2">
 																		<input type="radio" class="valida_teste" value="5" id="radio36" name="question_8" />
-																		<label for="radio36"><span></span>Cliente</label>	
+																		<label for="radio36"><span></span>Design Florestas</label>
 																	</div>
 																</div>
 
@@ -499,20 +499,20 @@
 																<div class="row">
 																	<div class="col-md-2">
 																		<input type="radio" class="valida_teste" value="1" id="radio37" name="question_9" />
-																		<label for="radio37"><span></span>Projetista</label>
+																		<label for="radio37"><span></span>Cliente</label>
 																	</div>
 
 																	<div class="col-md-3">
 																		<input type="radio" class="valida_teste" value="2" id="radio38" name="question_9" />
-																		<label for="radio38"><span></span>Administrador</label>	
-																	</div>												
+																		<label for="radio38"><span></span>Operador</label>
+																	</div>
 																	<div class="col-md-2">
 																		<input type="radio" class="valida_teste" value="3" id="radio39" name="question_9" />
-																		<label for="radio39"><span></span>Operador</label>	
-																	</div>												
+																		<label for="radio39"><span></span>Administrador</label>
+																	</div>
 																	<div class="col-md-2">
 																		<input type="radio" class="valida_teste" value="4" id="radio40" name="question_9" />
-																		<label for="radio40"><span></span>Cliente</label>	
+																		<label for="radio40"><span></span>Projetista</label>
 																	</div>
 																</div>
 
@@ -538,22 +538,22 @@
 																</div>
 
 																<div class="row">
-																	<div class="col-md-4">
+																	<div class="col-md-2">
 																		<input type="radio" class="valida_teste" value="1" id="radio41" name="question_10" />
-																		<label for="radio41"><span></span>Profissional Certificado</label>
+																		<label for="radio41"><span></span>Básico</label>
 																	</div>
 
 																	<div class="col-md-3">
 																		<input type="radio" class="valida_teste" value="2" id="radio42" name="question_10" />
-																		<label for="radio42"><span></span>Avançado</label>	
-																	</div>												
+																		<label for="radio42"><span></span>Intermediário</label>
+																	</div>
 																	<div class="col-md-3">
 																		<input type="radio" class="valida_teste" value="3" id="radio43" name="question_10" />
-																		<label for="radio43"><span></span>Intermediário</label>	
-																	</div>												
-																	<div class="col-md-2">
+																		<label for="radio43"><span></span>Avançado</label>
+																	</div>
+																	<div class="col-md-4">
 																		<input type="radio" class="valida_teste" value="4" id="radio44" name="question_10" />
-																		<label for="radio44"><span></span>Básico</label>	
+																		<label for="radio44"><span></span>Profissional Certificado</label>
 																	</div>
 																</div>
 
@@ -581,21 +581,21 @@
 																<div class="row">
 																	<div class="col-md-4">
 																		<input type="radio" class="valida_teste" value="1" id="radio45" name="question_11" />
-																		<label for="radio45"><span></span>Profissional Certificado</label>
+																		<label for="radio45"><span></span>Básico</label>
 																	</div>
 
 																	<div class="col-md-3">
 																		<input type="radio" class="valida_teste" value="2" id="radio46" name="question_11" />
-																		<label for="radio46"><span></span>Avançado</label>	
-																	</div>												
+																		<label for="radio46"><span></span>Intermediário</label>
+																	</div>
 																	<div class="col-md-3">
 																		<input type="radio" class="valida_teste" value="3" id="radio47" name="question_11" />
-																		<label for="radio47"><span></span>Intermediário</label>	
+																		<label for="radio47"><span></span>Avançado</label>
 																	</div>
 																	<div class="col-md-2">
 																		<input type="radio" class="valida_teste" value="4" id="radio48" name="question_11" />
-																		<label for="radio48"><span></span>Básico</label>	
-																	</div>	
+																		<label for="radio48"><span></span>Profissional Certificado</label>
+																	</div>
 																</div>
 
 												            <div class="row">
@@ -622,25 +622,24 @@
 																<div class="row">
 																	<div class="col-md-3">
 																		<input type="radio" class="valida_teste" value="1" id="radio49" name="question_12" />
-																		<label for="radio49"><span></span>Certificação Master</label>
+																		<label for="radio49"><span></span>Não Possui</label>
 																	</div>
 
-																	<div class="col-md-3">
+																	<div class="col-md-2">
 																		<input type="radio" class="valida_teste" value="2" id="radio50" name="question_12" />
-																		<label for="radio50"><span></span>Profissional Certificado</label>	
-																	</div>												
+																		<label for="radio50"><span></span>Conhecimento Processos</label>
+																	</div>
 																	<div class="col-md-2">
 																		<input type="radio" class="valida_teste" value="3" id="radio51" name="question_12" />
-																		<label for="radio51"><span></span>Cursos ITIL</label>	
-																	</div>												
+																		<label for="radio51"><span></span>Cursos ITIL</label>
+																	</div>
 																	<div class="col-md-2">
 																		<input type="radio" class="valida_teste" value="4" id="radio52" name="question_12" />
-																		<label for="radio52"><span></span>Conhecimento Processos</label>	
+																		<label for="radio52"><span></span>Profissional Certificado</label>
 																	</div>
-
-																	<div class="col-md-2">
+																	<div class="col-md-3">
 																		<input type="radio" class="valida_teste" value="5" id="radio53" name="question_12" />
-																		<label for="radio53"><span></span>Não Possui</label>	
+																		<label for="radio53"><span></span>Certificação Master</label>
 																	</div>
 																</div>
 
@@ -668,22 +667,22 @@
 																<div class="row">
 																	<div class="col-md-3">
 																		<input type="radio" class="valida_teste" value="1" id="radio54" name="question_13" />
-																		<label for="radio54"><span></span>Certificação</label>
+																		<label for="radio54"><span></span>Não Possui</label>
 																	</div>
 
 																	<div class="col-md-3">
 																		<input type="radio" class="valida_teste" value="2" id="radio55" name="question_13" />
-																		<label for="radio55"><span></span>Cursos Scrum</label>	
-																	</div>												
+																		<label for="radio55"><span></span>Experiência de Execução</label>
+																	</div>
 																	<div class="col-md-3">
 																		<input type="radio" class="valida_teste" value="3" id="radio56" name="question_13" />
-																		<label for="radio56"><span></span>Experiência de Execução</label>	
+																		<label for="radio56"><span></span>Cursos Scrum</label>
 																	</div>
 
 																	<div class="col-md-3">
 																		<input type="radio" class="valida_teste" value="4" id="radio57" name="question_13" />
-																		<label for="radio57"><span></span>Não Possui</label>	
-																	</div>	
+																		<label for="radio57"><span></span>Certificação</label>
+																	</div>
 																</div>
 
 												            <div class="row">
@@ -710,20 +709,20 @@
 																<div class="row">
 																	<div class="col-md-3">
 																		<input type="radio" class="valida_teste" value="1" id="radio58" name="question_14" />
-																		<label for="radio58"><span></span>Certificação PMP</label>
+																		<label for="radio58"><span></span>Não Possui</label>
 																	</div>
 
 																	<div class="col-md-3">
-																		<input type="radio" class="valida_teste" value="3" id="radio59" name="question_14" />
-																		<label for="radio59"><span></span>Cursos PMP</label>	
-																	</div>												
+																		<input type="radio" class="valida_teste" value="2" id="radio59" name="question_14" />
+																		<label for="radio59"><span></span>Experiência de Execução</label>
+																	</div>
 																	<div class="col-md-3">
 																		<input type="radio" class="valida_teste" value="3" id="radio60" name="question_14" />
-																		<label for="radio60"><span></span>Experiência de Execução</label>	
-																	</div>												
+																		<label for="radio60"><span></span>Cursos PMP</label>
+																	</div>
 																	<div class="col-md-3">
 																		<input type="radio" class="valida_teste" value="4" id="radio61" name="question_14" />
-																		<label for="radio61"><span></span>Não Possui</label>	
+																		<label for="radio61"><span></span>Certificação PMP</label>
 																	</div>
 																</div>
 
@@ -751,22 +750,22 @@
 																<div class="row">
 																	<div class="col-md-3">
 																		<input type="radio" class="valida_teste" value="1" id="radio62" name="question_15" />
-																		<label for="radio62"><span></span>Mais de 5 anos</label>
+																		<label for="radio62"><span></span>Não Possui</label>
 																	</div>
 
 																	<div class="col-md-3">
 																		<input type="radio" class="valida_teste" value="2" id="radio63" name="question_15" />
-																		<label for="radio63"><span></span>Entre 2 e 3 anos</label>	
-																	</div>												
+																		<label for="radio63"><span></span>Provisória</label>
+																	</div>
 																	<div class="col-md-3">
 																		<input type="radio" class="valida_teste" value="3" id="radio64" name="question_15" />
-																		<label for="radio64"><span></span>Provisória</label>	
+																		<label for="radio64"><span></span>Entre 2 e 3 anos</label>
 																	</div>
 
 																	<div class="col-md-3">
 																		<input type="radio" class="valida_teste" value="4" id="radio65" name="question_15" />
-																		<label for="radio65"><span></span>Não Possui</label>	
-																	</div>		
+																		<label for="radio65"><span></span>Mais de 5 anos</label>
+																	</div>
 																</div>
 
 												            <div class="row">
@@ -777,7 +776,7 @@
 
 						         						</div><!-- </form-group> -->
 						         					</div><!-- </col-md-4> -->
-						         				</div><!-- </row> 15º Pergunta Questionário-->						         								
+						         				</div><!-- </row> 15º Pergunta Questionário-->
 												</div><!-- </questions> -->
 				         					<div class="md-padder text-center">
 		                        			<button type="button" value="<?php echo $view_user->name; ?>" onclick="clean(this.value)" class="btn btn-primary btn-lg margin-btm-30" id="btnoClean">
@@ -795,9 +794,9 @@
 					         			</form>
 					         		</div><!-- </content> -->
 					         	</div>
-					         </div>				
+					         </div>
 					      </div><!-- </row> -->
 					   </div><!-- </container-fluid> -->
 					</div><!-- </container> -->
-				</section>			   			
-			</main><!-- </main> Final Corpo de Conteúdo-->		
+				</section>
+			</main><!-- </main> Final Corpo de Conteúdo-->

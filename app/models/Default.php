@@ -2,5 +2,5 @@
 
 class Default extends \HXPHP\System\Model
 {
-	
+
 }

@@ -3,10 +3,18 @@
 class Certification extends \HXPHP\System\Model
 {
 
-	//Relacionamnetos 1:1 entre as tabelas
-	static $belongs_to = array(
-      array('user', 'foreign_key' => 'certification_id', 'class_name' => 'User')
-	);
+	static function table_name()
+	{
+		return 'certifications';
+	}
+
+  public function relations()
+   {
+      return array(
+      	'user'=>array(self::BELONGS_TO, 'User', 'user_id'),
+      );
+   }
+
 
 	public static function cadastrar(array $post, $id_user)
 	{
@@ -25,7 +33,7 @@ class Certification extends \HXPHP\System\Model
 			'itil'			=> $post['itil'],
       	'user_id'      => $id_user
 		);
-      
+
 		$cadastrar = self::create($certification);
 
 		if ($cadastrar->is_valid()) {

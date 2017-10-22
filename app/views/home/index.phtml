@@ -33,7 +33,7 @@
 							</a>
 						</div><!-- </options-menu> -->
 					</div><!-- </container> -->
-				</section><!-- </update-menu> --> 
+				</section><!-- </update-menu> -->
 				<!-- ========================================= -->
 				<!--Section Profile(Resumo Profile)            -->
 				<!-- ========================================= -->
@@ -68,8 +68,19 @@
 								<div>
 									<h5 class="text-subtitulo">Informações Pessoais</h5>
 									<ul class="padder list-unstyled home-infolist">
-										<li><?php echo $view_total ?> anos - Experiência Efetiva</li>
-										<li>Sugestão de atualizações</li>
+										<li><span><?php echo $view_total[0] ?> anos e <?php echo $view_total[1] ?> meses </span>- Experiência Efetiva</li>
+										<h5 class="text-subtitulo">Sugestão de atualizações</h5>
+										<?php
+											foreach ($view_sugestoes as $suggestion) :
+												if ($suggestion != null) { ?>
+													<li><span>
+														<?php echo ($suggestion == null) ? null : $suggestion; ?>
+													</span></li>
+												<?php
+												}
+												else { echo $suggestion;}
+											endforeach;
+										?>
 										<li>Itens Não Informados </li>
 									</ul><!-- </list-unstyled home-infolist> -->
 									<div class="col-md-12 col-md-offset-0 text-uppercase">
@@ -77,10 +88,17 @@
 										<h5 class="text-subtitulo">Perfil Percentual </h5>
 										<!-- Force Meter -->
 										<div class="force-meter xs-padder">
+											<?php if($view_analiseQualificacoes) { ?>
 											<div class="on"></div>
-											<div class="on"></div>
-											<div class="on"></div>
+											<?php } else { ?>
 											<div></div>
+											<?php } ?>
+											<div class="on"></div>
+											<?php if($view_analiseRecomendacao) { ?>
+											<div class="on"></div>
+											<?php } else { ?>
+											<div></div>
+											<?php } ?>
 											<div></div>
 										</div><!-- </Force Meter> -->
 									</div><!-- </> Final Barra Força Perfil-->
@@ -160,7 +178,7 @@
 												</div>
 												<div class="avatar-molde">
 													<img class="avatar-picture wow bounceIn" src="<?php echo IMAGES; ?>profiles/16.jpg" >
-												</div>											
+												</div>
 											</div>
 										</div>
 									</div>
@@ -173,14 +191,14 @@
 				<!-- Opportuties (Oportunidades Disponiveis)   -->
 				<!-- ========================================= -->
 				<section id="opportunities" class="main-block opportunities">
-					<div class="container text-center">						
+					<div class="container text-center">
 						<!-- Opportunities Title -->
 						<div class="title-main text-left wow fadeIn">
 							<div class="main-title__inner">
 								<div class="main-title__left text-right">
 									<i class="fa fa-cog mega"></i>
 									<h1 class="title-session">Oportunidades</h1>
-									<em class="title-description">Oportunidades Perfiladas</em>									
+									<em class="title-description">Oportunidades Perfiladas</em>
 								</div><!-- </main-title__left> -->
 								<div class="main-title__right">
 									<p class="resumo">
@@ -344,9 +362,9 @@
                   			</button>
  								</div>
 
-						</div><!-- </container-recommendation> --> 
+						</div><!-- </container-recommendation> -->
 					</div><!-- </container> -->
-				</section><!-- </opportunities> -->	
+				</section><!-- </opportunities> -->
 
 				<!-- ==============================================
 				Contact-Me (Contate-me ou add uma Recomendação)
@@ -365,7 +383,7 @@
 									<div class="contact-form wow fadeInUp" data-wow-delay="0.8s">
 									   <form action="#" method="post">
 									       <div class="col-xs-11 col-md-12 text-center centered">
-									       	<a class="btn envio" name="btnAddVaga" id="btnAddVaga" href="#" data-toggle="modal" data-target="#modal10"> <i class="fa fa-paper-plane"></i> <span class="hidden-xs">Add  </span> Oportunidade </a>	
+									       	<a class="btn envio" name="btnAddVaga" id="btnAddVaga" href="#" data-toggle="modal" data-target="#modal10"> <i class="fa fa-paper-plane"></i> <span class="hidden-xs">Add  </span> Oportunidade </a>
 									       </div>
 									   </form>
 									</div><!-- </contact-form> -->

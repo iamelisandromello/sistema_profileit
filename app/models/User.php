@@ -7,13 +7,14 @@ class User extends \HXPHP\System\Model
 		array('role'),
       array('registry', 'foreign_key' => 'registry_id', 'class_name' => 'Registry'),
       array('network', 'foreign_key' => 'network_id', 'class_name' => 'Network'),
-      array('certification', 'foreign_key' => 'certification_id', 'class_name' => 'Certification'),
-      array('answer', 'foreign_key' => 'user_id', 'class_name' => 'Answer')
+      array('answer', 'foreign_key' => 'user_id', 'class_name' => 'Answer'),
+      array('definition', 'foreign_key' => 'user_id', 'class_name' => 'Definition')
 	);
 
 	//Relacionamnetos 1:n entre as tabelas
 	static $has_many = array(
 		array('professionals'),
+		array('certifications'),
 		array('recommendations'),
 		array('academics'),
 		array('competencies'),
@@ -100,26 +101,98 @@ class User extends \HXPHP\System\Model
 	}
 
 	public static function idade($birth_date)
-	{	
+	{
       $dn = new DateTime($birth_date);//recebe a data de aniversário do User
 		$agora = new DateTime();//captura a data atual do sistema
-		$idade = $agora->diff($dn);//calacula a diferença entre as duas datas  
+		$idade = $agora->diff($dn);//calacula a diferença entre as duas datas
 		return $idade->y; //retorna o calculo da diferença em anos
 	}
 
 	public static function experiencia($user)
-	{	
+	{
 		$total = 0;
+		$experienciaTotal = array();
 		foreach ($user->professionals as $professional) {
 			$d1 =  date_format($professional->date_entry, 'y-m-d');
-			$d2 =  date_format($professional->date_out, 'y-m-d');
+			if ($professional->date_out == null) {
+				$d2 = date_format(new DateTime(), 'y-m-d');//captura a data atual do sistema e formata
+			}
+			else {
+				$d2 =  date_format($professional->date_out, 'y-m-d');
+			}
 
 			$date = User::diffDate($d1,$d2,'D');
 			$total += (int) $date;
 		}
 
-		$total = ($total/30)/12;
-		return round($total, 2);
+		$anos  = (int)($total / 360);
+		$meses = (int)(($total % 360)/ 30);
+		$dias  = (int)(($total % 360)% 30);
+		$experienciaTotal[0] = $anos;
+		$experienciaTotal[1] = $meses;
+		$experienciaTotal[2] = $dias;
+		return $experienciaTotal;
+	}
+
+	public static function analyzeSkill($id_user)
+	{
+		$userSkill;//Declara variável de Retorno
+		$skill = Competency::find_by_user_id($id_user);
+		if ($skill) {
+			$userSkill = true;
+		} else { $userSkill = false; }
+		return $userSkill;
+	}
+
+	public static function analyzeRecommendation($id_user)
+	{
+		$userRecommnedation;//Declara variável de Retorno
+		$recommendation = Recommendation::find_by_user_id($id_user);
+		if (!$recommendation) {
+			$userRecommendation = false;
+		} else { $userRecommendation = true; }
+		return $userRecommendation;
+	} 
+
+	public static function suggestions($id_user)
+	{
+		$userSuggestions = array();//Declara array de Sugestões
+		$usuario = User::find_by_id($id_user);//localiza o objeto Usuário
+
+		/*Percorre a Tabela de Certificações
+		 *Avaliando Certificações;
+		*/
+		foreach ($usuario->certifications as $certification):
+			$linux = $certification->linux;
+			$microsoft = $certification->microsoft;
+			if ($certification->virtualizacao == "Nao") {
+				$userSuggestions["Virtualizacao"] = "Certificação em Virtualização";
+			} else { $userSuggestions["Virtualizacao"] = null; }
+			if ($certification->cisco == "Nao") {
+				$userSuggestions["Cisco"] = "Certificação em Roteadores";
+			} else { $userSuggestions["Cisco"] = null; }
+			if ( $certification->itil == "Nao" &&  $certification->agile == "Nao" && $certification->pmi == "Nao" ) {
+				$userSuggestions["Processos"] = "Certificação em Processos";
+			} else {$userSuggestions["Processos"] = null;}
+			if($certification->microsoft == "Nao") {
+				$userSuggestions["Microsoft"] = "Certificação Microsoft";
+			}
+			else if ($certification->microsoft == "MCP" ) {
+				$userSuggestions["Microsoft"] = "Certificação MCSA";
+			}
+			else if ($certification->microsoft == "MCTIP" ) {
+				$userSuggestions["Microsoft"] = "Certificação MCSA";
+			}
+			else if ($certification->microsoft == "MCSA" ) {
+				$userSuggestions["Microsoft"] = "Certificação MCSE";
+			}
+			else if ($certification->microsoft == "MCSE" ) {
+				$userSuggestions["Microsoft"] = null;
+			}
+		endforeach;
+
+		return $userSuggestions; //retorna array de sugestões
+
 	}
 
 	public static function diffDate($d1, $d2, $type='', $sep='-')
@@ -167,7 +240,7 @@ class User extends \HXPHP\System\Model
 		$callbackObj->user = null;
 		$callbackObj->status = false;
 		$callbackObj->errors = array();
-       
+
       $role = Role::find_by_role('user');
 
 		if (is_null($role)) {
@@ -306,7 +379,6 @@ class User extends \HXPHP\System\Model
 						else {
 							$callbackObj->code = 'dados-incorretos';
 						}
-						
 						LoginAttempt::RegistrarTentativa($user->id);
 					}
 				}

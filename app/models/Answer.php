@@ -15,29 +15,30 @@ class Answer extends \HXPHP\System\Model
   }
 
   public static function preQuestionnaire ($user) {
-    $questionnaire_data = array();    
+    $questionnaire_data = array();
 
     //Pergunta 2 - Experiência
     $total = User::experiencia($user);
+
     $experiencia = 0;
 
-    if ($total >= 8) {
-      $experiencia = 1; 
-    }
-    else if ( $total < 8 && $total >= 5 ) {
-      $experiencia = 2;
-    }
-    else if ( $total < 5 && $total >= 3 ) {
-      $experiencia = 3;
-    }
-    else if ( $total < 3 && $total >= 1 ) {
-      $experiencia = 4;
-    }
-    else if ( $total < 1) {
+    if ($total[0] >= 8) {
       $experiencia = 5;
     }
+    else if ( $total[0] < 8 && $total[0] >= 5 ) {
+      $experiencia = 4;
+    }
+    else if ( $total[0] < 5 && $total[0] >= 3 ) {
+      $experiencia = 3;
+    }
+    else if ( $total[0] < 3 && $total[0] >= 1 ) {
+      $experiencia = 2;
+    }
+    else if ( $total[0] < 1) {
+      $experiencia = 1;
+    }
     $questionnaire_data[0] = $experiencia;
-    
+
     //Pergunta 4,5,6 e 7 - Formação Acadêmica
     $graduacao = Academic::listFormations($user);
     $questionnaire_data[1] = $graduacao[0];
@@ -47,7 +48,7 @@ class Answer extends \HXPHP\System\Model
 
     return $questionnaire_data;
   }
-  
+
   public static function verificar($user_id)
   {
     $user = Answer::find_by_user_id($user_id);
@@ -58,7 +59,7 @@ class Answer extends \HXPHP\System\Model
       $answerbackObj->status = true;
       return $answerbackObj;
     }
-    
+
     return $answerbackObj;
   }
 
@@ -73,7 +74,7 @@ class Answer extends \HXPHP\System\Model
     $answer_data = array(
       'user_id'  => $user_id
     );
-   
+
     $post = array_merge($post, $answer_data);
 
     $cadastrar = self::create($post);

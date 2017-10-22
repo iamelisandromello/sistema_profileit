@@ -21,15 +21,24 @@ class Professional extends \HXPHP\System\Model
     $callbackObj->status = false;// Propriedade Status da Classe False
     $callbackObj->errors = array();// Array padrão de erros vazio
 
+    if ($post[3] == null ) {
+      $dateOut = null;
+    }
+    else {
+      $dateOut = date('Y-m-d',strtotime($post[3]));
+    }
+    
+    var_dump('Data Nula: ' . $dateOut);
+
     $historic = array(
       'company'     => $post[0],
       'function'    => $post[1],
-      'date_entry'  => date('Y-m-d',strtotime($post[2])), 
-      'date_out'    => date('Y-m-d',strtotime($post[3])), 
+      'date_entry'  => date('Y-m-d',strtotime($post[2])),
+      'date_out'    => $dateOut,
       'assignments' => $post[4],
       'user_id'     => $user_id
-    );    
-       
+    );
+
     $cadastrar = self::create($historic);
 
     if ($cadastrar->is_valid()) {

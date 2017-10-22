@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class UsuarioController extends \HXPHP\System\Controller
 {
@@ -35,14 +35,16 @@ class UsuarioController extends \HXPHP\System\Controller
 		$idadeUsuario = User::idade($user->birth_date);
 		$celular = Registry::formatoTelefone($user->registry->celular);
 		$cep = Registry::formatoCep($user->registry->zipcode);
-		
+		$total = User::experiencia($user);
+
 		$this->view->setTitle('HXPHP - Administrativo')
 						->setVars([
 							'user' => $user,
 							'idade' => $idadeUsuario,
 							'celular' => $celular,
-							'cep' => $cep					
-						]);				
+							'total' => $total,
+							'cep' => $cep
+						]);
 	}
 
 	public function pesquisarAction()

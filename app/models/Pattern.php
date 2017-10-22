@@ -13,6 +13,4 @@ class Pattern extends \HXPHP\System\Model
     	'profile'=>array(self::BELONGS_TO, 'Profile', 'profile_id'),
     );
   }
-  
- 
 }

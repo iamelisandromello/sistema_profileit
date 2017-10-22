@@ -28,7 +28,7 @@ class QuestionarioController extends \HXPHP\System\Controller
          $this->view->setHeader('questionario/header')
             ->setFooter('questionario/footer');
 
-		$user_id 			= $this->auth->getUserId();
+		$user_id = $this->auth->getUserId();
 		$user 				= User::find($user_id);
 		$preQuestionnaire = Answer::preQuestionnaire($user);
 		$calculoExp 		= $preQuestionnaire[0];
@@ -65,53 +65,21 @@ class QuestionarioController extends \HXPHP\System\Controller
 						'experiencia' => $experiencia
 					]);
 
+
 		$post = $this->request->post();
 
 		if (!empty($post)) {
-			$connection = Definition::connection();
-			$connection->transaction();
-
 			$cadastrarAnswers = Answer::cadastrar($post, $user_id);
 			if ($cadastrarAnswers->status === true) {
-				/*Calculo RBC para Novo Perfil*/
-				$pesos_backUser = Profile::backUserWeights($user_id);
-				$controle = Profile::defineProfile($pesos_backUser);
+				$updateRole = User::upRole($user_id);
+				$this->auth->update($updateRole->role);
+				$this->redirectTo('/profileit/home/');
 			}
 			else {
 				$this->load('Helpers\Alert', array(
 					'danger',
 					'Ops! Não foi possível efetuar seu cadastro. <br> Verifique os erros abaixo:',
 					$cadastrarAnswers->errors
-				));
-			}
-		}
-
-		if (!empty($controle)) {
-			$cadastrarDefinition = Definition::cadastrar($controle, $user_id);
-			if ($cadastrarDefinition->status === true) {
-				$updateRole = User::upRole($user_id);
-				$this->auth->update($updateRole->role);
-				try
-				{
-					$connection->commit();
-					$this->redirectTo('/profileit/home/');
-				}
-				catch (\Exception $e)
-				{
-					$connection->rollback();
-					throw $e;
-					$this->load('Helpers\Alert', array(
-						'danger',
-						'Ops! Não foi possível efetuar seu cadastro. <br> Verifique os erros abaixo:',
-						$cadastrarDefinition->errors
-					));
-				}
-			}
-			else {
-				$this->load('Helpers\Alert', array(
-					'danger',
-					'Ops! Não foi possível efetuar seu cadastro. <br> Verifique os erros abaixo:',
-					$cadastrarDefinition->errors
 				));
 			}
 		}

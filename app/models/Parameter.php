@@ -13,6 +13,4 @@ class Parameter extends \HXPHP\System\Model
     	'weight'=>array(self::BELONGS_TO, 'Weight', 'weight_id'),
     );
   }
-  
-  
 }

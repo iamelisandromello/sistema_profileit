@@ -6,6 +6,9 @@ class UsuariosController extends \HXPHP\System\Controller
 	{
 		parent::__construct($configs);
 
+	   //$this->view->setAssets('css', $this->configs->baseURI . 'public/css/register.css');
+	   $this->view->setHeader('usuarios/header')
+	              ->setFooter('usuarios/footer');
 		$this->load(
 			'Services\Auth',
 			$configs->auth->after_login,
@@ -75,8 +78,13 @@ class UsuariosController extends \HXPHP\System\Controller
 	public function excluirAction($user_id = null)
 	{
 		if (is_numeric($user_id)) {
+			$connection = Network::connection();
+			$connection->transaction();
+
 			$user = User::find_by_id($user_id);
+			$answer = Answer::find_by_user_id($user_id);
 			$academic = Academic::find_by_user_id($user_id);
+			$definition = Definition::find_by_user_id($user_id);
 			$professional = Professional::find_by_user_id($user_id);
 			$course = Course::find_by_user_id($user_id);
 			$certification = Certification::find_by_user_id($user_id);
@@ -86,6 +94,8 @@ class UsuariosController extends \HXPHP\System\Controller
 			$network = Network::find_by_id($network_id);
 
 			if (!is_null($user)) {
+				$definition->delete();
+				$answer->delete();
 				$academic->delete();
 				$professional->delete();
 				$course->delete();
@@ -96,6 +106,17 @@ class UsuariosController extends \HXPHP\System\Controller
 
 				$this->view->setVar('users', User::all());
 			}
+
+			try
+			{
+				$connection->commit();
+			}
+			catch (\Exception $e)
+			{
+				$connection->rollback();
+				throw $e;
+			}
+
 		}
 	}
 }

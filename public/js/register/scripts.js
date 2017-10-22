@@ -625,6 +625,7 @@ jQuery(document).ready(function() {
             //Verifica se Usuário Informou Empregado
             if (i == 0 && $('input[type="checkbox"][name="atual"]').is(':checked') ) {
                temp = window.validaData(idFieldset, datasPicker[i]); //Verifica Data Válida
+               $('input[type="checkbox"][name="atual"]').datepicker('setDate', null);
             }
             else {
                //Verifica Período de Entrada e Saída Válida
