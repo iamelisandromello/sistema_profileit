@@ -37,26 +37,26 @@ jQuery(document).ready(function() {
 	/**
 	* <b>sendEdit:</b> Funcão no Onclick do buton de edit de competência, recebe os parâmetros que serão analisados pelas funções de execução
 	* @param idElemento recebe o ID do elemento HTML que está sendo operado
-	* @param idCompetency ID da competência que será atualizada no BD 
-	* @param goback valor atual da competência para ataulização FrontEnd, em caso de Cancel	
+	* @param idCompetency ID da competência que será atualizada no BD
+	* @param goback valor atual da competência para ataulização FrontEnd, em caso de Cancel
 	* @param user Usuário Logado que está executando o processo
 	*/
-	window.sendEdit = function(idElemento, idCompetency, goback , user) {    
+	window.sendEdit = function(idElemento, idCompetency, goback , user) {
 		level = $('#' + idElemento).val();
 		triggerConfirmUp('cool',user,';) Ohhhhh ' + user + ', Vamos Realizar um Upgrade de Competências?', ';) Agora', ':( Ainda Não', editReturn, idCompetency, level);
-		
+
 		window.cancelar = function(user){
 			$("select#" + idElemento).val(goback);
 			triggerNotify('purple', 'bubbles', 'Eeei ' + user + ', então Iremos Canecelar esse Upgrade', 'OK Fica para Depois!!!');
-		};		
+		};
 	};
 
-	window.sendDel = function(idCompetency, user) {    
-		triggerConfirmDel('confused',user,';) Ohhhhh ' + user + ', Vamos Realizar a Exclusão desta Competência?', ';) Agora', ':( Ainda Não', delReturn, idCompetency);	
+	window.sendDel = function(idCompetency, user) {
+		triggerConfirmDel('confused',user,';) Ohhhhh ' + user + ', Vamos Realizar a Exclusão desta Competência?', ';) Agora', ':( Ainda Não', delReturn, idCompetency);
 	};
 
 	window.sendAdd = function(user) {
- 		triggerConfirmDel('confused',user,';) Ohhhhh ' + user + ', Vamos Realizar a Inclusão de uma Nova Competência?', ';) Só se For Agora', ':( Ainda Não', addReturn);	
+ 		triggerConfirmDel('confused',user,';) Ohhhhh ' + user + ', Vamos Realizar a Inclusão de uma Nova Competência?', ';) Só se For Agora', ':( Ainda Não', addReturn);
    };
 
 	/**
@@ -73,9 +73,9 @@ jQuery(document).ready(function() {
 
 	/**
 	* Área Hisórico Academico
-	*/	
+	*/
 	window.delReturnAcademic = function(data, nome, idAcademic) {
-		if (data){   
+		if (data){
 		   $(location).attr('href', 'http://localhost/profileit/perfil/delacademic/' + idAcademic);
 		}
 		else{
@@ -103,6 +103,6 @@ jQuery(document).ready(function() {
 
 	window.sendDelAcademic = function(idAcademic, user) {
 		triggerConfirmDel('confused',user,';) Ohhhhh ' + user + ', Vamos Realizar a Exclusão deste Histórico Acadêmico?', ';) Agora', ':( Ainda Não', delReturnAcademic, idAcademic);
-	};	
+	};
 
 });

@@ -36,6 +36,7 @@ class UsuarioController extends \HXPHP\System\Controller
 		$celular = Registry::formatoTelefone($user->registry->celular);
 		$cep = Registry::formatoCep($user->registry->zipcode);
 		$total = User::experiencia($user);
+		$analiseQualificacoes = User::analyzeSkill($user_id);
 
 		$this->view->setTitle('HXPHP - Administrativo')
 						->setVars([
@@ -43,6 +44,7 @@ class UsuarioController extends \HXPHP\System\Controller
 							'idade' => $idadeUsuario,
 							'celular' => $celular,
 							'total' => $total,
+							'analiseQualificacoes'	=> $analiseQualificacoes,
 							'cep' => $cep
 						]);
 	}

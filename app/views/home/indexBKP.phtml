@@ -216,15 +216,15 @@
 							<div class="col-md-6">
 								<div class="row">
 									<div class="col-md-12">
-										<form method="POST" action="<?php echo BASE; ?>perfil/cadastrarskill/"  name="addSkill" id="registration-skill" class="registration-skill form-horizontal wrapper-repeater" >
+										<form method="POST" action="<?php echo BASE; ?>perfil/addcompetency/"  name="addcompetency" id="addcompetency" class="form-horizontal wrapper-repeater" >
 											<fieldset>
 												<div class="row">
 													<div class="boxResume col-xs-10 col-sm-10 col-md-12 col-lg-12 ">
-														<textarea class="form-control border-input" placeholder="Adicione seu resumo profissional" rows="4" name="description"></textarea>
+														<textarea class="form-control border-input" placeholder="Adicione seu resumo profissional" rows="4" ></textarea>
 													</div>
 												</div>
 												<legend>Adicionar Competências</legend>
-												<div class="boxCompetencies">
+												<div class="repeater-custom-show-hide">
 													<div class="row">
 														<div class="boxTitles">
 															<div class="col-md-5">
@@ -236,83 +236,99 @@
 															<div class="col-md-2">
 																<label>Nível</label>
 															</div>
+															<div class="col-md-2">
+																<label>Excluir</label>
+															</div>
 														</div>
 													</div><!-- </row> -->
-						      					<div class="row">
-														<div class="col-xs-8 col-sm-7 col-md-7 col-lg-5 wow flipInx">
-							   							<div class="box-input">
-							   								<input type="text" name="competency" id="competency" class="form-control border-input" placeholder="Competência">
-							   							</div>
-							      					</div><!-- </col-md-5> -->
-														<div class="col-xs-6 col-sm-5 col-md-5 col-lg-3 wow flipInx">
-															<div class="box-input">
-		 														<select name="domain" id="domain" class="form-control">
-		 															<option class="opt-placeholder" value="-1" selected="">Select…</option>
-				 													<option value="1">
-				 														Microsoft
-				 													</option>
-				 													<option value="2">
-				 														Linux
-				 													</option>
-				 													<option value="3">
-				 														Especializações
-				 													</option>
-			 													</select>
-	 														</div>
-							      					</div><!-- </col-md-3> -->
-														<div class="col-xs-2 col-sm-2 col-md-3 col-lg-2 wow flipInx">
-		 													<div class="box-input">
-		 														<select name="level" id="level" class="form-control">
-				 													<option value="1">
-				 														1
-				 													</option>
-				 													<option value="2">
-				 														2
-				 													</option>
-				 													<option value="3">
-				 														3
-				 													</option>
-				 													<option value="4">
-				 														4
-				 													</option>
-				 													<option value="5">
-				 														5
-				 													</option>
-				 													<option value="6">
-				 														6
-				 													</option>
-				 													<option value="7">
-				 														7
-				 													</option>
-				 													<option value="8">
-				 														8
-				 													</option>
-				 													<option value="9">
-				 														9
-				 													</option>
-				 													<option value="10">
-				 														10
-				 													</option>
-			 													</select>
-		 													</div>
-						         					</div><!-- </col-md-1> -->
-													</div><!-- </row> -->
-				 									<hr/>
-													<div class="row">
-														<div class="col-md-12">
-															<div class="md-padder text-left">
-				                        				<button type="submit" class="btn btn-primary btn-lg margin-btm-30" id="btnSkill">
-				                        					<i class="fa fa-send"></i>
-				                        					<span>Enviar</span>
-				                        				</button>
-				                        				<div class="msgbox" id="msg-alert">
-						               						<span></span>
-						            						</div>
-						 									</div><!-- </md-padder> -->
-														</div>
-													</div>
-												</div><!-- </boxCompetencies> -->
+													<div data-repeater-list="competencies-group">
+							      					<div data-repeater-item>
+								      					<div class="row">
+																<div class="col-xs-8 col-sm-7 col-md-7 col-lg-5 wow flipInx">
+									   							<div class="box-input">
+									   								<input type="text" name="competency" id="competency" class="form-control border-input" placeholder="Competência">
+									   							</div>
+									      					</div><!-- </col-md-5> -->
+																<div class="col-xs-6 col-sm-5 col-md-5 col-lg-3 wow flipInx">
+																	<div class="box-input">
+				 														<select name="domain" id="domain" class="form-control">
+				 															<option class="opt-placeholder" value="-1" selected="">Select…</option>
+						 													<option value="1">
+						 														Microsoft
+						 													</option>
+						 													<option value="2">
+						 														Linux
+						 													</option>
+						 													<option value="3">
+						 														Especializações
+						 													</option>
+					 													</select>
+			 														</div>
+									      					</div><!-- </col-md-3> -->
+																<div class="col-xs-2 col-sm-2 col-md-3 col-lg-2 wow flipInx">
+				 													<div class="box-input">
+				 														<select name="nivel" id="nivel" class="form-control">
+						 													<option value="1">
+						 														1
+						 													</option>
+						 													<option value="2">
+						 														2
+						 													</option>
+						 													<option value="3">
+						 														3
+						 													</option>
+						 													<option value="4">
+						 														4
+						 													</option>
+						 													<option value="5">
+						 														5
+						 													</option>
+						 													<option value="6">
+						 														6
+						 													</option>
+						 													<option value="7">
+						 														7
+						 													</option>
+						 													<option value="8">
+						 														8
+						 													</option>
+						 													<option value="9">
+						 														9
+						 													</option>
+						 													<option value="10">
+						 														10
+						 													</option>
+					 													</select>
+				 													</div>
+								         					</div><!-- </col-md-1> -->
 
+									      					<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 wow flipInx">
+																	<div class="box-input">
+																		<a data-repeater-delete class="btn btn-primary btn-sm margin-btm-30" >
+																			<i class="fa fa-minus-circle"></i>
+																			<span > Delete </span>
+																		</a>
+																	</div>
+		 														</div>
+															</div><!-- </row> -->
+														</div>	<!-- </data-repeater-item> -->
+													</div><!-- </data-repeater-list> -->
+
+				 									<div class="form-group wow flipInx">
+				 										<div class="col-sm-offset-1 col-sm-11">
+				 											<span data-repeater-create data-tooltip="Incluir Nova Competência" class="btn btn-info btn-md">
+				 												<span class="glyphicon glyphicon-plus"></span> Adicionar
+				 											</span>
+				 										</div>
+				 									</div>
+				 									<hr/>
+												</div><!-- </repeater-custom-show-hide> -->
+												<div class="md-padder text-left">
+	                        				<button type="button" value="<?php echo $view_user->name; ?>" onclick="sendAdd(this.value)" class="btn btn-primary btn-lg margin-btm-30" id="btnOK">
+	                        					<i class="fa fa-send"></i>
+	                        					<span>OK</span>
+	                        				</button>
+				 								</div><!-- </md-padder> -->
 											</fieldset>
 										</form>
 									</div><!-- </col-md-12> -->

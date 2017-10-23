@@ -14,20 +14,20 @@
 				            <li> <a href="mailto:iam@elisandromello.com.br?subject=Eu tenho um comentário para você..." title=""><span> <i class="fa fa-envelope"></i></span></a></li>
 				          </ul>
 				    </div><!-- /row -->
-				  </div><!-- /container -->    
+				  </div><!-- /container -->
 				</section><!-- </social-links> Final Sessão Redes Sociais -->
 
 				<!-- ==============================================
 				   Créditos (Credits)
-				=============================================== --> 
+				=============================================== -->
 				<section class="copyright">
 				  <div class="container">
 				    <div class="col-md-12">
-				      <div class="text-center"> 
+				      <div class="text-center">
 				        <!-- Logo Header -->
 				        <section id="fox_footer" class="fox_footer">
 				          <div> <img src="<?php echo IMAGES; ?>logofooter.png" alt="Foxin by Elisandro Mello"> - &copy;<script>document.write(new Date().getFullYear())</script> - Designer coded and designed by  <i class="fa fa-cloud-upload"></i> Elisandro Mello</div>
-				          
+
 				        </section>
 				        <!--/ Logo Header-->
 				      </div>
@@ -63,22 +63,22 @@
 		    				</div><!-- </col-md-10> -->
 		    			</div><!-- </row> -->
 
-		    			<form action="<?php echo BASE; ?>usuario/pesquisar/" class="form-user clearfix" method="post">	
+		    			<form action="<?php echo BASE; ?>usuario/pesquisar/" class="form-user clearfix" method="post">
 		    				<div class="modal-groupForm">
 		    					<div class="grupo-input">
 		    						<span class="grupo-input-img"><i class="fa fa-user-plus"></i></span>
 									<input class="input-modal" type="text" name="campo" id="campo" placeholder="O que você está procurando?">
 		    					</div>
 		    				</div><!-- </modal-groupForm> -->
- 
+
 							<div class="col-md-12 text-center">
 								<input name="enviar" type="submit" class="form-control" id="submit" value="Pesquisar">
 							</div><!-- </col-md-12> -->
 
 		    			</form>
-						<?php 
-							if ($view_users) : 
-								foreach ($view_users as $user) : 
+						<?php
+							if ($view_users) :
+								foreach ($view_users as $user) :
 						?>
 									<div class="col-md-12 search-user">
 										<div class="row">
@@ -110,7 +110,7 @@
 										</div><!-- </row> -->
 
 									</div>
-						<?php 
+						<?php
 								endforeach;
 							endif;
 						?>
@@ -180,7 +180,7 @@
 			    					<div class="modal-containerStep">
 			    						<span class="step-num">1</span>
 			    						<div class="modal-text">
-											Perfil da Vaga	
+											Perfil da Vaga
 			    						</div>
 			    					</div>
 			    				</div>
@@ -587,16 +587,22 @@
 		<script src="<?php echo BOWER; ?>bootstrap-sass/assets/javascripts/bootstrap.min.js"></script> <!-- Bootstrap -->
 		<!-- Contact JS -->
 		<!-- Wow JS -->
-		<script src="<?php echo BOWER; ?>wow/dist/wow.min.js"></script> <!-- WOW --> 
+		<script src="<?php echo BOWER; ?>wow/dist/wow.min.js"></script> <!-- WOW -->
 		<script src="<?php echo BOWER; ?>flexslider/jquery.flexslider-min.js"></script> <!-- FlexSlider JS (Slider Indicações) -->
-		<script src="<?php echo BOWER; ?>jquery.scrollTo/jquery.scrollTo.min.js"></script> <!-- ScrollTo -->		
+		<script src="<?php echo BOWER; ?>jquery.scrollTo/jquery.scrollTo.min.js"></script> <!-- ScrollTo -->
 		<script src="<?php echo BOWER; ?>jquery.easing/js/jquery.easing.min.js"></script> <!-- Easing -->
-		<script src="<?php echo BOWER; ?>jpreloader/js/jpreloader.min.js"></script> <!-- PreLoader -->	
+		<script src="<?php echo BOWER; ?>jpreloader/js/jpreloader.min.js"></script> <!-- PreLoader -->
 		<script src="<?php echo JS; ?>front/smooth-scrolling.js"></script> <!-- Deslocamento Suave Sesões - One Page -->
 		<script src="<?php echo JS; ?>front/main.js"></script> <!-- Default JS -->
 		<script src="<?php echo JS; ?>boxmessage.js"></script> <!-- Default JS -->
 		<script src="<?php echo JS; ?>front/timeline-loader.js"></script> <!-- Plus Timeline Item -->
+		<!-- Função Repeater -->
+		<script src="<?php echo JS; ?>front/jquery.repeater.min.js"></script>
+		<!-- Default JS Pagina Update-->
 		<script src="<?php echo JS; ?>profile.js"></script> <!-- Plus Timeline Item -->
+		<script src="<?php echo JS; ?>front/use-repeater.js"></script>
+		<script src="<?php echo JS; ?>competency.js"></script>
+		<script src="<?php echo JS; ?>home/skill.js"></script>
 
 		<!-- Tuner ACessibilidade de Cores -->
 		<script src="<?php echo TUNER; ?>js/tuner.js"></script>

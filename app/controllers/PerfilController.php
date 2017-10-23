@@ -41,11 +41,11 @@ class PerfilController extends \HXPHP\System\Controller
 		$this->view->setFile('editar');
          $this->view->setHeader('perfil/header')
             ->setFooter('perfil/footer');
-		
+
 		$this->auth->redirectCheck();
 		$this->auth->roleCheck(array(
 		'user', 'administrator'
-		));             
+		));
 
 		$user_id = $this->auth->getUserId();
 
@@ -116,6 +116,34 @@ class PerfilController extends \HXPHP\System\Controller
 		}
 	}
 
+
+	/*
+	* Método Controller's de Cadastrar Skill
+	* de Competências e Resumo Profissional
+	*/
+	public function cadastrarskillAction()
+	{
+		$this->view->setFile('editar');
+         $this->view->setHeader('perfil/header')
+            ->setFooter('perfil/footer');
+
+		$post = $this->request->post();
+		$user_id = $this->auth->getUserId();
+		$user = User::find($user_id);
+
+		$atualizarCompetency = Competency::cadastrar($post, $user_id);
+
+		if ($atualizarCompetency->status == false) {
+			$this->load('Helpers\Alert', array(
+				'error',
+				'Ops! Não foi possível atualizar suas competências. <br> Verifique os erros abaixo:',
+				$atualizarCompetency->errors
+			));
+		}
+
+		$this->view->setVar('user', $user);
+	}
+
 	/*
 	* Métodos Controller's de Atualização de Informaçoes
 	* do Skill de COmpetências
@@ -161,7 +189,7 @@ class PerfilController extends \HXPHP\System\Controller
 				'Ops! Não foi possível atualizar suas competências. <br> Verifique os erros abaixo:',
 				$excluirCompetency->errors
 			));
-		}			
+		}
 
 		$this->view->setVar('user', $user);
 	}
@@ -172,7 +200,7 @@ class PerfilController extends \HXPHP\System\Controller
 		$this->view->setFile('editar');
          $this->view->setHeader('perfil/header')
             ->setFooter('perfil/footer');
-		
+
 		$post = $this->request->post();
 		$user_id = $this->auth->getUserId();
 		$user = User::find($user_id);
@@ -181,7 +209,7 @@ class PerfilController extends \HXPHP\System\Controller
 			$competencies_group = $_POST['competencies-group'];// copiar um arrays de um POST
 
 			//Bloco Cadastro Competências
-			if (!empty($competencies_group)) {			
+			if (!empty($competencies_group)) {
 				foreach($competencies_group as $data) {
 					$colum = 0;
 					$competencies_data = array();
@@ -218,7 +246,7 @@ class PerfilController extends \HXPHP\System\Controller
 		$this->view->setFile('editar');
          $this->view->setHeader('perfil/header')
             ->setFooter('perfil/footer');
-		
+
 		$post = $this->request->post();
 		$user_id = $this->auth->getUserId();
 		$user = User::find($user_id);
@@ -231,7 +259,7 @@ class PerfilController extends \HXPHP\System\Controller
 				'Ops! Não foi possível atualizar seu Histórico Acadêmico. <br> Verifique os erros abaixo:',
 				$atualizarAcademic->errors
 			));
-		}			
+		}
 
 		$this->view->setVar('user', $user);
 	}
@@ -254,7 +282,7 @@ class PerfilController extends \HXPHP\System\Controller
 				'Ops! Não foi possível atualizar seu Histórico Acadêmico. <br> Verifique os erros abaixo:',
 				$excluirAcademic->errors
 			));
-		}			
+		}
 
 		$this->view->setVar('user', $user);
 	}
