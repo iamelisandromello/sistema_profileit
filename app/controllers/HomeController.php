@@ -41,7 +41,15 @@ class HomeController extends \HXPHP\System\Controller
 		$total = User::experiencia($user);
 		$sugestoes = User::suggestions($user_id);
 		$analiseQualificacoes = User::analyzeSkill($user_id);
-		$analiseRecomendacao = User::analyzeRecommendation($user_id);
+		$analiseRecomendacoes = User::analyzeRecommendation($user_id);
+		$ctrMeter = 0;
+
+		if ($analiseQualificacoes) {
+			$ctrMeter++;
+		}
+		if ($analiseRecomendacoes) {
+			$ctrMeter++;
+		}
 
 		$this->load(
 			'Helpers\Menu',
@@ -57,7 +65,8 @@ class HomeController extends \HXPHP\System\Controller
 						'total'		=> $total,
 						'sugestoes'	=> $sugestoes,
 						'analiseQualificacoes'	=> $analiseQualificacoes,
-						'analiseRecomendacao'	=> $analiseRecomendacao,
+						'analiseRecomendacoes'	=> $analiseRecomendacoes,
+						'ctrMeter'	=> $ctrMeter,
 						'users'		=> User::all()
 					]);
 	}

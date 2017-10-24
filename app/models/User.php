@@ -18,6 +18,7 @@ class User extends \HXPHP\System\Model
 		array('recommendations'),
 		array('academics'),
 		array('competencies'),
+		array('opportunities'),
 		array('skills', 'through' => 'competencies')
 	);
 

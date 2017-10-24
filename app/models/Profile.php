@@ -9,7 +9,8 @@ class Profile extends \HXPHP\System\Model
 
   //Relacionamnetos 1:1 entre as tabelas
   static $belongs_to = array(
-    array('pattern', 'foreign_key' => 'profile_id', 'class_name' => 'Pattern')
+    array('pattern', 'foreign_key' => 'profile_id', 'class_name' => 'Pattern'),
+    array('opportunity', 'foreign_key' => 'profile_id', 'class_name' => 'Opportunity')
   );
 
   //Relacionamnetos 1:n entre as tabelas

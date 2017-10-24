@@ -81,25 +81,47 @@
 												else { echo $suggestion;}
 											endforeach;
 										?>
-										<li>Itens Não Informados </li>
+										<h5 class="text-subtitulo">Itens Não Informados </h5>
+										<li>
+										<?php
+											if ($view_analiseQualificacoes == null) {
+										?>
+												<span>
+													<?php echo ('Perfil de Competências'); ?>
+												</span>
+										<?php
+											}
+											if ($view_analiseRecomendacoes == null) {
+										?>
+												<span>
+													<?php echo (', Recomendações'); ?>
+												</span>
+										<?php
+											}
+										?>
+										</li>
 									</ul><!-- </list-unstyled home-infolist> -->
 									<div class="col-md-12 col-md-offset-0 text-uppercase">
 										<!-- SKILL TITLE -->
 										<h5 class="text-subtitulo">Perfil Percentual </h5>
 										<!-- Force Meter -->
 										<div class="force-meter xs-padder">
-											<?php if($view_analiseQualificacoes) { ?>
-											<div class="on"></div>
-											<?php } else { ?>
-											<div></div>
-											<?php } ?>
-											<div class="on"></div>
-											<?php if($view_analiseRecomendacao) { ?>
-											<div class="on"></div>
-											<?php } else { ?>
-											<div></div>
-											<?php } ?>
-											<div></div>
+											<?php
+											for ($i=0; $i < $view_ctrMeter; $i++) {
+											?>
+												<div class="on"></div>
+
+											<?php
+												}
+											?>
+											<?php
+											for ($i=5; $i > $view_ctrMeter; $i--) {
+											?>
+												<div></div>
+
+											<?php
+												}
+											?>
 										</div><!-- </Force Meter> -->
 									</div><!-- </> Final Barra Força Perfil-->
 								</div>
@@ -187,7 +209,122 @@
 						</div><!-- </main-block__padder> -->
 					</div><!-- </container> -->
 				</section><!-- </section> Profile -->
+				<section id="adc-charges" class="main-block adc-charges">
+					<div class="container text-center">
 
+						<div class="row">
+							<div class="col-md-4">
+								<div class="box-input">
+									<select name="level" id="level" class="form-control">
+										<option value="1">
+											1
+										</option>
+										<option value="2">
+											2
+										</option>
+										<option value="3">
+											3
+										</option>
+										<option value="4">
+											4
+										</option>
+										<option value="5">
+											5
+										</option>
+										<option value="6">
+											6
+										</option>
+										<option value="7">
+											7
+										</option>
+										<option value="8">
+											8
+										</option>
+										<option value="9">
+											9
+										</option>
+										<option value="10">
+											10
+										</option>
+									</select>
+								</div>
+
+							</div>
+							<div class="col-md-4">
+								<div class="box-input">
+									<select name="level" id="level" class="form-control">
+										<option value="1">
+											1
+										</option>
+										<option value="2">
+											2
+										</option>
+										<option value="3">
+											3
+										</option>
+										<option value="4">
+											4
+										</option>
+										<option value="5">
+											5
+										</option>
+										<option value="6">
+											6
+										</option>
+										<option value="7">
+											7
+										</option>
+										<option value="8">
+											8
+										</option>
+										<option value="9">
+											9
+										</option>
+										<option value="10">
+											10
+										</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="box-input">
+									<select name="level" id="level" class="form-control">
+										<option value="1">
+											1
+										</option>
+										<option value="2">
+											2
+										</option>
+										<option value="3">
+											3
+										</option>
+										<option value="4">
+											4
+										</option>
+										<option value="5">
+											5
+										</option>
+										<option value="6">
+											6
+										</option>
+										<option value="7">
+											7
+										</option>
+										<option value="8">
+											8
+										</option>
+										<option value="9">
+											9
+										</option>
+										<option value="10">
+											10
+										</option>
+									</select>
+								</div>
+							</div>
+						</div><!-- </row> -->
+					</div><!-- </container> -->
+				</section>
 
 				<!-- =================================================
 			   add Competências (Resumo Profissional e Qualificações)
@@ -519,7 +656,7 @@
 									<div class="contact-form wow fadeInUp" data-wow-delay="0.8s">
 									   <form action="#" method="post">
 									       <div class="col-xs-11 col-md-12 text-center centered">
-									       	<a class="btn envio" name="btnAddVaga" id="btnAddVaga" href="#" data-toggle="modal" data-target="#modal10"> <i class="fa fa-paper-plane"></i> <span class="hidden-xs">Add  </span> Oportunidade </a>
+									       	<a class="btn envio" name="btnAddVaga" id="btnAddVaga" href="#" data-toggle="modal" data-target="#modal10"> <i class="fa fa-archive"></i> <span class="hidden-xs">Adicionar  </span> Oportunidade </a>
 									       </div>
 									   </form>
 									</div><!-- </contact-form> -->
