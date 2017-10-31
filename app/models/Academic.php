@@ -50,7 +50,7 @@ class Academic extends \HXPHP\System\Model
         $formacao = $controle;
         $statusGra = ($controle == 1) ? $statusGra = 3 : $statusGra = $status ;
       }
-      else if ( $formacao > $controle ) {
+      else if ( $controle > $formacao ) {
         $formacao = $controle;
         $statusGra = ($controle == 1) ? $statusGra = 3 : $statusGra = $status ;
       }
@@ -70,7 +70,7 @@ class Academic extends \HXPHP\System\Model
       }
       else {
          $ctrPos = 1;
-      } 
+      }
 
       if ($pos == 0) {
         $pos = $ctrPos;
@@ -79,10 +79,10 @@ class Academic extends \HXPHP\System\Model
       else if ( $pos > $ctrPos ) {
         $pos = $ctrPos;
         $statusPos = ($ctrPos == 1) ? 1 : $status ;
-      }     
+      }
 
     endforeach;
-    
+
     $formations_data[0] = $formacao;
     $formations_data[1] = $statusGra;
     $formations_data[2] = $pos;
@@ -104,7 +104,7 @@ class Academic extends \HXPHP\System\Model
     else {
       $dataConclusao = date('Y-m-d',strtotime($post[4]));
     }
- 
+
     $academic = array(
       'institution' => $post[0],
       'local'       => $post[1],
@@ -138,14 +138,14 @@ class Academic extends \HXPHP\System\Model
     $callbackObj->academic = null;
     $callbackObj->status = false;
     $callbackObj->errors = array();
-       
+
     $academic_id = $post['modalId'];
     $conclusion   = date('Y-m-d',strtotime($post['date_conclusion']));
 
     $academic = self::find($academic_id);
     $owner = $academic->user_id;
     // Verifica se a Competência Pertence ao Usuario
-    
+
     if ($owner != $user_id) {
       array_push($callbackObj->errors, 'Huummm! A Competência em Processo não é de propriedade deste Usuário');
       return $callbackObj;
@@ -176,21 +176,21 @@ class Academic extends \HXPHP\System\Model
     $callbackObj->academic = null;
     $callbackObj->status = false;
     $callbackObj->errors = array();
-    
+
     if (!is_numeric($academic_id)) {
       array_push($callbackObj->errors, 'Huummm! Inconsistência nos dados informados');
       return $callbackObj;
     }
-    
+
     $academic = self::find($academic_id);
     // Localiza o Registro da competência BD
     if (is_null($academic)) {
       array_push($callbackObj->errors, 'Huummm! O Histórico em Processo não Foi Localizado para este Usuário');
       return $callbackObj;
     }
-    
+
     // Verifica se a Competência Pertence ao Usuario
-    $owner = $academic->user_id;    
+    $owner = $academic->user_id;
     if ($owner != $user_id) {
       array_push($callbackObj->errors, 'Huummm! O Histórico em Processo não é de propriedade deste Usuário');
       return $callbackObj;

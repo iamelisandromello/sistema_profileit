@@ -28,23 +28,35 @@ class QuestionarioController extends \HXPHP\System\Controller
          $this->view->setHeader('questionario/header')
             ->setFooter('questionario/footer');
 
-		$user_id 			= $this->auth->getUserId();
-		$user 				= User::find($user_id);
-		$preQuestionnaire = Answer::preQuestionnaire($user);
-		$calculoExp 		= $preQuestionnaire[0];
-		$formacao 			= $preQuestionnaire[1];
-		$sitFormacao 		= $preQuestionnaire[2];
-		$pos 					= $preQuestionnaire[3];
-		$sitPos 				= $preQuestionnaire[4];
+		$user_id 				= $this->auth->getUserId();
+		$user 					= User::find($user_id);
+		$preQuestionnaire 	= Answer::preQuestionnaire($user, $user_id);
+		$calculoExp 			= $preQuestionnaire[0];
+		$formacao 				= $preQuestionnaire[1];
+		$sitFormacao 			= $preQuestionnaire[2];
+		$pos 						= $preQuestionnaire[3];
+		$sitPos 					= $preQuestionnaire[4];
+		$certMicrosoft			= $preQuestionnaire[5];
+		$certItil 				= $preQuestionnaire[6];
+		$certVirtualizacao 	= $preQuestionnaire[7];
+		$certCisco 				= $preQuestionnaire[8];
+		$certAgile 				= $preQuestionnaire[9];
+		$certPmi 				= $preQuestionnaire[10];
 
 		$this->view->setTitle('ProfileIT - Questionario de Perfil')
 					->setVars([
-						'user' => $user,
-						'calculoExp' => $calculoExp,
-						'formacao' => $formacao,
-						'sitFormacao' => $sitFormacao,
-						'pos' => $pos,
-						'sitPos' => $sitPos
+						'user' 					=> $user,
+						'calculoExp' 			=> $calculoExp,
+						'formacao' 				=> $formacao,
+						'sitFormacao' 			=> $sitFormacao,
+						'pos' 					=> $pos,
+						'sitPos' 				=> $sitPos,
+						'certMicrosoft'		=> $certMicrosoft,
+						'certItil'	 			=> $certItil,
+						'certVirtualizacao'	=> $certVirtualizacao,
+						'certCisco' 			=> $certCisco,
+						'certAgile' 			=> $certAgile,
+						'certPmi' 				=> $certPmi
 					]);
 	}
 

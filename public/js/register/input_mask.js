@@ -1,24 +1,24 @@
-  $(document).ready(function () {
-    'use strict';
+$(document).ready(function () {
+   'use strict';
 
-    $("#celular").inputmask({
-        mask: ["(99) 99999-9999", "(99) 99999-9999", ],
-        keepStatic: true
+   $("#celular").inputmask({
+      mask: ["(99) 99999-9999", "(99) 99999-9999", ],
+      keepStatic: true
+   });
+
+   $(".numero").inputmask({
+      mask: ["999", "99", ],
+      keepStatic: true
+   });
+
+   $("#date_conclusion").inputmask({
+      mask: ["99/99/9999", "99/99/9999", {
+         placeholder: "",
+         clearMaskOnLostFocus: true
+      }],
+      keepStatic: true
     });
 
-    $(".numero").inputmask({
-        mask: ["999", "99", ],
-        keepStatic: true
-    });
-
-    $("#date_conclusion").inputmask({
-        mask: ["99/99/9999", "99/99/9999", {
-            placeholder: "",
-            clearMaskOnLostFocus: true
-        }],
-        keepStatic: true
-    });
-    
     $("#schedule").inputmask({
         mask: ["99/99/9999", "99/99/9999", {
             placeholder: "",
@@ -51,13 +51,85 @@
         keepStatic: true
     });
 
-    $("#birth").inputmask({
-        mask: ["99/99/9999", "99/99/9999", {
-            placeholder: "",
-            clearMaskOnLostFocus: true
-        }],
-        keepStatic: true
-    });
+   $("#academic_0_dateconclusion").inputmask({
+      mask: ["99/99/9999", "99/99/9999", {
+         placeholder: "",
+         clearMaskOnLostFocus: true
+      }],
+      keepStatic: true
+   });
+
+   $("#academic_1_dateconclusion").inputmask({
+      mask: ["99/99/9999", "99/99/9999", {
+         placeholder: "",
+         clearMaskOnLostFocus: true
+      }],
+      keepStatic: true
+   });
+
+   $("#academic_2_dateconclusion").inputmask({
+      mask: ["99/99/9999", "99/99/9999", {
+         placeholder: "",
+         clearMaskOnLostFocus: true
+      }],
+      keepStatic: true
+   });
+
+   $("#course_0_schedule").inputmask({
+      mask: ["99/99/9999", "99/99/9999", {
+         placeholder: "",
+         clearMaskOnLostFocus: true
+      }],
+      keepStatic: true
+   });
+
+   $("#course_1_schedule").inputmask({
+      mask: ["99/99/9999", "99/99/9999", {
+         placeholder: "",
+         clearMaskOnLostFocus: true
+      }],
+      keepStatic: true
+   });
+
+   $("#course_2_schedule").inputmask({
+      mask: ["99/99/9999", "99/99/9999", {
+         placeholder: "",
+         clearMaskOnLostFocus: true
+      }],
+      keepStatic: true
+   });
+
+   $("#professional_0_dateEntry").inputmask({
+      mask: ["99/99/9999", "99/99/9999", {
+         placeholder: "",
+         clearMaskOnLostFocus: true
+      }],
+      keepStatic: true
+   });
+
+   $("#professional_1_dateEntry").inputmask({
+      mask: ["99/99/9999", "99/99/9999", {
+         placeholder: "",
+         clearMaskOnLostFocus: true
+      }],
+      keepStatic: true
+   });
+
+   $("#professional_2_dateEntry").inputmask({
+      mask: ["99/99/9999", "99/99/9999", {
+         placeholder: "",
+         clearMaskOnLostFocus: true
+      }],
+      keepStatic: true
+   });
+
+   $("#birth").inputmask({
+      mask: ["99/99/9999", "99/99/9999", {
+         placeholder: "",
+         clearMaskOnLostFocus: true
+      }],
+      keepStatic: true
+   });
 
     $("#cnpj").inputmask({
         mask: ["99.999.999/9999-99", "99.999.999/9999-99", {

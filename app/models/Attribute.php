@@ -1,32 +1,32 @@
 <?php
 
-class Benefit extends \HXPHP\System\Model
+class Attribute extends \HXPHP\System\Model
 {
 
 	static function table_name()
 	{
-		return 'benefits';
+		return 'attributes';
 	}
 
-	//Relacionamnetos 1:1 entre as tabelas
-  	public function relations()
+  //Relacionamnetos 1:1 entre as tabelas
+   public function relations()
    {
-   	return array(
-    		'opportunity'=>array(self::BELONGS_TO, 'Opportunity', 'benefit_id'),
-   	);
+      return array(
+        'opportunity'=>array(self::BELONGS_TO, 'Opportunity', 'attribute_id'),
+      );
    }
 
    public static function cadastrar(array $post)
    {
       $callbackObj = new \stdClass;// Cria classe vazia
-      $callbackObj->benefit = null;// Propriedade user da classe null
+      $callbackObj->attribute = null;// Propriedade user da classe null
       $callbackObj->status = false;// Propriedade Status da Classe False
       $callbackObj->errors = array();// Array padrão de erros vazio
 
       $cadastrar = self::create($post);
 
       if ($cadastrar->is_valid()) {
-         $callbackObj->benefit = $cadastrar;
+         $callbackObj->attribute = $cadastrar;
          $callbackObj->status = true;
          return $callbackObj;
       }
@@ -39,5 +39,6 @@ class Benefit extends \HXPHP\System\Model
 
       return $callbackObj;
    }
+
 
 }

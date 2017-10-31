@@ -5,7 +5,7 @@ $(document).ready(function () {
         debug: true,
         success: "valid",
     });
-    
+
     jQuery.validator.addMethod("celular", function(value, element) {
         return this.optional(element) || /^(\(11\) [9][0-9]{4}-[0-9]{4})|(\(1[2-9]\) [5-9][0-9]{4}-[0-9]{4})|(\([2-9][1-9]\) [5-9][0-9]{4}-[0-9]{4})$/.test(value);
     }, "Hiii, número inválido no Brasil");
@@ -56,8 +56,8 @@ $(document).ready(function () {
             about: {
                 required: true,
                 minlength: 3,
-                maxlength: 10
-            },            
+                maxlength: 500
+            },
             institution: {
                 required: true,
                 minlength: 5,
@@ -67,13 +67,13 @@ $(document).ready(function () {
                 required: true,
                 minlength: 5,
                 maxlength: 25
-            },                     
+            },
             local: {
                 required: true,
                 minlength: 7,
                 maxlength: 20,
                 letras: true
-            },        
+            },
             date_entry : {
                 required: true,
                 schedule1: true
@@ -81,7 +81,7 @@ $(document).ready(function () {
             date_out : {
                 required: true,
                 schedule1: true
-            },            
+            },
             username: {
                 required: true,
                 minlength: 8,
@@ -127,10 +127,10 @@ $(document).ready(function () {
             linkedin: {
                 required: true,
                 usersocial: true
-            },            
+            },
             instagram: {
                 usersocial: true
-            },            
+            },
             twitter: {
                 twitter: true
             },
@@ -166,7 +166,7 @@ $(document).ready(function () {
                 required: ";) Fale-nos um pouco sobre vc!",
                 minlength: "Mínimo de 250 caracteres",
                 maxlength: "Maxímo de 500 caracteres"
-            },            
+            },
             institution: {
                 required: "Nos conte aonde eestudou!",
                 minlength: "Mínimo de 7 caracteres",
@@ -188,7 +188,7 @@ $(document).ready(function () {
             },
             date_entry: {
                 required: "Informe Data de Admissão"
-            },                                            
+            },
             address: {
                 required: "Digite corretamente seu endereço",
                 minlength: "Mínimo de caracteres permitidos 10",
@@ -203,7 +203,7 @@ $(document).ready(function () {
                 required: "Digite corretamente sua cidade",
                 minlength: "Mínimo de caracteres permitidos 4",
                 maxlength: "Maxímo de caracteres permitidos 25"
-            },            
+            },
             state: {
                 required: "Digite corretamente seu estado",
                 minlength: "Mínimo de caracteres permitidos 2",
@@ -221,13 +221,13 @@ $(document).ready(function () {
             },
             password: {
                 required: "Defina senha de acesso!"
-            },            
+            },
             facebook: {
                 required: "Usuário Facebook requerido"
             },
             linkedin: {
                 required: "Usuário LinkedIn requerido"
-            },            
+            },
             twitter: {
                 required: "Usuário Twitter requerido"
             },

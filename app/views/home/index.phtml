@@ -56,9 +56,11 @@
 					                       echo '<img class="img-responsive" src="' . BASE . 'public/uploads/users/' . 'default' . '/' . 'default.png' . '">';
 					                   }
 					               ?>
+					               <h2><?php echo $view_profile->profile; ?></h2>
+            						<p>#<?php echo (!$view_preference) ? null : $view_preference->function ; ?> #<?php echo (!$view_preference) ? null : $view_preference->area ; ?> #<?php echo (!$view_preference) ? null : $view_preference->especially ; ?></p>
 									</div><!-- </photo-profile> -->
 									<div class="md-padder">
-										<a class="btn btn-primary btn-lg margin-btm-30" <a href="<?php echo BASE . 'usuario'; ?>"  target="_blank"> <i class="fa fa-user"></i> <span class="hidden-xs"> Visualizar </span> Perfil </a>
+										<a class="btn btn-primary btn-lg margin-btm-30" <a href="<?php echo BASE . 'usuario'; ?>" > <i class="fa fa-user"></i> <span class="hidden-xs"> Visualizar </span> Perfil </a>
 									</div><!-- </md-padder> -->
 								</div><!-- </inline-block photo-column-inner> -->
 							</div><!-- Container Foto Perfil -->
@@ -71,14 +73,14 @@
 										<li><span><?php echo $view_total[0] ?> anos e <?php echo $view_total[1] ?> meses </span>- Experiência Efetiva</li>
 										<h5 class="text-subtitulo">Sugestão de atualizações</h5>
 										<?php
-											foreach ($view_sugestoes as $suggestion) :
-												if ($suggestion != null) { ?>
+											foreach ($view_sugestoes as $sugestao) :
+												if ($sugestao != null) { ?>
 													<li><span>
-														<?php echo ($suggestion == null) ? null : $suggestion; ?>
+														<?php echo ($sugestao == null) ? null : $sugestao; ?>
 													</span></li>
 												<?php
 												}
-												else { echo $suggestion;}
+												//else { echo $sugestao;}
 											endforeach;
 										?>
 										<h5 class="text-subtitulo">Itens Não Informados </h5>
@@ -87,14 +89,28 @@
 											if ($view_analiseQualificacoes == null) {
 										?>
 												<span>
-													<?php echo ('Perfil de Competências'); ?>
+													<?php echo ('/ Perfil de Competências'); ?>
 												</span>
 										<?php
 											}
 											if ($view_analiseRecomendacoes == null) {
 										?>
 												<span>
-													<?php echo (', Recomendações'); ?>
+													<?php echo (' / Recomendações'); ?>
+												</span>
+										<?php
+											}
+										if ($view_analiseRecomendador == null) {
+										?>
+												<span>
+													<?php echo ('/ Recomende Colegas'); ?>
+												</span>
+										<?php
+											}
+											if ($view_analisePreferencias == null) {
+										?>
+												<span>
+													<?php echo (' / Informe Áreas de atuação'); ?>
 												</span>
 										<?php
 											}
@@ -209,123 +225,136 @@
 						</div><!-- </main-block__padder> -->
 					</div><!-- </container> -->
 				</section><!-- </section> Profile -->
+				<!-- =====================================================
+			   add Preferências (Função, Especialidade e Área de Atuação)
+			   ====================================================== -->
+				<?php if (!$view_analisePreferencias): ?>
 				<section id="adc-charges" class="main-block adc-charges">
 					<div class="container text-center">
-
+						<!-- Opportunities Title -->
+						<div class="title-main text-left wow fadeIn">
+							<div class="main-title__inner">
+								<div class="main-title__left text-right">
+									<i class="fa fa-cog mega"></i>
+									<h1 class="title-session">Preferências</h1>
+									<em class="title-description">Áreas de Atuação</em>
+								</div><!-- </main-title__left> -->
+								<div class="main-title__right">
+               				<div class="msgbox" id="msg-preference">
+            						<span></span>
+         						</div>
+								</div><!-- </main-title__right> -->
+							</div><!-- </main-title__inner> -->
+						</div><!-- </title-main> -->
 						<div class="row">
-							<div class="col-md-4">
-								<div class="box-input">
-									<select name="level" id="level" class="form-control">
-										<option value="1">
-											1
-										</option>
-										<option value="2">
-											2
-										</option>
-										<option value="3">
-											3
-										</option>
-										<option value="4">
-											4
-										</option>
-										<option value="5">
-											5
-										</option>
-										<option value="6">
-											6
-										</option>
-										<option value="7">
-											7
-										</option>
-										<option value="8">
-											8
-										</option>
-										<option value="9">
-											9
-										</option>
-										<option value="10">
-											10
-										</option>
-									</select>
-								</div>
-
-							</div>
-							<div class="col-md-4">
-								<div class="box-input">
-									<select name="level" id="level" class="form-control">
-										<option value="1">
-											1
-										</option>
-										<option value="2">
-											2
-										</option>
-										<option value="3">
-											3
-										</option>
-										<option value="4">
-											4
-										</option>
-										<option value="5">
-											5
-										</option>
-										<option value="6">
-											6
-										</option>
-										<option value="7">
-											7
-										</option>
-										<option value="8">
-											8
-										</option>
-										<option value="9">
-											9
-										</option>
-										<option value="10">
-											10
-										</option>
-									</select>
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="box-input">
-									<select name="level" id="level" class="form-control">
-										<option value="1">
-											1
-										</option>
-										<option value="2">
-											2
-										</option>
-										<option value="3">
-											3
-										</option>
-										<option value="4">
-											4
-										</option>
-										<option value="5">
-											5
-										</option>
-										<option value="6">
-											6
-										</option>
-										<option value="7">
-											7
-										</option>
-										<option value="8">
-											8
-										</option>
-										<option value="9">
-											9
-										</option>
-										<option value="10">
-											10
-										</option>
-									</select>
-								</div>
-							</div>
+							<div class="col-md-12">
+								<form method="POST" action="<?php echo BASE; ?>perfil/addpreference/"  name="addPreference" id="registration-preference" class="registration-preference form-horizontal wrapper-repeater" >
+									<fieldset>
+										<div class="row">
+											<div class="col-xs-10 col-sm-6 col-md-4 col-lg-4">
+												<div class="box-input">
+													<select name="function" id="function" class="form-control">
+														<option class="opt-placeholder" value="-1" selected="">Select…
+														</option>
+														<optgroup label="Operacional">
+															<option>Administrador de banco de dados (DBA)</option>
+															<option>Administrador de rede</option>
+															<option>Analista de dados</option>
+															<option>Analista de Infra</option>
+															<option>Analista de microinformática</option>
+															<option>Analista de negócios</option>
+															<option>Analista de processos</option>
+															<option>Analista de projetos de sistemas</option>
+															<option>Analista de segurança de informações</option>
+															<option>Analista de sistemas</option>
+															<option>Analista de sistemas de internet</option>
+															<option>Analista de suporte ERP</option>
+															<option>Analista de suporte Linux</option>
+															<option>Analista de suporte Redes</option>
+															<option>Analista de suporte Windows</option>
+															<option>Analista de telecomunicações</option>
+															<option>Analista de testes</option>
+															<option>Analista segurança de sistemas</option>
+															<option>Arquiteto de testes</option></option>
+														</optgroup>
+														<optgroup label="Gestão">
+															<option>Auditor de sistemas</option>
+															<option>Consultor TI especializado</option>
+															<option>Consultor TI funcional</option>
+															<option>Coordenador de projetos de sistemas</option>
+															<option>Coordenador de suporte técnico</option>
+															<option>Gerente de processos</option>
+															<option>Gerente de produção de operações</option>
+															<option>Gerente de projetos de sistemas</option>
+															<option>Gerente de sistemas</option>
+															<option>Gerente de suporte técnico</option>
+															<option>Gerente de telecomunicações</option>
+														</optgroup>
+														<optgroup label="Desenvolvimento">
+															<option>Programador .NET</option>
+															<option>Programador Abap</option>
+															<option>Programador ASP</option>
+															<option>Programador Delphi</option>
+															<option>Programador Java</option>
+															<option>Programador PHP</option>
+															<option>Técnico de suporte</option>
+															<option>Técnico de telecomunicações</option>
+															<option>Webdesigner</option>
+															<option>Webmaster</option>
+														</optgroup>
+													</select>
+												</div><!--</box-input> -->
+											</div><!--</col-md-4> -->
+											<div class="col-xs-10 col-sm-6 col-md-4 col-lg-4">
+												<div class="box-input">
+													<select name="area" id="area" class="form-control">
+														<option class="opt-placeholder" value="-1" selected="">Select…
+														</option>
+														<optgroup label="Area">
+															<option>Consultoria</option>
+															<option>Freelancer</option>
+															<option>Especialista</option>
+															<option>Influenciador</option>
+															<option>Evangelista</option>
+														</optgroup>
+													</select>
+												</div><!--</box-input> -->
+											</div><!--</col-md-4> -->
+											<div class="col-xs-10 col-sm-6 col-md-4 col-lg-4">
+												<div class="box-input">
+													<select name="especially" id="especially" class="form-control">
+														<option class="opt-placeholder" value="-1" selected="">Select…
+														</option>
+														<optgroup label="Especialidade">
+															<option>Desenvolvimento</option>
+															<option>Segurança</option>
+															<option>Web Developer</option>
+															<option>DevOps</option>
+															<option>Cloud</option>
+															<option>Virtualização</option>
+															<option>Network</option>
+															<option>Routers</option>
+															<option>BigData</option>
+														</optgroup>
+													</select>
+												</div><!--</box-input> -->
+											</div><!--</col-md-4> -->
+										</div><!-- </row> -->
+										<div class="row">
+											<div class="md-padder text-center col-xs-4 col-sm-4 col-md-4 col-lg-4 centered">
+			                  			<button type="submit" class="btn btn-primary btn-lg margin-btm-30" id="btnPreference">
+			                  				<i class="fa fa-arrow-right"></i>
+			                  				<span>Salvar</span>
+			                  			</button>
+		 									</div>
+										</div><!-- </row> -->
+									</fieldset>
+								</form>
+							</div><!-- </col-md-12> -->
 						</div><!-- </row> -->
 					</div><!-- </container> -->
 				</section>
-
+				<?php endif; ?>
 				<!-- =================================================
 			   add Competências (Resumo Profissional e Qualificações)
 			   ================================================== -->
@@ -656,7 +685,7 @@
 									<div class="contact-form wow fadeInUp" data-wow-delay="0.8s">
 									   <form action="#" method="post">
 									       <div class="col-xs-11 col-md-12 text-center centered">
-									       	<a class="btn envio" name="btnAddVaga" id="btnAddVaga" href="#" data-toggle="modal" data-target="#modal10"> <i class="fa fa-archive"></i> <span class="hidden-xs">Adicionar  </span> Oportunidade </a>
+									       	<a class="btn envio" name="btnAddVaga" id="btnAddVaga" href="#" data-toggle="modal" data-target="#modal5"> <i class="fa fa-archive"></i> <span class="hidden-xs">Adicionar  </span> Oportunidade </a>
 									       </div>
 									   </form>
 									</div><!-- </contact-form> -->

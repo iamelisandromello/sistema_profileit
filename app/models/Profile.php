@@ -51,6 +51,22 @@ class Profile extends \HXPHP\System\Model
     return $pesos_usuario;
   }
 
+  public static function backChargeWeights($idAttribute){
+    $atributosVaga = Attribute::find_by_id($idAttribute);
+    $pesos_vaga = array();
+
+    for ($i=1; $i < 16 ; $i++) {
+      $atributo = 'attribute_' . $i; //concatena a expresão com o contador, para formar o campo
+      $valor = $atributosVaga->$atributo; //recupera a opção selecionada pelo Usuario na Answers
+      $quesito = Parameter::find_by_id($i); //Recupera o Atributo (Idioma, Experiencia...)
+      $weigths = $quesito->weight_id; //ID do Atributo a ser recuperado o peso
+      $pesosRecuperados = Weight::find_by_id($weigths);//Recupera os Pesos do Atributo
+      $opcaoUser = 'option_' . $valor; //Concatena a expressao com a Opcao Selecionada p/Usuario
+      $pesos_vaga[$i-1] = $pesosRecuperados->$opcaoUser; //Array com os Pesos do Usuario
+    }
+    return $pesos_vaga;
+  }
+
   public static function calculoPesos($peso, $pesoProfile, $pesoUsuario)
   {
     return $valor = ($peso * abs ($pesoProfile - $pesoUsuario)**2);

@@ -14,7 +14,7 @@ class Network extends \HXPHP\System\Model
 		$callbackObj->network = null;// Propriedade usser da classe null
 		$callbackObj->status = false;// Propriedade Status da Classe False
 		$callbackObj->errors = array();// Array padrão de erros vazio
-       
+
 		$cadastrar = self::create($post);
 
 		if ($cadastrar->is_valid()) {

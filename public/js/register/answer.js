@@ -13,7 +13,7 @@ jQuery(document).ready(function() {
     var state = true;
 
     //Função Add Mensagem de Resposta Selecionada FrontEnd
-    function successTeste(mensagem) {  
+    function successTeste(mensagem) {
         successCorrect = "#" + mensagem + " span";
         //alert(successCorrect);
         $(successCorrect)
@@ -55,7 +55,7 @@ jQuery(document).ready(function() {
     }
 
     //Função Verifica Se Questão foi Respondida
-    function validaRadio(nome, msgbox) {       
+    function validaRadio(nome, msgbox) {
         if ( $('input[type="radio"][name="' + nome + '"]').is(':checked') ){
             //return false; // para submit habilite esta linha
             $.each($('input[type="radio"][name="' + nome + '"]'), function(id , val){
@@ -75,10 +75,19 @@ jQuery(document).ready(function() {
 
     //ReadOnly Perguntas Pré-respondidas
     $("input[type='radio'][name='question_2']:not(:checked)").attr('disabled', true);
+    $("input[type='radio'][name='question_3']:not(:checked)").attr('disabled', true);
     $("input[type='radio'][name='question_4']:not(:checked)").attr('disabled', true);
     $("input[type='radio'][name='question_5']:not(:checked)").attr('disabled', true);
     $("input[type='radio'][name='question_6']:not(:checked)").attr('disabled', true);
     $("input[type='radio'][name='question_7']:not(:checked)").attr('disabled', true);
+
+
+    if ($("input[type='radio'][name='question_10']:checked").val() == 4) {
+        $("input[type='radio'][name='question_10']:not(:checked)").attr('disabled', true);
+    }
+    else {
+        $("#radio44").attr('disabled', true);
+    }
 
 
     $( "input" ).on( "click", function() {
@@ -103,18 +112,18 @@ jQuery(document).ready(function() {
             answer = parte1+i;//concatena question_ com o contador, para defenir a pergunta em análise
             msg = parte2+i;//concatena msg-box_ com o contador, para defenir a mensagem
             validaRadio(answer, msg);//Função de análise de status RadioBox
-            i++;//contador         
+            i++;//contador
             if(i > 15){//verifica o contador de perguntas
                 i = 1;
             }
         });
-        
+
         if(state == false){
             triggerNotify('purple', 'bubbles', 'Eeei ' + nome + ', Esqueceu de Preencher algumas perguntas?', 'Você Precisa Completar esta Etapa para Criar seu Perfil!!');
         }
         else{
             triggerConfirm('cool',nome,';) Ohhhhh ' + nome + ', Vamos Enviar o Questionário para Análise de Perfil?', ';) Enviar', ':( Ainda Não', msgSuccess);
-        }  
+        }
     };
 
     //Função de Reset Respsotas do Questionário
@@ -126,7 +135,7 @@ jQuery(document).ready(function() {
             successBack = "#" + msg + " span";
             $(successBack)
             .html("")
-            .removeClass();        
+            .removeClass();
             i++;//contador
             if(i > 15){//verifica o contador de perguntas
                 i = 1;
@@ -135,26 +144,26 @@ jQuery(document).ready(function() {
         $(radio).prop("checked" , false);
     };
 
-    // Função de Submit das respostas, caso validações retornem True 
+    // Função de Submit das respostas, caso validações retornem True
     /*$('.quiz-form').on('submit', function(e) {
         state = true;
         $(".pergunta").each(function(index, value){//percorre as #div[pergunta]
             answer = parte1+i;//concatena question_ com o contador, para defenir a pergunta em análise
             msg = parte2+i;//concatena msg-box_ com o contador, para defenir a mensagem
             validaRadio(answer, msg);//Função de análise de status RadioBox
-            i++;//contador         
+            i++;//contador
             if(i > 15){//verifica o contador de perguntas
                 i = 1;
             }
         });
-        
+
         if(state == false){
             e.preventDefault();
             $(this).addClass('input-error');
         }
         else{
             $(this).removeClass('input-error');
-        }       
+        }
     });*/
 
 
@@ -164,26 +173,26 @@ jQuery(document).ready(function() {
         triggerConfirm('cool', ';) Ohhhhh. Vamos Enviar o Questionário para Análise de Perfil?', ';) Enviar', ':( Ainda Não', teste);
     });*/
 
-    // Função de Submit das respostas, caso validações retornem True 
+    // Função de Submit das respostas, caso validações retornem True
     /*$('.quiz-form').on('submit', function(e) {
         state = true;
         $(".pergunta").each(function(index, value){//percorre as #div[pergunta]
             answer = parte1+i;//concatena question_ com o contador, para defenir a pergunta em análise
             msg = parte2+i;//concatena msg-box_ com o contador, para defenir a mensagem
             validaRadio(answer, msg);//Função de análise de status RadioBox
-            i++;//contador         
+            i++;//contador
             if(i > 15){//verifica o contador de perguntas
                 i = 1;
             }
         });
-        
+
         if(state == false){
             e.preventDefault();
             $(this).addClass('input-error');
         }
         else{
             $(this).removeClass('input-error');
-        }       
+        }
     });*/
 
 });

@@ -32,20 +32,30 @@ class UsuarioController extends \HXPHP\System\Controller
 		$user_id = $this->auth->getUserId();
 
 		$user = User::find($user_id);
+		$definition = Definition::find_by_user_id($user_id);
+		$profile = Profile::find_by_type($definition->profile_id);
+		$preference = preference::find_by_user_id($user_id);
 		$idadeUsuario = User::idade($user->birth_date);
 		$celular = Registry::formatoTelefone($user->registry->celular);
 		$cep = Registry::formatoCep($user->registry->zipcode);
 		$total = User::experiencia($user);
 		$analiseQualificacoes = User::analyzeSkill($user_id);
+		$resumos = User::summaries($user_id);
+		$sugestoes = User::suggestions($resumos, $user_id);
 
 		$this->view->setTitle('HXPHP - Administrativo')
 						->setVars([
-							'user' => $user,
-							'idade' => $idadeUsuario,
-							'celular' => $celular,
-							'total' => $total,
-							'analiseQualificacoes'	=> $analiseQualificacoes,
-							'cep' => $cep
+							'user' 		=> $user,
+							'idade'		=> $idadeUsuario,
+							'celular'	=> $celular,
+							'resumos'	=> $resumos,
+							'sugestoes'	=> $sugestoes,
+							'total' 		=> $total,
+							'definition'=> $definition,
+							'profile'	=> $profile,
+							'preference'=> $preference,
+							'cep' 		=> $cep,
+							'analiseQualificacoes'	=> $analiseQualificacoes
 						]);
 	}
 

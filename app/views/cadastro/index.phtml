@@ -115,7 +115,7 @@
 		                        			<div class="msgbox" id="msg-step01">
 						               			<span></span>
 						            			</div>
-						            		</div>	
+						            		</div>
 		                        	</div><!-- </col-md-12> -->
 		                        </div><!-- </row> -->
 	                     	</div><!-- </form-bottom> -->
@@ -468,20 +468,20 @@
 																<div class="row boxRadio" id="boxAcademic">
 																	<div class="col-md-4">
 																		<div class="form-group">
-																			<input type="radio" name="academic[0][statusAcademic]" id="level1" data-pattern-name="academic[++][statusAcademic]" data-pattern-id="academic_++_radio1" class="radio-academic yes_enabled" value="1">
+																			<input type="radio" name="academic[0][statusAcademic]" id="level1" data-pattern-name="academic[++][statusAcademic]" data-pattern-id="academic_++_radio1" class="radio-academic yes_enabled" value="3">
 																			<span>Completo</span>
 																		</div><!-- </form-group> -->
 																	</div><!-- </col-md-4> -->
-																	<div class="col-md-4">	
+																	<div class="col-md-4">
 																		<div class="form-group">
-																			<input type="radio" name="academic[0][statusAcademic]" id="level2" data-pattern-name="academic[++][statusAcademic]" data-pattern-id="academic_++_radio2" class="radio-academic not_enabled" value="2">
+																			<input type="radio" name="academic[0][statusAcademic]" id="level2" data-pattern-name="academic[++][statusAcademic]" data-pattern-id="academic_++_radio2" class="radio-academic not_enabled" value="1">
 																			<span>Trancado</span>
 																		</div><!-- </form-group> -->
 																	</div><!-- </col-md-4> -->
 																	<div class="col-md-4">
 																		<div class="form-group">
-																			<input type="radio" name="academic[0][statusAcademic]" id="level3" data-pattern-name="academic[++][statusAcademic]" data-pattern-id="academic_++_radio3" class="radio-academic not_enabled" value="3">
-																			<span>Andamento</span>
+																			<input type="radio" name="academic[0][statusAcademic]" id="level3" data-pattern-name="academic[++][statusAcademic]" data-pattern-id="academic_++_radio3" class="radio-academic not_enabled" value="2">
+																			<span>Cursando</span>
 																		</div><!-- </form-group> -->
 																	</div><!-- </col-md-4> -->
 																</div><!-- </row> 4º Linha do formulario -->
@@ -569,7 +569,7 @@
 	                               		<div class="col-md-3 numeros_input">
 	                               			<div class="form-group">
 															<label for="course_0_0" data-pattern-text="Course Workload +=1:" class="sr-only">Course Workload 1:</label>
-											          	<input type="text" pattern="[0-9]{3}" name="course[0][worload]" id="course_0_workload" placeholder="Hs" data-pattern-name="course[++][worload]" data-pattern-id="course_++_workload"  class="form-control course numero" value="<?php echo $this->request->post('workload') ?>" />
+											          	<input type="text" pattern="[0-9]" name="course[0][worload]" id="course_0_workload" placeholder="Hs" data-pattern-name="course[++][worload]" data-pattern-id="course_++_workload"  class="form-control course numero" value="<?php echo $this->request->post('workload') ?>" />
 															<div class="help-block with-errors"></div>
 															<div class="msgFront" name="msgFront">
 								               			<span></span>
@@ -642,7 +642,7 @@
 										   </div>
 				                     <!--
 				                     	Botão Add do Repeater
-				                     -->										  
+				                     -->
 			                     	<div class="row">
 			                     		<div class="col-md-4">
 			                     			<div class="form-group">
@@ -707,7 +707,7 @@
 										   <div class="p-group">
 												<!--
 													1º Linha Formulario Profissional
-												-->										  
+												-->
 											   <div class="row">
 													<div class="col-md-6">
 														<div class="form-group">
@@ -759,7 +759,7 @@
 									            			</div>
 															</div>
 														</div><!-- </col-md-6 centered> -->
-													</div><!-- </boxDataConclusion>-->	
+													</div><!-- </boxDataConclusion>-->
 	                               	</div><!-- </row> -->
 
 				                        <!--
@@ -937,7 +937,7 @@
                             					<option class="opt-placeholder" value="-1" selected="">PMI
                             					</option>
                             					<optgroup label="Nível">
-	                            						<option value="Nao">Não Possui</option>  
+	                            						<option value="Nao">Não Possui</option>
 	                            						<option value="PMP">PMP </option>
                             						   <option value="CAPM ">CAPM</option>
                             					</optgroup>
@@ -965,7 +965,7 @@
                                        <div class="msgFront" name="msgFront"></div>
                             			</div><!-- </form-group> -->
                             		</div><!-- </col-md-6> -->
-                            	</div><!-- </row>-->	
+                            	</div><!-- </row>-->
 										<!--
                             		4º Linha Formulario Acadêmico
                             	-->
@@ -987,7 +987,7 @@
                                        <div class="msgFront" name="msgFront"></div>
                             			</div><!-- </form-group> -->
                             		</div><!-- </col-md-6> -->
-                            	</div><!-- </row>-->		
+                            	</div><!-- </row>-->
                             	<hr/><!-- Traço separador do Repeater -->
 			                     <!--
 			                     	Linha de Contole Formulario Historico Profissional

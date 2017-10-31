@@ -7,12 +7,10 @@ class Definition extends \HXPHP\System\Model
 		return 'definitions';
 	}
 
-  public function relations()
-  {
-    return array(
-      'user'=>array(self::BELONGS_TO, 'User', 'user_id'),
-    );
-  }
+  //Relacionamnetos 1:1 entre as tabelas
+  static $belongs_to = array(
+    array('definition', 'foreign_key' => 'user_id', 'class_name' => 'Definition')
+  );
 
   public static function cadastrar(array $controle, $user_id)
   {

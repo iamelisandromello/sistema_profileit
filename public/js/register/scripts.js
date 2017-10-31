@@ -104,7 +104,7 @@ jQuery(document).ready(function() {
       if($num >= 10){
          $(boxData)
          .html("")
-         .html('Seu texto tem ' + $num + ' caracteres de um limite de 10 Caracteres')
+         .html('Seu texto tem ' + $num + ' caracteres de um limite de 800 Caracteres')
          .show();
       }
    }
@@ -418,8 +418,8 @@ jQuery(document).ready(function() {
          $('#' + $idText).val($('#' + $idText).val().substring(0,9));
       }*/
       msgTextarea( $idText, num );
-      if(num >= 10 || num < 1){
-         $('#' + $idText).val($('#' + $idText).val().substring(0,9));
+      if(num >= 801 || num < 1){
+         $('#' + $idText).val($('#' + $idText).val().substring(0,800));
          textStatus = false;
       }
       return textStatus;

@@ -7,8 +7,9 @@ class User extends \HXPHP\System\Model
 		array('role'),
       array('registry', 'foreign_key' => 'registry_id', 'class_name' => 'Registry'),
       array('network', 'foreign_key' => 'network_id', 'class_name' => 'Network'),
-      array('answer', 'foreign_key' => 'user_id', 'class_name' => 'Answer'),
-      array('definition', 'foreign_key' => 'user_id', 'class_name' => 'Definition')
+		array('definition', 'foreign_key' => 'user_id', 'class_name' => 'Definition'),
+      array('preference', 'foreign_key' => 'user_id', 'class_name' => 'Preference'),
+      array('answer', 'foreign_key' => 'user_id', 'class_name' => 'Answer')
 	);
 
 	//Relacionamnetos 1:n entre as tabelas
@@ -153,46 +154,168 @@ class User extends \HXPHP\System\Model
 			$userRecommendation = false;
 		} else { $userRecommendation = true; }
 		return $userRecommendation;
-	} 
+	}
 
-	public static function suggestions($id_user)
+	public static function analyzeAdviser($id_user)
 	{
-		$userSuggestions = array();//Declara array de Sugestões
-		$usuario = User::find_by_id($id_user);//localiza o objeto Usuário
+		$userAdviser;//Declara variável de Retorno
+		$adviser = Recommendation::find_by_adviser_id($id_user);
+		if (!$adviser) {
+			$userAdviser = false;
+		} else { $userAdviser = true; }
+		return $userAdviser;
+	}
+
+	public static function analyzePreferences($id_user)
+	{
+		$userPreference;//Declara variável de Retorno
+		$preference = Preference::find_by_user_id($id_user);
+		if (!$preference) {
+			$userPreference = false;
+		} else { $userPreference = true; }
+		return $userPreference;
+	}
+
+	public static function suggestions(array $suggestions, $id_user )
+	{
+
+		$userSuggestions	= array();//Declara array de Resumo
+
+		if ($suggestions['PMI'] == null && $suggestions['Agile'] == null && $suggestions['Itil'] == null) {
+			$userSuggestions['Processos'] = null;
+		}
+		else $userSuggestions['Processos'] = 'Certificação em Processos';
+
+		if ($suggestions['Graduacao'] == null) {
+			$userSuggestions['Academico'] =  'Conclua uma Graduação';
+		}
+		else if ($suggestions['Status'] == 2 || $suggestions['Status'] == 3) {
+			$userSuggestions['Academico'] =  'Conclua seu ' . $suggestions['Academico'];
+		}
+		else if ($suggestions['Status'] == 1) {
+			if($suggestions['ctrAcademico'] >= 3){
+				if($suggestions['Academico'] == 'Bacharelado') {
+					$userSuggestions['Academico'] =  'Realize uma Pós Graduação';
+				}
+				else if($suggestions['Academico'] == 'MBA') {
+					$userSuggestions['Academico'] =  'Realize um Mestrado';
+				}
+			}
+		}
+
+		return $userSuggestions; //retorna array de sugestões
+	}
+
+
+	public static function summaries($id_user)
+	{
+		$userSummaries	= array();//Declara array de Resumo
+		$usuario 			= User::find_by_id($id_user);//localiza o objeto Usuário
+
+		/*Selecona Última Empresa e Status Empregado/Desempregado*/
+		$posts = Professional::find_by_sql('select * from professionals where user_id = 64 order by date_out desc');
+		foreach ($posts as $post) :
+	  		$userSummaries['Empresa']	= $post->company;
+	  		$userSummaries['Empregado']	= ($post->date_out) ? $post->date_out : false;
+	  	endforeach;
+
+		/*Controle de Fluência no Inglês*/
+		$validaIdioma = Answer::find_by_user_id($id_user);
+		if ($validaIdioma) {
+			$userSummaries["Idioma"]  = ($validaIdioma->question_1 == 4) ? 'Fluente' :null;
+		}
+
+		/*Controle de Formação Acadêmica*/
+		$controle 		= 0;
+		$ctrAcademic	= 0;
+		foreach ($usuario->academics as $academic):
+			if ($academic->level == 'Medio') {
+				$controle = 1;
+			}
+			else if ($academic->level == 'Tecnico') {
+				$controle = 2;
+			}
+			else if ($academic->level == 'Tecnologo') {
+				$controle = 3;
+			}
+			else if ($academic->level == 'Bacharelado') {
+				$controle = 4;
+			}
+			else if ($academic->level == 'MBA') {
+				$controle = 5;
+			}
+			else if ($academic->level == 'Mestrado') {
+				$controle = 6;
+			}
+			else if ($academic->level == 'Doutorado') {
+				$controle = 7;
+			}
+			else if ($academic->level == 'PHD') {
+				$controle = 8;
+			}
+			if ($controle > $ctrAcademic) {
+				$userSummaries["Academico"]	= $academic->level;
+				$userSummaries["Curso"]		 	= $academic->course;
+				$userSummaries["Status"]		= $academic->status;
+				$userSummaries["ctrAcademico"]= $controle;
+			}
+		endforeach;
+		if ($controle > 3) {
+			if ($userSummaries["Status"] == 1) {
+				$userSummaries["Graduacao"]	= 'Sim';
+			}
+			else {
+				$userSummaries["Graduacao"]	= null;
+			}
+		}
 
 		/*Percorre a Tabela de Certificações
-		 *Avaliando Certificações;
+		*Avaliando Certificações;
 		*/
 		foreach ($usuario->certifications as $certification):
-			$linux = $certification->linux;
 			$microsoft = $certification->microsoft;
-			if ($certification->virtualizacao == "Nao") {
-				$userSuggestions["Virtualizacao"] = "Certificação em Virtualização";
-			} else { $userSuggestions["Virtualizacao"] = null; }
-			if ($certification->cisco == "Nao") {
-				$userSuggestions["Cisco"] = "Certificação em Roteadores";
-			} else { $userSuggestions["Cisco"] = null; }
-			if ( $certification->itil == "Nao" &&  $certification->agile == "Nao" && $certification->pmi == "Nao" ) {
-				$userSuggestions["Processos"] = "Certificação em Processos";
-			} else {$userSuggestions["Processos"] = null;}
-			if($certification->microsoft == "Nao") {
-				$userSuggestions["Microsoft"] = "Certificação Microsoft";
+			if ($certification->linux == 'Nao') {
+				$userSummaries['Linux'] = null;
+			} else { $userSummaries['Linux'] = $certification->linux; }
+
+			if ($certification->virtualizacao == 'Nao') {
+				$userSummaries['Virtualizacao'] = null;
+			} else { $userSummaries['Virtualizacao'] = $certification->virtualizacao; }
+
+			if ($certification->cisco == 'Nao') {
+				$userSummaries['Cisco'] = null;
+			} else { $userSummaries['Cisco'] = $certification->cisco; }
+
+			if ( $certification->itil == 'Nao') {
+				$userSummaries['Itil'] = null;
+			} else { $userSummaries['Itil'] = $certification->itil; }
+
+			if(  $certification->agile == 'Nao') {
+				$userSummaries['Agile'] = null;
+			} else { $userSummaries['Agile'] = $certification->agile; }
+
+			if ($certification->pmi == 'Nao' ) {
+				$userSummaries['PMI'] = null;
+			} else {$userSummaries['PMI'] = $certification->agile;;}
+
+			if($certification->microsoft == 'Nao') {
+				$userSummaries['Microsoft'] = null;
 			}
-			else if ($certification->microsoft == "MCP" ) {
-				$userSuggestions["Microsoft"] = "Certificação MCSA";
+			else if ($certification->microsoft == 'MCP' ) {
+				$userSummaries['Microsoft'] = 'Certificação MCP';
 			}
-			else if ($certification->microsoft == "MCTIP" ) {
-				$userSuggestions["Microsoft"] = "Certificação MCSA";
+			else if ($certification->microsoft == 'MCTIP' ) {
+				$userSummaries['Microsoft'] = 'Certificação MCTIP';
 			}
-			else if ($certification->microsoft == "MCSA" ) {
-				$userSuggestions["Microsoft"] = "Certificação MCSE";
+			else if ($certification->microsoft == 'MCSA' ) {
+				$userSummaries['Microsoft'] = 'Certificação MCSA';
 			}
-			else if ($certification->microsoft == "MCSE" ) {
-				$userSuggestions["Microsoft"] = null;
+			else if ($certification->microsoft == 'MCSE' ) {
+				$userSummaries['Microsoft'] = 'Certificação MCSE';
 			}
 		endforeach;
 
-		return $userSuggestions; //retorna array de sugestões
+		return $userSummaries; //retorna array de sugestões
 
 	}
 
