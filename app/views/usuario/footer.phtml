@@ -131,7 +131,7 @@
 			    	<div class="modal-content modal-popup">
 			        	<div class="modal-header">
 		            	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		               <h2 class="modal-title">Recomende Franklin</h2>
+		               <h2 class="modal-title">Recomende <?php $view_user->name ?></h2>
 							<span>Esta recomendação será exibida no perfil de Franklin.</span>
 			        	</div><!-- </modal-header> -->
 
@@ -184,36 +184,36 @@
 												Você supervisionava <?php echo $view_user->name; ?> diretamente.
 											</option>
 											<option>
-												Você respondia a Paloma diretamente.
+												Você respondia a <?php echo $view_user->name; ?> diretamente.
 											</option>
 											<option>
-												Você era sênior em relação a Paloma, mas não o supervisionava diretamente.
+												Você era sênior em relação a <?php echo $view_user->name; ?>, mas não o supervisionava diretamente.
 											</option>
 											<option>
-												Paloma era sênior em relação a você, mas não o supervisionava diretamente.
+												<?php echo $view_user->name; ?> era sênior em relação a você, mas não o supervisionava diretamente.
 											</option>
 											<option>
-												Você trabalhava com Paloma no mesmo grupo.
+												Você trabalhava com <?php echo $view_user->name; ?> no mesmo grupo.
 											</option>
 											<option>
-												Você trabalhava com Paloma em grupos diferentes.
+												Você trabalhava com <?php echo $view_user->name; ?> em grupos diferentes.
 											</option>
 											<option>
-												Você e Paloma trabalhavam juntos, mas em empresas diferentes.
+												Você e <?php echo $view_user->name; ?> trabalhavam juntos, mas em empresas diferentes.
 											</option>
 											<option>
-												Paloma era seu cliente.
+												<?php echo $view_user->name; ?> era seu cliente.
 											</option>
 											<option>
-												Você era cliente de Paloma.
+												Você era cliente de <?php echo $view_user->name; ?>.
 											</option>
 										</optgroup>
 										<optgroup label="Formação acadêmica">
 											<option>
-												Você era professor de Paloma.
+												Você era professor de <?php echo $view_user->name; ?>.
 											</option>
 											<option>
-												Você era mentor de Paloma.
+												Você era mentor de <?php echo $view_user->name; ?>.
 											</option>
 											<option>
 												Vocês estudaram juntos.
@@ -228,7 +228,7 @@
 								<div class="col-md-10 centered">
 									<div class="modal-containerStep">
 										<div class="modal-subText">
-											What were your jobs at the time?
+											Quais eram seus empregos no época?
 										</div><!-- </modal-subText> -->
 									</div><!-- </modal-containerStep> -->
 								</div><!-- </col-md-10> -->
@@ -241,32 +241,16 @@
 									<span class="grupo-input-img"><i class="fa fa-user"></i></span>
 									<select name="state" class="select-modal selectpicker" >
 										<option class="opt-placeholder" value="-1" selected="" data-type="pos">
-											You…
+											Você…
 										</option>
+
+										<?php foreach ($view_user->professionals as $professional): ?>
+
 										<option>
-											Microsoft IT Analyst na InterOp
+											<?php echo $professional->company ?>
 										</option>
-										<option>
-											Server Administrator Pleno na Processor
-										</option>
-										<option value="310229553" data-type="pos">
-											Server Administrator na Constat Serviços em Informática - Brazil
-										</option>
-										<option>
-											Analista de Redes Microsoft na Grupo VG
-										</option>
-										<option>
-											Supervisor TI na Broker Glambert Nestlé
-										</option>
-										<option>
-											Analista de Suporte na Zampieron e Dalacorte Ltda - Severo Roth
-										</option>
-										<option>
-											Aluno na Universidade Luterana do Brasil
-										</option>
-										<option value="178533085" data-type="edu">
-											Aluno na Pontifícia Universidade Católica do Rio Grande do Sul
-										<option>
+										<?php endforeach; ?>
+
 									</select>
 								</div><!-- </grupo-input> -->
 							</div><!-- </modal-groupForm> -->

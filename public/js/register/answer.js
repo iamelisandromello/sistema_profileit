@@ -12,6 +12,9 @@ jQuery(document).ready(function() {
     var answer;
     var state = true;
 
+    $("input[type='radio'][name='question_10']:not(:checked)").attr('disabled', false);
+    $("input[type='radio'][name='question_11']:not(:checked)").attr('disabled', false);
+
     //Função Add Mensagem de Resposta Selecionada FrontEnd
     function successTeste(mensagem) {
         successCorrect = "#" + mensagem + " span";
@@ -81,20 +84,61 @@ jQuery(document).ready(function() {
     $("input[type='radio'][name='question_6']:not(:checked)").attr('disabled', true);
     $("input[type='radio'][name='question_7']:not(:checked)").attr('disabled', true);
 
-
+    // Análise de Perguntas Sobre Certificações / Disabled Relativo
+    //Certificação Virtualização
     if ($("input[type='radio'][name='question_10']:checked").val() == 4) {
         $("input[type='radio'][name='question_10']:not(:checked)").attr('disabled', true);
+        $('#answer_10').addClass("hidden");
     }
     else {
         $("#radio44").attr('disabled', true);
+        $('#answer_10').removeClass("hidden");
+    }
+    //Certificação Roteadores
+    if ($("input[type='radio'][name='question_11']:checked").val() == 4) {
+        $("input[type='radio'][name='question_11']:not(:checked)").attr('disabled', true);
+        $('#answer_11').addClass("hidden");
+    }
+    else {
+        $("#radio48").attr('disabled', true);
+        $('#answer_11').removeClass("hidden");
+    }
+    //Certificação Agile
+    if ($("input[type='radio'][name='question_13']:checked").val() == 4) {
+        $("input[type='radio'][name='question_13']:not(:checked)").attr('disabled', true);
+        $('#answer_13').addClass("hidden");
+    }
+    else {
+        $("#radio57").attr('disabled', true);
+        $('#answer_13').removeClass("hidden");
+    }
+    //Certificação PMI
+    if ($("input[type='radio'][name='question_14']:checked").val() == 4) {
+        $("input[type='radio'][name='question_14']:not(:checked)").attr('disabled', true);
+        $('#answer_14').addClass("hidden");
+    }
+    else {
+        $("#radio61").attr('disabled', true);
+        $('#answer_14').removeClass("hidden");
+    }
+    //Certificação Itil
+    if ($("input[type='radio'][name='question_12']:checked").val() == 4 || $("input[type='radio'][name='question_12']:checked").val() == 5) {
+        $("input[type='radio'][name='question_12']:not(:checked)").attr('disabled', true);
+        $('#answer_12').addClass("hidden");
+    }
+    else {
+        $("#radio52").attr('disabled', true);
+        $("#radio53").attr('disabled', true);
+        $('#answer_12').removeClass("hidden");
     }
 
-
+    /*
+    Mensagem teste de sucesso
     $( "input" ).on( "click", function() {
         $( "#log" + i).html( $( "input:checked" ).val() + " is checked!" );
         //alert(this.id); // alerta 'seuid'
         successTeste(this.name);
-    });
+    });*/
 
     window.msgSuccess = function(data, nome) {
         if (data){
@@ -143,56 +187,4 @@ jQuery(document).ready(function() {
         });
         $(radio).prop("checked" , false);
     };
-
-    // Função de Submit das respostas, caso validações retornem True
-    /*$('.quiz-form').on('submit', function(e) {
-        state = true;
-        $(".pergunta").each(function(index, value){//percorre as #div[pergunta]
-            answer = parte1+i;//concatena question_ com o contador, para defenir a pergunta em análise
-            msg = parte2+i;//concatena msg-box_ com o contador, para defenir a mensagem
-            validaRadio(answer, msg);//Função de análise de status RadioBox
-            i++;//contador
-            if(i > 15){//verifica o contador de perguntas
-                i = 1;
-            }
-        });
-
-        if(state == false){
-            e.preventDefault();
-            $(this).addClass('input-error');
-        }
-        else{
-            $(this).removeClass('input-error');
-        }
-    });*/
-
-
-
-
-    /*$(ok).on('click' , function(){
-        triggerConfirm('cool', ';) Ohhhhh. Vamos Enviar o Questionário para Análise de Perfil?', ';) Enviar', ':( Ainda Não', teste);
-    });*/
-
-    // Função de Submit das respostas, caso validações retornem True
-    /*$('.quiz-form').on('submit', function(e) {
-        state = true;
-        $(".pergunta").each(function(index, value){//percorre as #div[pergunta]
-            answer = parte1+i;//concatena question_ com o contador, para defenir a pergunta em análise
-            msg = parte2+i;//concatena msg-box_ com o contador, para defenir a mensagem
-            validaRadio(answer, msg);//Função de análise de status RadioBox
-            i++;//contador
-            if(i > 15){//verifica o contador de perguntas
-                i = 1;
-            }
-        });
-
-        if(state == false){
-            e.preventDefault();
-            $(this).addClass('input-error');
-        }
-        else{
-            $(this).removeClass('input-error');
-        }
-    });*/
-
 });

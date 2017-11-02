@@ -26,6 +26,11 @@ class HomeController extends \HXPHP\System\Controller
 		$analiseRecomendador = User::analyzeAdviser($user_id);
 		$analisePreferencias = User::analyzePreferences($user_id);
 		$sugestoes = User::suggestions($resumos, $user_id);
+		//$options = array('limit' => 3);
+      //$comunidade = User::all($options );
+		/*Consulta Randomica de Usuarios*/
+		$comunidade = User::find_by_sql('select * from users order by rand() limit 10');
+
 		$ctrMeter = 0;
 
 		if ($analiseQualificacoes) {
@@ -55,7 +60,7 @@ class HomeController extends \HXPHP\System\Controller
 						'analiseRecomendacoes'	=> $analiseRecomendacoes,
 						'analiseRecomendador'	=> $analiseRecomendador,
 						'analisePreferencias'	=> $analisePreferencias,
-						'users'		=> User::all()
+						'comunidade'		=> $comunidade
 					]);
    }
 

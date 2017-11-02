@@ -63,7 +63,7 @@ class Answer extends \HXPHP\System\Model
          $questionnaire_data[5] =  5;
       }
 
-      if ($resumo['Itil'] == 'Nao') {
+      if ($resumo['Itil'] == null) {
          $questionnaire_data[6] =  null;
       }
       else if($resumo['Itil'] == 'Foundation' || $resumo['Itil'] == 'Expert') {

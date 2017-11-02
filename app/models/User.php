@@ -179,20 +179,20 @@ class User extends \HXPHP\System\Model
 	public static function suggestions(array $suggestions, $id_user )
 	{
 
-		$userSuggestions	= array();//Declara array de Resumo
+		$userSuggestions	= array();//Declara array de Sugestões
 
 		if ($suggestions['PMI'] == null && $suggestions['Agile'] == null && $suggestions['Itil'] == null) {
-			$userSuggestions['Processos'] = null;
+			$userSuggestions['Processos'] = 'Certificação em Processos';
 		}
-		else $userSuggestions['Processos'] = 'Certificação em Processos';
+		else $userSuggestions['Processos'] = null;
 
 		if ($suggestions['Graduacao'] == null) {
 			$userSuggestions['Academico'] =  'Conclua uma Graduação';
 		}
-		else if ($suggestions['Status'] == 2 || $suggestions['Status'] == 3) {
+		else if ($suggestions['Status'] == 1 || $suggestions['Status'] == 2) {
 			$userSuggestions['Academico'] =  'Conclua seu ' . $suggestions['Academico'];
 		}
-		else if ($suggestions['Status'] == 1) {
+		else if ($suggestions['Status'] == 3) {
 			if($suggestions['ctrAcademico'] >= 3){
 				if($suggestions['Academico'] == 'Bacharelado') {
 					$userSuggestions['Academico'] =  'Realize uma Pós Graduação';
@@ -201,6 +201,22 @@ class User extends \HXPHP\System\Model
 					$userSuggestions['Academico'] =  'Realize um Mestrado';
 				}
 			}
+		}
+
+		if ($suggestions['Microsoft']			== null) {
+			$userSuggestions['Microsoft']		=  'Realize uma Certificação Microsoft';
+		}
+		else if ($suggestions['Microsoft'] 	== 'Certificação MCP') {
+			$userSuggestions['Microsoft']		=  'Realize Certificação MCSA';
+		}
+		else if ($suggestions['Microsoft'] 	== 'Certificação MCTIP') {
+			$userSuggestions['Microsoft'] 	=  'Realize Certificação MCSA';
+		}
+		else if ($suggestions['Microsoft'] 	== 'Certificação MCSA') {
+			$userSuggestions['Microsoft'] 	=  'Realize Certificação MCSE';
+		}
+		else if ($suggestions['Microsoft'] 	== 'Certificação MCSE') {
+			$userSuggestions['Microsoft'] 	=  null;
 		}
 
 		return $userSuggestions; //retorna array de sugestões
@@ -213,7 +229,19 @@ class User extends \HXPHP\System\Model
 		$usuario 			= User::find_by_id($id_user);//localiza o objeto Usuário
 
 		/*Selecona Última Empresa e Status Empregado/Desempregado*/
-		$posts = Professional::find_by_sql('select * from professionals where user_id = 64 order by date_out desc');
+		$posts = Professional::find_by_sql('select * from professionals where user_id in (65) order by date_out desc');
+		//$testes= Professional::find('all', array('conditions' => array('user_id in (?)', array($id_user))));
+		//$testes= Professional::find('all', array('order' => 'date_out ASC', 'limit' => 3));
+		//
+
+
+
+
+/*foreach ($testes as $aux) :
+	echo ("Auxiliar: " . $aux->company . "<br>");
+endforeach;	
+die();*/
+
 		foreach ($posts as $post) :
 	  		$userSummaries['Empresa']	= $post->company;
 	  		$userSummaries['Empregado']	= ($post->date_out) ? $post->date_out : false;
@@ -226,8 +254,8 @@ class User extends \HXPHP\System\Model
 		}
 
 		/*Controle de Formação Acadêmica*/
-		$controle 		= 0;
-		$ctrAcademic	= 0;
+		$controle = 0;
+		$nivel = 0;
 		foreach ($usuario->academics as $academic):
 			if ($academic->level == 'Medio') {
 				$controle = 1;
@@ -253,20 +281,27 @@ class User extends \HXPHP\System\Model
 			else if ($academic->level == 'PHD') {
 				$controle = 8;
 			}
-			if ($controle > $ctrAcademic) {
+
+			if ($nivel <= $controle) {
 				$userSummaries["Academico"]	= $academic->level;
 				$userSummaries["Curso"]		 	= $academic->course;
 				$userSummaries["Status"]		= $academic->status;
 				$userSummaries["ctrAcademico"]= $controle;
+				$nivel = $controle;
 			}
+
 		endforeach;
-		if ($controle > 3) {
-			if ($userSummaries["Status"] == 1) {
+
+		if ($nivel >= 3) {
+			if ($userSummaries["Status"] == 3) {
 				$userSummaries["Graduacao"]	= 'Sim';
 			}
 			else {
 				$userSummaries["Graduacao"]	= null;
 			}
+		}
+		else {
+			$userSummaries["Graduacao"]	= null;
 		}
 
 		/*Percorre a Tabela de Certificações

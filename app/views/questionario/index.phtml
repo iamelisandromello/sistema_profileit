@@ -177,7 +177,7 @@
 			         								2º Pergunta Questionário
 			         							-->
 			         							<div class="row">
-						         					<div class="col-md-12 linha_cinza pergunta" id="answer2">
+						         					<div class="col-md-12 linha_cinza pergunta hidden" id="answer2">
 						         						<div class="form-group">
 																<div class="row">
 																	<div class="col-md-12">
@@ -225,7 +225,7 @@
 			         								3º Pergunta Questionário
 			         							-->
 			         							<div class="row">
-						         					<div class="col-md-12 linha_branca pergunta" id="answer_3">
+						         					<div class="col-md-12 linha_branca pergunta hidden" id="answer_3">
 						         						<div class="form-group">
 																<div class="row">
 																	<div class="col-md-12">
@@ -272,7 +272,7 @@
 			         								4º Pergunta Questionário
 			         							-->
 			         							<div class="row">
-						         					<div class="col-md-12 linha_cinza pergunta" id="answer_4">
+						         					<div class="col-md-12 linha_cinza pergunta hidden" id="answer_4">
 						         						<div class="form-group">
 																<div class="row">
 																	<div class="col-md-12">
@@ -318,7 +318,7 @@
 			         								5º Pergunta Questionário
 			         							-->
 			         							<div class="row">
-						         					<div class="col-md-12 linha_branca pergunta" id="answer_5">
+						         					<div class="col-md-12 linha_branca pergunta hidden" id="answer_5">
 						         						<div class="form-group">
 																<div class="row">
 																	<div class="col-md-12">
@@ -355,7 +355,7 @@
 			         								6º Pergunta Questionário
 			         							-->
 			         							<div class="row">
-						         					<div class="col-md-12 linha_cinza pergunta" id="answer_6">
+						         					<div class="col-md-12 linha_cinza pergunta hidden" id="answer_6">
 						         						<div class="form-group">
 																<div class="row">
 																	<div class="col-md-12">
@@ -401,7 +401,7 @@
 			         								7º Pergunta Questionário
 			         							-->
 			         							<div class="row">
-						         					<div class="col-md-12 linha_branca pergunta" id="answer_7">
+						         					<div class="col-md-12 linha_branca pergunta hidden" id="answer_7">
 						         						<div class="form-group">
 																<div class="row">
 																	<div class="col-md-12">
@@ -540,16 +540,16 @@
 
 																<div class="row">
 																	<div class="col-md-2">
-																		<input type="radio" class="valida_teste" value="1" <?php echo ($view_certVirtualizacao == 1) ? "checked" : null; ?> id="radio41" name="question_10" />
+																		<input type="radio" class="valida_teste" value="1" id="radio41" name="question_10" />
 																		<label for="radio41"><span></span>Básico</label>
 																	</div>
 
 																	<div class="col-md-3">
-																		<input type="radio" class="valida_teste" value="2" <?php echo ($view_certVirtualizacao == 2) ? "checked" : null; ?> id="radio42" name="question_10" />
+																		<input type="radio" class="valida_teste" value="2" id="radio42" name="question_10" />
 																		<label for="radio42"><span></span>Intermediário</label>
 																	</div>
 																	<div class="col-md-3">
-																		<input type="radio" class="valida_teste" value="3" <?php echo ($view_certVirtualizacao == 3) ? "checked" : null; ?> id="radio43" name="question_10" />
+																		<input type="radio" class="valida_teste" value="3" id="radio43" name="question_10" />
 																		<label for="radio43"><span></span>Avançado</label>
 																	</div>
 																	<div class="col-md-4">
@@ -594,7 +594,7 @@
 																		<label for="radio47"><span></span>Avançado</label>
 																	</div>
 																	<div class="col-md-4 	">
-																		<input type="radio" class="valida_teste" value="4" id="radio48" name="question_11" />
+																		<input type="radio" class="valida_teste" value="4" <?php echo ($view_certCisco == 4) ? "checked" : null; ?> id="radio48" name="question_11" />
 																		<label for="radio48"><span></span>Profissional Certificado</label>
 																	</div>
 																</div>
@@ -635,11 +635,11 @@
 																		<label for="radio51"><span></span>Cursos ITIL</label>
 																	</div>
 																	<div class="col-md-2">
-																		<input type="radio" class="valida_teste" value="4" id="radio52" name="question_12" />
+																		<input type="radio" class="valida_teste" value="4" <?php echo ($view_certItil == 4) ? "checked" : null; ?> id="radio52" name="question_12" />
 																		<label for="radio52"><span></span>Profissional Certificado</label>
 																	</div>
 																	<div class="col-md-3">
-																		<input type="radio" class="valida_teste" value="5" id="radio53" name="question_12" />
+																		<input type="radio" class="valida_teste" value="5" <?php echo ($view_certItil == 5) ? "checked" : null; ?> id="radio53" name="question_12" />
 																		<label for="radio53"><span></span>Certificação Master</label>
 																	</div>
 																</div>
@@ -681,7 +681,7 @@
 																	</div>
 
 																	<div class="col-md-3">
-																		<input type="radio" class="valida_teste" value="4" id="radio57" name="question_13" />
+																		<input type="radio" class="valida_teste" value="4" <?php echo ($view_certAgile == 4) ? "checked" : null; ?> id="radio57" name="question_13" />
 																		<label for="radio57"><span></span>Certificação</label>
 																	</div>
 																</div>
@@ -722,7 +722,7 @@
 																		<label for="radio60"><span></span>Cursos PMP</label>
 																	</div>
 																	<div class="col-md-3">
-																		<input type="radio" class="valida_teste" value="4" id="radio61" name="question_14" />
+																		<input type="radio" class="valida_teste" value="4" <?php echo ($view_certPmi == 4) ? "checked" : null; ?> id="radio61" name="question_14" />
 																		<label for="radio61"><span></span>Certificação PMP</label>
 																	</div>
 																</div>
