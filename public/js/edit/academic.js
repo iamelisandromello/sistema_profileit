@@ -3,7 +3,7 @@ jQuery(document).ready(function() {
     var status;
     var successCorrect;
 
-    window.resetForm = function (idForm) { 
+    window.resetForm = function (idForm) {
     //function resetForm(idForm) {
     // seleciona o form a ser resetado
         var form = document.getElementById(idForm);
@@ -35,7 +35,7 @@ jQuery(document).ready(function() {
             }
         }
     }
-    
+
     $('.addAcademicForm input[type="text"], .addAcademicForm input[type="password"], .addAcademicForm textarea, .addAcademicForm select, .addAcademicForm radio').on('focus', function() {
         $(this).removeClass('input-error');
     });
@@ -47,7 +47,7 @@ jQuery(document).ready(function() {
         var next_step = true;
         parent_fieldset.find('input[type="text"], input[type="password"], textarea, select').each(function() {
             var id = $(this).attr('id');
-            if (id != "adddate_conclusion"){     
+            if (id != "adddate_conclusion"){
                 if( $(this).val() == "" || $(this).val() === "-1") {
                     $(this).addClass("input-error");
                     next_step = false;
@@ -70,7 +70,7 @@ jQuery(document).ready(function() {
             $('#boxRadio').addClass("input-error");
             next_step = false;
         }
-        
+
         /*
         * Função Verifica se foi Selecionado
         * a Opção de Formação Concluída
@@ -81,10 +81,10 @@ jQuery(document).ready(function() {
               if ( inputText == '' ) {
                 alert('Foi carregado e não está preenchido!');
                 $('#adddate_conclusion').addClass("input-error");
-                next_step = false;  
+                next_step = false;
               }
             } else {
-             alert('Não foi carregado!');      
+             alert('Não foi carregado!');
             }
         }
         else {

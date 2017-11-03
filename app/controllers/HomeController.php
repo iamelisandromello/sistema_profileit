@@ -118,54 +118,46 @@ class HomeController extends \HXPHP\System\Controller
 					]);
 	}
 
-
-	public function returnAction()
-	{
-
-var_dump('expression');
-die();
-		if(strcasecmp('formulario-ajax', $_POST['metodo']) == 0){
-
-			$html = 'Vinho: ' . $_POST['bebida'];
-			$html .= "\n";
-			$html .= 'Restaurante: ' . $_POST['local'];
-			$html .= "\n";
-			$html .= 'Sexo: ' . $_POST['sexo'];
-			$html .= "\n";
-
-			echo $html;
-
-		}
-	}
 	public function validaAction()
 	{
-		var_dump('entrou no controle VAlida');
+		//Alterar o cabeçalho para não gerar cache do resultado
+		header('Cache-Control: no-cache, must-revalidate');
+		//Alterar o cabeçalho para que o retorno seja do tipo JSON
+		header('Content-Type: application/json; charset=utf-8');
+		$aDados = $_POST;//Copia o Post
+		/*atribui os dados do post para um array*/
+		$attributes_data = array(
+			'attribute_1'			=> $aDados['atributo_1'],
+			'attribute_2'			=> $aDados['atributo_2'],
+			'attribute_3'			=> $aDados['atributo_3'],
+			'attribute_4'			=> $aDados['atributo_4'],
+			'attribute_5'			=> $aDados['atributo_5'],
+			'attribute_6'			=> $aDados['atributo_6'],
+			'attribute_7'			=> $aDados['atributo_7'],
+			'attribute_8'			=> $aDados['atributo_8'],
+			'attribute_9'			=> $aDados['atributo_9'],
+			'attribute_10'			=> $aDados['atributo_10'],
+			'attribute_11'			=> $aDados['atributo_11'],
+			'attribute_12'			=> $aDados['atributo_12'],
+			'attribute_13'			=> $aDados['atributo_13'],
+			'attribute_14'			=> $aDados['atributo_14'],
+			'attribute_15'			=> $aDados['atributo_15']
+		);
+		$user_id = $this->auth->getUserId();
+		$user = User::find($user_id);
+		//Recupera os pesos da Vaga definida pelo Usuario
+		$pesos_backVaga	= Opportunity::backVagaWeights($attributes_data);
+		//Envia Pesos da vaga p/Cálculo de Perfil, e retorna o Desvio Padrão e o Tipo
+		$controle 			= Profile::defineProfile($pesos_backVaga);
+		//cria o array associativo
+		$dados = array("desvio" => $controle[0], "perfil" => $controle[1], "nome" => $user->name);
+		//converte o conteúdo do array associativo para uma string JSON
+		$json_str = json_encode($dados);
+		echo "$json_str";
 		die();
-		//Alteramos o cabeçalho para não gerar cache do resultado
-		//header('Cache-Control: no-cache, must-revalidate');
-		//Alteramos o cabeçalho para que o retorno seja do tipo JSON
-		header('Content-Type: application/json');
-
-		//$aDados = json_decode($_POST['rel'], true);
-		$dados = [
-			0=> [
-				'nome' => 'Camila'
-			],
-			1=> [
-				'nome' => 'Wlliam'
-			],
-			2=> [
-				'nome' => 'Carlos'
-			]
-		];
-		echo json_encode($dados);
-
 	}
 
-
-
-
-		/*
+	/*
 	* Método Controller's de Cadastrar Oportunidade
 	* de Emprego
 	*/

@@ -132,14 +132,6 @@ jQuery(document).ready(function() {
         $('#answer_12').removeClass("hidden");
     }
 
-    /*
-    Mensagem teste de sucesso
-    $( "input" ).on( "click", function() {
-        $( "#log" + i).html( $( "input:checked" ).val() + " is checked!" );
-        //alert(this.id); // alerta 'seuid'
-        successTeste(this.name);
-    });*/
-
     window.msgSuccess = function(data, nome) {
         if (data){
             document.getElementById("quiz-form").submit();
@@ -170,7 +162,7 @@ jQuery(document).ready(function() {
         }
     };
 
-    //Função de Reset Respsotas do Questionário
+    //Função de Reset Respostas do Questionário
     window.clean = function(value) {
         triggerNotify('purple', 'bubbles', 'Eeei ' + value + ', Vamos Reiniciar o Questionário?', 'Você Precisa Completar esta Etapa para Criar seu Perfil!!');
         i=1;

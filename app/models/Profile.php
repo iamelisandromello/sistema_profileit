@@ -89,30 +89,28 @@ class Profile extends \HXPHP\System\Model
 
   public static function defineProfile($pesos_usuario)
   {
-    /*$pesos_junior = Profile::backProfile(1);
-    $pesos_pleno = Profile::backProfile(2);
-    $pesos_senior = Profile::backProfile(3);
-    $backJunior = self::calculoFinal($pesos_usuario, $pesos_junior);
-    $backPleno = self::calculoFinal($pesos_usuario, $pesos_pleno);
-    $backSenior = self::calculoFinal($pesos_usuario, $pesos_senior);*/
-
-    $profilesAll = Profile::all();
+    $profilesAll = Profile::all();//Recuper Perfis Padrões (Junior, Pleno e Sênior)
     $ctr = array();
     $ctr[0] = 0.00;
+
     foreach ($profilesAll as $profile) {
       $type = $profile->type;
       $pesos = self::backProfile($type);
       $callBack = self::calculoFinal($pesos_usuario, $pesos);
-      if ($ctr[0] == 0.00) {
+      if($callBack == 0){ //Verfica se Cálculo Retorna Desvio Padrão 0.00
+        $ctr[0] = $callBack;//caso desvio 0.00 já define o perfil 
+        $ctr[1] = $type;
+        break;//Interrompe a análise e retorna $ctr (Desvio Padrão e Tipo Perfil)
+      }
+      if ($ctr[0] == 0.00) { //Primeiro verificação atribui os parametros
         $ctr[0] = $callBack;
         $ctr[1] = $type;
       }
-      else if ($callBack < $ctr[0]) {
-        $ctr[0] = $callBack;
-        $ctr[1] = $type;
+      else if ($callBack <= $ctr[0]) { //Verifica se Desvio é < que atual armazenado
+        $ctr[0] = $callBack; //Desvio Padrão
+        $ctr[1] = $type; //Tipo de Perfil (1,2,3)
       }
     }
-
     return $ctr;
   }
 
