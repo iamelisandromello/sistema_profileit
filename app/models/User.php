@@ -17,6 +17,7 @@ class User extends \HXPHP\System\Model
 		array('professionals'),
 		array('certifications'),
 		array('recommendations'),
+		array('messages'),
 		array('academics'),
 		array('competencies'),
 		array('opportunities'),
