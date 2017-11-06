@@ -1,4 +1,3 @@
-
 jQuery(document).ready(function() {
 
    function valSenior() {
@@ -60,6 +59,9 @@ jQuery(document).ready(function() {
       $('input:radio[name="checkboxProfile"][value="2"]').attr("checked",false);
       $('input:radio[name="checkboxProfile"][value="3"]').attr("checked",false);
       $('input:radio[name="checkboxProfile"][value="3"]').attr("checked",true);
+      $('#oppAssignments').removeClass( 'input-error' );
+      $('#oppCompany').removeClass( 'input-error' );
+      $('#oppContact').removeClass( 'input-error' );
       valJunior();
    });
 

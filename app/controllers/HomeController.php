@@ -7,6 +7,22 @@ class HomeController extends \HXPHP\System\Controller
    {
       $this->view->setHeader('home/header')
            ->setFooter('home/footer');
+		$this->auth->redirectCheck();
+		$this->auth->roleCheck(array(
+		'user', 'administrator'
+		));
+   }
+
+	public function __construct($configs)
+	{
+		parent::__construct($configs);
+
+		$this->load(
+			'Services\Auth',
+			$configs->auth->after_login,
+			$configs->auth->after_logout,
+			true
+		);
 
 		$this->auth->redirectCheck();
 		$this->auth->roleCheck(array(
@@ -30,6 +46,7 @@ class HomeController extends \HXPHP\System\Controller
       //$comunidade = User::all($options );
 		/*Consulta Randomica de Usuarios*/
 		$comunidade = User::find_by_sql('select * from users order by rand() limit 10');
+		$vagas = Opportunity::find('all', array('conditions' => array('profile_id in (?)', array($profile->type))));
 
 		$ctrMeter = 0;
 
@@ -43,57 +60,6 @@ class HomeController extends \HXPHP\System\Controller
 			$ctrMeter++;
 		}
 		if ($analisePreferencias) {
-			$ctrMeter++;
-		}
-
-		$this->view->setTitle('HXPHP - Administrativo')
-					->setFile('index')
-					->setVars([
-						'user'		=> $user,
-						'total'		=> $total,
-						'resumos'	=> $resumos,
-						'sugestoes'	=> $sugestoes,
-						'profile'	=> $profile,
-						'preference'=> $preference,
-						'ctrMeter'	=> $ctrMeter,
-						'analiseQualificacoes'	=> $analiseQualificacoes,
-						'analiseRecomendacoes'	=> $analiseRecomendacoes,
-						'analiseRecomendador'	=> $analiseRecomendador,
-						'analisePreferencias'	=> $analisePreferencias,
-						'comunidade'		=> $comunidade
-					]);
-   }
-
-	public function __construct($configs)
-	{
-		parent::__construct($configs);
-
-		$this->load(
-			'Services\Auth',
-			$configs->auth->after_login,
-			$configs->auth->after_logout,
-			true
-		);
-
-		$this->auth->redirectCheck();
-		$this->auth->roleCheck(array(
-		'user', 'administrator'
-		));
-
-		$user_id = $this->auth->getUserId();
-		$user = User::find($user_id);
-		$role = Role::find($user->role_id);
-		$total = User::experiencia($user);
-		$resumos = User::summaries($user_id);
-		$analiseQualificacoes = User::analyzeSkill($user_id);
-		$analiseRecomendacoes = User::analyzeRecommendation($user_id);
-		$sugestoes = User::suggestions($resumos, $user_id);
-		$ctrMeter = 0;
-
-		if ($analiseQualificacoes) {
-			$ctrMeter++;
-		}
-		if ($analiseRecomendacoes) {
 			$ctrMeter++;
 		}
 
@@ -111,12 +77,198 @@ class HomeController extends \HXPHP\System\Controller
 						'total'		=> $total,
 						'resumos'	=> $resumos,
 						'sugestoes'	=> $sugestoes,
+						'profile'	=> $profile,
+						'preference'=> $preference,
+						'ctrMeter'	=> $ctrMeter,
+						'vagas'		=> $vagas,
 						'analiseQualificacoes'	=> $analiseQualificacoes,
 						'analiseRecomendacoes'	=> $analiseRecomendacoes,
-						'ctrMeter'	=> $ctrMeter,
-						'users'		=> User::all()
+						'analiseRecomendador'	=> $analiseRecomendador,
+						'analisePreferencias'	=> $analisePreferencias,
+						'comunidade'		=> $comunidade
 					]);
 	}
+
+	/*
+	* Método Controller para aprovação de
+	* Recomendação
+	*/
+	public function apprecommendationAction($recommendation_id = null)
+	{
+		$this->view->setFile('index');
+         $this->view->setHeader('home/header')
+            ->setFooter('home/footer');
+
+		$user_id = $this->auth->getUserId();
+		$user = User::find($user_id);
+		$status = 1;
+
+		$atualizarRecommendation = Recommendation::atualizar($recommendation_id, $user_id, $status);
+
+		if ($atualizarRecommendation->status == false) {
+			$this->load('Helpers\Alert', array(
+				'error',
+				'Ops! Não foi possível atualizar suas competências. <br> Verifique os erros abaixo:',
+				$atualizarRecommendation->errors
+			));
+		}
+		$this->view->setVar('user', $user);
+	}
+
+	/*
+	* Método Controller para reprovação de
+	* Recomendação
+	*/
+	public function disrecommendationAction($recommendation_id = null)
+	{
+		$this->view->setFile('index');
+         $this->view->setHeader('home/header')
+            ->setFooter('home/footer');
+
+		$user_id = $this->auth->getUserId();
+		$user = User::find($user_id);
+
+		$status = 3;
+		$atualizarRecommendation = Recommendation::atualizar($recommendation_id, $user_id, $status);
+
+		if ($atualizarRecommendation->status == false) {
+			$this->load('Helpers\Alert', array(
+				'error',
+				'Ops! Não foi possível atualizar suas competências. <br> Verifique os erros abaixo:',
+				$atualizarRecommendation->errors
+			));
+		}
+		$this->view->setVar('user', $user);
+	}
+
+	/*
+	* Método Controller's de Cadastrar Skill
+	* de Competências e Resumo Profissional
+	*/
+	public function cadastrarskillAction()
+	{
+		$this->view->setFile('index');
+         $this->view->setHeader('home/header')
+            ->setFooter('home/footer');
+
+		$post = $this->request->post();
+		$user_id = $this->auth->getUserId();
+		$user = User::find($user_id);
+
+		$cadastrarSkill = Competency::cadastrar($post, $user_id);
+
+		if ($cadastrarSkill->status == false) {
+			$this->load('Helpers\Alert', array(
+				'error',
+				'Ops! Não foi possível atualizar suas competências. <br> Verifique os erros abaixo:',
+				$cadastrarSkill->errors
+			));
+		}
+
+		$this->view->setVar('user', $user);
+	}
+
+	/*
+	* Método Controller's de Cadastrar Preferências
+	* e areas de atuação
+	*/
+	public function addpreferenceAction()
+	{
+		$this->view->setFile('IndexController.php');
+         $this->view->setHeader('home/header')
+            ->setFooter('home/footer');
+
+		$post = $this->request->post();
+		$user_id = $this->auth->getUserId();
+		$user = User::find($user_id);
+
+		if (!empty($post)) {
+			$cadastrarPreference = Preference::cadastrar($post, $user_id);
+			if ($cadastrarPreference->status == false) {
+				$this->load('Helpers\Alert', array(
+					'error',
+					'Ops! Não foi possível atualizar suas preferências. <br> Verifique os erros abaixo:',
+					$cadastrarPreference->errors
+				));
+			}
+		}
+		$this->view->setVar('user', $user);
+	}
+
+	/*
+	* Método Controller's de Cadastrar Preferências
+	* e areas de atuação
+	*/
+	public function addrecommnedationAction()
+	{
+		$this->view->setFile('index');
+         $this->view->setHeader('home/header')
+            ->setFooter('home/footer');
+
+		$post = $this->request->post();
+		$adviser_id = $this->auth->getUserId();
+		$user = User::find($adviser_id);
+
+		$recommendation_data = array(
+			'relationship'				 	=> $post['relationship'],
+			'charge_recommendation'		=> $post['charge_recommendation'],
+			'charge_recommended' 		=> $post['charge_recommended'],
+			'description'	 				=> $post['description'],
+			'user_id' 						=> $post['user_id'],
+			'adviser_id' 					=> $adviser_id,
+			'approved' 						=> 2
+		);
+
+		if (!empty($post)) {
+			$cadastrarPreference = Recommendation::cadastrar($recommendation_data);
+			if ($cadastrarPreference->status == false) {
+				$this->load('Helpers\Alert', array(
+					'error',
+					'Ops! Não foi possível enviar sua recomendação. <br> Verifique os erros abaixo:',
+					$cadastrarPreference->errors
+				));
+			}
+		}
+		$this->view->setVar('user', $user);
+	}
+
+	/*
+	* Método Controller's de Cadastrar Preferências
+	* e areas de atuação
+	*/
+	public function addMessageAction()
+	{
+		$this->view->setFile('index');
+         $this->view->setHeader('home/header')
+            ->setFooter('home/footer');
+
+		$post = $this->request->post();
+		$adviser_id = $this->auth->getUserId();
+		$user = User::find($adviser_id);
+
+		$recommendation_data = array(
+			'relationship'				 	=> $post['relationship'],
+			'charge_recommendation'		=> $post['charge_recommendation'],
+			'charge_recommended' 		=> $post['charge_recommended'],
+			'description'	 				=> $post['description'],
+			'user_id' 						=> $post['user_id'],
+			'adviser_id' 					=> $adviser_id,
+			'approved' 						=> 2
+		);
+
+		if (!empty($post)) {
+			$cadastrarPreference = Recommendation::cadastrar($recommendation_data);
+			if ($cadastrarPreference->status == false) {
+				$this->load('Helpers\Alert', array(
+					'error',
+					'Ops! Não foi possível enviar sua recomendação. <br> Verifique os erros abaixo:',
+					$cadastrarPreference->errors
+				));
+			}
+		}
+		$this->view->setVar('user', $user);
+	}
+
 
 	public function validaAction()
 	{
@@ -171,16 +323,18 @@ class HomeController extends \HXPHP\System\Controller
 		$user_id = $this->auth->getUserId();
 		$user = User::find($user_id);
 
+		//Recebendo atributos selecionados,
+		//definindo requisitos para a oportunidade
 		$attributes_data = array(
 			'attribute_1'			=> $post['attribute_1'],
-			'attribute_2'			=> $post['attribute_1'],
-			'attribute_3'			=> $post['attribute_1'],
-			'attribute_4'			=> $post['attribute_1'],
-			'attribute_5'			=> $post['attribute_1'],
-			'attribute_6'			=> $post['attribute_1'],
-			'attribute_7'			=> $post['attribute_1'],
-			'attribute_8'			=> $post['attribute_1'],
-			'attribute_9'			=> $post['attribute_1'],
+			'attribute_2'			=> $post['attribute_2'],
+			'attribute_3'			=> $post['attribute_3'],
+			'attribute_4'			=> $post['attribute_4'],
+			'attribute_5'			=> $post['attribute_5'],
+			'attribute_6'			=> $post['attribute_6'],
+			'attribute_7'			=> $post['attribute_7'],
+			'attribute_8'			=> $post['attribute_8'],
+			'attribute_9'			=> $post['attribute_9'],
 			'attribute_10'			=> $post['attribute_10'],
 			'attribute_11'			=> $post['attribute_11'],
 			'attribute_12'			=> $post['attribute_12'],
@@ -189,7 +343,7 @@ class HomeController extends \HXPHP\System\Controller
 			'attribute_15'			=> $post['attribute_15']
 		);
 
-		//Recebendo informações dos checkboxs de Bneficios
+		//Recebendo informações dos checkboxs de Beneficios
 		//e ajusta valores para selecionados e não selecionados
 		$_POST['health']		= ( isset($_POST['health']) )		? 1 : 0;
 		$_POST['feeding']		= ( isset($_POST['feeding']) )	? 1 : 0;
@@ -202,17 +356,17 @@ class HomeController extends \HXPHP\System\Controller
 
 		//array de informações para inclusão de Beneficios
 		$benefits_data = array(
-			'health'			=> $post['health'],
-			'feeding'		=> $post['feeding'],
-			'dental'			=> $post['dental'],
-			'fuel'			=> $post['fuel'],
-			'parking'		=> $post['parking'],
-			'foresight'		=> $post['foresight'],
-			'meal'			=> $post['meal'],
-			'transport'		=> $post['transport']
+			'health'			=> $_POST['health'],
+			'feeding'		=> $_POST['feeding'],
+			'dental'			=> $_POST['dental'],
+			'fuel'			=> $_POST['fuel'],
+			'parking'		=> $_POST['parking'],
+			'foresight'		=> $_POST['foresight'],
+			'meal'			=> $_POST['meal'],
+			'transport'		=> $_POST['transport']
 		);
 
-		$connection = Profile::connection();
+		$connection = Opportunity::connection();
 		$connection->transaction();
 
 		if (!empty($attributes_data)) {
@@ -246,10 +400,12 @@ class HomeController extends \HXPHP\System\Controller
 		}
 
 		/*Calculo RBC para Novo Perfil*/
-		$pesos_backUser = Profile::backChargeWeights($benefit_id);
-		$controle = Profile::defineProfile($pesos_backUser);
+		$pesos_backUser 	= Profile::backChargeWeights($attribute_id);
+		$controle 			= Profile::defineProfile($pesos_backUser);
 
 		$profile_data = array(
+			'company'				=> $post['oppCompany'],
+			'contact'				=> $post['oppContact'],
 			'assignments'			=> $post['assignments'],
 			'distortion'			=> $controle[0],
 			'profile_id'			=> $controle[1],
@@ -259,7 +415,7 @@ class HomeController extends \HXPHP\System\Controller
 		);
 
 		if (!empty($profile_data)) {
-			$cadastrarProfile = Benefit::cadastrar($profile_data);
+			$cadastrarProfile = Opportunity::cadastrar($profile_data);
 
 			if ($cadastrarProfile->status === false) {
 				$this->load('Helpers\Alert', array(

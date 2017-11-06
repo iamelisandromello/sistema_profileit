@@ -116,61 +116,6 @@ class PerfilController extends \HXPHP\System\Controller
 		}
 	}
 
-
-	/*
-	* Método Controller's de Cadastrar Skill
-	* de Competências e Resumo Profissional
-	*/
-	public function cadastrarskillAction()
-	{
-		$this->view->setFile('editar');
-         $this->view->setHeader('perfil/header')
-            ->setFooter('perfil/footer');
-
-		$post = $this->request->post();
-		$user_id = $this->auth->getUserId();
-		$user = User::find($user_id);
-
-		$cadastrarSkill = Competency::cadastrar($post, $user_id);
-
-		if ($cadastrarSkill->status == false) {
-			$this->load('Helpers\Alert', array(
-				'error',
-				'Ops! Não foi possível atualizar suas competências. <br> Verifique os erros abaixo:',
-				$cadastrarSkill->errors
-			));
-		}
-
-		$this->view->setVar('user', $user);
-	}
-
-	/*
-	* Método Controller's de Cadastrar Preferências
-	* e areas de atuação
-	*/
-	public function addpreferenceAction()
-	{
-		$this->view->setFile('editar');
-         $this->view->setHeader('perfil/header')
-            ->setFooter('perfil/footer');
-
-		$post = $this->request->post();
-		$user_id = $this->auth->getUserId();
-		$user = User::find($user_id);
-
-		if (!empty($post)) {
-			$cadastrarPreference = Preference::cadastrar($post, $user_id);
-			if ($cadastrarPreference->status == false) {
-				$this->load('Helpers\Alert', array(
-					'error',
-					'Ops! Não foi possível atualizar suas preferências. <br> Verifique os erros abaixo:',
-					$cadastrarPreference->errors
-				));
-			}
-		}
-		$this->view->setVar('user', $user);
-	}
-
 	/*
 	* Métodos Controller's de Atualização de Informaçoes
 	* do Skill de COmpetências

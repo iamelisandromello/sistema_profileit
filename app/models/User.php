@@ -232,15 +232,6 @@ class User extends \HXPHP\System\Model
 		$posts = Professional::find_by_sql('select * from professionals where user_id in (65) order by date_out desc');
 		//$testes= Professional::find('all', array('conditions' => array('user_id in (?)', array($id_user))));
 		//$testes= Professional::find('all', array('order' => 'date_out ASC', 'limit' => 3));
-		//
-
-
-
-
-/*foreach ($testes as $aux) :
-	echo ("Auxiliar: " . $aux->company . "<br>");
-endforeach;	
-die();*/
 
 		foreach ($posts as $post) :
 	  		$userSummaries['Empresa']	= $post->company;

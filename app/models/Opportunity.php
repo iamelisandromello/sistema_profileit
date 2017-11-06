@@ -22,6 +22,30 @@ class Opportunity extends \HXPHP\System\Model
       );
    }
 
+   public static function cadastrar(array $post)
+   {
+      $callbackObj = new \stdClass;// Cria classe vazia
+      $callbackObj->opportunity = null;// Propriedade user da classe null
+      $callbackObj->status = false;// Propriedade Status da Classe False
+      $callbackObj->errors = array();// Array padrão de erros vazio
+
+      $cadastrar = self::create($post);
+
+      if ($cadastrar->is_valid()) {
+         $callbackObj->opportunity = $cadastrar;
+         $callbackObj->status = true;
+         return $callbackObj;
+      }
+
+      $errors = $cadastrar->errors->get_raw_errors();
+
+      foreach ($errors as $field => $message) {
+         array_push($callbackObj->errors, $message[0]);
+      }
+
+      return $callbackObj;
+   }
+
   public static function backVagaWeights(array $atributos){
     $pesos_oportunidade = array();
     for ($i=1; $i < 16 ; $i++) {

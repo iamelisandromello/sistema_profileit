@@ -107,7 +107,7 @@
 								<div class="modal-containerStep">
 									<span class="step-num">1</span>
 									<div class="modal-text">
-										Write your message
+										Escreva sua mensagem
 									</div><!-- </modal-text> -->
 								</div><!-- </moldal-containerStep> -->
 							</div><!-- </col-md-10> -->
@@ -131,8 +131,8 @@
 			    	<div class="modal-content modal-popup">
 			        	<div class="modal-header">
 		            	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		               <h2 class="modal-title">Recomende <?php $view_user->name ?></h2>
-							<span>Esta recomendação será exibida no perfil de Franklin.</span>
+		               <h2 class="modal-title">Recomende <?php echo $view_user->name ?></h2>
+							<span>Esta recomendação será exibida no perfil de <?php echo $view_user->name ?>.</span>
 			        	</div><!-- </modal-header> -->
 
 			        	<div class="row">
@@ -331,7 +331,7 @@
 		<!-- Plus Timeline Item -->
 		<script src="<?php echo JS; ?>front/timeline-loader.js"></script>
 		<!-- Janela Video de Apresentação Perfil Usuario -->
-		<script src="<?php echo JS; ?>front/videopopup.js"></script>
+		<!--<script src="<?php echo JS; ?>front/videopopup.js"></script>-->
 
 		<!-- Tuner ACessibilidade de Cores -->
 		<script src="<?php echo TUNER; ?>js/tuner.js"></script>

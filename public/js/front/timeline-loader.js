@@ -20,12 +20,12 @@
 
 	> $TIMELINE LOADER
 	> $MILESTONES COUNTERUP
-	> $PORTFOLIO 
+	> $PORTFOLIO
 
 		> #SHUFFLE
 		> #LIGHTBOX
 		> #SHOW MORE ITEMS
-	
+
 	> $RSLIDES
 	> $FITVIDS
 	> $TESTIMONIALS ROTATOR
@@ -35,7 +35,7 @@
 
 jQuery(document).ready
 (
-	function ($) 
+	function ($)
 	{
 		'use strict';
 
@@ -55,7 +55,7 @@ jQuery(document).ready
 					 relatedHiddenItems = relatedItems.filter(':hidden'),
 					 numberOfRelatedHiddenItems = relatedHiddenItems.length;
 
-				if ( numberOfRelatedHiddenItems !== 0 ) 
+				if ( numberOfRelatedHiddenItems !== 0 )
 				{
 					// if there are hidden items then
 					// on show more button show all the hidden items

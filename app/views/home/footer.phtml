@@ -6,7 +6,7 @@
 				  <div class="container">
 				    <div class="row">
 				          <ul>
-				            <li> <a href="https://www.facebook.com/profile.php?id=1800765934" target="_blank" title=""> <span> <i class="fa fa-facebook"></i> </span> </a> </li>
+				            <li> <a href="https://www.facebook.com/elisandromello" target="_blank" title=""> <span> <i class="fa fa-facebook"></i> </span> </a> </li>
 				            <li> <a href="https://twitter.com/elisandromello" target="_blank" title=""> <span> <i class="fa fa-twitter"></i> </span> </a> </li>
 				            <li> <a href="http://www.linkedin.com/in/elisandromello" target="_blank" title=""> <span> <i class="fa fa-linkedin"></i> </span> </a> </li>
 				            <li> <a href="http://www.instagram.com/iamelisandromello" target="_blank" title=""> <span> <i class="fa fa-instagram"></i> </span> </a> </li>
@@ -228,33 +228,31 @@
 		    					</div>
 		    				</div>
 		    			</div>
+		    			<div class="row">
+		    				<div class="col-md-10 centered">
+		    					<div class="col-md-4">
+	    							<input type="radio" value="1" name="checkboxProfile" id="checkboxSenior" class="css-radiobox senior" checked="checked" />
+									<label for="checkboxSenior" class="css-label">Sênior</label>
+	    						</div>
 
-	    				<div class="modal-groupForm">
-	    					<div class="row">
-	    						<div class="col-md-10 centered">
-		    						<div class="col-md-4">
-		    							<input type="radio" value="1" name="checkboxProfile" id="checkboxSenior" class="css-radiobox senior" checked="checked" />
-										<label for="checkboxSenior" class="css-label">Sênior</label>
-		    						</div>
+	    						<div class="col-md-4">
+									<input type="radio" value="2" name="checkboxProfile" id="checkboxPleno" class="css-radiobox pleno" />
+									<label for="checkboxPleno" class="css-label">Pleno</label>
+	    						</div>
 
-		    						<div class="col-md-4">
-										<input type="radio" value="2" name="checkboxProfile" id="checkboxPleno" class="css-radiobox pleno" />
-										<label for="checkboxPleno" class="css-label">Pleno</label>
-		    						</div>
+	    						<div class="col-md-4">
+    								<input type="radio" value="3" name="checkboxProfile" id="checkboxJunior" class="css-radiobox	junior" />
+									<label for="checkboxJunior" class="css-label">Júnior</label>
+	    						</div>
+		    				</div>
+		    			</div>
 
-		    						<div class="col-md-4">
-	    								<input type="radio" value="3" name="checkboxProfile" id="checkboxJunior" class="css-radiobox	junior" />
-										<label for="checkboxJunior" class="css-label">Júnior</label>
-		    						</div>
-	    						</div><!--</col-md-10 centered>-->
-	    					</div><!--</row>-->
-	    				</div><!-- </modal-groupForm>-->
 		    			<!-- =================================
 						Formulario de Inclusão de Oportunidade
 						Pelo Usuario
 		    			===================================-->
 		    			<form class="registration-charge" id="registration-charge" action="<?php echo BASE; ?>home/cadastrarvaga/" method="post" />
-
+							<fieldset id="addOpportunity">
 							<div class="row">
 			    				<div class="col-md-10 centered">
 			    					<div class="modal-containerStep">
@@ -265,6 +263,39 @@
 			    					</div>
 			    				</div>
 			    			</div>
+							<div class="row">
+			    				<div class="col-md-12 centered">
+				    				<div class="modal-groupForm">
+				    					<div class="row">
+				    						<div class="col-md-10 centered">
+												<div class="col-md-6">
+													<div class="modal-groupForm">
+								    					<div class="grupo-input">
+								    						<span class="grupo-input-img"><i class="fa fa-mail"></i></span>
+								    						<input type="text" name="oppCompany" id="oppCompany" class="input-modal" placeholder="Empresa da Oportunidade" >
+								    					</div>
+														<div class="msgFront" name="msgFront" id="msg-oppCompany">
+															<span></span>
+														</div>
+							    					</div>
+												</div>
+												<div class="col-md-6">
+													<div class="modal-groupForm">
+								    					<div class="grupo-input">
+								    						<span class="grupo-input-img"><i class="fa fa-user-plus"></i></span>
+								    						<input type="text" name="oppContact" id="oppContact" class="input-modal" placeholder="email para contato" >
+								    					</div>
+														<div class="msgFront" name="msgFront" id="msg-oppContact">
+															<span></span>
+														</div>
+							    					</div>
+												</div>
+				    						</div><!--</col-md-10 centered>-->
+				    					</div><!--</row>-->
+				    				</div><!-- </modal-groupForm>-->
+			    				</div><!-- </col-md-12 centered> -->
+			    			</div><!--</row>-->
+
 							<div class="containerRequerimento">
 				    			<div class="row">
 									<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
@@ -427,13 +458,12 @@
 										</select>
 				    				</div>
 				    			</div>
-
 								<!-- 3º Linha de Requerimentos Vaga-->
 				    			<div class="row">
 				    				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
 				    					<!-- Seleção de Funções -->
 										<label for="requerimentoExchange">Microsoft Exchange</label>
-										<select name="attribute_9=" id="requerimentoExchange" class="select-modal selectpicker" >
+										<select name="attribute_9" id="requerimentoExchange" class="select-modal selectpicker" >
 											<option value="1">
 												Cliente
 											</option>
@@ -615,20 +645,20 @@
 											</div>
 										</div><!-- </row> -->
 									</div><!-- </containerBeneficios> -->
-
-							<div class="modal-groupForm">
-								<textarea class="textarea-modal" rows="3" name="assignments" placeholder="Descreva as atribuições de oportunidade de trabalho"></textarea>
-							</div>
-							<div class="the-return">
-  								[HTML is replaced when successful.]
-							</div>
-
-							<!-- <div class="col-md-12 text-center">
-								<input name="submit" type="submit" class="form-control" id="submit" value=" Add Oportunidade ">
-							</div> -->
+								</div><!-- </col-md-12 col-sm-12 col-xs-12> -->
+							</div><!-- </row> -->
+							<div class="row">
+								<div class="modal-groupForm textareaInput">
+									<textarea class="textarea-modal" rows="3" name="assignments" id="oppAssignments" placeholder="Descreva as atribuições de oportunidade de trabalho"></textarea>
+							      <div class="msgFront" name="msgFront">
+										<span></span>
+									</div>
+								</div>
+							</div><!-- </row> -->
 							<div class="col-md-12 text-center">
 								<input name="validar" type="button" class="form-control" id="returnProfile" value=" Validar Perfil ">
 							</div>
+						</fieldset>
 		    			</form>
 		    		</div><!-- </modal-content> -->
 		    	</div><!-- </modal-dialog> -->
@@ -660,7 +690,8 @@
 		<script src="<?php echo JS; ?>front/use-repeater.js"></script>
 		<script src="<?php echo JS; ?>competency.js"></script>
 		<script src="<?php echo JS; ?>home/skill.js"></script>
-		<script src="<?php echo JS; ?>home/testeAjax.js"></script>
+		<script src="<?php echo JS; ?>addopportunity.js"></script>
+		<script src="<?php echo JS; ?>home/apprecomendation.js"></script>
 
 		<!-- Tuner ACessibilidade de Cores -->
 		<script src="<?php echo TUNER; ?>js/tuner.js"></script>

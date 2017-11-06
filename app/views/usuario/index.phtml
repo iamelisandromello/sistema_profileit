@@ -167,7 +167,7 @@
 						                        <h5><span> Profissional com </span> Certificação <?php echo $view_resumos['Linux'] ?>  </h5>
 						                        <?php } ?>
 
-						                        <h5><span> <?php echo $view_resumos['Academico'] ?> em  </span> <?php echo $view_resumos['Curso']; ?> </h5>
+						                        <h5><span> <?php echo $view_resumos['Academico'] ?> em  </span>  <?php echo $view_resumos['Curso']; ?> <?php echo ($view_resumos['Status'] == 1 || $view_resumos['Status'] == 2) ? "Incompleto" : 'Completo'; ?> </h5>
 
 														<h5><span><?php echo (!$view_resumos['Empregado']) ? 'Empresa Atual: ' : 'Última Empresa' ; ?> </span> <?php echo $view_resumos['Empresa'];  ?> </h5>
 
@@ -504,7 +504,7 @@
 										                   }
 										               ?>
 									                  <p class="quote-slider-single"> <?php echo $recommendation->description ?>. </p>
-									                  <p class="quote-slider-name"><?php echo $adviser->name?> - <?php echo $recommendation->charge_recomendation ?>. </p>
+									                  <p class="quote-slider-name"><?php echo $adviser->name?> - <?php echo $recommendation->charge_recommendation ?>. </p>
 									               </div><!-- </quote-slider-slide-container> -->
 									            </li>
 							            <?php
@@ -536,10 +536,10 @@
 		                     <div class="wow fadeInUp contatc-form" data-wow-delay="0.8s">
 		                        <form action="#" method="post">
 		                           <div class="col-md-6 col-xs-12 text-center">
-												<a class="btn envio" href="#" data-toggle="modal" data-target="#modal1"> <i class="fa fa-paper-plane"></i> <span class="hidden-xs">Envie </span> Mensagem </a>
+												<a class="btn envio disabled" href="#" data-toggle="modal" data-target="#modal1"> <i class="fa fa-paper-plane"></i> <span class="hidden-xs">Envie </span> Mensagem </a>
 		                           </div><!-- </col-md-6 col-xs-12> -->
 		                           <div class="col-md-6 col-xs-12 text-center">
-												<a class="btn envio" href="#" data-toggle="modal" data-target="#modal2"> <i class="fa fa-paper-plane"></i> <span class="hidden-xs">Adicionar  </span> Recomendação </a>
+												<a class="btn envio disabled" href="#" data-toggle="modal" data-target="#modal2"> <i class="fa fa-paper-plane"></i> <span class="hidden-xs">Adicionar  </span> Recomendação </a>
 		                           </div><!-- </col-md-6 col-xs-12> -->
 		                        </form>
 		                     </div><!-- </contatc-form> -->

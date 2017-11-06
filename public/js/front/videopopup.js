@@ -1,8 +1,8 @@
 /* ==========================
    Theme Author: ilmosys
    Theme URL: http://ilmosys.com/html/kabir/
-   Version: 1.0 
-   
+   Version: 1.0
+
 =============================*/
 
 $('body').scrollspy({ offset: 200, target: '.navigation' });
@@ -11,7 +11,7 @@ $('body').scrollspy({ offset: 200, target: '.navigation' });
     MAGNIFICENT POPUP
 =============================*/
 (function($) {
-"use strict"; 
+"use strict";
       $(document).ready(function() {
 
         "use strict";
@@ -46,7 +46,7 @@ $('body').scrollspy({ offset: 200, target: '.navigation' });
             enabled: true,
             duration: 300 // don't foget to change the duration also in CSS
           }
-		  
+
         });
 
         $('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
@@ -57,11 +57,11 @@ $('body').scrollspy({ offset: 200, target: '.navigation' });
           preloader: false,
 
           fixedContentPos: false
-		  
+
         });
-		
+
 	$(".lightbox").magnificPopup();
-	
-	});	
-	
+
+	});
+
 })(jQuery);

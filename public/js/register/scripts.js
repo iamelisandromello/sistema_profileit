@@ -111,7 +111,7 @@ jQuery(document).ready(function() {
 
    function msgFront( $idFront, $msg ) {
       target = $('#' + $idFront).closest('.sandbox-container');
-      boxData = $(target).find('.msgFront');
+      boxData = $("#msg");
       $(boxData)
       .html("")
       .html($msg)

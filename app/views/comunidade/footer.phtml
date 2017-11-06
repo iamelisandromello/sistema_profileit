@@ -74,7 +74,7 @@
 			    	<div class="modal-content modal-popup">
 			        	<div class="modal-header">
 		            	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		                <h2 class="modal-title">Contact-Me</h2>
+		                <h2 class="modal-title">Contate-me</h2>
 			        	</div><!-- </modal-header> -->
 
 			        	<div class="row">
@@ -82,20 +82,25 @@
 								<div class="modal-containerAvatar">
 									<div class="container-avatarcontactme">
 										<div class="avatar-molde">
-											<img class="avatar-picture wow bounceIn" src="<?php echo IMAGES; ?>profiles/10.jpg" >
+											<?php
+						                  if (!is_null($view_logado->image)) {
+						                     echo '<img class="avatar-picture wow bounceIn" src="' . BASE . 'public/uploads/users/' . $view_logado->id . '/' . $view_logado->image . '" width="160">';
+						                  }
+						                  else{
+						                     echo '<img class="avatar-picture wow bounceIn" src="' . BASE . 'public/uploads/users/' . 'default' . '/' . 'default.png' . '" width="160">';
+						                  }
+						               ?>
 										</div><!-- </avatar-molde> -->
 										<i class="fa fa-share"></i>
 										<div class="avatar-molde">
-
 											<?php
-						                   if (!is_null($view_user->image)) {
-						                       echo '<img class="avatar-picture wow bounceIn" src="' . BASE . 'public/uploads/users/' . $view_user->id . '/' . $view_user->image . '" width="160">';
-						                   }
-						                   else{
-						                       echo '<img class="avatar-picture wow bounceIn" src="' . BASE . 'public/uploads/users/' . 'default' . '/' . 'default.png' . '" width="160">';
-						                   }
+						                  if (!is_null($view_user->image)) {
+						                     echo '<img class="avatar-picture wow bounceIn" src="' . BASE . 'public/uploads/users/' . $view_user->id . '/' . $view_user->image . '" width="160">';
+						                  }
+						                  else{
+						                     echo '<img class="avatar-picture wow bounceIn" src="' . BASE . 'public/uploads/users/' . 'default' . '/' . 'default.png' . '" width="160">';
+						                  }
 						               ?>
-
 										</div><!-- </avatar-molde> -->
 									</div><!-- </container-avatarcontactme> -->
 								</div><!-- </modal-containerAvatar> -->
@@ -107,23 +112,27 @@
 								<div class="modal-containerStep">
 									<span class="step-num">1</span>
 									<div class="modal-text">
-										Write your message
+										Escreva sua mensagem!!
 									</div><!-- </modal-text> -->
 								</div><!-- </moldal-containerStep> -->
 							</div><!-- </col-md-10> -->
 						</div><!-- </row>  -->
-
-		            <form action="#" method="post">
-							<div class="modal-groupForm">
-								<textarea class="textarea-modal" rows="5" placeholder="Leave your message to the user"></textarea>
-							</div>
-		                <input name="submit" type="submit" class="form-control" id="submit" value="Send Message">
+			         <form class="registration-message" id="registration-message" action="<?php echo BASE; ?>home/addmessage/" method="post" />
+							<fieldset id="addMessage">
+								<div class="modal-groupForm">
+									<textarea class="textarea-modal" rows="5" placeholder="Envia-me sua mensagem, que lhe retornarei!" name="addMensagem" id="addMensagem"></textarea>
+								</div>
+								<div class="col-md-12 text-center">
+									<input name="btMessage" id="btMessage" type="button" class="form-control btn-add" value=" Enviar Mensagem ">
+									<input type="text" class="hidden" name="hiddenUser" id="hiddenUserM" value="<?php echo $view_logado->name; ?>" >
+									<input type="text" class="hidden" name="user_id" id="hidden_IDM" value="<?php echo $view_user->id; ?>" >
+								</div>
+			            </fieldset>
 		            </form>
 			      </div><!-- </modal-content> -->
 			   </div><!-- </modal-dialog> -->
 			</div><!-- </modal fade> -->
-
-						<!-- ==============================================
+			<!-- ==============================================
 			Modal Recommendation (add Recomendação)
 			=============================================== -->
 			<div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -141,8 +150,8 @@
 									<div class="container-avatarcontactme">
 										<div class="avatar-molde">
 											<?php
-						                  if (!is_null($view_user->image)) {
-						                     echo '<img class="avatar-picture wow bounceIn" src="' . BASE . 'public/uploads/users/' . $view_user->id . '/' . $view_user->image . '" width="160">';
+						                  if (!is_null($view_logado->image)) {
+						                     echo '<img class="avatar-picture wow bounceIn" src="' . BASE . 'public/uploads/users/' . $view_logado->id . '/' . $view_logado->image . '" width="160">';
 						                  }
 						                  else{
 						                     echo '<img class="avatar-picture wow bounceIn" src="' . BASE . 'public/uploads/users/' . 'default' . '/' . 'default.png' . '" width="160">';
@@ -151,7 +160,14 @@
 										</div><!-- </avatar-molde> -->
 										<i class="fa fa-share"></i>
 										<div class="avatar-molde">
-											<img class="avatar-picture wow bounceIn" src="<?php echo IMAGES; ?>profiles/6.jpg" >
+											<?php
+						                  if (!is_null($view_user->image)) {
+						                     echo '<img class="avatar-picture wow bounceIn" src="' . BASE . 'public/uploads/users/' . $view_user->id . '/' . $view_user->image . '" width="160">';
+						                  }
+						                  else{
+						                     echo '<img class="avatar-picture wow bounceIn" src="' . BASE . 'public/uploads/users/' . 'default' . '/' . 'default.png' . '" width="160">';
+						                  }
+						               ?>
 										</div><!-- </avatar-molde> -->
 									</div><!-- </container-avatarcontactme> -->
 								</div><!-- </modal-containerAvatar> -->
@@ -170,41 +186,39 @@
 						</div><!-- </row> -->
 
 						<!-- Inicio Form de Inclusão Recomendação -->
-			         <form action="#" method="post">
+			         <form class="registration-recommendation" id="registration-recommendation" action="<?php echo BASE; ?>home/addrecommnedation/" method="post" />
+							<fieldset id="addRecommendation">
 							<!-- Inicio Grupo Componente -->
 							<div class="modal-groupForm">
 								<div class="grupo-input">
 						  			<!-- Seleção Relacionamento -->
 						  			<span class="grupo-input-img"><i class="fa fa-random"></i></span>
-						  			<select name="state" class="select-modal selectpicker" >
-										<option class="opt-placeholder" value="-1" selected="">Select…
+						  			<select name="relationship" id="relationship" class="select-modal selectpicker" >
+										<option class="opt-placeholder" value="-1" selected="">Relacionamento…
 										</option>
 										<optgroup label="Profissional">
-											<option>
+											<option value="<?php echo $view_logado->name ?> supervisionava <?php echo $view_user->name ?> ">
 												Você supervisionava <?php echo $view_user->name; ?> diretamente.
 											</option>
-											<option>
+											<option value="<?php echo $view_logado->name ?> respondia a <?php echo $view_user->name ?> ">
 												Você respondia a <?php echo $view_user->name; ?> diretamente.
 											</option>
-											<option>
+											<option value="<?php echo $view_logado->name ?> era Sênior em relação a <?php echo $view_user->name ?> ">
 												Você era sênior em relação a <?php echo $view_user->name; ?>, mas não o supervisionava diretamente.
 											</option>
-											<option>
+											<option value="<?php echo $view_logado->name ?> era Sênior em relação a <?php echo $view_user->name ?> mas não o supervisionava ">
 												<?php echo $view_user->name; ?> era sênior em relação a você, mas não o supervisionava diretamente.
 											</option>
-											<option>
+											<option value="<?php echo $view_logado->name ?> era colega de  <?php echo $view_user->name ?> ">
 												Você trabalhava com <?php echo $view_user->name; ?> no mesmo grupo.
 											</option>
-											<option>
+											<option value="<?php echo $view_logado->name ?> trabalhava com  <?php echo $view_user->name ?> em Grupos diferentes ">
 												Você trabalhava com <?php echo $view_user->name; ?> em grupos diferentes.
 											</option>
-											<option>
-												Você e <?php echo $view_user->name; ?> trabalhavam juntos, mas em empresas diferentes.
-											</option>
-											<option>
+											<option value="<?php echo $view_user->name ?> era cliente de  <?php echo $view_logado->name ?> ">
 												<?php echo $view_user->name; ?> era seu cliente.
 											</option>
-											<option>
+											<option value="<?php echo $view_logado->name ?> era clinte de  <?php echo $view_user->name ?> ">
 												Você era cliente de <?php echo $view_user->name; ?>.
 											</option>
 										</optgroup>
@@ -228,7 +242,7 @@
 								<div class="col-md-10 centered">
 									<div class="modal-containerStep">
 										<div class="modal-subText">
-											Quais eram seus empregos no época?
+											Quais eram seus empregos na época?
 										</div><!-- </modal-subText> -->
 									</div><!-- </modal-containerStep> -->
 								</div><!-- </col-md-10> -->
@@ -239,21 +253,14 @@
 								<div class="grupo-input">
 									<!-- Seleção de Funções -->
 									<span class="grupo-input-img"><i class="fa fa-user"></i></span>
-									<select name="state" class="select-modal selectpicker" >
+									<select name="charge_recommendation" id="charge_recommendation" class="select-modal selectpicker" >
 										<option class="opt-placeholder" value="-1" selected="" data-type="pos">
 											Você…
 										</option>
 										<optgroup label="Profissional">
 										<?php foreach ($view_logado->professionals as $professional): ?>
 										<option>
-											<?php echo $professional->company ?>
-										</option>
-										<?php endforeach; ?>
-										</optgroup>
-										<optgroup label="Acadêmico">
-										<?php foreach ($view_logado->academics as $academic): ?>
-										<option>
-											<?php echo $academic->institution ?>
+											<strong><?php echo $professional->function ?></strong>  na  <?php  echo $professional->company ?>
 										</option>
 										<?php endforeach; ?>
 										</optgroup>
@@ -266,21 +273,14 @@
 								<div class="grupo-input">
 									<!-- Seleção de Funções -->
 									<span class="grupo-input-img"><i class="fa fa-users"></i></span>
-									<select name="state" class="select-modal selectpicker" >
+									<select name="charge_recommended" id="charge_recommended" class="select-modal selectpicker" >
 										<option class="opt-placeholder" value="-1" selected="" data-type="pos">
 											<?php echo $view_user->name ?>
 										</option>
 										<optgroup label="Profissional">
 										<?php foreach ($view_user->professionals as $professional): ?>
 										<option>
-											<?php echo $professional->company ?>
-										</option>
-										<?php endforeach; ?>
-										</optgroup>
-										<optgroup label="Acadêmico">
-										<?php foreach ($view_user->academics as $academic): ?>
-										<option>
-											<?php echo $academic->institution ?>
+											<strong><?php echo $professional->function ?></strong>  na  <?php  echo $professional->company ?>
 										</option>
 										<?php endforeach; ?>
 										</optgroup>
@@ -304,11 +304,17 @@
 							<div class="modal-groupForm">
 
 								<div class="modal-groupForm">
-									<textarea class="textarea-modal" rows="5" placeholder='Ex. Paloma é orientada para detalhes e obteve excelentes resultados para a empresa ...'></textarea>
+									<textarea name="description" id="description" class="textarea-modal" rows="5" placeholder="Ex. <?php echo $view_user->name ?> é orientado(a) para detalhes e obteve excelentes resultados para a empresa ..."></textarea>
 								</div><!-- </grupo-input> -->
 							</div><!-- </modal-groupForm> -->
 
-			            <input name="submit" type="submit" class="form-control" id="submit" value="Adicionar Recomendação">
+			            <!--<input name="submit" type="submit" class="form-control" id="submit" value="Adicionar Recomendação">-->
+							<div class="col-md-12 text-center">
+								<input name="btRecommendation" id="btRecommendation" type="button" class="form-control btn-add" value=" Enviar Recomendação ">
+								<input type="text" class="hidden" name="hiddenUser" id="hiddenUser" value="<?php echo $view_logado->name; ?>" >
+								<input type="text" class="hidden" name="user_id" id="hidden_ID" value="<?php echo $view_user->id; ?>" >
+							</div>
+			         </fieldset>
 			         </form>
 			      </div><!-- </modal-content> -->
 			   </div><!-- </modal-dialog> -->
@@ -339,14 +345,15 @@
 		<!-- PreLoader -->
 		<script src="<?php echo BOWER; ?>jpreloader/js/jpreloader.min.js"></script>
 		 <!-- Deslocamento Suave Sesões - One Page -->
+		<script src="<?php echo JS; ?>boxmessage.js"></script> <!-- Default JS -->
 		<script src="<?php echo JS; ?>front/smooth-scrolling.js"></script>
 		 <!-- Default JS -->
 		<script src="<?php echo JS; ?>front/main.js"></script>
 		<!-- Plus Timeline Item -->
 		<script src="<?php echo JS; ?>front/timeline-loader.js"></script>
 		<!-- Janela Video de Apresentação Perfil Usuario -->
-		<script src="<?php echo JS; ?>front/videopopup.js"></script>
-
+		<!--<script src="<?php echo JS; ?>front/videopopup.js"></script>-->
+		<script src="<?php echo JS; ?>recommendation.js"></script>
 		<!-- Tuner ACessibilidade de Cores -->
 		<script src="<?php echo TUNER; ?>js/tuner.js"></script>
 
