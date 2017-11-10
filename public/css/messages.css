@@ -1,0 +1,1550 @@
+/**
+	Define vars, used in theme
+**/
+/** Primary and secondary fonts settings **/
+/** Background images **/
+/** Header colors **/
+/** Body colors **/
+/** Footer colors **/
+/** LESS mixins / functions **/
+/* line 149, less\mixins.less */
+.grad-orange {
+  background: #e5493a;
+  background: linear-gradient(225deg, #e5493a, #ee6f2c, #f7941e);
+  background-size: 600% 600%;
+  -webkit-animation: AnimateGradient 4s ease infinite;
+  -moz-animation: AnimateGradient 4s ease infinite;
+  -o-animation: AnimateGradient 4s ease infinite;
+  animation: AnimateGradient 4s ease infinite;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e5493a', endColorstr='#f7941e', GradientType=1);
+}
+
+/*
+ * 	Core Owl Carousel CSS File
+ *	v1.3.3
+ */
+/* clearfix */
+/* line 7, less\libs.less */
+.owl-carousel .owl-wrapper:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+/* display none until init */
+/* line 16, less\libs.less */
+.owl-carousel {
+  display: none;
+  position: relative;
+  width: 100%;
+  -ms-touch-action: pan-y;
+}
+/* line 22, less\libs.less */
+.owl-carousel .owl-wrapper {
+  display: none;
+  position: relative;
+  -webkit-transform: translate3d(0px, 0px, 0px);
+}
+/* line 27, less\libs.less */
+.owl-carousel .owl-wrapper-outer {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+/* line 32, less\libs.less */
+.owl-carousel .owl-wrapper-outer.autoHeight {
+  -webkit-transition: height 500ms ease-in-out;
+  -moz-transition: height 500ms ease-in-out;
+  -ms-transition: height 500ms ease-in-out;
+  -o-transition: height 500ms ease-in-out;
+  transition: height 500ms ease-in-out;
+}
+/* line 40, less\libs.less */
+.owl-carousel .owl-item {
+  float: left;
+}
+/* line 43, less\libs.less */
+.owl-controls .owl-page,
+.owl-controls .owl-buttons div {
+  cursor: pointer;
+}
+/* line 47, less\libs.less */
+.owl-controls {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+/* fix */
+/* line 57, less\libs.less */
+.owl-carousel .owl-wrapper,
+.owl-carousel .owl-item {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+}
+/*
+ *  Owl Carousel CSS3 Transitions
+ *  v1.3.2
+ */
+/* line 72, less\libs.less */
+.owl-origin {
+  -webkit-perspective: 1200px;
+  -webkit-perspective-origin-x: 50%;
+  -webkit-perspective-origin-y: 50%;
+  -moz-perspective: 1200px;
+  -moz-perspective-origin-x: 50%;
+  -moz-perspective-origin-y: 50%;
+  perspective: 1200px;
+}
+/* fade */
+/* line 82, less\libs.less */
+.owl-fade-out {
+  z-index: 10;
+  -webkit-animation: fadeOut .7s both ease;
+  -moz-animation: fadeOut .7s both ease;
+  animation: fadeOut .7s both ease;
+}
+/* line 88, less\libs.less */
+.owl-fade-in {
+  -webkit-animation: fadeIn .7s both ease;
+  -moz-animation: fadeIn .7s both ease;
+  animation: fadeIn .7s both ease;
+}
+/* backSlide */
+/* line 94, less\libs.less */
+.owl-backSlide-out {
+  -webkit-animation: backSlideOut 1s both ease;
+  -moz-animation: backSlideOut 1s both ease;
+  animation: backSlideOut 1s both ease;
+}
+/* line 99, less\libs.less */
+.owl-backSlide-in {
+  -webkit-animation: backSlideIn 1s both ease;
+  -moz-animation: backSlideIn 1s both ease;
+  animation: backSlideIn 1s both ease;
+}
+/* goDown */
+/* line 105, less\libs.less */
+.owl-goDown-out {
+  -webkit-animation: scaleToFade .7s ease both;
+  -moz-animation: scaleToFade .7s ease both;
+  animation: scaleToFade .7s ease both;
+}
+/* line 110, less\libs.less */
+.owl-goDown-in {
+  -webkit-animation: goDown .6s ease both;
+  -moz-animation: goDown .6s ease both;
+  animation: goDown .6s ease both;
+}
+/* scaleUp */
+/* line 116, less\libs.less */
+.owl-fadeUp-in {
+  -webkit-animation: scaleUpFrom .5s ease both;
+  -moz-animation: scaleUpFrom .5s ease both;
+  animation: scaleUpFrom .5s ease both;
+}
+/* line 122, less\libs.less */
+.owl-fadeUp-out {
+  -webkit-animation: scaleUpTo .5s ease both;
+  -moz-animation: scaleUpTo .5s ease both;
+  animation: scaleUpTo .5s ease both;
+}
+/* Keyframes */
+/*empty*/
+@-webkit-keyframes empty {
+  /* line 130, less\libs.less */
+  0% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes empty {
+  /* line 133, less\libs.less */
+  0% {
+    opacity: 1;
+  }
+}
+@keyframes empty {
+  /* line 136, less\libs.less */
+  0% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeIn {
+  /* line 139, less\libs.less */
+  0% {
+    opacity: 0;
+  }
+  /* line 140, less\libs.less */
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadeIn {
+  /* line 143, less\libs.less */
+  0% {
+    opacity: 0;
+  }
+  /* line 144, less\libs.less */
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  /* line 147, less\libs.less */
+  0% {
+    opacity: 0;
+  }
+  /* line 148, less\libs.less */
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeOut {
+  /* line 151, less\libs.less */
+  0% {
+    opacity: 1;
+  }
+  /* line 152, less\libs.less */
+  100% {
+    opacity: 0;
+  }
+}
+@-moz-keyframes fadeOut {
+  /* line 155, less\libs.less */
+  0% {
+    opacity: 1;
+  }
+  /* line 156, less\libs.less */
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fadeOut {
+  /* line 159, less\libs.less */
+  0% {
+    opacity: 1;
+  }
+  /* line 160, less\libs.less */
+  100% {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes backSlideOut {
+  /* line 163, less\libs.less */
+  25% {
+    opacity: .5;
+    -webkit-transform: translateZ(-500px);
+  }
+  /* line 164, less\libs.less */
+  75% {
+    opacity: .5;
+    -webkit-transform: translateZ(-500px) translateX(-200%);
+  }
+  /* line 165, less\libs.less */
+  100% {
+    opacity: .5;
+    -webkit-transform: translateZ(-500px) translateX(-200%);
+  }
+}
+@-moz-keyframes backSlideOut {
+  /* line 168, less\libs.less */
+  25% {
+    opacity: .5;
+    -moz-transform: translateZ(-500px);
+  }
+  /* line 169, less\libs.less */
+  75% {
+    opacity: .5;
+    -moz-transform: translateZ(-500px) translateX(-200%);
+  }
+  /* line 170, less\libs.less */
+  100% {
+    opacity: .5;
+    -moz-transform: translateZ(-500px) translateX(-200%);
+  }
+}
+@keyframes backSlideOut {
+  /* line 173, less\libs.less */
+  25% {
+    opacity: .5;
+    transform: translateZ(-500px);
+  }
+  /* line 174, less\libs.less */
+  75% {
+    opacity: .5;
+    transform: translateZ(-500px) translateX(-200%);
+  }
+  /* line 175, less\libs.less */
+  100% {
+    opacity: .5;
+    transform: translateZ(-500px) translateX(-200%);
+  }
+}
+@-webkit-keyframes backSlideIn {
+  /* line 178, less\libs.less */
+  0%,
+  25% {
+    opacity: .5;
+    -webkit-transform: translateZ(-500px) translateX(200%);
+  }
+  /* line 179, less\libs.less */
+  75% {
+    opacity: .5;
+    -webkit-transform: translateZ(-500px);
+  }
+  /* line 180, less\libs.less */
+  100% {
+    opacity: 1;
+    -webkit-transform: translateZ(0) translateX(0);
+  }
+}
+@-moz-keyframes backSlideIn {
+  /* line 183, less\libs.less */
+  0%,
+  25% {
+    opacity: .5;
+    -moz-transform: translateZ(-500px) translateX(200%);
+  }
+  /* line 184, less\libs.less */
+  75% {
+    opacity: .5;
+    -moz-transform: translateZ(-500px);
+  }
+  /* line 185, less\libs.less */
+  100% {
+    opacity: 1;
+    -moz-transform: translateZ(0) translateX(0);
+  }
+}
+@keyframes backSlideIn {
+  /* line 188, less\libs.less */
+  0%,
+  25% {
+    opacity: .5;
+    transform: translateZ(-500px) translateX(200%);
+  }
+  /* line 189, less\libs.less */
+  75% {
+    opacity: .5;
+    transform: translateZ(-500px);
+  }
+  /* line 190, less\libs.less */
+  100% {
+    opacity: 1;
+    transform: translateZ(0) translateX(0);
+  }
+}
+@-webkit-keyframes scaleToFade {
+  /* line 193, less\libs.less */
+  to {
+    opacity: 0;
+    -webkit-transform: scale(0.8);
+  }
+}
+@-moz-keyframes scaleToFade {
+  /* line 196, less\libs.less */
+  to {
+    opacity: 0;
+    -moz-transform: scale(0.8);
+  }
+}
+@keyframes scaleToFade {
+  /* line 199, less\libs.less */
+  to {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+@-webkit-keyframes goDown {
+  /* line 202, less\libs.less */
+  from {
+    -webkit-transform: translateY(-100%);
+  }
+}
+@-moz-keyframes goDown {
+  /* line 205, less\libs.less */
+  from {
+    -moz-transform: translateY(-100%);
+  }
+}
+@keyframes goDown {
+  /* line 208, less\libs.less */
+  from {
+    transform: translateY(-100%);
+  }
+}
+@-webkit-keyframes scaleUpFrom {
+  /* line 212, less\libs.less */
+  from {
+    opacity: 0;
+    -webkit-transform: scale(1.5);
+  }
+}
+@-moz-keyframes scaleUpFrom {
+  /* line 215, less\libs.less */
+  from {
+    opacity: 0;
+    -moz-transform: scale(1.5);
+  }
+}
+@keyframes scaleUpFrom {
+  /* line 218, less\libs.less */
+  from {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+}
+@-webkit-keyframes scaleUpTo {
+  /* line 222, less\libs.less */
+  to {
+    opacity: 0;
+    -webkit-transform: scale(1.5);
+  }
+}
+@-moz-keyframes scaleUpTo {
+  /* line 225, less\libs.less */
+  to {
+    opacity: 0;
+    -moz-transform: scale(1.5);
+  }
+}
+@keyframes scaleUpTo {
+  /* line 228, less\libs.less */
+  to {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+}
+/* line 231, less\libs.less */
+.owl-controls {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 40px;
+  text-align: center;
+}
+/* line 238, less\libs.less */
+.owl-controls .owl-page {
+  position: relative;
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  padding: 0;
+  line-height: 11px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  margin: 0 7px;
+  border: none;
+  outline: none;
+  -webkit-transition: background-color 0.2s;
+  -moz-transition: background-color 0.2s;
+  -o-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+}
+/* line 252, less\libs.less */
+.owl-controls .owl-page:hover,
+.owl-controls .owl-page.active {
+  background-color: #b1d750;
+}
+
+/**
+ * Swiper 3.1.2
+ * Most modern mobile touch slider and framework with hardware accelerated transitions
+ *
+ * http://www.idangero.us/swiper/
+ *
+ * Copyright 2015, Vladimir Kharlampidi
+ * The iDangero.us
+ * http://www.idangero.us/
+ *
+ * Licensed under MIT
+ *
+ * Released on: August 22, 2015
+ */
+/* line 679, less\libs.less */
+.swiper-container {
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  /* Fix of Webkit flickering */
+  z-index: 1;
+  cursor: move;
+}
+/* line 687, less\libs.less */
+.swiper-container-no-flexbox .swiper-slide {
+  float: left;
+}
+/* line 690, less\libs.less */
+.swiper-container-vertical > .swiper-wrapper {
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+/* line 697, less\libs.less */
+.swiper-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-transition-property: -webkit-transform;
+  -moz-transition-property: -moz-transform;
+  -o-transition-property: -o-transform;
+  -ms-transition-property: -ms-transform;
+  transition-property: transform;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+/* line 716, less\libs.less */
+.swiper-container-android .swiper-slide,
+.swiper-wrapper {
+  -webkit-transform: translate3d(0px, 0, 0);
+  -moz-transform: translate3d(0px, 0, 0);
+  -o-transform: translate(0px, 0px);
+  -ms-transform: translate3d(0px, 0, 0);
+  transform: translate3d(0px, 0, 0);
+}
+/* line 724, less\libs.less */
+.swiper-container-multirow > .swiper-wrapper {
+  -webkit-box-lines: multiple;
+  -moz-box-lines: multiple;
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+/* line 731, less\libs.less */
+.swiper-container-free-mode > .swiper-wrapper {
+  -webkit-transition-timing-function: ease-out;
+  -moz-transition-timing-function: ease-out;
+  -ms-transition-timing-function: ease-out;
+  -o-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+  margin: 0 auto;
+}
+/* line 739, less\libs.less */
+.swiper-slide {
+  -webkit-flex-shrink: 0;
+  -ms-flex: 0 0 auto;
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+/* a11y */
+/* line 748, less\libs.less */
+.swiper-container .swiper-notification {
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  opacity: 0;
+  z-index: -1000;
+}
+/* IE10 Windows Phone 8 Fixes */
+/* line 757, less\libs.less */
+.swiper-wp8-horizontal {
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+}
+/* line 761, less\libs.less */
+.swiper-wp8-vertical {
+  -ms-touch-action: pan-x;
+  touch-action: pan-x;
+}
+/* Fade */
+/* line 766, less\libs.less */
+.swiper-container-fade.swiper-container-free-mode .swiper-slide {
+  -webkit-transition-timing-function: ease-out;
+  -moz-transition-timing-function: ease-out;
+  -ms-transition-timing-function: ease-out;
+  -o-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+/* line 773, less\libs.less */
+.swiper-container-fade .swiper-slide {
+  pointer-events: none;
+}
+/* line 776, less\libs.less */
+.swiper-container-fade .swiper-slide .swiper-slide {
+  pointer-events: none;
+}
+/* line 779, less\libs.less */
+.swiper-container-fade .swiper-slide-active,
+.swiper-container-fade .swiper-slide-active .swiper-slide-active {
+  pointer-events: auto;
+}
+/* Scrollbar */
+/* line 784, less\libs.less */
+.swiper-scrollbar {
+  border-radius: 10px;
+  position: relative;
+  -ms-touch-action: none;
+  background: rgba(0, 0, 0, 0.1);
+}
+/* line 790, less\libs.less */
+.swiper-container-horizontal > .swiper-scrollbar {
+  position: absolute;
+  left: 1%;
+  bottom: 3px;
+  z-index: 50;
+  height: 5px;
+  width: 98%;
+}
+/* line 798, less\libs.less */
+.swiper-container-vertical > .swiper-scrollbar {
+  position: absolute;
+  right: 3px;
+  top: 1%;
+  z-index: 50;
+  width: 5px;
+  height: 98%;
+}
+/* line 806, less\libs.less */
+.swiper-scrollbar-drag {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  left: 0;
+  top: 0;
+}
+/* line 815, less\libs.less */
+.swiper-scrollbar-cursor-drag {
+  cursor: move;
+}
+
+/**
+	=====================================================================================================================================================
+	Buttons
+	=====================================================================================================================================================
+**/
+/**
+	Default Button, Yello
+**/
+/* line 860, less\shared.less */
+.button,
+button,
+input[type=button],
+input[type=submit],
+input[type=reset],
+#comments-nav a,
+.pagination a {
+  font-size: 1.8rem;
+  line-height: 22px;
+  font-family: fira_sanslight;
+  font-variant: small-caps;
+  background: transparent;
+  border: 5px solid #fecb16;
+  display: inline-block;
+  cursor: pointer;
+  color: #fecb16;
+  padding: 14px 50px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  overflow: hidden;
+  position: relative;
+  vertical-align: middle;
+  z-index: 1;
+  -webkit-backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  outline: none;
+  text-align: center;
+}
+/* line 882, less\shared.less */
+.button:hover,
+button:hover,
+input[type=button]:hover,
+input[type=submit]:hover,
+input[type=reset]:hover,
+.button:hover,
+button:hover,
+input[type=button]:hover,
+input[type=submit]:hover,
+input[type=reset]:hover,
+#comments-nav a:hover,
+.pagination a:hover {
+  outline: none;
+}
+/* line 887, less\shared.less */
+.button::before,
+button::before,
+input[type=button]::before,
+input[type=submit]::before,
+input[type=reset]::before,
+#comments-nav a::before,
+.pagination a::before {
+  content: '';
+  z-index: -1;
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  margin: -15px 0 0 1px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #fecb16;
+  -webkit-transform-origin: 100% 50%;
+  transform-origin: 100% 50%;
+  -webkit-transform: scale3d(1, 2, 1);
+  transform: scale3d(1, 2, 1);
+  -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+  transition: transform 0.3s, opacity 0.3s;
+  -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.9, 1);
+  transition-timing-function: cubic-bezier(0.7, 0, 0.9, 1);
+}
+/* line 908, less\shared.less */
+.button:hover,
+button:hover,
+input[type=button]:hover,
+input[type=submit]:hover,
+input[type=reset]:hover,
+#comments-nav a:hover,
+.pagination a:hover {
+  color: #ffffff !important;
+  background-color: #fecb16;
+}
+/* line 913, less\shared.less */
+.button:hover::before,
+button:hover::before,
+input[type=button]:hover::before,
+input[type=submit]:hover::before,
+input[type=reset]:hover::before,
+#comments-nav a:hover::before,
+.pagination a:hover::before {
+  -webkit-transform: scale3d(9, 9, 1);
+  transform: scale3d(9, 9, 1);
+}
+/**
+	Large Button
+**/
+/* line 921, less\shared.less */
+.button.large,
+button.large,
+input[type=button].large,
+input[type=submit].large,
+input[type=reset].large {
+  font-size: 3rem;
+  line-height: 38px;
+  padding: 18px 50px 14px 50px;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  border-radius: 40px;
+}
+/* line 927, less\shared.less */
+.button.large::before,
+button.large::before,
+input[type=button].large::before,
+input[type=submit].large::before,
+input[type=reset].large::before {
+  width: 40px;
+  height: 40px;
+  margin: -25px 0 0 1px;
+}
+/**
+	Blue Button
+**/
+/* line 935, less\shared.less */
+.button.blue,
+button.blue,
+input[type=button].blue,
+input[type=submit].blue,
+input[type=reset].blue {
+  border-color: #00bff3;
+  color: #00bff3;
+}
+/* line 939, less\shared.less */
+.button.blue::before,
+button.blue::before,
+input[type=button].blue::before,
+input[type=submit].blue::before,
+input[type=reset].blue::before {
+  background: #00bff3;
+}
+/* line 942, less\shared.less */
+.button.blue:hover,
+button.blue:hover,
+input[type=button].blue:hover,
+input[type=submit].blue:hover,
+input[type=reset].blue:hover,
+.button.blue.inverted,
+.table-button .button.blue {
+  background-color: #00bff3;
+}
+/* line 946, less\shared.less */
+.button.blue.inverted,
+.table-button .button.blue {
+  color: #ffffff;
+}
+/* line 949, less\shared.less */
+.button.blue.inverted:hover,
+.table-button .button.blue:hover {
+  background-color: #0097c0;
+  border-color: #0097c0;
+}
+/* line 953, less\shared.less */
+.button.blue.inverted::before,
+.table-button .button.blue::before {
+  display: none !important;
+}
+/**
+	Purple Button
+**/
+/* line 959, less\shared.less */
+.button.purple,
+button.purple,
+input[type=button].purple,
+input[type=submit].purple,
+input[type=reset].purple {
+  border-color: #6739b6;
+  color: #6739b6;
+}
+/* line 963, less\shared.less */
+.button.purple::before,
+button.purple::before,
+input[type=button].purple::before,
+input[type=submit].purple::before,
+input[type=reset].purple::before {
+  background: #6739b6;
+}
+/* line 966, less\shared.less */
+.button.purple:hover,
+button.purple:hover,
+input[type=button].purple:hover,
+input[type=submit].purple:hover,
+input[type=reset].purple:hover,
+.button.purple.inverted,
+.table-button .button.purple {
+  background-color: #6739b6;
+}
+/* line 970, less\shared.less */
+.button.purple.inverted,
+.table-button .button.purple {
+  color: #ffffff;
+}
+/* line 973, less\shared.less */
+.button.purple.inverted:hover,
+.table-button .button.purple:hover {
+  background-color: #512d8f;
+  border-color: #512d8f;
+}
+/* line 977, less\shared.less */
+.button.purple.inverted::before,
+.table-button .button.purple::before {
+  display: none !important;
+}
+/**
+	Green Button
+**/
+/* line 983, less\shared.less */
+.button.green,
+button.green,
+input[type=button].green,
+input[type=submit].green,
+input[type=reset].green,
+#comments-nav a,
+.pagination a {
+  border-color: #b1d750;
+  color: #b1d750;
+}
+/* line 988, less\shared.less */
+.button.green::before,
+button.green::before,
+input[type=button].green::before,
+input[type=submit].green::before,
+input[type=reset].green::before,
+#comments-nav a::before,
+.pagination a::before {
+  background: #b1d750;
+}
+/* line 992, less\shared.less */
+.button.green:hover,
+button.green:hover,
+input[type=button].green:hover,
+input[type=submit].green:hover,
+input[type=reset].green:hover,
+.button.green.inverted,
+#comments-nav a:hover,
+.pagination a:hover,
+.table-button .button.green {
+  background-color: #b1d750;
+}
+/* line 997, less\shared.less */
+.button.green.inverted,
+.table-button .button.green {
+  color: #ffffff;
+}
+/* line 1000, less\shared.less */
+.button.green.inverted:hover,
+.table-button .button.green:hover {
+  background-color: #9bc72d;
+  border-color: #9bc72d;
+}
+/* line 1004, less\shared.less */
+.button.green.inverted::before,
+.table-button .button.green::before {
+  display: none !important;
+}
+/**
+	Green Alternate Button
+**/
+/* line 1010, less\shared.less */
+.button.green-alt,
+button.green-alt,
+input[type=button].green-alt,
+input[type=submit].green-alt,
+input[type=reset].green-alt {
+  border-color: #8dc63f;
+  color: #8dc63f;
+}
+/* line 1014, less\shared.less */
+.button.green-alt::before,
+button.green-alt::before,
+input[type=button].green-alt::before,
+input[type=submit].green-alt::before,
+input[type=reset].green-alt::before {
+  background: #8dc63f;
+}
+/* line 1017, less\shared.less */
+.button.green-alt:hover,
+button.green-alt:hover,
+input[type=button].green-alt:hover,
+input[type=submit].green-alt:hover,
+input[type=reset].green-alt:hover,
+.button.green-alt.inverted,
+.table-button .button.green-alt {
+  background-color: #8dc63f;
+}
+/* line 1021, less\shared.less */
+.button.green-alt.inverted,
+.table-button .button.green-alt {
+  color: #ffffff;
+}
+/* line 1024, less\shared.less */
+.button.green-alt.inverted:hover,
+.table-button .button.green-alt:hover {
+  background-color: #72a230;
+  border-color: #72a230;
+}
+/* line 1028, less\shared.less */
+.button.green-alt.inverted::before,
+.table-button .button.green-alt::before {
+  display: none !important;
+}
+/**
+	Orange Button
+**/
+/* line 1034, less\shared.less */
+.button.orange,
+button.orange,
+input[type=button].orange,
+input[type=submit].orange,
+input[type=reset].orange {
+  border-color: #ff9700;
+  color: #ff9700;
+}
+/* line 1038, less\shared.less */
+.button.orange::before,
+button.orange::before,
+input[type=button].orange::before,
+input[type=submit].orange::before,
+input[type=reset].orange::before {
+  background: #ff9700;
+}
+/* line 1041, less\shared.less */
+.button.orange:hover,
+button.orange:hover,
+input[type=button].orange:hover,
+input[type=submit].orange:hover,
+input[type=reset].orange:hover,
+.button.orange.inverted,
+.table-button .button.orange {
+  background-color: #ff9700;
+}
+/* line 1045, less\shared.less */
+.button.orange.inverted,
+.table-button .button.orange {
+  color: #ffffff;
+}
+/* line 1048, less\shared.less */
+.button.orange.inverted:hover,
+.table-button .button.orange:hover {
+  background-color: #cc7900;
+  border-color: #cc7900;
+}
+/* line 1052, less\shared.less */
+.button.orange.inverted::before,
+.table-button .button.orange::before {
+  display: none !important;
+}
+/**
+	Pink Button
+**/
+/* line 1058, less\shared.less */
+.button.pink,
+button.pink,
+input[type=button].pink,
+input[type=submit].pink,
+input[type=reset].pink {
+  border-color: #e91d62;
+  color: #e91d62;
+}
+/* line 1062, less\shared.less */
+.button.pink::before,
+button.pink::before,
+input[type=button].pink::before,
+input[type=submit].pink::before,
+input[type=reset].pink::before {
+  background: #e91d62;
+}
+/* line 1065, less\shared.less */
+.button.pink:hover,
+button.pink:hover,
+input[type=button].pink:hover,
+input[type=submit].pink:hover,
+input[type=reset].pink:hover,
+.button.pink.inverted,
+.table-button .button.pink {
+  background-color: #e91d62;
+}
+/* line 1069, less\shared.less */
+.button.pink.inverted,
+.table-button .button.pink {
+  color: #ffffff;
+}
+/* line 1072, less\shared.less */
+.button.pink.inverted:hover,
+.table-button .button.pink:hover {
+  background-color: #c0134d;
+  border-color: #c0134d;
+}
+/* line 1076, less\shared.less */
+.button.pink.inverted::before,
+.table-button .button.pink::before {
+  display: none !important;
+}
+/**
+	Gray Button
+**/
+/* line 1082, less\shared.less */
+.button.gray,
+button.gray,
+input[type=button].gray,
+input[type=submit].gray,
+input[type=reset].gray,
+#comments-nav .nav-previous a,
+.pagination a:first-child {
+  border-color: #cdcfd7;
+  color: #cdcfd7;
+}
+/* line 1087, less\shared.less */
+.button.gray::before,
+button.gray::before,
+input[type=button].gray::before,
+input[type=submit].gray::before,
+input[type=reset].gray::before,
+#comments-nav .nav-previous a::before,
+.pagination a:first-child::before {
+  background: #cdcfd7;
+}
+/* line 1091, less\shared.less */
+.button.gray:hover,
+button.gray:hover,
+input[type=button].gray:hover,
+input[type=submit].gray:hover,
+input[type=reset].gray:hover,
+.button.gray.inverted,
+#comments-nav .nav-previous a:hover,
+.pagination a:first-child:hover,
+.table-button .button.gray {
+  background-color: #cdcfd7;
+}
+/* line 1097, less\shared.less */
+.button.gray.inverted,
+.table-button .button.gray {
+  color: #ffffff;
+}
+/* line 1100, less\shared.less */
+.button.gray.inverted:hover,
+.table-button .button.gray:hover {
+  background-color: #b1b4c0;
+  border-color: #b1b4c0;
+}
+/* line 1104, less\shared.less */
+.button.gray.inverted::before,
+.table-button .button.gray::before {
+  display: none !important;
+}
+/**
+	Black Button
+**/
+/* line 1110, less\shared.less */
+.button.black,
+button.black,
+input[type=button].black,
+input[type=submit].black,
+input[type=reset].black {
+  border-color: #111111;
+  color: #111111;
+}
+/* line 1114, less\shared.less */
+.button.black::before,
+button.black::before,
+input[type=button].black::before,
+input[type=submit].black::before,
+input[type=reset].black::before {
+  background: #111111;
+}
+/* line 1117, less\shared.less */
+.button.black:hover,
+button.black:hover,
+input[type=button].black:hover,
+input[type=submit].black:hover,
+input[type=reset].black:hover,
+.button.black.inverted,
+.table-button .button.black {
+  background-color: #111111;
+}
+/* line 1121, less\shared.less */
+.button.black.inverted,
+.table-button .button.black {
+  color: #ffffff;
+}
+/* line 1124, less\shared.less */
+.button.black.inverted:hover,
+.table-button .button.black:hover {
+  background-color: #000000;
+  border-color: #000000;
+}
+/* line 1128, less\shared.less */
+.button.black.inverted::before,
+.table-button .button.black::before {
+  display: none !important;
+}
+/**
+	Red Button
+**/
+/* line 1134, less\shared.less */
+.button.red,
+button.red,
+input[type=button].red,
+input[type=submit].red,
+input[type=reset].red {
+  border-color: #f04e4e;
+  color: #f04e4e;
+}
+/* line 1138, less\shared.less */
+.button.red::before,
+button.red::before,
+input[type=button].red::before,
+input[type=submit].red::before,
+input[type=reset].red::before {
+  background: #f04e4e;
+}
+/* line 1141, less\shared.less */
+.button.red:hover,
+button.red:hover,
+input[type=button].red:hover,
+input[type=submit].red:hover,
+input[type=reset].red:hover,
+.button.red.inverted,
+.table-button .button.red {
+  background-color: #f04e4e;
+}
+/* line 1145, less\shared.less */
+.button.red.inverted,
+.table-button .button.red {
+  color: #ffffff;
+}
+/* line 1148, less\shared.less */
+.button.red.inverted:hover,
+.table-button .button.red:hover {
+  background-color: #ec1f1f;
+  border-color: #ec1f1f;
+}
+/* line 1152, less\shared.less */
+.button.red.inverted::before,
+.table-button .button.red::before {
+  display: none !important;
+}
+/**
+	Turquoise Button
+**/
+/* line 1158, less\shared.less */
+.button.turquoise,
+button.turquoise,
+input[type=button].turquoise,
+input[type=submit].turquoise,
+input[type=reset].turquoise {
+  border-color: #1cbbb4;
+  color: #1cbbb4;
+}
+/* line 1162, less\shared.less */
+.button.turquoise::before,
+button.turquoise::before,
+input[type=button].turquoise::before,
+input[type=submit].turquoise::before,
+input[type=reset].turquoise::before {
+  background: #1cbbb4;
+}
+/* line 1165, less\shared.less */
+.button.turquoise:hover,
+button.turquoise:hover,
+input[type=button].turquoise:hover,
+input[type=submit].turquoise:hover,
+input[type=reset].turquoise:hover,
+.button.turquoise.inverted,
+.table-button .button.turquoise {
+  background-color: #1cbbb4;
+}
+/* line 1169, less\shared.less */
+.button.turquoise.inverted,
+.table-button .button.turquoise {
+  color: #ffffff;
+}
+/* line 1172, less\shared.less */
+.button.turquoise.inverted:hover,
+.table-button .button.turquoise:hover {
+  background-color: #158f89;
+  border-color: #158f89;
+}
+/* line 1176, less\shared.less */
+.button.turquoise.inverted::before,
+.table-button .button.turquoise::before {
+  display: none !important;
+}
+/**
+	Violet Button
+**/
+/* line 1182, less\shared.less */
+.button.violet,
+button.violet,
+input[type=button].violet,
+input[type=submit].violet,
+input[type=reset].violet {
+  border-color: #9c26b0;
+  color: #9c26b0;
+}
+/* line 1186, less\shared.less */
+.button.violet::before,
+button.violet::before,
+input[type=button].violet::before,
+input[type=submit].violet::before,
+input[type=reset].violet::before {
+  background: #9c26b0;
+}
+/* line 1189, less\shared.less */
+.button.violet:hover,
+button.violet:hover,
+input[type=button].violet:hover,
+input[type=submit].violet:hover,
+input[type=reset].violet:hover,
+.button.violet.inverted,
+.table-button .button.violet {
+  background-color: #9c26b0;
+}
+/* line 1193, less\shared.less */
+.button.violet.inverted,
+.table-button .button.violet {
+  color: #ffffff;
+}
+/* line 1196, less\shared.less */
+.button.violet.inverted:hover,
+.table-button .button.violet:hover {
+  background-color: #771d86;
+  border-color: #771d86;
+}
+/* line 1200, less\shared.less */
+.button.violet.inverted::before,
+.table-button .button.violet::before {
+  display: none !important;
+}
+/**
+	Pink Alternate Button
+**/
+/* line 1206, less\shared.less */
+.button.pink-alt,
+button.pink-alt,
+input[type=button].pink-alt,
+input[type=submit].pink-alt,
+input[type=reset].pink-alt {
+  border-color: #f06eaa;
+  color: #f06eaa;
+}
+/* line 1210, less\shared.less */
+.button.pink-alt::before,
+button.pink-alt::before,
+input[type=button].pink-alt::before,
+input[type=submit].pink-alt::before,
+input[type=reset].pink-alt::before {
+  background: #f06eaa;
+}
+/* line 1213, less\shared.less */
+.button.pink-alt:hover,
+button.pink-alt:hover,
+input[type=button].pink-alt:hover,
+input[type=submit].pink-alt:hover,
+input[type=reset].pink-alt:hover,
+.button.pink-alt.inverted,
+.table-button .button.pink-alt {
+  background-color: #f06eaa;
+}
+/* line 1217, less\shared.less */
+.button.pink-alt.inverted,
+.table-button .button.pink-alt {
+  color: #ffffff;
+}
+/* line 1220, less\shared.less */
+.button.pink-alt.inverted:hover,
+.table-button .button.pink-alt:hover {
+  background-color: #eb408f;
+  border-color: #eb408f;
+}
+/* line 1224, less\shared.less */
+.button.pink-alt.inverted::before,
+.table-button .button.pink-alt::before {
+  display: none !important;
+}
+/* line 1227, less\shared.less */
+.demo-buttons .button {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+/**
+	Video play button
+**/
+/* line 1234, less\shared.less */
+.button-video-play {
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100px;
+  height: 100px;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNjRweCIgaGVpZ2h0PSI2NHB4IiB2aWV3Qm94PSIwIDAgNjQgNjQiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDY0IDY0OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PGc+PGc+PGcgaWQ9ImNpcmNsZV8xOF8iPjxnPjxwYXRoIGZpbGw9IiNmZmZmZmYiIGQ9Ik0zMiwwQzE0LjMyNywwLDAsMTQuMzI3LDAsMzJzMTQuMzI3LDMyLDMyLDMyczMyLTE0LjMyNywzMi0zMlM0OS42NzMsMCwzMiwweiBNMzIsNjJDMTUuNDMyLDYyLDIsNDguNTY4LDIsMzIuMDAxIEMyLDE1LjQzMiwxNS40MzIsMiwzMiwyYzE2LjU2OCwwLDMwLDEzLjQzMiwzMCwzMC4wMDFDNjIsNDguNTY4LDQ4LjU2OCw2MiwzMiw2MnoiLz48L2c+PC9nPjxnIGlkPSJwbGF5Ij48Zz48cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJNNDEuMTA5LDMwLjM0MWwtMTItNy45ODljLTAuNjEzLTAuNDA4LTEuNDAyLTAuNDQ3LTIuMDUzLTAuMUMyNi40MDYsMjIuNTk5LDI2LDIzLjI3NSwyNiwyNC4wMTN2MTUuOTggYzAsMC43MzcsMC40MDYsMS40MTIsMS4wNTcsMS43NjFjMC42NSwwLjM0OCwxLjQzOSwwLjMxMSwyLjA1My0wLjFsMTItNy45ODlDNDEuNjY2LDMzLjI5NCw0MiwzMi42Nyw0MiwzMi4wMDMgQzQyLDMxLjMzNSw0MS42NjYsMzAuNzEyLDQxLjEwOSwzMC4zNDF6IE0zOC44LDMzLjQyMmwtOS4zODksNS43ODZDMjguOTA3LDM5LjU0MywyOCwzOS41NTksMjgsMzkuNTU5czAtMC45MywwLTEuNTMzVjI2LjAwNyBjMC0wLjYwNCwwLTEuNjU5LDAtMS42NTlzMC45MDctMC4wNDYsMS40MTEsMC4yODdsOS4zODksNi4xOTNjMC40NTcsMC4zMDMsMC43MzEsMC42ODgsMC43MzEsMS4yMzQgQzM5LjUzMSwzMi42MDcsMzkuMjU3LDMzLjExOSwzOC44LDMzLjQyMnoiLz48L2c+PC9nPjwvZz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PC9zdmc+) !important;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  -webkit-transition: transform 0.4s ease-in-out;
+  -moz-transition: transform 0.4s ease-in-out;
+  -o-transition: transform 0.4s ease-in-out;
+  transition: transform 0.4s ease-in-out;
+}
+/* line 1244, less\shared.less */
+.button-video-play:hover {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNjRweCIgaGVpZ2h0PSI2NHB4IiB2aWV3Qm94PSIwIDAgNjQgNjQiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDY0IDY0OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHN0eWxlIHR5cGU9InRleHQvY3NzIj5wYXRoe2ZpbGw6dXJsKCNzdmdHcmFkaWVudCl9PC9zdHlsZT48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9InN2Z0dyYWRpZW50IiBncmFkaWVudFRyYW5zZm9ybT0icm90YXRlKC0yNSkiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMwMGJmZjMiIC8+PHN0b3Agb2Zmc2V0PSI2NyUiIHN0b3AtY29sb3I9IiNiMWQ3NTAiIC8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PGc+PGc+PGcgaWQ9ImNpcmNsZV8xOF8iPjxnPjxwYXRoIGQ9Ik0zMiwwQzE0LjMyNywwLDAsMTQuMzI3LDAsMzJzMTQuMzI3LDMyLDMyLDMyczMyLTE0LjMyNywzMi0zMlM0OS42NzMsMCwzMiwweiBNMzIsNjJDMTUuNDMyLDYyLDIsNDguNTY4LDIsMzIuMDAxIEMyLDE1LjQzMiwxNS40MzIsMiwzMiwyYzE2LjU2OCwwLDMwLDEzLjQzMiwzMCwzMC4wMDFDNjIsNDguNTY4LDQ4LjU2OCw2MiwzMiw2MnoiLz48L2c+PC9nPjxnIGlkPSJwbGF5Ij48Zz48cGF0aCBkPSJNNDEuMTA5LDMwLjM0MWwtMTItNy45ODljLTAuNjEzLTAuNDA4LTEuNDAyLTAuNDQ3LTIuMDUzLTAuMUMyNi40MDYsMjIuNTk5LDI2LDIzLjI3NSwyNiwyNC4wMTN2MTUuOTggYzAsMC43MzcsMC40MDYsMS40MTIsMS4wNTcsMS43NjFjMC42NSwwLjM0OCwxLjQzOSwwLjMxMSwyLjA1My0wLjFsMTItNy45ODlDNDEuNjY2LDMzLjI5NCw0MiwzMi42Nyw0MiwzMi4wMDMgQzQyLDMxLjMzNSw0MS42NjYsMzAuNzEyLDQxLjEwOSwzMC4zNDF6IE0zOC44LDMzLjQyMmwtOS4zODksNS43ODZDMjguOTA3LDM5LjU0MywyOCwzOS41NTksMjgsMzkuNTU5czAtMC45MywwLTEuNTMzVjI2LjAwNyBjMC0wLjYwNCwwLTEuNjU5LDAtMS42NTlzMC45MDctMC4wNDYsMS40MTEsMC4yODdsOS4zODksNi4xOTNjMC40NTcsMC4zMDMsMC43MzEsMC42ODgsMC43MzEsMS4yMzQgQzM5LjUzMSwzMi42MDcsMzkuMjU3LDMzLjExOSwzOC44LDMzLjQyMnoiLz48L2c+PC9nPjwvZz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PC9zdmc+) !important;
+  transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+}
+/**
+	Swiper pagination
+**/
+/* line 1254, less\shared.less */
+.swiper-pagination {
+  display: block;
+  padding: 80px 0 0 0;
+  text-align: center;
+}
+/* line 1258, less\shared.less */
+.swiper-pagination .swiper-pagination-bullet {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  background-color: #ebebeb;
+  cursor: pointer;
+  margin: 0 5px;
+}
+/* line 1267, less\shared.less */
+.swiper-pagination .swiper-pagination-bullet:hover,
+.swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: #b1d750;
+}
+/* line 1273, less\shared.less */
+.style-yellow .swiper-pagination .swiper-pagination-bullet:hover,
+.style-yellow .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: #fecb16;
+}
+/* line 1279, less\shared.less */
+.style-orange .swiper-pagination .swiper-pagination-bullet:hover,
+.style-orange .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: #ff9700;
+}
+
+/**
+	Share icons
+**/
+/* line 121, less\blog.less */
+.social-icons a {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  color: #c2c2c2;
+  border: 2px solid #c2c2c2;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  line-height: 35px;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+  text-align: center;
+  margin-right: 8px;
+  -webkit-transition: transform 0.4s ease-in-out;
+  -moz-transition: transform 0.4s ease-in-out;
+  -o-transition: transform 0.4s ease-in-out;
+  transition: transform 0.4s ease-in-out;
+}
+/* line 134, less\blog.less */
+.social-icons a:hover {
+  border-color: #00bff3;
+  color: #00bff3;
+  transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+}
+
+/**
+	=====================================================================================================================================================
+	Our Team
+	=====================================================================================================================================================
+**/
+/* line 361, less\home.less */
+.shortcode-team-members .container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+}
+/* line 366, less\home.less */
+.shortcode-team-members {
+  color: #ffffff;
+}
+/* line 369, less\home.less */
+.shortcode-team-members .owl-pagination {
+  display: none;
+}
+/* line 373, less\home.less */
+.shortcode-team-members .items {
+  margin-bottom: 70px;
+}
+/* line 376, less\home.less */
+.shortcode-team-members .items .position {
+  font-size: 2.4000000000000004rem;
+  color: #b1d750;
+  font-family: fira_sansultralight;
+  margin-bottom: 20px;
+  font-variant: small-caps;
+}
+/* line 384, less\home.less */
+.shortcode-team-members .items h2 {
+  margin-bottom: 25px;
+  font-variant: small-caps;
+}
+/* line 389, less\home.less */
+.shortcode-team-members .items h1,
+.shortcode-team-members .items h2,
+.shortcode-team-members .items h3,
+.shortcode-team-members .items h4,
+.shortcode-team-members .items h5,
+.shortcode-team-members .items h6,
+.shortcode-team-members .items p {
+  color: #ffffff;
+}
+/* line 393, less\home.less */
+.shortcode-team-members .items p {
+  line-height: 28px;
+}
+/* line 397, less\home.less */
+.shortcode-team-members .items .social-icons {
+  display: inline-block;
+  margin-left: 30px;
+}
+/* line 402, less\home.less */
+.shortcode-team-members .items .links {
+  padding-top: 40px;
+}
+/* line 409, less\home.less */
+.shortcode-team-members .team-pagination a {
+  float: left;
+  margin-right: 30px;
+  position: relative;
+}
+/* line 413, less\home.less */
+.shortcode-team-members .team-pagination a span {
+  position: absolute;
+  z-index: 10;
+  top: 5px;
+  right: 5px;
+  bottom: 5px;
+  left: 5px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.6);
+  opacity: 1;
+  -webkit-transition: opacity 0.2s;
+  -moz-transition: opacity 0.2s;
+  -o-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+}
+/* line 425, less\home.less */
+.shortcode-team-members .team-pagination a img {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  float: left;
+  position: relative;
+  z-index: 1;
+  border: 5px solid transparent;
+  -webkit-transition: border-color 0.2s;
+  -moz-transition: border-color 0.2s;
+  -o-transition: border-color 0.2s;
+  transition: border-color 0.2s;
+}
+/* line 435, less\home.less */
+.shortcode-team-members .team-pagination a:hover span,
+.shortcode-team-members .team-pagination a.current span {
+  opacity: 0;
+}
+/* line 438, less\home.less */
+.shortcode-team-members .team-pagination a:hover img,
+.shortcode-team-members .team-pagination a.current img {
+  border-color: #b1d750;
+}
+@media screen and (max-width: 992px) {
+  /* line 446, less\home.less */
+  .shortcode-team-members .team-pagination {
+    display: none;
+  }
+}
+@media screen and (max-width: 475px) {
+  /* line 454, less\home.less */
+  .shortcode-team-members .items .social-icons {
+    display: block;
+    margin-left: 0;
+    margin-top: 30px;
+  }
+}

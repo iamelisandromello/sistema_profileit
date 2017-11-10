@@ -165,6 +165,70 @@
 		   </div><!-- </modal> -->
 
 			<!--==============================================
+			Modal Responder (Responder Mensagem Opportunity )
+			===============================================-->
+		   <div class="modal fade" id="modalMessage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		    	<div class="modal-dialog">
+		    		<div class="modal-content modal-popup">
+		    			<div class="modal-header">
+		    				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		    				<h2 class="modal-title">Responder Mensagem</h2>
+		    			</div>
+
+		    			<div class="row">
+		    				<div class="col-md-10 centered">
+		    					<div class="modal-containerStep">
+		    						<span class="step-num">1</span>
+		    						<div class="modal-text">
+		    							<span class="hidden-xs">Sobre </span> Oportunidade
+		    						</div>
+		    					</div>
+		    				</div>
+		    			</div>
+
+		    			<form action="#" method="post">
+							<div class="row">
+					        	<div class="col-sm-3">
+									<div class="modal-containerAvatar">
+										<div class="container-avatarcontactme">
+											<div class="avatar-molde">
+												<?php
+							                  if (!is_null($view_user->image)) {
+							                     echo '<img class="avatar-picture wow bounceIn" src="' . BASE . 'public/uploads/users/' . $view_user->id . '/' . $view_user->image . '" width="160">';
+							                  }
+							                  else{
+							                     echo '<img class="avatar-picture wow bounceIn" src="' . BASE . 'public/uploads/users/' . 'default' . '/' . 'default.png' . '" width="160">';
+							                  }
+							               ?>
+											</div><!-- </avatar-molde> -->
+											<i class="fa fa-share"></i>
+											<div class="avatar-molde">
+												<?php
+							                  if (!is_null($sender->image)) {
+							                     echo '<img class="avatar-picture wow bounceIn" src="' . BASE . 'public/uploads/users/' . $sender->id . '/' . $sender->image . '" width="160">';
+							                  }
+							                  else{
+							                     echo '<img class="avatar-picture wow bounceIn" src="' . BASE . 'public/uploads/users/' . 'default' . '/' . 'default.png' . '" width="160">';
+							                  }
+							               ?>
+											</div><!-- </avatar-molde> -->
+										</div><!-- </container-avatarcontactme> -->
+									</div><!-- </modal-containerAvatar> -->
+								</div><!-- </col-sm-3> -->
+				        	</div><!-- </row> -->
+
+							<div class="modal-groupForm">
+								<textarea class="textarea-modal" rows="5" placeholder="Escrever Mensagem"></textarea>
+							</div>
+							<div class="col-md-12 text-center">
+								<input name="submit" type="submit" class="form-control" id="submit" value="Enviar">
+							</div>
+		    			</form>
+		    		</div><!-- </modal-content> -->
+		    	</div><!-- </modal-dialog> -->
+		   </div><!-- </modal> -->
+
+			<!--==============================================
 			Modal Delete (Delete Opportunity )
 			===============================================-->
 		   <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -692,6 +756,10 @@
 		<script src="<?php echo JS; ?>home/skill.js"></script>
 		<script src="<?php echo JS; ?>addopportunity.js"></script>
 		<script src="<?php echo JS; ?>home/apprecomendation.js"></script>
+
+		<script src="<?php echo JS; ?>temp/all_in_one.js"></script>
+		<script src="<?php echo JS; ?>temp/jquery.dlmenu.js"></script>
+		<script src="<?php echo JS; ?>temp/front_temp.js"></script>
 
 		<!-- Tuner ACessibilidade de Cores -->
 		<script src="<?php echo TUNER; ?>js/tuner.js"></script>

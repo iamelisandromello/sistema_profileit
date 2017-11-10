@@ -1,6 +1,53 @@
 $(function() {
    var next_step = true;
-	//Função retorna mensagem de Cancelamento
+
+   /*
+   * Oculta as Mensagens de Front End após período programado
+   * $idFieldset: recebe como parametro o ID do FieldSet de contexto
+   * Busca div "msgFront" e oculta mensagem
+   */
+   function offMessage ($idFieldset) {
+      setTimeout(function(){
+         $('#' + $idFieldset).find('div [name="msgFront"]').each(function() {
+            $(this).hide();
+         });
+      } , 5000);
+   }
+
+   function msgTextarea( $idFront, $num ) {
+      target = $('#' + $idFront).closest('.textareaInput');
+      boxData = $(target).find('.msgFront');
+      $(boxData)
+      .html("")
+      .html('seu texto tem ' + $num + ' caracteres')
+      .show();
+
+      if($num >= 144){
+         $(boxData)
+         .html("")
+         .html('Seu texto tem ' + $num + ' caracteres de um limite de 144 Caracteres')
+         .show();
+      }
+      else if($num <= 5){
+         $(boxData)
+         .html("")
+         .html('Seu texto tem ' + $num + ' caracteres de um minimo de 20 Caracteres')
+         .show();
+      }
+   }
+
+   validaMensagem = function ($idText) {
+      var textStatus = true;
+      var num = $('#' + $idText).val().length;
+      msgTextarea( $idText, num );
+      if(num >= 145 || num < 5){
+         $('#' + $idText).val($('#' + $idText).val().substring(0,144));
+         textStatus = false;
+      }
+      return textStatus;
+   }
+
+   //Função retorna mensagem de Cancelamento
    function cleanRecommendation (nome) {
       triggerNotify('purple', 'bubbles', 'Eeei ' + nome + ', Vamos Reeditar essa Recomendação?', 'É importante realizar recomendações interagindo com a comunidade!!');
    };
@@ -79,14 +126,16 @@ $(function() {
       next_step = true;
       var user= $('#hiddenUserM').val();
 
-      if( $('#addMensagem').val() == "") {
-         $('#addMensagem').addClass('input-error');
+      temp = window.validaMensagem('textoMensagem');
+      offMessage('addMessage');
+
+      if (!temp) {
+         $('#textoMensagem').addClass( 'input-error' );
          next_step = false;
       }
-      else{
-         $('#addMensagem').removeClass('input-error');
-      }// Verfica se Input Obrigatório não está vazio
-
+      else {
+         $('#textoMensagem').removeClass( 'input-error' );
+      }
 
       if(next_step){
          confirmMessage(user);

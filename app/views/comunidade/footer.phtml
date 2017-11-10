@@ -119,8 +119,11 @@
 						</div><!-- </row>  -->
 			         <form class="registration-message" id="registration-message" action="<?php echo BASE; ?>home/addmessage/" method="post" />
 							<fieldset id="addMessage">
-								<div class="modal-groupForm">
-									<textarea class="textarea-modal" rows="5" placeholder="Envia-me sua mensagem, que lhe retornarei!" name="addMensagem" id="addMensagem"></textarea>
+								<div class="modal-groupForm textareaInput">
+									<textarea class="textarea-modal" rows="5" placeholder="Envia-me sua mensagem, que lhe retornarei!" name="textoMensagem" id="textoMensagem"></textarea>
+									<div class="msgFront" name="msgFront">
+										<span></span>
+									</div>
 								</div>
 								<div class="col-md-12 text-center">
 									<input name="btMessage" id="btMessage" type="button" class="form-control btn-add" value=" Enviar Mensagem ">

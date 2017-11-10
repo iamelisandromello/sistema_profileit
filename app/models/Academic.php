@@ -98,11 +98,12 @@ class Academic extends \HXPHP\System\Model
     $callbackObj->status = false;// Propriedade Status da Classe False
     $callbackObj->errors = array();// Array padrão de erros vazio
 
-    if (is_null($post[4])){
-      $dataConclusao = 'NULL';
+    $dataConclusao = $post[4];
+    if ($post[4] == null ) {
+      $dataConclusao = null;
     }
     else {
-      $dataConclusao = date('Y-m-d',strtotime($post[4]));
+      $dataConclusao = implode("-",array_reverse(explode("/",$dataConclusao )));
     }
 
     $academic = array(
@@ -110,7 +111,7 @@ class Academic extends \HXPHP\System\Model
       'local'       => $post[1],
       'course'      => $post[2],
       'level'       => $post[3],
-      'date_conclusion' => strtotime($post[4]),
+      'date_conclusion' => $dataConclusao,
       'status'      => $post[5],
       'user_id'     => $user_id
     );

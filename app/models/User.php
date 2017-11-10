@@ -74,8 +74,9 @@ class User extends \HXPHP\System\Model
 		}
 
 		//array de informações adicionais para Novo Usuário
+		$aniversario = implode("-",array_reverse(explode("/",$post['birth_date'] )));
 		$user_data = array(
-			'birth_date'	=> date('Y-m-d',strtotime($post['birth_date'])),
+			'birth_date'	=> $aniversario,
 			'role_id'		=> $role->id,
 			'registry_id'	=> $id_registry,
 			'network_id'	=> $id_network,

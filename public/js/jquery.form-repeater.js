@@ -63,9 +63,9 @@
     $.fn.repeater = function(options, data) {
         var $container = $(this),
             $btnAdd, $btnRemove, patternName, patternId, patternText,
-            idVal, nameVal, labelText, labelFor, $elem, elemName, 
+            idVal, nameVal, labelText, labelFor, $elem, elemName,
             $label, row, $newClone, $formElems;
-            
+
         $container.opts = $.extend({}, $.fn.repeater.defaults, options);
         $container.repeatCount = 0;
 
@@ -242,7 +242,7 @@
 
         /*
         * Add Metodos datePicker
-        */ 
+        */
         $('.date').datepicker({
             format: "dd/mm/yyyy",
             language: "pt-BR",
@@ -258,7 +258,7 @@
             boxData = $(target).find('#boxDataConclusion');
             $(boxData).hide("slow");
         });
-        
+
         $( ".yes_enabled" ).on( "click", function() {
             target = $(this).closest('.wraper_conclusion');
             boxData = $(target).find('#boxDataConclusion');
@@ -268,10 +268,10 @@
         /*
         *   Add Metodos MAscara de numeros
         */
-        $(".numero").inputmask({
+/*        $(".numero").inputmask({
             mask: ["999", "999", ],
             keepStatic: true
-        });
+        });*/
 
         return false;
     }
@@ -333,7 +333,7 @@
      */
     function parsePattern(pattern, replaceText, count, container) {
         var returnVal = replaceText;
-        
+
         count = parseInt(count);
         if (pattern) {
             // check pattern type
@@ -356,7 +356,7 @@
      * Wrapper to handle re-indexing form elements in a group.
      */
     function reindex(container) {
-        var $repeaters = container.find('.' + container.opts.groupClass), 
+        var $repeaters = container.find('.' + container.opts.groupClass),
             startIndex = container.opts.startingIndex,
             $curGroup;
 

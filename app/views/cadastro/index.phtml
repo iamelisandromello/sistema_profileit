@@ -220,9 +220,9 @@
 		                        <div class="row">
 		                        	<div class="col-md-7">
 		                        		<div class="form-group">
-		                        			<label class="sr-only" for="address">Zip Code</label>
+		                        			<label class="sr-only" for="address">CEP</label>
 		                        			<div class="text-success" id="infocep"></div>
-		                        			<input type="text" name="zipcode" id="zipcode" placeholder="Zip Code..." required class="form-control pulacampos" value="<?php echo $this->request->post('zipcode') ?>">
+		                        			<input type="text" name="zipcode" id="zipcode" placeholder="CEP" required class="form-control pulacampos" value="<?php echo $this->request->post('zipcode') ?>">
 		                        		</div>
 		                        	</div><!-- </col-md-9> -->
 		                        </div><!-- </row> -->
@@ -232,8 +232,8 @@
 		                        <div class="row">
 		                        	<div class="col-md-12">
 		                        		<div class="form-group">
-		                        			<label class="sr-only" for="address">Address</label>
-		                        			<input type="text" name="address" id="address" placeholder="Address..." class="form-control pulacampos" value="<?php echo $this->request->post('address') ?>">
+		                        			<label class="sr-only" for="address">Endereço</label>
+		                        			<input type="text" name="address" id="address" placeholder="Endereço" class="form-control pulacampos" value="<?php echo $this->request->post('address') ?>">
 		                        		</div>
 		                        	</div>
 		                        </div>
@@ -243,20 +243,20 @@
 		                        <div class="row">
 		                        	<div class="col-md-5">
 		                        		<div class="form-group">
-		                        			<label class="sr-only" for="beighborhood">Beighborhood</label>
-		                        			<input type="text" name="beighborhood" id="beighborhood" placeholder="Beighborhood" required class="form-control pulacampos">
+		                        			<label class="sr-only" for="beighborhood">Bairro</label>
+		                        			<input type="text" name="beighborhood" id="beighborhood" placeholder="Bairro" required class="form-control pulacampos">
 		                        		</div>
 		                        	</div>
 		                        	<div class="col-md-2">
 		                        		<div class="form-group">
-		                        			<label class="sr-only" for="state">State</label>
+		                        			<label class="sr-only" for="state">Estado</label>
 		                        			<input type="text" name="state" id="state" placeholder="UF" required class="form-control pulacampos">
 		                        		</div>
 		                        	</div>
 		                        	<div class="col-md-5">
 		                        		<div class="form-group">
-		                        			<label class="sr-only" for="city">City</label>
-		                        			<input type="text" name="city" id="city" placeholder="City" required class="form-control pulacampos">
+		                        			<label class="sr-only" for="city">Cidade</label>
+		                        			<input type="text" name="city" id="city" placeholder="Cidade" required class="form-control pulacampos">
 		                        		</div>
 		                        	</div>
 		                        </div>
@@ -373,7 +373,6 @@
 		                        </div><!-- </row> -->
 		                     </div><!-- </form-bottom> -->
 		                  </fieldset><!-- </Social media profiles> -->
-
 								<!--
 									Passo Formulario de Histórico Acadêmico
 								-->
@@ -539,7 +538,7 @@
 										</div><!-- </row> -->
 									</div><!-- </form-bottom> -->
 								</fieldset><!-- </Step Histórico Acadêmico > -->
-																<!--
+								<!--
 		                     Passo Formulario de Cursos Livres
 		                  -->
 		                  <fieldset id="stepCourse">
@@ -566,16 +565,21 @@
 															<div class="help-block with-errors"></div>
 														</div>
 													</div><!-- </col-md-8> -->
-	                               		<div class="col-md-3 numeros_input">
+	                               		<div class=" col-xs-4 col-sm-4 col-md-2 col-lg-2 numeros_input">
 	                               			<div class="form-group">
 															<label for="course_0_0" data-pattern-text="Course Workload +=1:" class="sr-only">Course Workload 1:</label>
-											          	<input type="text" pattern="[0-9]" name="course[0][worload]" id="course_0_workload" placeholder="Hs" data-pattern-name="course[++][worload]" data-pattern-id="course_++_workload"  class="form-control course numero" value="<?php echo $this->request->post('workload') ?>" />
+											          	<input type="text" name="course[0][worload]" id="course_0_workload" placeholder="000" data-pattern-name="course[++][worload]" data-pattern-id="course_++_workload"  class="form-control numero" value="<?php echo $this->request->post('workload') ?>" />
 															<div class="help-block with-errors"></div>
 															<div class="msgFront" name="msgFront">
 								               			<span></span>
 								            			</div>
 	                               			</div><!-- </form-group> -->
 	                               		</div><!-- </col-md-6> -->
+	                               		<div class="col-md-1">
+	                               			<div class="form-group">
+	                               				<span><strong>Hs</strong></span>
+	                               			</div>
+	                               		</div>
 												</div><!-- </row>-->
 
 												<!--

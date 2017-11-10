@@ -27,9 +27,15 @@ class PerfilController extends \HXPHP\System\Controller
 		);
 
 		$user_id = $this->auth->getUserId();
+		//$qualificacoes = Qualification::all();
+		$qualificacoes = Qualification::find('all', array('order' => 'qualification asc'));
 
-		$this->view->setTitle('HXPHP - Editar perfil')
-					->setVar('user', User::find($user_id));
+		$this->view->setTitle('HXPHP - Administrativo')
+					->setFile('editar')
+					->setVars([
+						'user'		=> User::find($user_id),
+						'qualificacoes'			=> $qualificacoes
+					]);
 	}
 
 	/*
@@ -118,7 +124,7 @@ class PerfilController extends \HXPHP\System\Controller
 
 	/*
 	* Métodos Controller's de Atualização de Informaçoes
-	* do Skill de COmpetências
+	* do Skill de Competências
 	*/
 	public function upcompetencyAction($competency_id = null, $level = null)
 	{

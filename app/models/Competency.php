@@ -11,6 +11,7 @@ class Competency extends \HXPHP\System\Model
 	static $belongs_to = array(
       array('user', 'foreign_key' => 'user_id', 'class_name' => 'User'),
       array('skill', 'foreign_key' => 'skill_id', 'class_name' => 'Skill'),
+      array('qualification', 'foreign_key' => 'qualification_id', 'class_name' => 'Qualification'),
 	);
 
 	public static function cadastrar(array $post, $id_user)
@@ -50,11 +51,10 @@ class Competency extends \HXPHP\System\Model
 		$skill_id = $cadastrarSkill->id;
 
 		$competency_data = array(
-			'competency'=> $post['competency'],
-			'level'		=> $post['level'],
-			'domain'		=> $post['domain'],
-			'skill_id'	=> $skill_id,
-			'user_id'	=> $id_user
+			'level'					=> $post['level'],
+			'skill_id'				=> $skill_id,
+			'user_id'				=> $id_user,
+			'qualification_id'	=> $post['qualification_id']
 		);
 
 		$cadastrar = self::create($competency_data);
@@ -172,14 +172,14 @@ class Competency extends \HXPHP\System\Model
 
 		$skill_id = $skill->skill_id;
 		$competency = array(
-		   'competency' => $post[0],
-		   'domain'     => $post[1],
-		   'level'      => $post[2],
-		   'user_id'    => $user_id,
-		   'skill_id'   => $skill_id
+		   'qualification_id'	=> $post[0],
+		   'level'      			=> $post[1],
+		   'user_id'    			=> $user_id,
+		   'skill_id'   			=> $skill_id
 		 );
 
-		$skill_competency = self::find_by_competency($competency['competency']);
+		//$skill_competency = self::find_by_competency($competency['competency']);
+		$skill_competency = Competency::all(array('conditions' => array('qualification_id = ? AND user_id = ?', $competency['qualification_id'], $user_id)));
 
 		if ($skill_competency) {
 			array_push($callbackObj->errors, 'Competência já Cadastrada para este Usuário');

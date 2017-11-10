@@ -25,7 +25,7 @@
 							</a>
 
 							<a class="icone-coracao pointer-cursor" href="<?php echo BASE . 'upquestionario/'; ?>" >
-								<i class="fa fa-question"></i>
+								<i class="fa fa-file-text"></i>
 							</a>
 
 							<a class="icone-compartilhar pointer-cursor" href="#" data-toggle="modal" data-target="#modal3">
@@ -154,11 +154,13 @@
 									if ($view_comunidade) :
 										foreach ($view_comunidade as $colega) :
 											if ($colega->role_id == 1 || $colega->role_id == 2) :
+											if ($colega->id != $view_user->id) :
 											?>
 											<a class="pointer-cursor" href="<?php echo BASE . 'comunidade/load/' . $colega->id; ?>">
 												<?php echo '<img class="avatar-comunidade wow bounceIn" src="' . BASE . 'public/uploads/users/' . $colega->id . '/' . $colega->image . '">'; ?>
 											</a>
 									<?php
+											endif;
 											endif;
 										endforeach;
 									endif;
@@ -335,9 +337,8 @@
 									</div><!-- </main-title__inner> -->
 								</div><!-- </title-main> -->
 							</div>
-
 		 					<!--
-		 					*	Add Novas Competências
+		 					*	Add Competências
 		 					*-->
 							<div class="col-md-6">
 								<div class="row">
@@ -356,9 +357,6 @@
 															<div class="col-md-5">
 																<label>Competências</label>
 															</div>
-															<div class="col-md-3">
-																<label>Domínio</label>
-															</div>
 															<div class="col-md-2">
 																<label>Nível</label>
 															</div>
@@ -367,25 +365,47 @@
 						      					<div class="row">
 														<div class="col-xs-8 col-sm-7 col-md-7 col-lg-5 wow flipInx">
 							   							<div class="box-input">
-							   								<input type="text" name="competency" id="competency" class="form-control border-input" placeholder="Competência">
-							   							</div>
-							      					</div><!-- </col-md-5> -->
-														<div class="col-xs-6 col-sm-5 col-md-5 col-lg-3 wow flipInx">
-															<div class="box-input">
-		 														<select name="domain" id="domain" class="form-control">
-		 															<option class="opt-placeholder" value="-1" selected="">Select…</option>
-				 													<option value="1">
-				 														Microsoft
-				 													</option>
-				 													<option value="2">
-				 														Linux
-				 													</option>
-				 													<option value="3">
-				 														Especializações
-				 													</option>
+							   								<select name="qualification_id" id="qualification_id" class="form-control border input">
+		 															<option class="opt-placeholder" value="-1" selected="">Competência</option>
+				 													<optgroup label="Microsoft">
+				 													<?php foreach ($view_qualificacoes as $qualificacao) :
+				 													if ($qualificacao->domain == 'Microsoft') : ?>
+					 													<option value="<?php echo $qualificacao->id ?>">
+					 														<?php echo $qualificacao->qualification ?>
+					 													</option>
+					 												<?php endif;
+					 												endforeach; ?>
+				 													</optgroup>
+				 													<optgroup label="Linux">
+				 													<?php foreach ($view_qualificacoes as $qualificacao) :
+				 													if ($qualificacao->domain == 'Linux') : ?>
+					 													<option value="<?php echo $qualificacao->id?>">
+					 														<?php echo $qualificacao->qualification ?>
+					 													</option>
+					 												<?php endif;
+					 												endforeach; ?>
+				 													</optgroup>
+				 													<optgroup label="Especializações">
+				 													<?php foreach ($view_qualificacoes as $qualificacao) :
+				 													if ($qualificacao->domain == 'Especialização') : ?>
+					 													<option value="<?php echo $qualificacao->qualification ?>">
+					 														<?php echo $qualificacao->qualification ?>
+					 													</option>
+					 												<?php endif;
+					 												endforeach; ?>
+				 													</optgroup>
+				 													<optgroup label="Processos ">
+				 													<?php foreach ($view_qualificacoes as $qualificacao) :
+				 													if ($qualificacao->domain == 'Processos') : ?>
+					 													<option value="<?php echo $qualificacao->qualification ?>">
+					 														<?php echo $qualificacao->qualification ?>
+					 													</option>
+					 												<?php endif;
+					 												endforeach; ?>
+				 													</optgroup>
 			 													</select>
-	 														</div>
-							      					</div><!-- </col-md-3> -->
+							   							</div><!-- </box-input> -->
+							      					</div><!-- </col-md-5> -->
 														<div class="col-xs-2 col-sm-2 col-md-3 col-lg-2 wow flipInx">
 		 													<div class="box-input">
 		 														<select name="level" id="level" class="form-control">
@@ -438,7 +458,6 @@
 														</div>
 													</div>
 												</div><!-- </boxCompetencies> -->
-
 											</fieldset>
 										</form>
 									</div><!-- </col-md-12> -->
@@ -449,6 +468,199 @@
 					</div><!-- </container> -->
 				</section><!-- </opportunities> -->
 				<?php endif; ?>
+				<!-- ==============================================
+				Messages (Mensagens Recebidas)
+		        =============================================== -->
+				<?php if ($view_user->messages) : ?>
+				<section class="messages" id="messages" data-stellar-background-ratio="0.6">
+					<div class="overlay"></div>
+				   <div class="above-overlay">
+						<div id="team" class="fw-main-row default full-height"  style="background-color: #111111; background-repeat: no-repeat; background-position: left top; background-size: cover; ">
+							<div class="container">
+								<div class="fw-row">
+									<div class="fw-col-xs-12 grid-column"  style="">
+										<div id="shortcode-team-members-id-59d94077dca64" class="shortcode-team-members" style="padding-top: 60px; padding-bottom: 60px; ">
+											<!--
+												Photos and content
+											-->
+											<div class="items">
+
+												<?php
+												if (!$view_myMessages) {
+													$lastMessage = Message::find('last', array('conditions' => array('user_id in (?)', array($view_user->id))));
+													$lastSender = User::find($lastMessage->sender_id);
+													$lastFuncao = Definition::find_by_user_id($lastSender->id);
+													$lastAnalista = Profile::find_by_type($lastFuncao->profile_id);
+												?>
+												<div class="item" data-bg="http://themes.wplab.pro/unicum/wp-content/uploads/sites/2/2015/09/team_bg_1.jpg">
+													<div class="container-fluid">
+														<div class="row">
+															<div class="col-md-6 wow fadeInDown">										<!--
+															Position title
+															-->
+																<div class="position"><?php echo $lastAnalista->profile ?></div>
+																<!--
+																Team mamber name
+																-->
+																<h2 class="h1 member-title"><?php echo $lastSender->name ?> <?php echo $lastSender->last_name ?></h2>
+																<!--
+																Description
+																-->
+																<div class="member-text">
+																	<div class="fw-page-builder-content"><?php echo $lastMessage->message ?></div>
+																</div><!--</member-text>-->
+																<div class="links">
+<!--
+																	Send message button
+																	-->
+																		<a href="#" data-toggle="modal" data-target="#modalMessage" class="button green">Responder</a>
+																		<!--
+																		Social icons
+																		-->
+																		<div class="social-icons">
+																			<?php if ($sender->network->facebook ) :
+																			 ?>
+																			<a href="http://facebook.com/<?php echo $sender->network->facebook ?>" target="_blank">
+																				<i class="fa fa-facebook"></i>
+																			</a>
+																			<?php endif;
+																			if ($sender->network->twitter ) :
+																			 ?>
+																			<a href="http://twitter.com/<?php echo $sender->network->twitter ?>" target="_blank">
+																				<i class="fa fa-twitter"></i>
+																			</a>
+																			<?php endif;
+																			if ($sender->network->linkedin ) :
+																			 ?>
+																			<a href="http://linkedin.com/in/<?php echo $sender->network->linkedin ?>" target="_blank">
+																				<i class="fa fa-linkedin"></i>
+																			</a>
+																			<?php endif;
+																			if ($sender->network->github ) :
+																			 ?>
+																			<a href="http://github.com/<?php echo $sender->network->github ?>" target="_blank">
+																				<i class="fa fa-github"></i>
+																			</a>
+																			<?php endif; ?>
+																		</div><!--</social-icons> -->
+																</div><!--</links>-->
+															</div><!--</col-md-6 wow fadeInDown>-->
+														</div><!--</row>-->
+													</div><!--</container-fluid>-->
+												</div><!--</item>-->
+												<?php
+												}
+												else {
+													foreach ($view_myMessages as $myMessage) :
+														$sender = User::find($myMessage->sender_id);
+														$funcao = Definition::find_by_user_id($sender->id);
+														$analista = Profile::find_by_type($funcao->profile_id);
+												?>
+												<div class="item" data-bg="http://themes.wplab.pro/unicum/wp-content/uploads/sites/2/2015/09/team_bg_1.jpg">
+													<div class="container-fluid">
+														<div class="row">
+															<div class="col-md-6 wow fadeInDown">										<!--
+															Position title
+															-->
+																<div class="position"><?php echo $analista->profile ?></div>
+																<!--
+																Team mamber name
+																-->
+																<h2 class="h1 member-title"><?php echo $sender->name ?> <?php echo $sender->last_name ?></h2>
+																<!--
+																Description
+																-->
+																<div class="member-text">
+																	<div class="fw-page-builder-content"><?php echo $myMessage->message ?></div>
+																</div><!--</member-text>-->
+																<div class="links">
+<!--
+																	Send message button
+																	-->
+																		<a href="#" data-toggle="modal" data-target="#modalMessage" class="button green">Responder</a>
+																		<!--
+																		Social icons
+																		-->
+																		<div class="social-icons">
+																			<?php if ($sender->network->facebook ) :
+																			 ?>
+																			<a href="http://facebook.com/<?php echo $sender->network->facebook ?>" target="_blank">
+																				<i class="fa fa-facebook"></i>
+																			</a>
+																			<?php endif;
+																			if ($sender->network->twitter ) :
+																			 ?>
+																			<a href="http://twitter.com/<?php echo $sender->network->twitter ?>" target="_blank">
+																				<i class="fa fa-twitter"></i>
+																			</a>
+																			<?php endif;
+																			if ($sender->network->linkedin ) :
+																			 ?>
+																			<a href="http://linkedin.com/in/<?php echo $sender->network->linkedin ?>" target="_blank">
+																				<i class="fa fa-linkedin"></i>
+																			</a>
+																			<?php endif;
+																			if ($sender->network->github ) :
+																			 ?>
+																			<a href="http://github.com/<?php echo $sender->network->github ?>" target="_blank">
+																				<i class="fa fa-github"></i>
+																			</a>
+																			<?php endif; ?>
+																		</div><!--</social-icons> -->
+																</div><!--</links>-->
+															</div><!--</col-md-6 wow fadeInDown>-->
+														</div><!--</row>-->
+													</div><!--</container-fluid>-->
+												</div><!--</item>-->
+												<?php
+													endforeach;
+												}
+												?>
+											</div><!--</items>-->
+											<div class="container-fluid">
+												<div class="row">
+													<div class="col-md-12">
+														<!--
+															Pagination
+														-->
+														<div class="team-pagination">
+														<?php
+														if (!$view_myMessages) { ?>
+															<a href="javascript:;" class="current">
+																<span class="overlay"></span>
+																<?php echo '<img class="wproto-wp-image" alt="" width="170" height="170" src="' . BASE . 'public/uploads/users/' . $lastSender->id . '/' . $lastSender->image . '">';
+																?>
+															</a>
+														<?php
+														}
+														else {
+															foreach ($view_myMessages as $myMessage) :
+															$sender = User::find($myMessage->sender_id);
+														?>
+
+															<a href="javascript:;" class="current">
+																<span class="overlay"></span>
+																<?php echo '<img class="wproto-wp-image" alt="" width="170" height="170" src="' . BASE . 'public/uploads/users/' . $sender->id . '/' . $sender->image . '">';
+																?>
+															</a>
+
+														<?php
+															endforeach;
+														}
+														?>
+														</div><!--</team-pagination>-->
+													</div><!--</col-md-12>-->
+												</div><!--</row>-->
+											</div><!--</container-fluid>-->
+										</div><!--</shortcode-team-members-id-59d94077dca64>-->
+									</div><!--</fw-col-xs-12 grid-column>-->
+								</div><!--</fw-row>-->
+							</div><!--</container>-->
+						</div><!--</team>-->
+				  	</div><!-- </above-overlay> -->
+				</section><!-- </recommendation> Sessão Apresentação Recomendações-->
+				<?php endif; ?>
+
 				<!-- ========================================= -->
 				<!-- Opportunities (Oportunidades Disponiveis)   -->
 				<!-- ========================================= -->
@@ -473,11 +685,12 @@
 						<!-- Opportunities Content -->
 						<div class="main-block__padder text-left">
 							<div class="row services-list">
-								<?php
+							<?php
+							if ($view_vagas) :
 								$cont = 0;
-								foreach ($view_vagas as $vaga):
+								foreach ($view_vagas as $vaga) :
 									$cont++;
-								?>
+							?>
 								<div class="col-lg-5 col-md-6 col-lg-push-1 text-right clearfix wow fadeInLeft">
 									<div class="<?php if ($cont % 2 == 0) {
 										echo 'pull-right';}
@@ -487,16 +700,22 @@
 									<div class="no-overflow">
 										<h6 class="text-subtitulo"><?php echo $vaga->profile->profile ?></h6>
 										<p class="texto_profileit">
-											Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+											<?php echo $vaga->company ?> / <?php echo $vaga->contact ?>
+										</p>
+										<p class="texto_profileit">
+											<?php echo $vaga->assignments ?>
 										</p>
 									</div>
 								</div>
-								<?php endforeach; ?>
-
+							<?php
+								endforeach;
+							endif;
+							?>
 							</div><!-- </row services-list> -->
 						</div><!-- </main-block__padder> -->
-					</div><!-- </container> -->
+					</div><!-- </container> Opportunities Content -->
 				</section><!-- </opportuninities> Section Opportunities-->
+
 				<!-- ==============================================
 			   Recommendations (Acc Recomendações)
 			   =============================================== -->
@@ -518,12 +737,13 @@
 							</div><!-- </main-title__inner> -->
 						</div><!-- </title-main> -->
 						<!-- End Title Section -->
-
 						<div class="container-recommendation">
-							<?php foreach ($view_user->recommendations as $recommendation):
+						<?php
+						if ($view_user->recommendations) :
+							foreach ($view_user->recommendations as $recommendation):
 					      if ($recommendation->approved == 2) {
 					      	$adviser = User::find($recommendation->adviser_id);
-							?>
+						?>
 							<div class="row wrapper-recommended">
 								<div class="container-accRecommendation col-sm-6">
 									<blockquote>
@@ -566,15 +786,15 @@
 										</button>
 									</div><!-- </md-padder> -->
 								</div><!-- </container-aprove> -->
-							</div><!--</row> -->
-							<?php
+							</div><!--</row wrapper-recommended> -->
+						<?php
 								}
-							endforeach
-							?>
+							endforeach;
+						endif;
+						?>
 						</div><!-- </container-recommendation> -->
 					</div><!-- </container> -->
 				</section><!-- </opportunities> -->
-
 				<!-- ==============================================
 				Contact-Me (Contate-me ou add uma Recomendação)
 		      =============================================== -->

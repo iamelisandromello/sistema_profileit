@@ -85,7 +85,7 @@ $(document).ready(function () {
             username: {
                 required: true,
                 minlength: 8,
-                maxlength: 15
+                maxlength: 20
             },
             email: {
                 required: true,
@@ -217,7 +217,7 @@ $(document).ready(function () {
             username: {
                 required: "Digite corretamente seu nome de usuário",
                 minlength: "Mínimo de caracteres permitidos 8",
-                maxlength: "Maxímo de caracteres permitidos 15"
+                maxlength: "Maxímo de caracteres permitidos 20"
             },
             password: {
                 required: "Defina senha de acesso!"

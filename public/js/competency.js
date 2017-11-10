@@ -1,4 +1,5 @@
 jQuery(document).ready(function() {
+	var next_step = true;
 
 	/**
 	* <b>editReturn:</b> Recebe o <Return> da função de Confirmação[triggerConfirmUp], direcionando para o Controller de Execução ou para a Função de Cancelamento [window.cancelar].
@@ -55,8 +56,18 @@ jQuery(document).ready(function() {
 		triggerConfirmDel('confused',user,';) Ohhhhh ' + user + ', Vamos Realizar a Exclusão desta Competência?', ';) Agora', ':( Ainda Não', delReturn, idCompetency);
 	};
 
-	window.sendAdd = function(user) {
- 		triggerConfirmDel('confused',user,';) Ohhhhh ' + user + ', Vamos Realizar a Inclusão de uma Nova Competência?', ';) Só se For Agora', ':( Ainda Não', addReturn);
+	window.addQualification = function(user) {
+ 		next_step = true;
+ 		if ($('#qualification_id').val()<= 0) {
+ 			alert('teste');
+ 			$('#qualification_id').addClass('input-error');
+ 			next_step = false;
+ 		}
+
+ 		if (next_step) {
+			triggerConfirmDel('confused',user,';) Ohhhhh ' + user + ', Vamos Realizar a Inclusão de uma Nova Competência?', ';) Só se For Agora', ':( Ainda Não', addReturn);
+ 		}
+
    };
 
 	/**

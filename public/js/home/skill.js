@@ -28,7 +28,7 @@ jQuery(document).ready(function() {
    $('.registration-skill').on('submit', function(e) {
 
       $(this).find('input[type="text"], input[type="password"], select, textarea').each(function() {
-         if( $(this).val() == "" || $(this).val() <= 0 ) {
+         if( $(this).val() == "" || $(this).val() < 0 ) {
             e.preventDefault();
              $(this).addClass('input-error');
              conf = false;

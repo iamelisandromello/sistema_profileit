@@ -213,6 +213,66 @@ foreach($competencies_data as $data)
 
 		die();
 	}
+	public function tempAction()
+	{
+		
+		$post = $this->request->post();
+$registry_id = 1;
+$network_id = 2;
+		$professional_group = $_POST['professional'];// copiar um arrays de um POST
+
+
+		//Bloco Cadastro de Historico Profissional
+		$user_id = 66;
+		if (!empty($professional_group)) {
+			foreach($professional_group as $data) {
+				$colum = 0;
+				$professional_data = array();
+				if(is_array($data)) {
+					foreach($data as $other_data) {
+						$professional_data[$colum] = $other_data;
+						$colum++;
+					}
+							$cadastrarProfessional = Professional::cadastrar($professional_data, $user_id);
+							/*echo('<pre>');
+								var_dump($professional_data);
+							echo('</pre>');*/
+				}
+				else {
+					echo "teste", '<br/>';
+					//echo "Imagem: {$data}<br>";
+				}
+			}// final do array  multidimensional
+		}//*/
+
+		if ($cadastrarProfessional) {
+			var_dump($professional_data);
+			die();
+		}
+		else {
+			echo "Erro";
+			die();
+		}
+/*$registry_id = 1;
+$network_id = 2;
+		$user_data = array(
+			'name'			=> $post['name'],
+			'last_name'		=> $post['last_name'],
+			'username'		=> $post['username'],
+			'birth_date'	=> $post['birth_date'],
+			'email'			=> $post['email'],
+			'scope'			=> $post['scope'],
+			'password'		=> $post['password']
+		);
+
+$cadastrarUsuario = User::cadastrar($user_data, $registry_id, $network_id);*/
+die();
+/*		echo('<pre>');
+		var_dump($post);
+		echo('</pre>');
+
+		die();*/
+	}
 
 	public function cadastrarAction()
 	{

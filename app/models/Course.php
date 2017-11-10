@@ -21,16 +21,17 @@ class Course extends \HXPHP\System\Model
     $callbackObj->status = false;// Propriedade Status da Classe False
     $callbackObj->errors = array();// Array padrão de erros vazio
 
-    $academic = array(
+    $schedule = implode("-",array_reverse(explode("/",$post[4] )));
+    $course = array(
       'title'       => $post[0],
       'institution' => $post[1],
       'segment'     => $post[2],
       'workload'    => $post[3],
-      'schedule'    => date('Y-m-d',strtotime($post[4])),
+      'schedule'    => $schedule,
       'user_id'     => $user_id
-    );    
-       
-    $cadastrar = self::create($academic);
+    );
+
+    $cadastrar = self::create($course);
 
     if ($cadastrar->is_valid()) {
       $callbackObj->course = $cadastrar;

@@ -2,11 +2,6 @@
 
 class Professional extends \HXPHP\System\Model
 {
-	static function table_name()
-	{
-		return 'professioals';
-	}
-
   public function relations()
    {
       return array(
@@ -21,19 +16,19 @@ class Professional extends \HXPHP\System\Model
     $callbackObj->status = false;// Propriedade Status da Classe False
     $callbackObj->errors = array();// Array padrão de erros vazio
 
+    $dateOut = $post[3];
     if ($post[3] == null ) {
       $dateOut = null;
     }
     else {
-      $dateOut = date('Y-m-d',strtotime($post[3]));
+      $dateOut = implode("-",array_reverse(explode("/",$dateOut )));
     }
-    
-    var_dump('Data Nula: ' . $dateOut);
+    $dataEntry = implode("-",array_reverse(explode("/",$post[2] )));
 
     $historic = array(
       'company'     => $post[0],
       'function'    => $post[1],
-      'date_entry'  => date('Y-m-d',strtotime($post[2])),
+      'date_entry'  => $dataEntry,
       'date_out'    => $dateOut,
       'assignments' => $post[4],
       'user_id'     => $user_id

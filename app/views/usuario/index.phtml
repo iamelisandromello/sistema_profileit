@@ -223,7 +223,7 @@
 												foreach ($view_user->competencies as $competency): ?>
 													<li>
 														<div class="bar" data-value="" style="width: <?php echo $competency->level ?>0%;">
-															<h5><?php echo $competency->competency ?></h5>
+															<h5><?php echo $competency->qualification->qualification ?></h5>
 														</div>
 														<span><?php echo $competency->level ?> / 10</span>
 													</li>

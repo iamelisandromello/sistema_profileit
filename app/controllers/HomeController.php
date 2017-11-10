@@ -42,11 +42,16 @@ class HomeController extends \HXPHP\System\Controller
 		$analiseRecomendador = User::analyzeAdviser($user_id);
 		$analisePreferencias = User::analyzePreferences($user_id);
 		$sugestoes = User::suggestions($resumos, $user_id);
+		$qualificacoes = Qualification::find('all', array('order' => 'qualification asc'));
 		//$options = array('limit' => 3);
       //$comunidade = User::all($options );
 		/*Consulta Randomica de Usuarios*/
 		$comunidade = User::find_by_sql('select * from users order by rand() limit 10');
-		$vagas = Opportunity::find('all', array('conditions' => array('profile_id in (?)', array($profile->type))));
+		//$vagas = Opportunity::find('all', array('conditions' => array('profile_id in (?)', array($profile->type))));
+
+		$vagas = Opportunity::all(array('conditions' => array('user_id <> ? AND profile_id in (?)', $user_id, $profile->type)));
+
+		$myMessages = Message::all(array('conditions' => array('user_id = ? AND status = ?', $user_id, 2)));
 
 		$ctrMeter = 0;
 
@@ -70,7 +75,7 @@ class HomeController extends \HXPHP\System\Controller
 			$role->role
 		);
 
-		$this->view->setTitle('HXPHP - Administrativo')
+		$this->view->setTitle('ProfileIT - Home')
 					->setFile('index')
 					->setVars([
 						'user'		=> $user,
@@ -81,6 +86,8 @@ class HomeController extends \HXPHP\System\Controller
 						'preference'=> $preference,
 						'ctrMeter'	=> $ctrMeter,
 						'vagas'		=> $vagas,
+						'myMessages'=>	$myMessages,
+						'qualificacoes'			=> $qualificacoes,
 						'analiseQualificacoes'	=> $analiseQualificacoes,
 						'analiseRecomendacoes'	=> $analiseRecomendacoes,
 						'analiseRecomendador'	=> $analiseRecomendador,
@@ -243,26 +250,23 @@ class HomeController extends \HXPHP\System\Controller
             ->setFooter('home/footer');
 
 		$post = $this->request->post();
-		$adviser_id = $this->auth->getUserId();
-		$user = User::find($adviser_id);
+		$sender_id = $this->auth->getUserId();
+		$user = User::find($sender_id);
 
-		$recommendation_data = array(
-			'relationship'				 	=> $post['relationship'],
-			'charge_recommendation'		=> $post['charge_recommendation'],
-			'charge_recommended' 		=> $post['charge_recommended'],
-			'description'	 				=> $post['description'],
+		$message_data = array(
+			'message'				 		=> $post['textoMensagem'],
 			'user_id' 						=> $post['user_id'],
-			'adviser_id' 					=> $adviser_id,
-			'approved' 						=> 2
+			'sender_id' 					=> $sender_id,
+			'status' 						=> 2
 		);
 
 		if (!empty($post)) {
-			$cadastrarPreference = Recommendation::cadastrar($recommendation_data);
-			if ($cadastrarPreference->status == false) {
+			$cadastrarMensagem = Message::cadastrar($message_data);
+			if ($cadastrarMensagem->status == false) {
 				$this->load('Helpers\Alert', array(
 					'error',
 					'Ops! Não foi possível enviar sua recomendação. <br> Verifique os erros abaixo:',
-					$cadastrarPreference->errors
+					$cadastrarMensagem->errors
 				));
 			}
 		}

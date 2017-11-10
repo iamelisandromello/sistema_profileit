@@ -24,6 +24,7 @@ jQuery(document).ready(function() {
    var b = []; //criar array;
    var c = []; //criar array;
    var d = []; //criar array;
+   var datasPicker = []; //criar array;
    var resume = []; // resumo final
 
    /*
@@ -101,7 +102,7 @@ jQuery(document).ready(function() {
       .html('seu texto tem ' + $num + ' caracteres')
       .show();
 
-      if($num >= 10){
+      if($num >= 801){
          $(boxData)
          .html("")
          .html('Seu texto tem ' + $num + ' caracteres de um limite de 800 Caracteres')
@@ -445,11 +446,11 @@ jQuery(document).ready(function() {
 
    window.validaNumeros = function($idFieldset, $idNumero) {
       var status;
-      var numero = $("#" + $idNumero);
+      var numero = $("#" + $idNumero).val();
       if(numero != "") {
          var filtro = /[^\d]/g;
-         if(filtro.test(numero.val())){
-            numero.val("");
+         if(filtro.test(numero)){
+            numero = "";
             status = false;
             msgInvalida = "Somente Números";
             msgTeste( $idNumero, msgInvalida, '.numeros_input' );
@@ -591,15 +592,22 @@ jQuery(document).ready(function() {
          }
 
          //Identifica todos os DatePicker e valida se Data Válida
+         datasPicker.length = 0;
          datasPicker = window.returnDatas(idFieldset);
          for (var i = 0; i < datasPicker.length; i++) {
             temp = window.validaData(idFieldset, datasPicker[i]);
-            if (radioAcademic[i] != 1 && radioAcademic[i] != false ) {
-               $(datasPicker[i]).removeClass("input-error");
-               $(datasPicker[i]).datepicker('setDate', null);
+            if (radioAcademic[i] != 3 && radioAcademic[i] != false ) {
+               $("#"+datasPicker[i]).removeClass("input-error");
+               $("#"+datasPicker[i]).datepicker('setDate', null);
             }
             else {
-               if (!temp) {next_step = false;}
+               if (!temp) {
+                  $("#"+datasPicker[i]).addClass("input-error");
+                  next_step = false;
+               }
+               else {
+                  $("#"+datasPicker[i]).removeClass("input-error");
+               }
             }
          }
          offMessage(idFieldset);//Função Ocultar Mensagens Front
@@ -611,6 +619,7 @@ jQuery(document).ready(function() {
             if (!temp) {next_step = false;}
          }
          //Identifica todos os DatePicker e valida se Data Válida
+         datasPicker.length = 0;
          datasPicker = window.returnDatas(idFieldset);
          for (var i = 0; i < datasPicker.length; i++) {
             temp = window.validaData(idFieldset, datasPicker[i]);
@@ -620,12 +629,13 @@ jQuery(document).ready(function() {
       }//Final StepCourse
       else if (idFieldset == "stepProfessional") {
          //Identifica todos os DatePicker e valida se Data Válida
+         datasPicker.length = 0;
          datasPicker = window.returnDatas(idFieldset);
          for (var i = 0; i < datasPicker.length; i++) {
             //Verifica se Usuário Informou Empregado
             if (i == 0 && $('input[type="checkbox"][name="atual"]').is(':checked') ) {
                temp = window.validaData(idFieldset, datasPicker[i]); //Verifica Data Válida
-               $('input[type="checkbox"][name="atual"]').datepicker('setDate', null);
+               $("#"+datasPicker[i+1]).datepicker('setDate', null);
             }
             else {
                //Verifica Período de Entrada e Saída Válida
@@ -674,7 +684,7 @@ jQuery(document).ready(function() {
       * Contole de Avanço e Validação de Erros
       *
       */
-      if (! form.valid()) {
+      if (!form.valid()) {
          if (next_step) {
             next_step = false; //Desabilita o Button de Avançar o Formulário
             msgRodape = ": ( Ops! Dados com Formatos Incorretos <strong> nos Campos Indicados!</strong>.";
@@ -691,6 +701,7 @@ jQuery(document).ready(function() {
          parent_fieldset.fadeOut(400, function() {
             $(this).next().fadeIn();
          });
+        //document.getElementById("registration-form").submit();
       }
       else {
          var msg100 = "#msg-" + id;
@@ -743,7 +754,7 @@ jQuery(document).ready(function() {
       target = $(this).closest('.wraper_conclusion');
       boxData = $(target).find('#boxDataConclusion');
       $(boxData).hide("slow");
-   }); 
+   });
 
    $( ".yes_enabled" ).on( "click", function() {
       target = $(this).closest('.wraper_conclusion');
