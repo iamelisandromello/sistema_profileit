@@ -853,6 +853,107 @@ input[type=reset].purple:hover,
 .table-button .button.purple::before {
   display: none !important;
 }
+
+/**
+  Cyan Button
+**/
+/* line 983, less\shared.less */
+.button.cyan,
+button.cyan,
+input[type=button].cyan,
+input[type=submit].cyan,
+input[type=reset].cyan,
+#comments-nav a,
+.pagination a {
+  border-color: #0fb5b3;
+  color: #0fb5b3;
+}
+/* line 988, less\shared.less */
+.button.cyan::before,
+button.cyan::before,
+input[type=button].cyan::before,
+input[type=submit].cyan::before,
+input[type=reset].cyan::before,
+#comments-nav a::before,
+.pagination a::before {
+  background: #0fb5b3;
+}
+/* line 992, less\shared.less */
+.button.cyan:hover,
+button.cyan:hover,
+input[type=button].cyan:hover,
+input[type=submit].cyan:hover,
+input[type=reset].cyan:hover,
+.button.cyan.inverted,
+#comments-nav a:hover,
+.pagination a:hover,
+.table-button .button.cyan {
+  background-color: #0fb5b3;
+}
+/* line 997, less\shared.less */
+.button.cyan.inverted,
+.table-button .button.cyan {
+  color: #ffffff;
+}
+/* line 1000, less\shared.less */
+.button.cyan.inverted:hover,
+.table-button .button.cyan:hover {
+  background-color: #9bc72d;
+  border-color: #9bc72d;
+}
+/* line 1004, less\shared.less */
+.button.cyan.inverted::before,
+.table-button .button.cyan::before {
+  display: none !important;
+}
+/**
+  Cyan Alternate Button
+**/
+/* line 1010, less\shared.less */
+.button.cyan-alt,
+button.cyan-alt,
+input[type=button].cyan-alt,
+input[type=submit].cyan-alt,
+input[type=reset].cyan-alt {
+  border-color: #8dc63f;
+  color: #8dc63f;
+}
+/* line 1014, less\shared.less */
+.button.cyan-alt::before,
+button.cyan-alt::before,
+input[type=button].cyan-alt::before,
+input[type=submit].cyan-alt::before,
+input[type=reset].cyan-alt::before {
+  background: #8dc63f;
+}
+/* line 1017, less\shared.less */
+.button.cyan-alt:hover,
+button.cyan-alt:hover,
+input[type=button].cyan-alt:hover,
+input[type=submit].cyan-alt:hover,
+input[type=reset].cyan-alt:hover,
+.button.cyan-alt.inverted,
+.table-button .button.cyan-alt {
+  background-color: #8dc63f;
+}
+/* line 1021, less\shared.less */
+.button.cyan-alt.inverted,
+.table-button .button.cyan-alt {
+  color: #ffffff;
+}
+/* line 1024, less\shared.less */
+.button.cyan-alt.inverted:hover,
+.table-button .button.cyan-alt:hover {
+  background-color: #72a230;
+  border-color: #72a230;
+}
+/* line 1028, less\shared.less */
+.button.cyan-alt.inverted::before,
+.table-button .button.cyan-alt::before {
+  display: none !important;
+}
+
+
 /**
 	Green Button
 **/
@@ -1453,7 +1554,7 @@ input[type=reset].pink-alt:hover,
 /* line 376, less\home.less */
 .shortcode-team-members .items .position {
   font-size: 2.4000000000000004rem;
-  color: #b1d750;
+  color: #0fb5b3;
   font-family: fira_sansultralight;
   margin-bottom: 20px;
   font-variant: small-caps;
@@ -1532,7 +1633,7 @@ input[type=reset].pink-alt:hover,
 /* line 438, less\home.less */
 .shortcode-team-members .team-pagination a:hover img,
 .shortcode-team-members .team-pagination a.current img {
-  border-color: #b1d750;
+  border-color: #0fb5b3;
 }
 @media screen and (max-width: 992px) {
   /* line 446, less\home.less */

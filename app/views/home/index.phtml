@@ -510,33 +510,33 @@
 																	<div class="fw-page-builder-content"><?php echo $lastMessage->message ?></div>
 																</div><!--</member-text>-->
 																<div class="links">
-<!--
+																	<!--
 																	Send message button
 																	-->
-																		<a href="#" data-toggle="modal" data-target="#modalMessage" class="button green">Responder</a>
+																		<a href="#" data-toggle="modal" data-target="#modalMessage" class="button cyan" onclick="replyModal(<?php echo $myMessage->id ?>, <?php echo $view_user->id ?>)">Responder</a>
 																		<!--
 																		Social icons
 																		-->
 																		<div class="social-icons">
-																			<?php if ($sender->network->facebook ) :
+																			<?php if ($lastSender->network->facebook ) :
 																			 ?>
 																			<a href="http://facebook.com/<?php echo $sender->network->facebook ?>" target="_blank">
 																				<i class="fa fa-facebook"></i>
 																			</a>
 																			<?php endif;
-																			if ($sender->network->twitter ) :
+																			if ($lastSender->network->twitter ) :
 																			 ?>
 																			<a href="http://twitter.com/<?php echo $sender->network->twitter ?>" target="_blank">
 																				<i class="fa fa-twitter"></i>
 																			</a>
 																			<?php endif;
-																			if ($sender->network->linkedin ) :
+																			if ($lastSender->network->linkedin ) :
 																			 ?>
 																			<a href="http://linkedin.com/in/<?php echo $sender->network->linkedin ?>" target="_blank">
 																				<i class="fa fa-linkedin"></i>
 																			</a>
 																			<?php endif;
-																			if ($sender->network->github ) :
+																			if ($lastSender->network->github ) :
 																			 ?>
 																			<a href="http://github.com/<?php echo $sender->network->github ?>" target="_blank">
 																				<i class="fa fa-github"></i>
@@ -574,10 +574,15 @@
 																	<div class="fw-page-builder-content"><?php echo $myMessage->message ?></div>
 																</div><!--</member-text>-->
 																<div class="links">
-<!--
+																		<div class="social-icons">
+																			<a class="pointer" onclick="checkMessage(<?php echo $myMessage->id ?>, <?php echo $view_user->id ?>)">
+																				<i class="fa fa-check-square-o"></i>
+																			</a>
+																		</div><!--</social-icons> -->
+																	<!--
 																	Send message button
 																	-->
-																		<a href="#" data-toggle="modal" data-target="#modalMessage" class="button green">Responder</a>
+																		<a data-toggle="modal" data-target="#modalMessage" class="button cyan" onclick="replyModal('<?php echo $sender->id ?>','<?php echo $sender->image?>')">Responder</a>
 																		<!--
 																		Social icons
 																		-->
@@ -628,7 +633,7 @@
 														if (!$view_myMessages) { ?>
 															<a href="javascript:;" class="current">
 																<span class="overlay"></span>
-																<?php echo '<img class="wproto-wp-image" alt="" width="170" height="170" src="' . BASE . 'public/uploads/users/' . $lastSender->id . '/' . $lastSender->image . '">';
+																<?php echo '<img class="wproto-wp-image" alt="" width="130" height="130" src="' . BASE . 'public/uploads/users/' . $lastSender->id . '/' . $lastSender->image . '">';
 																?>
 															</a>
 														<?php
@@ -640,7 +645,7 @@
 
 															<a href="javascript:;" class="current">
 																<span class="overlay"></span>
-																<?php echo '<img class="wproto-wp-image" alt="" width="170" height="170" src="' . BASE . 'public/uploads/users/' . $sender->id . '/' . $sender->image . '">';
+																<?php echo '<img class="wproto-wp-image" alt="" width="130" height="130" src="' . BASE . 'public/uploads/users/' . $sender->id . '/' . $sender->image . '">';
 																?>
 															</a>
 

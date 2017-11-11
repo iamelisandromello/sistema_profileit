@@ -273,6 +273,39 @@ class HomeController extends \HXPHP\System\Controller
 		$this->view->setVar('user', $user);
 	}
 
+	public function checkMessageAction()
+	{
+		//Alterar o cabeçalho para não gerar cache do resultado
+		header('Cache-Control: no-cache, must-revalidate');
+		//Alterar o cabeçalho para que o retorno seja do tipo JSON
+		header('Content-Type: application/json; charset=utf-8');
+		$aDados = $_POST;//Copia o Post
+		/*atribui os dados do post para um array*/
+		$check_data = array(
+			'user_id'				=> $aDados['user_id'],
+			'message_id'			=> $aDados['message_id'],
+			'status'					=> 1
+
+		);
+		$user_id = $this->auth->getUserId();
+		$user = User::find($user_id);
+
+		$atualizarMessage = Message::atualizar($check_data['message_id'], $check_data['user_id'], $check_data['status']);
+
+		if ($atualizarMessage->status == false) {
+			$mensagem = $atualizarMessage->errors;
+		}
+		else {
+			$mensagem = "Mensagem Lida";
+		}
+
+		//cria o array associativo
+		$dados = array("nome" => $user->name, "mensagem" => $mensagem, "idmessage" => $check_data['message_id'], "status" => $check_data['status']);
+		//converte o conteúdo do array associativo para uma string JSON
+		$json_str = json_encode($dados);
+		echo "$json_str";
+		die();
+	}
 
 	public function validaAction()
 	{

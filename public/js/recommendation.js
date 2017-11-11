@@ -96,6 +96,7 @@ $(function() {
 
    $( "#btnAddMessage" ).on( "click", function() {
       $('#addMensagem').removeClass( 'input-error' );
+      $('#addMensagem').val('');
    });
 
    //Função de Validação e Envio de Recomendação
