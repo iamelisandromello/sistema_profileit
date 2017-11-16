@@ -1,4 +1,4 @@
-<?php
+'<?php
 
 class CadastroController extends \HXPHP\System\Controller
 {
@@ -47,11 +47,14 @@ class CadastroController extends \HXPHP\System\Controller
 
 		//array de informações adicionais para Novo Usuário (Registros)
 		$registry_data = array(
-			'about'		=> $post['about'],
-			'celular'	=> $post['celular'],
-			'scope'		=> $post['scope'],
-			'address'	=> $post['address'],
-			'zipcode'	=> $post['zipcode']
+			'about'			=> $post['about'],
+			'celular'		=> $post['celular'],
+			'scope'			=> $post['scope'],
+			'address'		=> $post['address'],
+			'zipcode'		=> $post['zipcode'],
+			'burgh'			=> $post['burgh'],
+			'city'			=> $post['city'],
+			'state'			=> $post['state']
 		);
 
 		//array de informações adicionais para Novo Usuário (Redes Sociais)
@@ -78,7 +81,7 @@ class CadastroController extends \HXPHP\System\Controller
 		$academic_group = $_POST['academic'];
 		$course_group = $_POST['course'];// copiar um arrays de um POST
 
-		$connection = Professional::connection();
+		$connection = Certification::connection();
 		$connection->transaction();
 
 		if (!empty($registry_data)) {

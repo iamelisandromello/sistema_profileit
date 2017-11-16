@@ -215,7 +215,7 @@ foreach($competencies_data as $data)
 	}
 	public function tempAction()
 	{
-		
+
 		$post = $this->request->post();
 $registry_id = 1;
 $network_id = 2;
@@ -274,13 +274,10 @@ die();
 		die();*/
 	}
 
-	public function cadastrarAction()
+	public function cadastraracademicAction()
 	{
 
 		$post = $this->request->post();
-		echo('<pre>');
-		var_dump($post);
-		echo('</pre>');
 		$data = "";
 
 	   if ($post['adddate_conclusion'] == "") {
@@ -309,6 +306,41 @@ die();
 		echo('<pre>');
 		var_dump($academic);
 		echo('</pre>');
+		$user_id = 76;
+      $user = User::find($user_id);
+
+		$resumos = User::summaries($user_id);
+		$desvio = Definition::find_by_user_id($user_id);
+      //Pergunta 4,5,6 e 7 - Formação Acadêmica
+      $graduacao = Academic::listFormations($user);
+      echo "Desvio Padrão: " . $desvio->detour . "<br>";
+      echo "Formação: " . $graduacao[0] . "<br>";
+      echo "Status Formação: " . $graduacao[1] . "<br>";
+      echo "PÓS: " . $graduacao[2] . "<br>";
+      echo "Status Pós: " . $graduacao[3] . "<br>";
+
+      //Pergunta 2 - Experiência
+      $total = User::experiencia($user);
+		echo ($total[0] . " anos " . $total[1] . " meses " . $total[2] . " dias");
+
+      $experiencia = 0;
+
+      if ($total[0] >= 8) {
+         $experiencia = 5; 
+      }
+      else if ( $total[0] < 8 && $total[0] >= 5 ) {
+         $experiencia = 4;
+      }
+      else if ( $total[0] < 5 && $total[0] >= 3 ) {
+         $experiencia = 3;
+      }
+      else if ( $total[0] < 3 && $total[0] >= 1 ) {
+         $experiencia = 2;
+      }
+      else if ( $total[0] < 1) {
+         $experiencia = 1;
+      }
+      echo "<br>" . "Tempo de Experiencia: " . $experiencia;
 
 		die();
 	}
@@ -557,6 +589,15 @@ die();
 		$mes = ($total[1] == abs(1) ) ? 'mês' : 'meses' ;
 		echo ('<h4> Experiencia: ' . $total[0] . ' anos e ' . $total[1]  . $mes);
 
+		die();
+	}
+
+	public function editarAction()
+	{
+		$post = $this->request->post();
+		echo('<pre>');
+		var_dump($post);
+		echo('</pre>');
 		die();
 	}
 

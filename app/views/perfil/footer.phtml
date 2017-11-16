@@ -41,9 +41,197 @@
 				<i class="font-icon-arrow-simple-up"></i>
 			</a>
 			<!-- End Back to Top -->
-
 			<!-- ==============================================
-			    Modal Contato (Contact)
+			   Modal Inclusão Experiência Profissional
+			=============================================== -->
+			<div class="modal fade" id="formProfessional" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			    <div class="modal-dialog">
+			    	<div class="modal-content modal-popup">
+			        	<div class="modal-header">
+		            	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		                <h2 class="modal-title">Incluir Nova Experiência</h2>
+			        	</div><!-- </modal-header> -->
+						<div class="row">
+							<div class="col-lg-12 col-md-12">
+				         	<div class="">
+				         		<div class="header">
+				         			<h4 class="title"></h4>
+				         		</div><!-- </header> -->
+			         			<div class="row">
+										<div class="col-md-12">
+											<div class="form-group">
+												<label for="exemplo">Emprego Atual: </label>
+												<input type="checkbox" name="atual" value="0" id="atual" checked="true">
+												<span>Empregado</span>
+
+											</div>
+										</div>
+									</div>
+				         		<div class="content">
+				         			<form method="POST" action="<?php echo BASE; ?>perfil/addProfessional/" id="addProfessionalForm" class="addProfessionalForm">
+				         				<fieldset id="addProfessionalField">
+					         				<div class="row">
+					         					<div class="col-md-12">
+					         						<div class="form-group">
+					         							<input type="text" name="addCompany" id="addCompany" class="input-modal" placeholder="Empresa" >
+					         						</div><!-- </form-group> -->
+					         					</div><!-- </col-md-12> -->
+					         				</div><!-- </row> 1º Linha do formulario -->
+
+					         				<div class="row">
+					         					<div class="col-md-12">
+					         						<div class="form-group">
+					         							<input type="text" name="addFunction" id="addFunction" class="input-modal" placeholder="Função" >
+					         						</div><!-- </form-group> -->
+					         					</div><!-- </col-md-4> -->
+					         				</div><!-- </row> 2º Linha do formulario -->
+
+					         				<div class="row">
+					         					<div class="col-md-12">
+					         						<div class="form-group">
+					         							<textarea name="addAssignments" id="addAssignments" rows="4" class="finput-modal textarea-modal" placeholder="Atividades Exercidas"></textarea>
+					         						</div><!-- </form-group> -->
+					         					</div><!-- </col-md-4> -->
+					         				</div><!-- </row> 3º Linha do formulario -->
+
+												<div id="boxDataEntry">
+													<div class="row">
+														<div class="col-md-6 sandbox-container">
+															<label for="">Incluir Data de Entrada</label>
+															<div class="input-group date">
+																<input type="text" name="adddate_entry" id="adddate_entry" class="input-modal" placeholder="00/00/0000">
+																<span class="input-group-addon">
+																	<i class="glyphicon glyphicon-th"></i>
+																</span>
+															</div><!-- </input-group date> -->
+															<div class="msgFront" name="msgFront">
+								               			<span></span>
+								            			</div>
+														</div><!-- </col-md-6 centered> -->
+														<div class="col-md-6 sandbox-container" id="boxDataOut">
+															<label for="">Incluir Data de Saída</label>
+															<div class="input-group date">
+																<input type="text" name="adddate_out" id="adddate_out" class="input-modal" placeholder="00/00/0000">
+																<span class="input-group-addon">
+																	<i class="glyphicon glyphicon-th"></i>
+																</span>
+															</div><!-- </input-group date> -->
+															<div class="msgFront" name="msgFront">
+								               			<span></span>
+								            			</div>
+														</div><!-- </col-md-6 centered> -->
+													</div><!-- </row> 4º Linha do formulario -->
+												</div>
+
+												<input name="adicionar" type="button" class="form-control btn-addProfessional" value=" Adicionar Experiência">
+								            <div class="row">
+								            	<div class="col-md-12 msgbox" id="msg-box3">
+								               	<span></span>
+								            	</div>
+								            </div>
+				         				</fieldset>
+				         			</form>
+				         		</div><!-- </content> -->
+				         	</div>
+				         </div><!-- </col-md-12> -->
+						</div><!-- </row> -->
+			      </div><!-- </modal-content> -->
+			   </div><!-- </modal-dialog> -->
+			</div><!-- </modal fade> -->
+			<!-- ==============================================
+			    Modal Editar Experiência Profissional
+			=============================================== -->
+			<div class="modal fade" id="modalEditarProfessional" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			    <div class="modal-dialog">
+			    	<div class="modal-content modal-popup">
+			        	<div class="modal-header">
+		            	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		                <h2 class="modal-title">Atualização</h2>
+			        	</div><!-- </modal-header> -->
+    					<div class="row">
+							<div class="col-md-10 centered">
+								<div class="modal-containerStep">
+									<span class="step-num">1</span>
+									<div class="modal-text">
+										Editar Experiência Profissional
+									</div><!-- </modal-text> -->
+								</div><!-- </moldal-containerStep> -->
+							</div><!-- </col-md-10> -->
+						</div><!-- </row>  -->
+						<form method="POST" action="<?php echo BASE; ?>perfil/upprofessional/" name="upProfessionalForm" id="upProfessionalForm" class="upProfessionalForm">
+							<fieldset id="upProfessionalField">
+	         				<div class="row">
+	         					<div class="col-md-12">
+	         						<div class="form-group">
+	         							<input type="text" name="upIDProfessional" id="upIDProfessional" value="<?php echo $professional->id ?>" class="input-modal" placeholder="ID" readonly hidden>
+	         						</div><!-- </form-group> -->
+	         					</div><!-- </col-md-12> -->
+	         				</div><!-- </row> 1º Linha do formulario -->
+	         				<div class="row">
+	         					<div class="col-md-12">
+	         						<div class="form-group">
+	         							<input type="text" name="upCompany" id="upCompany" value="<?php echo $professional->company ?>" class="input-modal" placeholder="Empresa" >
+	         						</div><!-- </form-group> -->
+	         					</div><!-- </col-md-12> -->
+	         				</div><!-- </row> 1º Linha do formulario -->
+
+	         				<div class="row">
+	         					<div class="col-md-12">
+	         						<div class="form-group">
+	         							<input type="text" name="upFunction" id="upFunction" value="<?php echo $professional->function ?>" class="input-modal" placeholder="Função" >
+	         						</div><!-- </form-group> -->
+	         					</div><!-- </col-md-4> -->
+	         				</div><!-- </row> 2º Linha do formulario -->
+
+	         				<div class="row">
+	         					<div class="col-md-12">
+	         						<div class="form-group">
+	         							<textarea name="upAssignments" id="upAssignments" rows="4" class="finput-modal textarea-modal" placeholder="Atividades Exercidas"><?php echo $professional->assignments ?></textarea>
+	         						</div><!-- </form-group> -->
+	         					</div><!-- </col-md-4> -->
+	         				</div><!-- </row> 3º Linha do formulario -->
+
+								<div id="boxDataEntry">
+									<div class="row">
+										<div class="col-md-6 sandbox-container">
+											<label for="">Incluir Data de Entrada</label>
+											<div class="input-group date">
+												<input type="text" name="update_entry" id="update_entry" class="input-modal" placeholder="00/00/0000">
+												<span class="input-group-addon">
+													<i class="glyphicon glyphicon-th"></i>
+												</span>
+											</div><!-- </input-group date> -->
+										</div><!-- </col-md-6 centered> -->
+										<div class="col-md-6 sandbox-container">
+											<label for="">Incluir Data de Saída</label>
+											<div class="input-group date">
+												<input type="text" name="update_out" id="update_out" class="input-modal" placeholder="00/00/0000">
+												<span class="input-group-addon">
+													<i class="glyphicon glyphicon-th"></i>
+												</span>
+											</div><!-- </input-group date> -->
+										</div><!-- </col-md-6 centered> -->
+									</div><!-- </row> 4º Linha do formulario -->
+									<div class="row">
+										<div class="msgFront" name="msgFront">
+				               			<span></span>
+				            		</div>
+									</div>
+								</div>
+
+								<input name="editar" type="button" class="form-control btn-UpProfessional" value=" Editar Experiência">
+				            <div class="row">
+				            	<div class="col-md-12 msgbox" id="msg-box3">
+				               	<span></span>
+				            	</div>
+				            </div>
+	      				</fieldset>
+		            </form>
+			      </div><!-- </modal-content> -->
+			   </div><!-- </modal-dialog> -->
+			</div><!-- </modal fade> -->
+			<!-- ==============================================
+			    Modal Concluir Formação Acadêmica
 			=============================================== -->
 			<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			    <div class="modal-dialog">
@@ -63,6 +251,7 @@
 							</div><!-- </col-md-10> -->
 						</div><!-- </row>  -->
 						<form method="POST" action="<?php echo BASE; ?>perfil/upconclusion/" onsubmit="myFunction()" name="addconclusion" id="addconclusion" >
+						<fieldset id="conclusionAcademic">
 							<!-- Inicio Grupo Componente -->
 							<div class="row">
 								<div class="col-md-6 centered">
@@ -83,13 +272,16 @@
 									</div><!-- </input-group date> -->
 								</div><!-- </col-md-6 centered> -->
 							</div><!-- </row> -->
-							<button type="button" class="btn btn-default" data-dismiss="modal" onclick="academicConclusion()">Concluir</button>
+							<!-- <button type="button" class="btn btn-default" data-dismiss="modal" onclick="academicConclusion()">Concluir</button> -->
+							<input name="conclusao" type="button" class="form-control" data-dismiss="modal" onclick="academicConclusion()" value="Conclusão">
+						</fieldset>
 		            </form>
 			      </div><!-- </modal-content> -->
 			   </div><!-- </modal-dialog> -->
 			</div><!-- </modal fade> -->
+
 			<!-- ==============================================
-			   Modal Acadêmico (Contact)
+			   Modal Inclusão Formação Acadêmica
 			=============================================== -->
 			<div class="modal fade" id="formAcademic" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			    <div class="modal-dialog">
@@ -105,7 +297,7 @@
 				         			<h4 class="title"></h4>
 				         		</div><!-- </header> -->
 				         		<div class="content">
-				         			<form method="POST" action="<?php echo BASE; ?>temp/cadastrar/" id="addAcademicForm" class="addAcademicForm">
+				         			<form method="POST" action="<?php echo BASE; ?>perfil/addAcademic/" id="addAcademicForm" class="addAcademicForm">
 				         				<fieldset>
 					         				<div class="row">
 					         					<div class="col-md-12">
@@ -135,27 +327,14 @@
 																<option class="opt-placeholder" value="-1" selected="" data-type="pos">
 																	Nivel…
 																</option>
-																<option>
-																	Graduação
-																</option>
-																<option>
-																	Tecnólogo
-																</option>
-																<option value="310229553" data-type="pos">
-																	Técnico
-																</option>
-																<option>
-																	Médio
-																</option>
-																<option>
-																	Pós Profissional
-																</option>
-																<option>
-																	Mestrado
-																</option>
-																<option value="178533085" data-type="edu">
-																	Doutorado
-																<option>
+																<option value="PHD">PHD</option>
+																<option value="Doutorado">Doutorado</option>
+																<option value="Mestrado">Mestrado</option>
+																<option value="Pos">Pós Graduação</option>
+																<option value="Bacharelado">Bacharelado</option>
+																<option value="Tecnologo">Tecnólogo</option>
+																<option value="Tecnico">Técnico</option>
+																<option value="Medio">Ensino Médio</option>
 															</select>
 					         						</div><!-- </form-group> -->
 					         					</div><!-- </col-md-4> -->
@@ -169,20 +348,20 @@
 					         				<div class="row boxRadio" id="boxRadio">
 					         					<div class="col-md-4">
 					         						<div class="form-group">
-															<input type="radio" id="level01" name="addAcademic" class="radio-academic academic" value="1">
+															<input type="radio" id="level01" name="addAcademic" class="radio-academic academic" value="3">
                             						<label for="level01"><span></span>Completo</label>
 					         						</div><!-- </form-group> -->
 					         					</div><!-- </col-md-4> -->
 					         					<div class="col-md-4">
 					         						<div class="form-group">
-															<input type="radio" id="level02" name="addAcademic" class="radio-academic academic" value="2">
+															<input type="radio" id="level02" name="addAcademic" class="radio-academic academic" value="1">
                             						<label for="level02"><span></span>Trancado</label>
 					         						</div><!-- </form-group> -->
 					         					</div><!-- </col-md-4> -->
 					         					<div class="col-md-4">
 					         						<div class="form-group">
-															<input type="radio" id="level03" name="addAcademic" class="radio-academic academic" value="3">
-                            						<label for="level03"><span></span>em Andamento</label>
+															<input type="radio" id="level03" name="addAcademic" class="radio-academic academic" value="2">
+                            						<label for="level03"><span></span>Cursando</label>
 					         						</div><!-- </form-group> -->
 					         					</div><!-- </col-md-4> -->
 					         				</div><!-- </row> 4º Linha do formulario -->
@@ -200,8 +379,7 @@
 													</div><!-- </col-md-6 centered> -->
 												</div><!-- </row> 4º Linha do formulario -->
 												</div>
-												<button type="button" class="btn btn-default btn-UpAcademic" >Add Formação</button>
-
+												<input name="adicionar" type="button" class="form-control btn-UpAcademic" value=" Adicionar  Formação">
 								            <div class="row">
 								            	<div class="col-md-12 msgbox" id="msg-box3">
 								               	<span></span>
@@ -217,57 +395,46 @@
 			      </div><!-- </modal-content> -->
 			   </div><!-- </modal-dialog> -->
 			</div><!-- </modal fade> -->
-
 			<!-- ==============================================
 			End Session Modal's (Final área de modal's)
 			=============================================== -->
-
-
 		</div><!--  </layout> Final do Layout Visivel-->
-
 		<!-- ==============================================
 		Javascripts
 		================================================== -->
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <!-- Libs - Bibliotecas JQuery via Bower-->
 		<script src="<?php echo BOWER; ?>jquery/dist/jquery.min.js"></script>
-		<script src="<?php echo JS; ?>front/modernizr.js"></script>
-		<script src="<?php echo JS; ?>front/jquery.custom-file-input.js"></script>
-		<!-- Bootstrap -->
 		<script src="<?php echo BOWER; ?>bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
-		<script src="<?php echo JS; ?>front/tmp/classie.js"></script>
-		<!--BootstrapValida-->
-		<script src="<?php echo BOWER; ?>jqBootstrapValidation/src/jqBootstrapValidation.js"></script>
-		<!-- Inclua os plugins compilados (abaixo) ou inclua arquivos individuais conforme necessário -->
-		<!-- WOW -->
 		<script src="<?php echo BOWER; ?>wow/dist/wow.min.js"></script>
-		<!-- ScrollTo -->
-		<script src="<?php echo BOWER; ?>jquery.scrollTo/jquery.scrollTo.min.js"></script>	<!-- Easing -->
+		<script src="<?php echo BOWER; ?>magnific-popup/dist/jquery.magnific-popup.min.js"></script>
+		<script src="<?php echo BOWER; ?>flexslider/jquery.flexslider-min.js"></script>
+		<script src="<?php echo BOWER; ?>jquery.scrollTo/jquery.scrollTo.min.js"></script>
 		<script src="<?php echo BOWER; ?>jquery.easing/js/jquery.easing.min.js"></script>
-		<!-- PreLoader -->
 		<script src="<?php echo BOWER; ?>jpreloader/js/jpreloader.min.js"></script>
-		<!-- Deslocamento Suave Sesões - One Page -->
-		<script src="<?php echo JS; ?>front/smooth-scrolling.js"></script>
-		<script src="<?php echo JS; ?>front/tmp/classie.js"></script>
-		<!-- Função Repeater -->
-		<script src="<?php echo JS; ?>front/jquery.repeater.min.js"></script>
-		<!-- DatePicker -->
-		<script src="<?php echo JS; ?>register/data/bootstrap-datepicker.js"></script>
-		      <script src="<?php echo CSS; ?>locales/bootstrap-datepicker.pt-BR.min.js"></script>
-		 <!-- Default JS Pagina Update-->
-		<script src="<?php echo JS; ?>front/main-update.js"></script>
-		<script src="<?php echo JS; ?>front/use-repeater.js"></script>
+		<script src="<?php echo BOWER; ?>jquery-validation/dist/jquery.validate.min.js"></script>
+      <script src="<?php echo BOWER; ?>bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+      <script src="<?php echo BOWER; ?>bootstrap-datepicker/dist/locales/bootstrap-datepicker.pt-BR.min.js"></script>
+      <script src="<?php echo BOWER; ?>inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
+		<!-- Libs - Bibliotecas JQuery -->
+		<script src="<?php echo JS; ?>libs/smooth-scrolling.js"></script>
+		<!-- Scripts JavaScript Personalizados-->
+		<script src="<?php echo JS; ?>perfil/perfil_mask.js"></script>
+		<script src="<?php echo JS; ?>valida_data.js"></script>
+		<script src="<?php echo JS; ?>perfil/main-perfil.js"></script>
+		<script src="<?php echo JS; ?>search_cep.js"></script>
 		<script src="<?php echo JS; ?>boxmessage.js"></script>
-		<script src="<?php echo JS; ?>competency.js"></script>
-		<script src="<?php echo JS; ?>edit/academic.js"></script>
+		<script src="<?php echo JS; ?>home/competency.js"></script>
+		<script src="<?php echo JS; ?>perfil/academic-perfil.js"></script>
+		<script src="<?php echo JS; ?>perfil/professional-perfil.js"></script>
 
       <Script>
-      $('#sandbox-container .input-group.date').datepicker({
-          format: "dd/mm/yyyy",
-          language: "pt-BR",
-          clearBtn: true,
-          autoclose: true,
-          toggleActive: true
-      });
+	      $('.sandbox-container .input-group.date').datepicker({
+	          format: "dd/mm/yyyy",
+	          language: "pt-BR",
+	          clearBtn: true,
+	          autoclose: true,
+	          toggleActive: true
+	      });
       </Script>
 
 		<!-- Tuner ACessibilidade de Cores -->

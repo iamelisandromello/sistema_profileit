@@ -51,4 +51,90 @@ class Professional extends \HXPHP\System\Model
     return $callbackObj;
   }
 
+   public static function atualizar($post, $user_id)
+   {
+      $callbackObj = new \stdClass;
+      $callbackObj->professional = null;
+      $callbackObj->status = false;
+      $callbackObj->errors = array();
+
+      $saida = $post['update_out'];
+      if ($post['update_out'] == null ) {
+         $saida = null;
+      }
+      else {
+         $saida = implode("-",array_reverse(explode("/",$post['update_out'] )));
+      }
+      $entrada = implode("-",array_reverse(explode("/",$post['update_entry'] )));
+
+      $professional = self::find($post["upIDProfessional"]);
+      $owner = $professional->user_id;
+      // Verifica se a Competência Pertence ao Usuario
+      if ($owner != $user_id) {
+         array_push($callbackObj->errors, 'Huummm! A Experiência em Processo não é de propriedade deste Usuário');
+         return $callbackObj;
+      }
+
+      $professional->company     = $post["upCompany"];
+      $professional->function    = $post["upFunction"];
+      $professional->assignments = $post["upAssignments"];
+      $professional->date_entry  = $entrada;
+      $professional->date_out    = $saida;
+      $atualizar = $professional->save(false);
+
+      if ($atualizar) {
+         $callbackObj->professional = $professional;
+         $callbackObj->status = true;
+         return $callbackObj;
+      }
+
+      $errors = $atualizar->errors->get_raw_errors();
+      foreach ($errors as $field => $message) {
+         array_push($callbackObj->errors, $message[0]);
+      }
+      return $callbackObj;
+   }
+
+
+   public static function excluir($professional_id, $user_id)
+   {
+      $callbackObj = new \stdClass;
+      $callbackObj->professional = null;
+      $callbackObj->status = false;
+      $callbackObj->errors = array();
+
+      if (!is_numeric($professional_id)) {
+         array_push($callbackObj->errors, 'Huummm! Inconsistência nos dados informados');
+         return $callbackObj;
+      }
+
+      $professional = self::find($professional_id);
+      // Localiza o Registro da Experienci Profissional BD
+      if (is_null($professional)) {
+         array_push($callbackObj->errors, 'Huummm! O Histórico Profissional não Foi Localizado para este Usuário');
+         return $callbackObj;
+      }
+
+      // Verifica se a Competência Pertence ao Usuario
+      $owner = $professional->user_id;
+      if ($owner != $user_id) {
+         array_push($callbackObj->errors, 'Huummm! O Histórico Profissional em Processo não é de propriedade deste Usuário');
+         return $callbackObj;
+      }
+
+      $excluir = $professional->delete();
+      if ($excluir) {
+         $callbackObj->professional = $professional;
+         $callbackObj->status = true;
+         return $callbackObj;
+      }
+
+      $errors = $excluir->errors->get_raw_errors();
+
+      foreach ($errors as $field => $message) {
+         array_push($callbackObj->errors, $message[0]);
+      }
+      return $callbackObj;
+   }
+
 }

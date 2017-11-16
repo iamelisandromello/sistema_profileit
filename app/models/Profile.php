@@ -87,32 +87,64 @@ class Profile extends \HXPHP\System\Model
     return $calcularPesos;
   }
 
-  public static function defineProfile($pesos_usuario)
-  {
+   public static function defineProfile($pesos_usuario)
+   {
     $profilesAll = Profile::all();//Recuper Perfis Padrões (Junior, Pleno e Sênior)
     $ctr = array();
     $ctr[0] = 0.00;
 
-    foreach ($profilesAll as $profile) {
-      $type = $profile->type;
-      $pesos = self::backProfile($type);
-      $callBack = self::calculoFinal($pesos_usuario, $pesos);
-      if($callBack == 0){ //Verfica se Cálculo Retorna Desvio Padrão 0.00
-        $ctr[0] = $callBack;//caso desvio 0.00 já define o perfil 
-        $ctr[1] = $type;
-        break;//Interrompe a análise e retorna $ctr (Desvio Padrão e Tipo Perfil)
-      }
-      if ($ctr[0] == 0.00) { //Primeiro verificação atribui os parametros
-        $ctr[0] = $callBack;
-        $ctr[1] = $type;
-      }
-      else if ($callBack <= $ctr[0]) { //Verifica se Desvio é < que atual armazenado
-        $ctr[0] = $callBack; //Desvio Padrão
-        $ctr[1] = $type; //Tipo de Perfil (1,2,3)
-      }
-    }
-    return $ctr;
-  }
+      foreach ($profilesAll as $profile) {
+         $type = $profile->type;
+         $pesos = self::backProfile($type);
+         $callBack = self::calculoFinal($pesos_usuario, $pesos);
 
+         if($callBack == 0){ //Verfica se Cálculo Retorna Desvio Padrão 0.00
+           $ctr[0] = $callBack;//caso desvio 0.00 já define o perfil
+           $ctr[1] = $type;
+           break;//Interrompe a análise e retorna $ctr (Desvio Padrão e Tipo Perfil)
+         }
+         if ($ctr[0] == 0.00) { //Primeiro verificação atribui os parametros
+           $ctr[0] = $callBack;
+           $ctr[1] = $type;
+         }
+         else if ($callBack <= $ctr[0]) { //Verifica se Desvio é < que atual armazenado
+           $ctr[0] = $callBack; //Desvio Padrão
+           $ctr[1] = $type; //Tipo de Perfil (1,2,3)
+         }
+      }
+      return $ctr;
+   }
 
+   public static function recalculateProfile($id_usuario)
+   {
+      $callbackObj = new \stdClass;// Cria classe vazia
+      $callbackObj->profile = null;// Propriedade user da classe null
+      $callbackObj->status = false;// Propriedade Status da Classe False
+      $callbackObj->errors = array();// Array padrão de erros vazio
+
+      $pesos_backUser = Profile::backUserWeights($id_usuario);
+      if (!$pesos_backUser) {
+         array_push($callbackObj->errors, 'Oops! Não foi possível recuperar os parametros de cálculo do Perfil Informado. Por favor, revise informações e tente novamente');
+         return $callbackObj;
+      }
+
+      $controle = Profile::defineProfile($pesos_backUser);
+      if (!$controle) {
+         array_push($callbackObj->errors, 'Oops! Não foi possível realizar o cálculo de definição do Perfil Informado. Por favor, revise informações e tente novamente');
+         return $callbackObj;
+      }
+
+      $atualizarDefinition = Definition::atualizar($controle, $id_usuario);
+      if ($atualizarDefinition) {
+         $callbackObj->definition = $atualizarDefinition;
+         $callbackObj->status = true;
+         return $callbackObj;
+      }
+
+      $errors = $atualizarDefinition->errors->get_raw_errors();
+      foreach ($errors as $field => $message) {
+         array_push($callbackObj->errors, $message[0]);
+      }
+      return $callbackObj;
+   }
 }

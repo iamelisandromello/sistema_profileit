@@ -418,15 +418,13 @@ class User extends \HXPHP\System\Model
 
 		if (isset($post['password']) && !empty($post['password'])) {
 			$password = \HXPHP\System\Tools::hashHX($post['password']);
-
 			$post = array_merge($post, $password);
 		}
 
 		$user = self::find($user_id);
 
-		$user->name = $post['name'];
-		$user->email = $post['email'];
-		$user->username = $post['username'];
+		$user->email = $post['emailAccess'];
+		$user->username = $post['usernameAccess'];
 
 		if (isset($post['salt'])) {
 			$user->password = $post['password'];

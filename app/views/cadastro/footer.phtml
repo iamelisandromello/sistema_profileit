@@ -39,38 +39,26 @@
       Javascripts - Inclua todos os plugins compilados (abaixo),
       ou inclua arquivos individuais conforme necessário
        ================================================== -->
-      <!-- JQuery -->
+      <!-- Libs - Bibliotecas JQuery -->
       <script src="<?php echo BOWER; ?>jquery/dist/jquery.min.js"></script>
-      <!-- Bootstrap -->
       <script src="<?php echo BOWER; ?>bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
-      <!-- InputMask - Máscara Campos Input Formulário-->
-      <script src="<?php echo JS; ?>register/jquery.inputmask.bundle.js"></script>
-      <!-- Validate - Validação de Campos do Formulário -->
-      <script src="<?php echo JS; ?>register/jquery.validate.js"></script>
-      <script src="<?php echo JS; ?>register/retina-1.1.0.min.js"></script>
-      <!-- Repeater - Inclusão de Elementos Dinâmicos p/Cadastro -->
-      <!--<script src="<?php echo JS; ?>register/jquery.repeater.min.js"></script>-->
-      <script src="<?php echo JS; ?>register/jquery.backstretch.min.js"></script>
-      <!-- <script src="<?php echo JS; ?>register/register.js"></script> -->
-      <script src="<?php echo JS; ?>jquery.form-repeater.js"></script>
-      <script src="<?php echo JS; ?>register/inputfile/custom-file-input.js"></script>
-      <script src="<?php echo JS; ?>register/data/bootstrap-datepicker.js"></script>
-      <script src="<?php echo CSS; ?>locales/bootstrap-datepicker.pt-BR.min.js"></script>
-      <script src="<?php echo JS; ?>register/input_validate.js"></script>
-      <script src="<?php echo JS; ?>register/input_mask.js"></script>
-      <script src="<?php echo JS; ?>register/search_cep.js"></script>
-      <script src="<?php echo JS; ?>register/inputfile/preimg.js"></script>
+      <script src="<?php echo BOWER; ?>retina.js/dist/retina.min.js"></script>
+      <script src="<?php echo BOWER; ?>jquery-backstretch/jquery.backstretch.min.js"></script>
+      <script src="<?php echo BOWER; ?>jquery-validation/dist/jquery.validate.min.js"></script>
+      <script src="<?php echo BOWER; ?>bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+      <script src="<?php echo BOWER; ?>bootstrap-datepicker/dist/locales/bootstrap-datepicker.pt-BR.min.js"></script>
+      <script src="<?php echo BOWER; ?>inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
+      <!-- Libs - Bibliotecas JQuery -->
+      <script src="<?php echo JS; ?>libs/jquery.form-repeater.js"></script>
+      <!-- Scripts JavaScript Personalizados-->
+      <script src="<?php echo JS; ?>cadastro/inputfile/custom-file-input.js"></script>
+      <script src="<?php echo JS; ?>cadastro/cadastro_validate.js"></script>
+      <script src="<?php echo JS; ?>cadastro/input_mask.js"></script>
+      <script src="<?php echo JS; ?>search_cep.js"></script>
+      <script src="<?php echo JS; ?>cadastro/inputfile/preimg.js"></script>
+      <script src="<?php echo JS; ?>cadastro/register.js"></script>
 
-      <script src="<?php echo JS; ?>register/scripts.js"></script>
-      <!--
-      <script src="<?php echo JS; ?>jquery.form-repeater.js"></script>
-      <script src="<?php echo JS; ?>register/use-repeater.js"></script>
-      <script src="<?php echo JS; ?>register/input_validate.js"></script>
-      <script src="<?php echo JS; ?>register/register.js"></script>
-      <script src="<?php echo JS; ?>register/input_mask.js"></script>
-      <script src="<?php echo JS; ?>register/search_cep.js"></script>-->
-
-      <script type="text/javascript">
+    <script type="text/javascript">
         $('#academicRepeater').repeater({
             btnAddClass: 'a-btnAdd',
             btnRemoveClass: 'a-btnRemove',

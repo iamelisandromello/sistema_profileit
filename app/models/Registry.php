@@ -2,6 +2,39 @@
 
 class Registry extends \HXPHP\System\Model
 {
+	// Método de validação da presença de campos obrigatórios no post recebido do formulário
+	//cria uma variável static ($validates_presence_of), que recebe true ou false se os campos estão preenchidos
+	static $validates_presence_of = array(
+		array(
+			'address',
+			'message' => 'O Endereço é um campo obrigatório.'
+		),
+		array(
+			'zipcode',
+			'message' => 'O CEP é um obrigatório.'
+		),
+		array(
+			'celular',
+			'message' => 'O Celular é um campo obrigatório.'
+		),
+		array(
+			'burgh',
+			'message' => 'O Bairro é um campo obrigatório.'
+		),
+		array(
+			'city',
+			'message' => 'A Cidade é um campo obrigatório.'
+		),
+		array(
+			'state',
+			'message' => 'O Estado  é um campo obrigatório.'
+		),
+		array(
+			'about',
+			'message' => 'A Descrição Sobre mim é obrigatória.'
+		)
+	);
+
 	static function table_name()
 	{
 		return 'registries';
@@ -40,7 +73,7 @@ class Registry extends \HXPHP\System\Model
 		$callbackObj->registry = null;// Propriedade usser da classe null
 		$callbackObj->status = false;// Propriedade Status da Classe False
 		$callbackObj->errors = array();// Array padrão de erros vazio
-       
+
 		$cadastrar = self::create($post);
 
 		if ($cadastrar->is_valid()) {
@@ -57,4 +90,41 @@ class Registry extends \HXPHP\System\Model
 
 		return $callbackObj;
 	}
+
+	public static function atualizar($user_id, array $post)
+	{
+		$callbackObj = new \stdClass;
+		$callbackObj->user = null;
+		$callbackObj->status = false;
+		$callbackObj->errors = array();
+		$user 	 		= User::find($user_id);
+		$registry_id	= $user->registry_id;
+		$registry  		= self::find($registry_id);
+
+		$registry->about			= $post['sobremim'];
+		$registry->celular		= $post['celular'];
+		$registry->address		= $post['address'];
+		$registry->zipcode		= $post['zipcode'];
+		$registry->burgh			= $post['burgh'];
+		$registry->city 			= $post['city'];
+		$registry->state 			= $post['state'];
+
+		$atualizar = $registry->save();
+
+		if($atualizar) {
+			$callbackObj->user = $user;
+			$callbackObj->status = true;
+			array_push($callbackObj->errors, 'Uhuul! Perfil atualizado com sucesso!.');
+			return $callbackObj;
+		}
+
+		$callbackObj->user = $user;
+		$errors = $registry->errors->get_raw_errors();
+		foreach ($errors as $field => $message) {
+			array_push($callbackObj->errors, $message[0]);
+		}
+
+		return $callbackObj;
+	}
+
 }

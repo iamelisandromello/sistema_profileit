@@ -29,17 +29,25 @@ class PerfilController extends \HXPHP\System\Controller
 		$user_id = $this->auth->getUserId();
 		//$qualificacoes = Qualification::all();
 		$qualificacoes = Qualification::find('all', array('order' => 'qualification asc'));
+		$preference = preference::find_by_user_id($user_id);
 
 		$this->view->setTitle('HXPHP - Administrativo')
 					->setFile('editar')
 					->setVars([
-						'user'		=> User::find($user_id),
-						'qualificacoes'			=> $qualificacoes
+						'user'				=> User::find($user_id),
+						'preference'		=> $preference,
+						'qualificacoes'	=> $qualificacoes
 					]);
 	}
+    public function indexAction()
+    {
+        $this->view->setHeader('perfil/header')
+               ->setFooter('perfil/footer');
+    }
+
 
 	/*
-	* Métodos Controller's de Atualização de Informaçoes
+	* Métodos Controller's de Atualização
 	* de Informações de Usuário
 	*/
 	public function editarAction()
@@ -123,6 +131,86 @@ class PerfilController extends \HXPHP\System\Controller
 	}
 
 	/*
+	* Métodos Controller's de Atualização
+	* de Informações de Usuário
+	*/
+	public function upSocialAction()
+	{
+		$this->view->setFile('editar');
+         $this->view->setHeader('perfil/header')
+            ->setFooter('perfil/footer');
+
+		$this->auth->redirectCheck();
+		$this->auth->roleCheck(array(
+		'user', 'administrator'
+		));
+
+		$user_id = $this->auth->getUserId();
+		$post = $this->request->post();
+
+		if (!empty($post)) {
+			$atualizarSocial = Network::atualizar($user_id, $post);
+
+			if ($atualizarSocial->status === false) {
+				$this->load('Helpers\Alert', array(
+					'error',
+					'Ops! Não foi possível atualizar seu perfil. <br> Verifique os erros abaixo:',
+					$atualizarSocial->errors
+				));
+			}
+			else {
+				$this->load('Helpers\Alert', array(
+					'error',
+					'; ) Processo Executado. <br> Verifique mensagens abaixo:',
+					$atualizarSocial->errors
+				));
+			}
+
+			$this->view->setVar('user', $atualizarSocial->user);
+		}/*Verificação de Atualização com Sucesso*/
+	}
+
+		/*
+	* Métodos Controller's de Atualização
+	* de Informações de Registros Pessoais
+	*/
+	public function upRegistryAction()
+	{
+		$this->view->setFile('editar');
+         $this->view->setHeader('perfil/header')
+            ->setFooter('perfil/footer');
+
+		$this->auth->redirectCheck();
+		$this->auth->roleCheck(array(
+		'user', 'administrator'
+		));
+
+		$user_id = $this->auth->getUserId();
+		$post = $this->request->post();
+
+		if (!empty($post)) {
+			$atualizarRegistry = Registry::atualizar($user_id, $post);
+
+			if ($atualizarRegistry->status === false) {
+				$this->load('Helpers\Alert', array(
+					'error',
+					'Ops! Não foi possível atualizar seu perfil. <br> Verifique os erros abaixo:',
+					$atualizarRegistry->errors
+				));
+			}
+			else {
+				$this->load('Helpers\Alert', array(
+					'error',
+					'; ) Processo Executado. <br> Verifique mensagens abaixo:',
+					$atualizarRegistry->errors
+				));
+			}
+
+			$this->view->setVar('user', $atualizarRegistry->user);
+		}/*Verificação de Atualização com Sucesso*/
+	}
+
+	/*
 	* Métodos Controller's de Atualização de Informaçoes
 	* do Skill de Competências
 	*/
@@ -171,7 +259,6 @@ class PerfilController extends \HXPHP\System\Controller
 
 		$this->view->setVar('user', $user);
 	}
-
 
 	public function addcompetencyAction()
 	{
@@ -238,6 +325,33 @@ class PerfilController extends \HXPHP\System\Controller
 				$atualizarAcademic->errors
 			));
 		}
+		else {
+	 		$graduacao = Academic::listFormations($user);
+	 		$academic = array(
+         'question_4' => $graduacao[0],
+         'question_5' => $graduacao[1],
+         'question_6' => $graduacao[2],
+         'question_7' => $graduacao[3]
+      	);
+
+	      $upGraduation = Answer::upAcademic($academic, $user_id);
+			$upProfile = Profile::recalculateProfile($user_id);
+			if ($upProfile->status == false) {
+				$this->load('Helpers\Alert', array(
+					'error',
+					'Ops! Não foi possível atualizar seu Histórico Acadêmico. <br> Verifique os erros abaixo:',
+					$atualizarAcademic->errors
+				));
+			}
+			else {
+				$this->load('Helpers\Alert', array(
+					'error',
+					'Uuuu! Foi atualizado seu Histórico Acadêmico. <br> Recalculado seu Perfil Profissional:',
+					$atualizarAcademic->errors
+				));
+			}
+
+		}
 
 		$this->view->setVar('user', $user);
 	}
@@ -261,7 +375,32 @@ class PerfilController extends \HXPHP\System\Controller
 				$excluirAcademic->errors
 			));
 		}
+		else {
+	 		$graduacao = Academic::listFormations($user);
+	 		$academic = array(
+         'question_4' => $graduacao[0],
+         'question_5' => $graduacao[1],
+         'question_6' => $graduacao[2],
+         'question_7' => $graduacao[3]
+      	);
 
+	      $upGraduation = Answer::upAcademic($academic, $user_id);
+			$upProfile = Profile::recalculateProfile($user_id);
+			if ($upProfile->status == false) {
+				$this->load('Helpers\Alert', array(
+					'error',
+					'Ops! Não foi possível atualizar seu Histórico Acadêmico. <br> Verifique os erros abaixo:',
+					$excluirAcademic->errors
+				));
+			}
+			else {
+				$this->load('Helpers\Alert', array(
+					'error',
+					'Uuuu! Foi atualizado seu Histórico Acadêmico. <br> Recalculado seu Perfil Profissional:',
+					$excluirAcademic->errors
+				));
+			}
+		}
 		$this->view->setVar('user', $user);
 	}
 
@@ -276,15 +415,15 @@ class PerfilController extends \HXPHP\System\Controller
 		$user = User::find($user_id);
 		$post = $this->request->post();
 
-		$academic = [];
-		$academic[] = $post['addInstituicao'];
-		$academic[] = $post['addLocal'];
-		$academic[] = $post['addCurso'];
-		$academic[] = $post['addLevel'];
-		$academic[] = $post['date_conclusion'];
-		$academic[] = $post['addAcademic'];
+		$academic_data = array();
+		$academic_data[0] = $post['addInstituicao'];
+		$academic_data[1] = $post['addLocal'];
+		$academic_data[2] = $post['addCurso'];
+		$academic_data[3] = $post['addLevel'];
+		$academic_data[4] = $post['adddate_conclusion'];
+		$academic_data[5] = $post['addAcademic'];
 
-		$addAcademic = Academic::cadastrar($academic, $user_id);
+		$addAcademic = Academic::cadastrar($academic_data, $user_id);
 
 		if ($addAcademic->status == false) {
 			$this->load('Helpers\Alert', array(
@@ -293,7 +432,238 @@ class PerfilController extends \HXPHP\System\Controller
 				$addAcademic->errors
 			));
 		}
+		else {
+	 		$graduacao = Academic::listFormations($user);
+	 		$academic = array(
+         'question_4' => $graduacao[0],
+         'question_5' => $graduacao[1],
+         'question_6' => $graduacao[2],
+         'question_7' => $graduacao[3]
+      	);
 
+	      $upGraduation = Answer::upAcademic($academic, $user_id);
+			$upProfile = Profile::recalculateProfile($user_id);
+			if ($upProfile->status == false) {
+				$this->load('Helpers\Alert', array(
+					'error',
+					'Ops! Não foi possível atualizar seu Histórico Acadêmico. <br> Verifique os erros abaixo:',
+					$addAcademic->errors
+				));
+			}
+			else {
+				$this->load('Helpers\Alert', array(
+					'error',
+					'Uuuu! Foi atualizado seu Histórico Acadêmico. <br> Recalculado seu Perfil Profissional:',
+					$addAcademic->errors
+				));
+			}
+		}
+		$this->view->setVar('user', $user);
+	}
+
+	/*
+	* Métodos Controller's de Atualização de Informaçoes
+	* do Histórico Profissional
+	*/
+	public function addProfessionalAction()
+	{
+
+		$this->view->setFile('editar');
+         $this->view->setHeader('perfil/header')
+            ->setFooter('perfil/footer');
+
+		$user_id = $this->auth->getUserId();
+		$user = User::find($user_id);
+		$post = $this->request->post();
+
+		$professional_data = array();
+		$professional_data[0] = $post['addCompany'];
+		$professional_data[1] = $post['addFunction'];
+		$professional_data[2] = $post['adddate_entry'];
+		$professional_data[3] = $post['adddate_out'];
+		$professional_data[4] = $post['addAssignments'];
+
+		$addProfessional = Professional::cadastrar($professional_data, $user_id);
+
+		if ($addProfessional->status == false) {
+			$this->load('Helpers\Alert', array(
+				'error',
+				'Ops! Não foi possível atualizar seu Histórico Profissional. <br> Verifique os erros abaixo:',
+				$addProfessional->errors
+			));
+		}
+		else {
+	 		//Pergunta 2 - Experiência
+	      $total = User::experiencia($user);
+	      $experiencia = 0;
+
+	      if ($total[0] >= 8) {
+	         $experiencia = 5;
+	      }
+	      else if ( $total[0] < 8 && $total[0] >= 5 ) {
+	         $experiencia = 4;
+	      }
+	      else if ( $total[0] < 5 && $total[0] >= 3 ) {
+	         $experiencia = 3;
+	      }
+	      else if ( $total[0] < 3 && $total[0] >= 1 ) {
+	         $experiencia = 2;
+	      }
+	      else if ( $total[0] < 1) {
+	         $experiencia = 1;
+	      }
+
+	 		$professional = array(
+         'question_2' => $experiencia
+      	);
+	      $addExperiencia = Answer::upProfessional($professional, $user_id);
+			$upProfile = Profile::recalculateProfile($user_id);
+			if ($upProfile->status == false) {
+				$this->load('Helpers\Alert', array(
+					'error',
+					'Ops! Não foi possível atualizar seu Histórico Acadêmico. <br> Verifique os erros abaixo:',
+					$addProfessional->errors
+				));
+			}
+			else {
+				$this->load('Helpers\Alert', array(
+					'error',
+					'Uuuu! Foi atualizado seu Histórico Acadêmico. <br> Recalculado seu Perfil Profissional:',
+					$addProfessional->errors
+				));
+			}
+		}
+		$this->view->setVar('user', $user);
+	}
+
+	public function upprofessionalAction()
+	{
+
+		$this->view->setFile('editar');
+         $this->view->setHeader('perfil/header')
+            ->setFooter('perfil/footer');
+
+		$post = $this->request->post();
+		$user_id = $this->auth->getUserId();
+		$user = User::find($user_id);
+
+		$atualizarProfessional = Professional::atualizar($post, $user_id);
+
+		if ($atualizarProfessional->status == false) {
+			$this->load('Helpers\Alert', array(
+				'error',
+				'Ops! Não foi possível atualizar seu Histórico Acadêmico. <br> Verifique os erros abaixo:',
+				$atualizarProfessional->errors
+			));
+		}
+		else {
+	      //Pergunta 2 - Experiência
+	      $total = User::experiencia($user);
+	      $experiencia = 0;
+
+	      if ($total[0] >= 8) {
+	         $experiencia = 5;
+	      }
+	      else if ( $total[0] < 8 && $total[0] >= 5 ) {
+	         $experiencia = 4;
+	      }
+	      else if ( $total[0] < 5 && $total[0] >= 3 ) {
+	         $experiencia = 3;
+	      }
+	      else if ( $total[0] < 3 && $total[0] >= 1 ) {
+	         $experiencia = 2;
+	      }
+	      else if ( $total[0] < 1) {
+	         $experiencia = 1;
+	      }
+
+	 		$professional = array(
+         'question_2' => $experiencia
+      	);
+	      $upExperiencia = Answer::upProfessional($professional, $user_id);
+
+			$upProfile = Profile::recalculateProfile($user_id);
+			if ($upProfile->status == false) {
+				$this->load('Helpers\Alert', array(
+					'error',
+					'Ops! Não foi possível atualizar seu Histórico Acadêmico. <br> Verifique os erros abaixo:',
+					$atualizarProfessional->errors
+				));
+			}
+			else {
+				$this->load('Helpers\Alert', array(
+					'error',
+					'Uuuu! Foi atualizado seu Histórico Acadêmico. <br> Recalculado seu Perfil Profissional:',
+					$atualizarProfessional->errors
+				));
+			}
+
+		}
+
+		$this->view->setVar('user', $user);
+	}
+
+
+	public function delProfessionalAction($professional_id = null)
+	{
+
+		$this->view->setFile('editar');
+         $this->view->setHeader('perfil/header')
+            ->setFooter('perfil/footer');
+
+		$user_id = $this->auth->getUserId();
+		$user = User::find($user_id);
+		$excluirProfessional = Professional::excluir($professional_id, $user_id);
+
+		if ($excluirProfessional->status == false) {
+			$this->load('Helpers\Alert', array(
+				'error',
+				'Ops! Não foi possível atualizar seu Histórico Acadêmico. <br> Verifique os erros abaixo:',
+				$excluirProfessional->errors
+			));
+		}
+		else {
+	      //Pergunta 2 - Experiência
+	      $total = User::experiencia($user);
+	      $experiencia = 0;
+
+	      if ($total[0] >= 8) {
+	         $experiencia = 5;
+	      }
+	      else if ( $total[0] < 8 && $total[0] >= 5 ) {
+	         $experiencia = 4;
+	      }
+	      else if ( $total[0] < 5 && $total[0] >= 3 ) {
+	         $experiencia = 3;
+	      }
+	      else if ( $total[0] < 3 && $total[0] >= 1 ) {
+	         $experiencia = 2;
+	      }
+	      else if ( $total[0] < 1) {
+	         $experiencia = 1;
+	      }
+
+	 		$professional = array(
+         'question_2' => $experiencia
+      	);
+	      $delExperiencia = Answer::upProfessional($professional, $user_id);
+
+			$upProfile = Profile::recalculateProfile($user_id);
+			if ($upProfile->status == false) {
+				$this->load('Helpers\Alert', array(
+					'error',
+					'Ops! Não foi possível atualizar seu Histórico Acadêmico. <br> Verifique os erros abaixo:',
+					$excluirProfessional->errors
+				));
+			}
+			else {
+				$this->load('Helpers\Alert', array(
+					'error',
+					'Uuuu! Foi atualizado seu Histórico Acadêmico. <br> Recalculado seu Perfil Profissional:',
+					$excluirProfessional->errors
+				));
+			}
+		}
 		$this->view->setVar('user', $user);
 	}
 

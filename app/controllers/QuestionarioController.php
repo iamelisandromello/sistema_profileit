@@ -127,5 +127,12 @@ class QuestionarioController extends \HXPHP\System\Controller
 				));
 			}
 		}
+		else {
+			$this->load('Helpers\Alert', array(
+				'danger',
+				'Ops! Não foi possível efetuar seu cadastro. <br> Verifique os erros abaixo:',
+				$cadastrarAnswers->errors
+			));
+		}
 	}
 }

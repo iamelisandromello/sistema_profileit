@@ -82,38 +82,6 @@ jQuery(document).ready(function() {
       }
    });
 
-	/**
-	* Área Hisórico Academico
-	*/
-	window.delReturnAcademic = function(data, nome, idAcademic) {
-		if (data){
-		   $(location).attr('href', 'http://localhost/profileit/perfil/delacademic/' + idAcademic);
-		}
-		else{
-			triggerNotify('purple', 'bubbles', 'Eeei ' + nome + ', então Iremos Cancelar essa Exclusão', 'OK Fica para Depois!!!');
-		}
-	}
-
-	window.academicConclusion = function() {
-		var now = new Date;
-		var dataConclusao = new Date(document.getElementById("date_conclusion").value);
-
-   	if (now >= dataConclusao) {
-         document.getElementById("addconclusion").submit();
-     	}
-     	else{
-			document.getElementById('date_conclusion').value=''; // Limpa o campo
-			triggerNotify('purple', 'tongue2', 'Eeei , Data de Conclusão Informada Inválida', 'Realize o Processo Novamente!!!');
-     	}
-
-	};
-
-	window.sendUpAcademic = function(idAcademic) {
-      $(".modal-content #modalId").val(idAcademic);
-	};
-
-	window.sendDelAcademic = function(idAcademic, user) {
-		triggerConfirmDel('confused',user,';) Ohhhhh ' + user + ', Vamos Realizar a Exclusão deste Histórico Acadêmico?', ';) Agora', ':( Ainda Não', delReturnAcademic, idAcademic);
-	};
+	
 
 });

@@ -40,8 +40,6 @@
 				<i class="font-icon-arrow-simple-up"></i>
 			</a>
 			<!-- End Back to Top -->
-
-
 			<!--==============================================
 			Modal User Search (Busca Usuarios)
 			===============================================-->
@@ -173,8 +171,6 @@
 		    				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 		    				<h2 class="modal-title">Responder Mensagem</h2>
 		    			</div>
-		    			<form action="#" method="post">
-							<fieldset id="resposeMessage">
 							<div class="row">
 					        	<div class="col-sm-3">
 									<div class="modal-containerAvatar">
@@ -204,9 +200,21 @@
 									</div><!-- </modal-containerAvatar> -->
 								</div><!-- </col-sm-3> -->
 				        	</div><!-- </row> -->
+    					<div class="row">
+							<div class="col-md-10 centered">
+								<div class="modal-containerStep">
+									<span class="step-num">1</span>
+									<div class="modal-text">
+										Responda a mensagem recebida!!
+									</div><!-- </modal-text> -->
+								</div><!-- </moldal-containerStep> -->
+							</div><!-- </col-md-10> -->
+						</div><!-- </row>  -->
 
+		    			<form action="#" method="post">
+							<fieldset id="resposeMessage">
 							<div class="modal-groupForm textareaInput">
-								<textarea class="textarea-modal" rows="5" name="replyText" id="replyText" placeholder="Envia-me sua mensagem, que lhe retornarei!"></textarea>
+								<textarea class="textarea-modal" rows="5" name="replyText" id="replyText" placeholder="Respondendo a mensagem recebida!"></textarea>
 								<div class="msgFront" name="msgFront">
 									<span></span>
 								</div>
@@ -727,35 +735,29 @@
 		<!-- ==============================================
 		Javascripts
 		================================================== -->
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<!-- Libs - Bibliotecas JQuery via Bower-->
 		<script src="<?php echo BOWER; ?>jquery/dist/jquery.min.js"></script>
-		<!-- Include all compiled plugins (below), or include individual files as needed -->
-		<script src="<?php echo BOWER; ?>bootstrap-sass/assets/javascripts/bootstrap.min.js"></script> <!-- Bootstrap -->
-		<!-- Contact JS -->
-		<!-- Wow JS -->
-		<script src="<?php echo BOWER; ?>wow/dist/wow.min.js"></script> <!-- WOW -->
-		<script src="<?php echo BOWER; ?>flexslider/jquery.flexslider-min.js"></script> <!-- FlexSlider JS (Slider Indicações) -->
-		<script src="<?php echo BOWER; ?>jquery.scrollTo/jquery.scrollTo.min.js"></script> <!-- ScrollTo -->
-		<script src="<?php echo BOWER; ?>jquery.easing/js/jquery.easing.min.js"></script> <!-- Easing -->
-		<script src="<?php echo BOWER; ?>jpreloader/js/jpreloader.min.js"></script> <!-- PreLoader -->
-		<script src="<?php echo JS; ?>front/smooth-scrolling.js"></script> <!-- Deslocamento Suave Sesões - One Page -->
+		<script src="<?php echo BOWER; ?>bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
+		<script src="<?php echo BOWER; ?>wow/dist/wow.min.js"></script>
+		<script src="<?php echo BOWER; ?>flexslider/jquery.flexslider-min.js"></script>
+		<script src="<?php echo BOWER; ?>jquery.scrollTo/jquery.scrollTo.min.js"></script>
+		<script src="<?php echo BOWER; ?>jquery.easing/js/jquery.easing.min.js"></script>
+		<script src="<?php echo BOWER; ?>jpreloader/js/jpreloader.min.js"></script>
+		<!-- Libs - Bibliotecas JQuery -->
+		<script src="<?php echo JS; ?>libs/smooth-scrolling.js"></script>
+		<!-- Scripts JavaScript Personalizados-->
 		<script src="<?php echo JS; ?>front/main.js"></script> <!-- Default JS -->
 		<script src="<?php echo JS; ?>boxmessage.js"></script> <!-- Default JS -->
-		<script src="<?php echo JS; ?>front/timeline-loader.js"></script> <!-- Plus Timeline Item -->
-		<!-- Função Repeater -->
-		<script src="<?php echo JS; ?>front/jquery.repeater.min.js"></script>
-		<!-- Default JS Pagina Update-->
-		<script src="<?php echo JS; ?>profile.js"></script> <!-- Plus Timeline Item -->
-		<script src="<?php echo JS; ?>front/use-repeater.js"></script>
-		<script src="<?php echo JS; ?>competency.js"></script>
+		<script src="<?php echo JS; ?>home/profile.js"></script> <!-- Plus Timeline Item -->
+		<script src="<?php echo JS; ?>home/competency.js"></script>
 		<script src="<?php echo JS; ?>home/skill.js"></script>
-		<script src="<?php echo JS; ?>addopportunity.js"></script>
+		<script src="<?php echo JS; ?>home/addopportunity.js"></script>
 		<script src="<?php echo JS; ?>home/apprecomendation.js"></script>
-		<script src="<?php echo JS; ?>checkMessage.js"></script>
-
-		<script src="<?php echo JS; ?>temp/all_in_one.js"></script>
-		<script src="<?php echo JS; ?>temp/jquery.dlmenu.js"></script>
-		<script src="<?php echo JS; ?>temp/front_temp.js"></script>
+		<script src="<?php echo JS; ?>home/checkMessage.js"></script>
+		<!-- Scripts Sessão Mensagens-->
+		<script src="<?php echo JS; ?>home/messages/all_in_one.js"></script>
+		<script src="<?php echo JS; ?>home/messages/jquery.dlmenu.js"></script>
+		<script src="<?php echo JS; ?>home/messages/front_temp.js"></script>
 
 		<!-- Tuner ACessibilidade de Cores -->
 		<script src="<?php echo TUNER; ?>js/tuner.js"></script>

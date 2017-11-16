@@ -123,4 +123,69 @@ class Answer extends \HXPHP\System\Model
 
       return $callbackObj;
    }
+
+   public static function upProfessional(array $post, $user_id)
+   {
+      $callbackObj = new \stdClass;// Cria classe vazia
+      $callbackObj->answer = null;// Propriedade user da classe null
+      $callbackObj->status = false;// Propriedade Status da Classe False
+      $callbackObj->errors = array();// Array padrão de erros vazio
+
+      $answer = self::find_by_user_id($user_id);
+      if (!$answer) {
+         array_push($callbackObj->errors, 'Oops! Não encontramos o Questionário de Perfil para ser atualizado. Por favor, revise informações e tente novamente');
+
+         return $callbackObj;
+      }
+
+      $answer->question_2 = $post['question_2'];
+      $atualizar = $answer->save(false);
+
+      if ($atualizar) {
+         $callbackObj->answer = $atualizar;
+         $callbackObj->status = true;
+         return $callbackObj;
+      }
+
+      $errors = $cadastrar->errors->get_raw_errors();
+      foreach ($errors as $field => $message) {
+         array_push($callbackObj->errors, $message[0]);
+      }
+      return $callbackObj;
+   }
+
+
+   public static function upAcademic(array $post, $user_id)
+   {
+      $callbackObj = new \stdClass;// Cria classe vazia
+      $callbackObj->answer = null;// Propriedade user da classe null
+      $callbackObj->status = false;// Propriedade Status da Classe False
+      $callbackObj->errors = array();// Array padrão de erros vazio
+
+      $answer = self::find_by_user_id($user_id);
+      if (!$answer) {
+         array_push($callbackObj->errors, 'Oops! Não encontramos o Questionário de Perfil para ser atualizado. Por favor, revise informações e tente novamente');
+
+         return $callbackObj;
+      }
+
+      $answer->question_4 = $post['question_4'];
+      $answer->question_5 = $post['question_5'];
+      $answer->question_6 = $post['question_6'];
+      $answer->question_7 = $post['question_7'];
+      $atualizar = $answer->save(false);
+
+      if ($atualizar) {
+         $callbackObj->answer = $atualizar;
+         $callbackObj->status = true;
+         return $callbackObj;
+      }
+
+      $errors = $cadastrar->errors->get_raw_errors();
+      foreach ($errors as $field => $message) {
+         array_push($callbackObj->errors, $message[0]);
+      }
+      return $callbackObj;
+   }
+
 }

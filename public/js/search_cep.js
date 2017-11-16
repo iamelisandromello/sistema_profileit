@@ -32,22 +32,20 @@ window.onload = function () {
     });
     // Método para consultar o CEP
     $('#zipcode').on('blur', function() {
-
       if ($.trim($("#zipcode").val()) != "") {
 
         $("#infocep").html('Aguarde, estamos consultando seu CEP ...');
         $.getScript("http://cep.republicavirtual.com.br/web_cep.php?formato=javascript&cep=" + $("#zipcode").val(), function() {
-
           if (resultadoCEP["resultado"]) {
             $("#address").val(unescape(resultadoCEP["tipo_logradouro"]) + " " + unescape(resultadoCEP["logradouro"]));
-            $("#beighborhood").val(unescape(resultadoCEP["bairro"]));
+            $("#burgh").val(unescape(resultadoCEP["bairro"]));
             $("#city").val(unescape(resultadoCEP["cidade"]));
             $("#state").val(unescape(resultadoCEP["uf"]));
           }
           $("#infocep").html('');
         });
       }
-    })   
+    })
 
   });
-}; //window.onload  
+}; //window.onload
