@@ -26,7 +26,7 @@ jQuery(document).ready(function() {
 		}
 	}
 
-	window.addReturn = function(data, nome) {
+	window.sendAddCompetency = function(data, nome) {
         if (data){
             document.getElementById("addcompetency").submit();
         }
@@ -56,19 +56,43 @@ jQuery(document).ready(function() {
 		triggerConfirmDel('confused',user,';) Ohhhhh ' + user + ', Vamos Realizar a Exclusão desta Competência?', ';) Agora', ':( Ainda Não', delReturn, idCompetency);
 	};
 
-	window.addQualification = function(user) {
- 		next_step = true;
- 		if ($('#qualification_id').val()<= 0) {
- 			alert('teste');
- 			$('#qualification_id').addClass('input-error');
- 			next_step = false;
- 		}
+	$('.addcompetency input[type="text"], .addcompetency input[type="password"], .addcompetency textarea, .addcompetency select, .addcompetency radio').on('focus', function() {
+	   $(this).removeClass('input-error');
+	});
 
- 		if (next_step) {
-			triggerConfirmDel('confused',user,';) Ohhhhh ' + user + ', Vamos Realizar a Inclusão de uma Nova Competência?', ';) Só se For Agora', ':( Ainda Não', addReturn);
- 		}
 
-   };
+	$('.addcompetency .btn-addCompetency').on('click', function() {
+	   var parent_fieldset = $(this).parents('fieldset');
+	   var next_step = true;
+	   var user = ($("#btnOK").val());
+
+	   parent_fieldset.find('input[type="text"], input[type="password"], textarea, select').each(function() {
+	      var id = $(this).attr('id');
+	      if( $(this).val() == "" || $(this).val() === "-1") {
+	         $(this).addClass("input-error");
+	         next_step = false;
+	      }
+	      else{
+	         $(this).removeClass("input-error");
+	      }
+	   });
+
+	   if (next_step) {
+			triggerConfirmDel('confused',user,';) Ohhhhh ' + user + ', Vamos Realizar a Inclusão de uma Nova Competência?', ';) Só se For Agora', ':( Ainda Não', sendAddCompetency);
+ 		}
+ 		else {
+	      successCorrect = "#msg-box3 span";
+	      $(successCorrect)
+	      .html("")
+	      .html("Não Foram Selecionados as <strong> Opções Obrigatórias </strong>.")
+	      .removeClass()
+	      .addClass("alert alert-success")
+	      .show();
+	      setTimeout(function(){
+	         $(successCorrect).hide();
+	      }  , 5000);
+	   }
+	});
 
 	/**
 	* <b>onClick:</b> Funcão no Onclick do Box de Mensagem BackEnd para Fechamento

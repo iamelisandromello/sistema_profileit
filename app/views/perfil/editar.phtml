@@ -442,129 +442,132 @@
 							<div class="col-md-6">
 								<div class="row">
 									<div class="col-md-12">
-										<form method="POST" action="<?php echo BASE; ?>perfil/addcompetency/"  name="addcompetency" id="addcompetency" class="form-horizontal wrapper-repeater" >
-											<fieldset>
+										<form method="POST" action="<?php echo BASE; ?>perfil/addcompetency/"  name="addcompetency" id="addcompetency" class="form-horizontal wrapper-repeater addcompetency" >
+											<fieldset id="addCompetencyField">
 												<legend>+ Novas Competências</legend>
-												<div class="repeater-custom-show-hide">
-													<div class="row">
-														<div class="boxTitles">
-															<div class="col-md-5">
-																<label>Competências</label>
-															</div>
-															<div class="col-md-2">
-																<label>Nível</label>
-															</div>
-															<div class="col-md-2">
-																<label>Excluir</label>
-															</div>
+												<div class="row">
+													<div class="boxTitles">
+														<div class="col-md-7">
+															<label>Competências</label>
 														</div>
-													</div><!-- </row> -->
-													<div data-repeater-list="competencies-group">
-							      					<div data-repeater-item>
-								      					<div class="row">
-																<div class="col-xs-8 col-sm-7 col-md-7 col-lg-7 wow flipInx">
-									   							<div class="box-input">
-									   								<select name="qualification_id" id="qualification_id" class="form-control border input">
-				 															<option class="opt-placeholder" value="-1" selected="">Competência</option>
-						 													<optgroup label="Microsoft">
-						 													<?php foreach ($view_qualificacoes as $qualificacao) :
-						 													if ($qualificacao->domain == 'Microsoft') : ?>
-							 													<option value="<?php echo $qualificacao->id ?>">
-							 														<?php echo $qualificacao->qualification ?>
-							 													</option>
-							 												<?php endif;
-							 												endforeach; ?>
-						 													</optgroup>
-						 													<optgroup label="Linux">
-						 													<?php foreach ($view_qualificacoes as $qualificacao) :
-						 													if ($qualificacao->domain == 'Linux') : ?>
-							 													<option value="<?php echo $qualificacao->id?>">
-							 														<?php echo $qualificacao->qualification ?>
-							 													</option>
-							 												<?php endif;
-							 												endforeach; ?>
-						 													</optgroup>
-						 													<optgroup label="Especializações">
-						 													<?php foreach ($view_qualificacoes as $qualificacao) :
-						 													if ($qualificacao->domain == 'Especialização') : ?>
-							 													<option value="<?php echo $qualificacao->qualification ?>">
-							 														<?php echo $qualificacao->qualification ?>
-							 													</option>
-							 												<?php endif;
-							 												endforeach; ?>
-						 													</optgroup>
-						 													<optgroup label="Processos ">
-						 													<?php foreach ($view_qualificacoes as $qualificacao) :
-						 													if ($qualificacao->domain == 'Processos') : ?>
-							 													<option value="<?php echo $qualificacao->qualification ?>">
-							 														<?php echo $qualificacao->qualification ?>
-							 													</option>
-							 												<?php endif;
-							 												endforeach; ?>
-						 													</optgroup>
-					 													</select>
-									   							</div><!-- </box-input> -->
-									      					</div><!-- </col-md-5> -->
-																<div class="col-xs-2 col-sm-2 col-md-3 col-lg-2 wow flipInx">
-				 													<div class="box-input">
-				 														<select name="nivel" id="nivel" class="form-control">
-						 													<option value="1">
-						 														1
+														<div class="col-md-3">
+															<label>Nível</label>
+														</div>
+													</div>
+												</div><!-- </row> -->
+												<div id="testeRepeater">
+						      					<div class="competencies-group">
+							      					<div class="row">
+															<div class="col-xs-8 col-sm-7 col-md-7 col-lg-7">
+								   							<div class="box-input">
+								   								<label for="competency_0_0" data-pattern-text="Competência +=1:" class="sr-only" >Competência 1:</label>
+								   								<select class="form-control border input" name="competency[0][qualification]" id="competency_0_qualification" data-pattern-name="competency[++][qualification]" data-pattern-id="competency_++qualification">
+			 															<option class="opt-placeholder" value="-1" selected="">Competência</option>
+					 													<optgroup label="Microsoft">
+					 													<?php foreach ($view_qualificacoes as $qualificacao) :
+					 													if ($qualificacao->domain == 'Microsoft') : ?>
+						 													<option value="<?php echo $qualificacao->id ?>">
+						 														<?php echo $qualificacao->qualification ?>
 						 													</option>
-						 													<option value="2">
-						 														2
+						 												<?php endif;
+						 												endforeach; ?>
+					 													</optgroup>
+					 													<optgroup label="Linux">
+					 													<?php foreach ($view_qualificacoes as $qualificacao) :
+					 													if ($qualificacao->domain == 'Linux') : ?>
+						 													<option value="<?php echo $qualificacao->id?>">
+						 														<?php echo $qualificacao->qualification ?>
 						 													</option>
-						 													<option value="3">
-						 														3
+						 												<?php endif;
+						 												endforeach; ?>
+					 													</optgroup>
+					 													<optgroup label="Especializações">
+					 													<?php foreach ($view_qualificacoes as $qualificacao) :
+					 													if ($qualificacao->domain == 'Especialização') : ?>
+						 													<option value="<?php echo $qualificacao->qualification ?>">
+						 														<?php echo $qualificacao->qualification ?>
 						 													</option>
-						 													<option value="4">
-						 														4
+						 												<?php endif;
+						 												endforeach; ?>
+					 													</optgroup>
+					 													<optgroup label="Processos ">
+					 													<?php foreach ($view_qualificacoes as $qualificacao) :
+					 													if ($qualificacao->domain == 'Processos') : ?>
+						 													<option value="<?php echo $qualificacao->qualification ?>">
+						 														<?php echo $qualificacao->qualification ?>
 						 													</option>
-						 													<option value="5">
-						 														5
-						 													</option>
-						 													<option value="6">
-						 														6
-						 													</option>
-						 													<option value="7">
-						 														7
-						 													</option>
-						 													<option value="8">
-						 														8
-						 													</option>
-						 													<option value="9">
-						 														9
-						 													</option>
-						 													<option value="10">
-						 														10
-						 													</option>
-					 													</select>
-				 													</div>
-								         					</div><!-- </col-md-1> -->
+						 												<?php endif;
+						 												endforeach; ?>
+					 													</optgroup>
+				 													</select>
+								   							</div><!-- </box-input> -->
+								      					</div><!-- </col-md-5> -->
+															<div class="col-xs-2 col-sm-2 col-md-3 col-lg-3">
+			 													<div class="box-input">
+			 														<select name="competency[0][level]" id="competency_0_level" data-pattern-name="competency[++][level]" data-pattern-id="competency_++level" class="form-control">
+					 													<option class="opt-placeholder" value="-1" selected="">Nivel</option>
+					 													<option value="1">
+					 														1
+					 													</option>
+					 													<option value="2">
+					 														2
+					 													</option>
+					 													<option value="3">
+					 														3
+					 													</option>
+					 													<option value="4">
+					 														4
+					 													</option>
+					 													<option value="5">
+					 														5
+					 													</option>
+					 													<option value="6">
+					 														6
+					 													</option>
+					 													<option value="7">
+					 														7
+					 													</option>
+					 													<option value="8">
+					 														8
+					 													</option>
+					 													<option value="9">
+					 														9
+					 													</option>
+					 													<option value="10">
+					 														10
+					 													</option>
+				 													</select>
+			 													</div>
+							         					</div><!-- </col-md-1> -->
 
-									      					<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 wow flipInx">
-																	<div class="box-input">
-																		<a data-repeater-delete class="btn btn-primary btn-sm margin-btm-30" >
-																			<i class="fa fa-minus-circle"></i>
-																			<span > Delete </span>
-																		</a>
-																	</div>
-		 														</div>
-															</div><!-- </row> -->
-														</div>	<!-- </data-repeater-item> -->
-													</div><!-- </data-repeater-list> -->
+															<!-- Add a remove button for the item. If one didn't exist, it would be added to overall group -->
+								      					<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 wow flipInx">
+																<div class="box-input form-group"">
+																	<span data-repeater-delete class="btn btn-danger btn-sm academic a-btnRemove">
+																		<span class="glyphicon glyphicon-remove"></span> Delete
+																	</span>
+																</div>
+	 														</div>
 
-				 									<div class="form-group wow flipInx">
-				 										<div class="col-sm-offset-1 col-sm-11">
-				 											<span data-repeater-create data-tooltip="Include new skills" class="btn btn-info btn-md">
-				 												<span class="glyphicon glyphicon-plus"></span> Adicionar
-				 											</span>
-				 										</div>
-				 									</div>
-				 									<hr/>
-												</div><!-- </repeater-custom-show-hide> -->
+														</div><!-- </row> -->
+													</div>	<!-- </competency-group> -->
+
+													<!--
+														Botão Add do Repeater
+													-->
+													<div class="row">
+														<div class="col-md-4">
+															<div class="form-group">
+																<span data-tooltip="Include new skills" name="add-academic" id="add-academic" class="btn btn-info btn-md academic a-btnAdd">
+																	<span class="glyphicon glyphicon-plus"></span> add
+																</span>
+															</div>
+														</div><!-- </col-md-4> -->
+													</div>
+
+												</div><!-- </competencyRepeater> -->
 												<div class="md-padder text-left">
-	                        				<button type="button" value="<?php echo $view_user->name; ?>" onclick="addQualification(this.value)" class="btn btn-primary btn-lg margin-btm-30" id="btnOK">
+	                        				<button type="button" value="<?php echo $view_user->name; ?>" class="btn btn-primary btn-lg margin-btm-30 btn-addCompetency" id="btnOK">
 	                        					<i class="fa fa-send"></i>
 	                        					<span>OK</span>
 	                        				</button>

@@ -6,36 +6,48 @@
 				  	<div class="container">
 				   	<div class="row">
 				         <ul>
+								<?php if($view_user->network->facebook) : ?>
 				            <li>
-				            	<a href="https://www.facebook.com/profile.php?id=1800765934" target="_blank" title="">
+				            	<a href="<?php echo 'https://www.facebook.com/'. $view_user->network->facebook ?>" target="_blank" title="">
 				            		<span> <i class="fa fa-facebook"></i> </span>
 				            	</a>
 				            </li><!-- Icone Facebook -->
+				            <?php endif; ?>
+				            <?php if($view_user->network->twitter) : ?>
 				            <li>
-				            	<a href="https://twitter.com/elisandromello" target="_blank" title="">
+				            	<a href="<?php echo 'https://www.twitter.com/'. $view_user->network->twitter ?>" target="_blank" title="">
 				            		<span> <i class="fa fa-twitter"></i> </span>
 				            	</a>
 				            </li><!-- Icone Twitter -->
+				            <?php endif; ?>
+				            <?php if($view_user->network->linkedin) : ?>
 				            <li>
-				            	<a href="http://www.linkedin.com/in/elisandromello" target="_blank" title="">
+				            	<a href="<?php echo 'https://www.linkedin.com/in/'. $view_user->network->linkedin ?>" target="_blank" title="">
 				            		<span> <i class="fa fa-linkedin"></i> </span>
 				            	</a>
 				            </li><!-- Icone LinkedIn -->
+				            <?php endif; ?>
+				            <?php if($view_user->network->instagram) : ?>
 				            <li>
-				            	<a href="http://www.instagram.com/iamelisandromello" target="_blank" title="">
+				            	<a href="<?php echo 'https://www.instagram.com/'. $view_user->network->instagram ?>" target="_blank" title="">
 				            		<span> <i class="fa fa-instagram"></i> </span>
 				            	</a>
 				            </li><!-- Icone Instagram -->
+				            <?php endif; ?>
+				            <?php if($view_user->network->github) : ?>
 				            <li>
-				            	<a href="https://github.com/iamelisandromello" target="_blank" title="">
+				            	<a href="<?php echo 'https://www.github.com/'. $view_user->network->github ?>" target="_blank" title="">
 				            		<span> <i class="fa fa-github"></i> </span>
 				            	</a>
 				            </li><!-- Icone GitHub -->
+				            <?php endif; ?>
+				            <?php if($view_user->email) : ?>
 				            <li>
-				            	<a href="mailto:iam@elisandromello.com.br?subject=Eu tenho um comentário para você..." title="">
+				            	<a href="<?php echo 'mailto:'. $view_user->email . '?subject=Eu tenho um comentário para você...' ?>" title="">
 				            		<span> <i class="fa fa-envelope"></i></span>
 				            	</a>
 				            </li><!-- Icone e-mail -->
+				            <?php endif; ?>
 				         </ul><!-- Lista de elementos Redes SOciais -->
 				    	</div><!-- /row -->
 				  	</div><!-- /container -->

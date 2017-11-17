@@ -271,8 +271,7 @@ class PerfilController extends \HXPHP\System\Controller
 		$user = User::find($user_id);
 
 		if (!empty($post)) {
-			$competencies_group = $_POST['competencies-group'];// copiar um arrays de um POST
-
+			$competencies_group = $_POST['competency'];// copiar um arrays de um POST
 			//Bloco Cadastro Competências
 			if (!empty($competencies_group)) {
 				foreach($competencies_group as $data) {

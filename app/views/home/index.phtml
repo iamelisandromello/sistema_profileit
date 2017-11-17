@@ -388,7 +388,7 @@
 				 													<optgroup label="Especializações">
 				 													<?php foreach ($view_qualificacoes as $qualificacao) :
 				 													if ($qualificacao->domain == 'Especialização') : ?>
-					 													<option value="<?php echo $qualificacao->qualification ?>">
+					 													<option value="<?php echo $qualificacao->id ?>">
 					 														<?php echo $qualificacao->qualification ?>
 					 													</option>
 					 												<?php endif;
@@ -397,7 +397,7 @@
 				 													<optgroup label="Processos ">
 				 													<?php foreach ($view_qualificacoes as $qualificacao) :
 				 													if ($qualificacao->domain == 'Processos') : ?>
-					 													<option value="<?php echo $qualificacao->qualification ?>">
+					 													<option value="<?php echo $qualificacao->id ?>">
 					 														<?php echo $qualificacao->qualification ?>
 					 													</option>
 					 												<?php endif;

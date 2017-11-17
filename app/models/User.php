@@ -231,14 +231,12 @@ class User extends \HXPHP\System\Model
 		$usuario 			= User::find_by_id($id_user);//localiza o objeto Usuário
 
 		/*Selecona Última Empresa e Status Empregado/Desempregado*/
-		$posts = Professional::find_by_sql('select * from professionals where user_id in (65) order by date_out desc');
+		//$posts = Professional::find_by_sql('select * from professionals where user_id in (65) order by date_out desc');
 		//$testes= Professional::find('all', array('conditions' => array('user_id in (?)', array($id_user))));
-		//$testes= Professional::find('all', array('order' => 'date_out ASC', 'limit' => 3));
+		$posts = Professional::find_by_user_id($id_user, array('order' => 'date_entry desc', 'limit' => 1));
 
-		foreach ($posts as $post) :
-	  		$userSummaries['Empresa']	= $post->company;
-	  		$userSummaries['Empregado']	= ($post->date_out) ? $post->date_out : false;
-	  	endforeach;
+  		$userSummaries['Empresa']	= $posts->company;
+  		$userSummaries['Empregado']	= ($posts->date_out) ? $posts->date_out : false;
 
 		/*Controle de Fluência no Inglês*/
 		$validaIdioma = Answer::find_by_user_id($id_user);

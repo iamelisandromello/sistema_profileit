@@ -415,7 +415,8 @@
       <script src="<?php echo BOWER; ?>bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
       <script src="<?php echo BOWER; ?>bootstrap-datepicker/dist/locales/bootstrap-datepicker.pt-BR.min.js"></script>
       <script src="<?php echo BOWER; ?>inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
-		<!-- Libs - Bibliotecas JQuery -->
+      <!-- Libs - Bibliotecas JQuery -->
+      <script src="<?php echo JS; ?>libs/jquery.form-repeater.js"></script>
 		<script src="<?php echo JS; ?>libs/smooth-scrolling.js"></script>
 		<!-- Scripts JavaScript Personalizados-->
 		<script src="<?php echo JS; ?>perfil/perfil_mask.js"></script>
@@ -423,11 +424,28 @@
 		<script src="<?php echo JS; ?>perfil/main-perfil.js"></script>
 		<script src="<?php echo JS; ?>search_cep.js"></script>
 		<script src="<?php echo JS; ?>boxmessage.js"></script>
-		<script src="<?php echo JS; ?>home/competency.js"></script>
+		<script src="<?php echo JS; ?>perfil/competency-perfil.js"></script>
 		<script src="<?php echo JS; ?>perfil/academic-perfil.js"></script>
 		<script src="<?php echo JS; ?>perfil/professional-perfil.js"></script>
 
-      <Script>
+		<script type="text/javascript">
+		  	$('#testeRepeater').repeater({
+		   	btnAddClass: 'a-btnAdd',
+		      btnRemoveClass: 'a-btnRemove',
+		      groupClass: 'competencies-group',
+		      minItems: 1,
+		      maxItems: 0,
+		      startingIndex: 0,
+		      reindexOnDelete: true,
+		      repeatMode: 'append',
+		      animation: 'fade',
+		      animationSpeed: 800,
+		      animationEasing: 'swing',
+		      clearValues: true
+		  	});
+		</script>
+
+      <script>
 	      $('.sandbox-container .input-group.date').datepicker({
 	          format: "dd/mm/yyyy",
 	          language: "pt-BR",
@@ -435,7 +453,7 @@
 	          autoclose: true,
 	          toggleActive: true
 	      });
-      </Script>
+      </script>
 
 		<!-- Tuner ACessibilidade de Cores -->
 		<script src="<?php echo TUNER; ?>js/tuner.js"></script>

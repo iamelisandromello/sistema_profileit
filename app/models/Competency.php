@@ -166,7 +166,7 @@ class Competency extends \HXPHP\System\Model
 		$skill = Competency::find_by_user_id($user_id);
 
 		if (is_null($skill)) {
-			array_push($callbackObj->errors, 'O Usuário não possui um Perfil de Skill. Contate o administrador');
+			array_push($callbackObj->errors, 'O Usuário não possui um Perfil de Skill. Acesse sua Página Inicial (Home) e cadastre seu Perfil de Competências');
 				return $callbackObj;
 		}
 

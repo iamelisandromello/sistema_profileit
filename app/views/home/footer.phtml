@@ -232,42 +232,384 @@
 		   </div><!-- </modal> -->
 
 			<!--==============================================
-			Modal Delete (Delete Opportunity )
+			Modal Vaga (Apresenta Oportunidade )
 			===============================================-->
 		   <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		    	<div class="modal-dialog">
+		    	<div class="modal-dialog modal-lg">
 		    		<div class="modal-content modal-popup">
 		    			<div class="modal-header">
 		    				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		    				<h2 class="modal-title">Gerenciamneto de Oportunidade</h2>
-		    			</div>
-
-		    			<div class="row">
-		    				<div class="col-md-10 centered">
-		    					<div class="modal-containerStep">
-		    						<span class="step-num">1</span>
-		    						<div class="modal-text">
-		    							<span class="hidden-xs">Sobre </span> Oportunidade
-		    						</div>
-		    					</div>
-		    				</div>
+		    				<h2 class="modal-title">Detalhes Oportunidade</h2>
 		    			</div>
 
 		    			<form action="#" method="post">
-		    				<div class="modal-groupForm">
-		    					<div class="grupo-input">
-		    						<span class="grupo-input-img"><i class="fa fa-user-plus"></i></span>
-		    						<input type="text" name="comment" class="input-modal" placeholder="Ex. Analista Jr" >
+		    				<div class="row">
+		    					<div class="col-md-6">
+		    						<div class="modal-groupForm">
+		    							<div class="grupo-input">
+		    								<span class="grupo-input-img"><i class="fa fa-street-view"></i></span>
+		    								<input type="text" name="vaga_company" class="input-modal" value="<?php echo $vaga->company  ?>" readonly >
+		    							</div>
+		    						</div>
+		    					</div>
+		    					<div class="col-md-6">
+		    						<div class="modal-groupForm">
+		    							<div class="grupo-input">
+		    								<span class="grupo-input-img"><i class="fa fa-envelope"></i></span>
+		    								<input type="text" name="vaga_contact" class="input-modal" value="<?php echo $vaga->contact  ?>" readonly >
+		    							</div>
+		    						</div>
 		    					</div>
 		    				</div>
+		    				<div class="row">
+		    					<div class="col-md-12">
+		    						<div class="modal-groupForm">
+										<textarea class="textarea-modal" rows="5" placeholder="Describe the job opportunity assignments" readonly="true"><?php echo $vaga->assignments ?></textarea>
+									</div>
+		    					</div>
+		    				</div>
+							<div class="containerRequerimento">
+				    			<div class="row">
+									<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+				    					<!-- Seleção de Funções -->
+										<label for="requerimentoInglês">Inglês</label>
+										<select name="attribute_1" id="requerimentoIngles" class="select-modal selectpicker" disabled="true">
+											<option value="1"<?php echo ($vaga->attribute->attribute_1 == 1) ? 'selected="true"' : null ?> >
+												Não Possui
+											</option>
+											<option value="2"<?php echo ($vaga->attribute->attribute_1 == 2) ? 'selected="true"' : null ?> >
+												Leitura
+											</option>
+											<option value="3"<?php echo ($vaga->attribute->attribute_1 == 3) ? 'selected="true"' : null ?> >
+												Leitura e Escrita
+											</option>
+											<option value="4"<?php echo ($vaga->attribute->attribute_1 == 4) ? 'selected="true"' : null ?> >
+												Fluente
+											</option>
+										</select>
+				    				</div>
+									<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+				    					<!-- Seleção de Funções -->
+										<label for="requerimentoExperiencia">Experiência</label>
+										<select name="attribute_2" id="requerimentoExperiencia" class="select-modal selectpicker" disabled="true" >
+											<option value="1"<?php echo ($vaga->attribute->attribute_2 == 1) ? 'selected="true"' : null ?> >
+												- de 1 ano
+											</option>
+											<option value="2"<?php echo ($vaga->attribute->attribute_2 == 2) ? 'selected="true"' : null ?> >
+												Entre 1 e 3 anos
+											</option>
+											<option value="3"<?php echo ($vaga->attribute->attribute_2 == 3) ? 'selected="true"' : null ?> >
+												Entre 3 e 5 anos
+											</option>
+											<option value="4"<?php echo ($vaga->attribute->attribute_2 == 4) ? 'selected="true"' : null ?> >
+												Entre 5 e 8 anos
+											</option>
+											<option value="5"<?php echo ($vaga->attribute->attribute_2 == 5) ? 'selected="true"' : null ?> >
+												+ de 8 anos
+											</option>
+										</select>
+				    				</div>
+				    				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+				    					<!-- Seleção de Funções -->
+										<label for="requerimentoCertificacao">Certificação</label>
+										<select name="attribute_3" id="requerimentoCertificacao" class="select-modal selectpicker" disabled="true" >
+											<option value="1"<?php echo ($vaga->attribute->attribute_3 == 1) ? 'selected="true"' : null ?> >
+												Não
+											</option>
+											<option value="2"<?php echo ($vaga->attribute->attribute_3 == 2) ? 'selected="true"' : null ?> >
+												MCP
+											</option>
+											<option value="3"<?php echo ($vaga->attribute->attribute_3 == 3) ? 'selected="true"' : null ?> >
+												MCTIP
+											</option>
+											<option value="4"<?php echo ($vaga->attribute->attribute_3 == 4) ? 'selected="true"' : null ?> >
+												MCSA
+											</option>
+											<option value="5"<?php echo ($vaga->attribute->attribute_3 == 5) ? 'selected="true"' : null ?> >
+												MCSE
+											</option>
+										</select>
+				    				</div>
+									<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+				    					<!-- Seleção de Funções -->
+										<label for="requerimentoFormacao">Formação</label>
+										<select name="attribute_4" id="requerimentoFormacao" class="select-modal selectpicker" disabled="true" >
+											<option value="1"<?php echo ($vaga->attribute->attribute_4 == 1) ? 'selected="true"' : null ?> >
+												Primário
+											</option>
+											<option value="2"<?php echo ($vaga->attribute->attribute_4 == 2) ? 'selected="true"' : null ?> >
+												Médio
+											</option>
+											<option value="3"<?php echo ($vaga->attribute->attribute_4 == 3) ? 'selected="true"' : null ?> >
+												Técnico
+											</option>
+											<option value="4"<?php echo ($vaga->attribute->attribute_4 == 4) ? 'selected="true"' : null ?> >
+												Tecnólogo
+											</option>
+											<option value="5"<?php echo ($vaga->attribute->attribute_4 == 5) ? 'selected="true"' : null ?> >
+												Bacharel
+											</option>
+										</select>
+				    				</div>
+				    			</div><!-- <row> -->
+								<!-- 2º Linha de Requerimentos Vaga-->
+				    			<div class="row">
+				    				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+				    					<!-- Seleção de Funções -->
+										<label for="requerimentoStatusF">Situação Acadêmica</label>
+										<select name="attribute_5" id="requerimentoStatusF" class="select-modal selectpicker" disabled="true" >
+											<option value="1"<?php echo ($vaga->attribute->attribute_5 == 1) ? 'selected="true"' : null ?> >
+												Trancado
+											</option>
+											<option value="2"<?php echo ($vaga->attribute->attribute_5 == 2) ? 'selected="true"' : null ?> >
+												Cursando
+											</option>
+											<option value="3"<?php echo ($vaga->attribute->attribute_5 == 3) ? 'selected="true"' : null ?> >
+												Completo
+											</option>
+										</select>
+				    				</div>
+				    				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+				    					<!-- Seleção de Funções -->
+										<label for="requerimentoPos">Pós Graduação</label>
+										<select name="attribute_6" id="requerimentoPos" class="select-modal selectpicker" disabled="true" >
+											<option value="1"<?php echo ($vaga->attribute->attribute_6 == 1) ? 'selected="true"' : null ?> >
+												Não Possui
+											</option>
+											<option value="2"<?php echo ($vaga->attribute->attribute_6 == 2) ? 'selected="true"' : null ?> >
+												MBA
+											</option>
+											<option value="3"<?php echo ($vaga->attribute->attribute_6 == 3) ? 'selected="true"' : null ?> >
+												Mestrado
+											</option>
+											<option value="4"<?php echo ($vaga->attribute->attribute_6 == 4) ? 'selected="true"' : null ?> >
+												Doutorado
+											</option>
+											<option value="5"<?php echo ($vaga->attribute->attribute_6 == 5) ? 'selected="true"' : null ?> >
+												PHD
+											</option>
+										</select>
+				    				</div>
+				    				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+				    					<!-- Seleção de Funções -->
+										<label for="requerimentoStatusP">Situação Pós</label>
+										<select name="attribute_7" id="requerimentoStatusP" class="select-modal selectpicker" disabled="true" >
+											<option value="1"<?php echo ($vaga->attribute->attribute_7 == 1) ? 'selected="true"' : null ?> >
+												Não Iniciado
+											</option>
+											<option value="2"<?php echo ($vaga->attribute->attribute_7 == 2) ? 'selected="true"' : null ?> >
+												Trancado
+											</option>
+											<option value="3"<?php echo ($vaga->attribute->attribute_7 == 3) ? 'selected="true"' : null ?> >
+												Cursando
+											</option>
+											<option value="4"<?php echo ($vaga->attribute->attribute_7 == 4) ? 'selected="true"' : null ?> >
+												Completo
+											</option>
+										</select>
+				    				</div>
+				    				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+				    					<!-- Seleção de Funções -->
+										<label for="requerimentoDominio">Domínio</label>
+										<select name="attribute_8" id="requerimentoDominio" class="select-modal selectpicker" disabled="true" >
+											<option value="1"<?php echo ($vaga->attribute->attribute_8 == 1) ? 'selected="true"' : null ?> >
+												Cliente
+											</option>
+											<option value="2"<?php echo ($vaga->attribute->attribute_8 == 2) ? 'selected="true"' : null ?> >
+												Operador
+											</option>
+											<option value="3"<?php echo ($vaga->attribute->attribute_8 == 3) ? 'selected="true"' : null ?> >
+												Administrador
+											</option>
+											<option value="4"<?php echo ($vaga->attribute->attribute_8 == 4) ? 'selected="true"' : null ?> >
+												Arquiteto de Domínio
+											</option>
+											<option value="5"<?php echo ($vaga->attribute->attribute_8 == 5) ? 'selected="true"' : null ?> >
+												Design de Florestas
+											</option>
+										</select>
+				    				</div>
+				    			</div>
+								<!-- 3º Linha de Requerimentos Vaga-->
+				    			<div class="row">
+				    				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+				    					<!-- Seleção de Funções -->
+										<label for="requerimentoExchange">Microsoft Exchange</label>
+										<select name="attribute_9" id="requerimentoExchange" class="select-modal selectpicker" disabled="true" >
+											<option value="1"<?php echo ($vaga->attribute->attribute_9 == 1) ? 'selected="true"' : null ?> >
+												Cliente
+											</option>
+											<option value="2"<?php echo ($vaga->attribute->attribute_9 == 2) ? 'selected="true"' : null ?> >
+												Operador
+											</option>
+											<option value="3"<?php echo ($vaga->attribute->attribute_9 == 3) ? 'selected="true"' : null ?> >
+												Administrador
+											</option>
+											<option value="4"<?php echo ($vaga->attribute->attribute_9 == 4) ? 'selected="true"' : null ?> >
+												Projetista
+											</option>
+										</select>
+				    				</div>
+				    				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+				    					<!-- Seleção de Funções -->
+										<label for="requerimentoVirtualizacao">Virtualização</label>
+										<select name="attribute_10" id="requerimentoVirtualizacao" class="select-modal selectpicker" disabled="true" >
+											<option value="1" <?php echo ($vaga->attribute->attribute_10 == 1) ? 'selected="true"' : null ?>>
+												Básico
+											</option>
+											<option value="2" <?php echo ($vaga->attribute->attribute_10 == 2) ? 'selected="true"' : null ?>>
+												Intermediário
+											</option>
+											<option value="3" <?php echo ($vaga->attribute->attribute_10 == 3) ? 'selected="true"' : null ?>>
+												Avançado
+											</option>
+											<option value="4" <?php echo ($vaga->attribute->attribute_10 == 4) ? 'selected="true"' : null ?>>
+												Profissional Certificado
+											</option>
+										</select>
+				    				</div>
+				    				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+				    					<!-- Seleção de Funções -->
+										<label for="requerimentoRoteadores">Roteadores</label>
+										<select name="attribute_11" id="requerimentoRoteadores" class="select-modal selectpicker" disabled="true" >
+											<option value="1"<?php echo ($vaga->attribute->attribute_11 == 1) ? 'selected="true"' : null ?> >
+												Básico
+											</option>
+											<option value="2"<?php echo ($vaga->attribute->attribute_11 == 2) ? 'selected="true"' : null ?> >
+												Intermediário
+											</option>
+											<option value="3"<?php echo ($vaga->attribute->attribute_11 == 3) ? 'selected="true"' : null ?> >
+												Avançado
+											</option>
+											<option value="4"<?php echo ($vaga->attribute->attribute_11 == 4) ? 'selected="true"' : null ?> >
+												Profissional Certificado
+											</option>
+										</select>
+				    				</div>
+				    				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+				    					<!-- Seleção de Funções -->
+										<label for="requerimentoItil">ITIL</label>
+										<select name="attribute_12" id="requerimentoItil" class="select-modal selectpicker" disabled="true" >
+											<option value="1"<?php echo ($vaga->attribute->attribute_12 == 1) ? 'selected="true"' : null ?> >
+												Não Possui
+											</option>
+											<option value="2"<?php echo ($vaga->attribute->attribute_12 == 2) ? 'selected="true"' : null ?> >
+												Conhecimento dos Processos
+											</option>
+											<option value="3"<?php echo ($vaga->attribute->attribute_12 == 3) ? 'selected="true"' : null ?> >
+												Cursos ITIL
+											</option>
+											<option value="4"<?php echo ($vaga->attribute->attribute_12 == 4) ? 'selected="true"' : null ?> >
+												Profissional Certificado
+											</option>
+											<option value="5"<?php echo ($vaga->attribute->attribute_12 == 5) ? 'selected="true"' : null ?> >
+												Certificação Master
+											</option>
+										</select>
+				    				</div>
+				    			</div>
+								<!-- 4º Linha de Requerimentos Vaga-->
+				    			<div class="row">
+				    				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+				    					<!-- Seleção de Funções -->
+										<label for="requerimentoAgile">Agile</label>
+										<select name="attribute_13" id="requerimentoAgile" class="select-modal selectpicker" disabled="true" >
+											<option value="1"<?php echo ($vaga->attribute->attribute_13 == 1) ? 'selected="true"' : null ?> >
+												Não Possui
+											</option>
+											<option value="2"<?php echo ($vaga->attribute->attribute_13 == 2) ? 'selected="true"' : null ?> >
+												Experiência de Execução
+											</option>
+											<option value="3"<?php echo ($vaga->attribute->attribute_13 == 3) ? 'selected="true"' : null ?> >
+												Cursos Scrum
+											</option>
+											<option value="4"<?php echo ($vaga->attribute->attribute_13 == 4) ? 'selected="true"' : null ?> >
+												Certificação
+											</option>
+										</select>
+				    				</div>
+				    				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+				    					<!-- Seleção de Funções -->
+										<label for="requerimentoProjetos">Projetos</label>
+										<select name="attribute_14" id="requerimentoProjetos" class="select-modal selectpicker" disabled="true" >
+											<option value="1"<?php echo ($vaga->attribute->attribute_14 == 1) ? 'selected="true"' : null ?> >
+												Não Possui
+											</option>
+											<option value="2"<?php echo ($vaga->attribute->attribute_14 == 2) ? 'selected="true"' : null ?> >
+												Experiência de Execução
+											</option>
+											<option value="3"<?php echo ($vaga->attribute->attribute_14 == 3) ? 'selected="true"' : null ?> >
+												Cursos PMP
+											</option>
+											<option value="4"<?php echo ($vaga->attribute->attribute_14 == 4) ? 'selected="true"' : null ?> >
+												Certificação PMP
+											</option>
+										</select>
+				    				</div>
+				    				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+				    					<!-- Seleção de Funções -->
+										<label for="requerimentoHabilitacao">Carteira de Habilitação</label>
+										<select name="attribute_15" id="requerimentoHabilitacao" class="select-modal selectpicker" disabled="true" >
+											<option value="1"<?php echo ($vaga->attribute->attribute_15 == 1) ? 'selected="true"' : null ?> >
+												Não Possui
+											</option>
+											<option value="2"<?php echo ($vaga->attribute->attribute_15 == 2) ? 'selected="true"' : null ?> >
+												Provisória
+											</option>
+											<option value="3"<?php echo ($vaga->attribute->attribute_15 == 3) ? 'selected="true"' : null ?> >
+												Entre 2 e 3 anos
+											</option>
+											<option value="4"<?php echo ($vaga->attribute->attribute_15 == 4) ? 'selected="true"' : null ?> >
+												+ de 5 anos
+											</option>
+										</select>
+				    				</div>
+				    			</div>
+							</div><!-- </containerRequerimento>-->
 
-							<div class="modal-groupForm">
-								<textarea class="textarea-modal" rows="5" placeholder="Describe the job opportunity assignments"></textarea>
-							</div>
+			    			<div class="row">
+			    				<div class="col-md-12 col-sm-12 col-xs-12">
+									<div class="containerBeneficios">
+										<div class="row">
+											<div class="col-md-3 col-sm-6 col-xs-12">
+												<input type="checkbox" name="transport" id="checkbox-bnf08" class="css-checkbox" <?php echo ($vaga->benefit->transport == 1) ? 'checked="checked"' : null ?> disabled="true" />
+												<label for="checkbox-bnf08" class="css-label">Vale Transporte</label>
+											</div>
+											<div class="col-md-3 col-sm-6 col-xs-12 ">
+												<input type="checkbox" name="health" id="checkbox-bnf01" class="css-checkbox" <?php echo ($vaga->benefit->health == 1) ? 'checked="checked"' : null ?> disabled="true" />
+												<label for="checkbox-bnf01" class="css-label">Plano de Saúde</label>
+											</div>
+											<div class="col-md-3 col-sm-6 col-xs-12">
+												<input type="checkbox" name="dental" id="checkbox-bnf02" class="css-checkbox" <?php echo ($vaga->benefit->dental == 1) ? 'checked="checked"' : null ?> disabled="true" />
+												<label for="checkbox-bnf02" class="css-label">Plano Dental</label>
+											</div>
+											<div class="col-md-3 col-sm-6 col-xs-12 ">
+												<input type="checkbox" name="feeding" id="checkbox-bnf05" class="css-checkbox" <?php echo ($vaga->benefit->feeding == 1) ? 'checked="checked"' : null ?> disabled="true" />
+												<label for="checkbox-bnf05" class="css-label">Vale Alimentação</label>
+											</div>
+										</div><!-- </row> -->
+										<div class="row">
+											<div class="col-md-3 col-sm-6 col-xs-12">
+												<input type="checkbox" name="meal" id="checkbox-bnf06" class="css-checkbox" <?php echo ($vaga->benefit->meal == 1) ? 'checked="checked"' : null ?> disabled="true" />
+												<label for="checkbox-bnf06" class="css-label">Vale Refeição</label>
+											</div>
+											<div class="col-md-3 col-sm-6 col-xs-12">
+												<input type="checkbox" name="fuel" id="checkbox-bnf03" class="css-checkbox" <?php echo ($vaga->benefit->fuel == 1) ? 'checked="checked"' : null ?> disabled="true" />
+												<label for="checkbox-bnf03" class="css-label">Ajuda Combustível</label>
+											</div>
+											<div class="col-md-3 col-sm-6 col-xs-12">
+												<input type="checkbox" name="foresight" id="checkbox-bnf07" class="css-checkbox" <?php echo ($vaga->benefit->foresight == 1) ? 'checked="checked"' : null ?> disabled="true" />
+												<label for="checkbox-bnf07" class="css-label">Previdência Privada</label>
+											</div>
+											<div class="col-md-3 col-sm-6 col-xs-12">
+												<input type="checkbox" name="parking" id="checkbox-bnf04" class="css-checkbox" <?php echo ($vaga->benefit->parking == 1) ? 'checked="checked"' : null ?> disabled="true" />
+												<label for="checkbox-bnf04" class="css-label">Estacionamento</label>
+											</div>
+										</div><!-- </row> -->
+									</div><!-- </containerBeneficios> -->
+								</div><!-- </col-md-12 col-sm-12 col-xs-12> -->
+							</div><!-- </row> -->
 
-							<div class="col-md-12 text-center">
-								<input name="submit" type="submit" class="form-control" id="submit" value="Delete">
-							</div>
 
 		    			</form>
 		    		</div><!-- </modal-content> -->
@@ -338,7 +680,7 @@
 												<div class="col-md-6">
 													<div class="modal-groupForm">
 								    					<div class="grupo-input">
-								    						<span class="grupo-input-img"><i class="fa fa-mail"></i></span>
+								    						<span class="grupo-input-img"><i class="fa fa-street-view"></i></span>
 								    						<input type="text" name="oppCompany" id="oppCompany" class="input-modal" placeholder="Empresa da Oportunidade" >
 								    					</div>
 														<div class="msgFront" name="msgFront" id="msg-oppCompany">
@@ -349,7 +691,7 @@
 												<div class="col-md-6">
 													<div class="modal-groupForm">
 								    					<div class="grupo-input">
-								    						<span class="grupo-input-img"><i class="fa fa-user-plus"></i></span>
+								    						<span class="grupo-input-img"><i class="fa fa-envelope"></i></span>
 								    						<input type="text" name="oppContact" id="oppContact" class="input-modal" placeholder="email para contato" >
 								    					</div>
 														<div class="msgFront" name="msgFront" id="msg-oppContact">

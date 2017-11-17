@@ -89,34 +89,44 @@
 										<li>Nome		: <?php echo $view_user->name; ?> <?php echo $view_user->last_name; ?> </li>
 										<li>Idade : <?php echo $view_idade; ?> anos</li>
 										<li>Fone		: <?php echo $view_celular; ?>				</li>
-										<li>e-mail	: <a href="mailto:email@site.com"><?php echo $view_user->email; ?></a></li>
+										<li>e-mail	: <a href="<?php echo 'mailto:'. $view_user->email ?>"><?php echo $view_user->email; ?></a></li>
 									</ul>
 									<ul class="list-inline list-gutter-xs padder h5 bare-social-menu">
+										<?php if($view_user->network->linkedin) : ?>
 										<li>
-											<a href="#" class="twitter-color">
+											<a href="<?php echo 'https://www.linkedin.com/in/'. $view_user->network->linkedin ?>" class="behance-color">
+												<i class="fa fa-linkedin"></i>
+											</a>
+										</li>
+										<?php endif; ?>
+										<?php if($view_user->network->facebook) : ?>
+										<li>
+											<a href="<?php echo 'https://www.facebook.com/'. $view_user->network->facebook ?>" class="behance-color">
+												<i class="fa fa-facebook"></i>
+											</a>
+										</li>
+										<?php endif; ?>
+										<?php if($view_user->network->twitter) : ?>
+										<li>
+											<a href="<?php echo 'https://www.twitter.com/'. $view_user->network->twitter ?>" class="behance-color">
 												<i class="fa fa-twitter"></i>
 											</a>
 										</li>
+										<?php endif; ?>
+										<?php if($view_user->network->github) : ?>
 										<li>
-											<a href="#" class="google-plus-color">
-												<i class="fa fa-google-plus"></i>
-											</a>
-										</li>
-										<li>
-											<a href="#" class="behance-color">
-												<i class="fa fa-behance"></i>
-											</a>
-										</li>
-										<li>
-											<a href="#" class="dribbble-color">
-												<i class="fa fa-dribbble"></i>
-											</a>
-										</li>
-										<li>
-											<a href="#" class="github-color">
+											<a href="<?php echo 'https://www.github.com/'. $view_user->network->github ?>" class="behance-color">
 												<i class="fa fa-github"></i>
 											</a>
 										</li>
+										<?php endif; ?>
+										<?php if($view_user->network->instagram) : ?>
+										<li>
+											<a href="<?php echo 'https://www.instagram.com/'. $view_user->network->instagram ?>" class="behance-color">
+												<i class="fa fa-instagram"></i>
+											</a>
+										</li>
+										<?php endif; ?>
 									</ul>
 								</div><!-- </> -->
 							</div><!-- Coluna Informações Pessoais -->

@@ -5,6 +5,7 @@ class HomeController extends \HXPHP\System\Controller
 
    public function indexAction()
    {
+      $this->view->setFile('index');
       $this->view->setHeader('home/header')
            ->setFooter('home/footer');
 		$this->auth->redirectCheck();
@@ -43,6 +44,7 @@ class HomeController extends \HXPHP\System\Controller
 		$analisePreferencias = User::analyzePreferences($user_id);
 		$sugestoes = User::suggestions($resumos, $user_id);
 		$qualificacoes = Qualification::find('all', array('order' => 'qualification asc'));
+
 		//$options = array('limit' => 3);
       //$comunidade = User::all($options );
 		/*Consulta Randomica de Usuarios*/
@@ -172,7 +174,8 @@ class HomeController extends \HXPHP\System\Controller
 			));
 		}
 
-		$this->view->setVar('user', $user);
+		//$this->view->setVar('user', $user);
+		$this->redirectTo('/profileit/usuario/');
 	}
 
 	/*
@@ -181,7 +184,7 @@ class HomeController extends \HXPHP\System\Controller
 	*/
 	public function addpreferenceAction()
 	{
-		$this->view->setFile('IndexController.php');
+		$this->view->setFile('index');
          $this->view->setHeader('home/header')
             ->setFooter('home/footer');
 
@@ -199,7 +202,8 @@ class HomeController extends \HXPHP\System\Controller
 				));
 			}
 		}
-		$this->view->setVar('user', $user);
+		//$this->view->setVar('user', $user);
+		$this->redirectTo('/profileit/usuario/');
 	}
 
 	/*
